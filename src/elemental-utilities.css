@@ -1,0 +1,154 @@
+/* 🔥💧🌍🌀 Elemental Utilities & Theme Helpers */
+
+@utility glow-fire {
+  box-shadow: 0 0 20px rgba(232, 70, 30, 0.4), 0 0 50px rgba(232, 70, 30, 0.15);
+}
+
+@utility glow-water {
+  box-shadow: 0 0 20px rgba(0, 191, 255, 0.4), 0 0 50px rgba(0, 191, 255, 0.15);
+}
+
+@utility glow-earth {
+  box-shadow: 0 0 20px rgba(57, 255, 20, 0.4), 0 0 50px rgba(57, 255, 20, 0.15);
+}
+
+@utility glow-air {
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.4), 0 0 50px rgba(255, 215, 0, 0.15);
+}
+
+@utility glow-avatar {
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.5), 0 0 70px rgba(0, 255, 255, 0.25);
+}
+
+/* Hover Glow Utilities */
+.glow-fire-hover {
+  transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+.glow-fire-hover:hover {
+  box-shadow: 0 0 25px rgba(232, 70, 30, 0.5), 0 0 60px rgba(232, 70, 30, 0.2);
+  border-color: rgba(232, 70, 30, 0.8);
+}
+
+.glow-water-hover {
+  transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+.glow-water-hover:hover {
+  box-shadow: 0 0 25px rgba(0, 191, 255, 0.5), 0 0 60px rgba(0, 191, 255, 0.2);
+  border-color: rgba(0, 191, 255, 0.8);
+}
+
+.glow-earth-hover {
+  transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+.glow-earth-hover:hover {
+  box-shadow: 0 0 25px rgba(57, 255, 20, 0.5), 0 0 60px rgba(57, 255, 20, 0.2);
+  border-color: rgba(57, 255, 20, 0.8);
+}
+
+.glow-air-hover {
+  transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+.glow-air-hover:hover {
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.5), 0 0 60px rgba(255, 215, 0, 0.2);
+  border-color: rgba(255, 215, 0, 0.8);
+}
+
+/* Text Glows */
+@utility text-glow-fire {
+  text-shadow: 0 0 12px rgba(232, 70, 30, 0.7), 0 0 25px rgba(255, 107, 53, 0.4);
+}
+
+@utility text-glow-water {
+  text-shadow: 0 0 12px rgba(0, 191, 255, 0.7), 0 0 25px rgba(0, 136, 224, 0.4);
+}
+
+@utility text-glow-earth {
+  text-shadow: 0 0 12px rgba(57, 255, 20, 0.7), 0 0 25px rgba(39, 174, 52, 0.4);
+}
+
+@utility text-glow-air {
+  text-shadow: 0 0 12px rgba(255, 215, 0, 0.7), 0 0 25px rgba(230, 191, 0, 0.4);
+}
+
+@utility text-glow-avatar {
+  text-shadow: 0 0 16px rgba(0, 255, 255, 0.8), 0 0 35px rgba(0, 255, 255, 0.5);
+}
+
+/* Elemental Gradients */
+@utility gradient-fire {
+  background: linear-gradient(135deg, #e8461e 0%, #ff6b35 50%, #9c2812 100%);
+}
+
+@utility gradient-water {
+  background: linear-gradient(135deg, #0088e0 0%, #1aa3ff 50%, #003a63 100%);
+}
+
+@utility gradient-earth {
+  background: linear-gradient(135deg, #27ae34 0%, #4cd964 50%, #114e18 100%);
+}
+
+@utility gradient-air {
+  background: linear-gradient(135deg, #e6bf00 0%, #ffd700 50%, #5c4b00 100%);
+}
+
+@utility gradient-avatar {
+  background: linear-gradient(135deg, #e8461e 0%, #0088e0 33%, #27ae34 66%, #e6bf00 100%);
+}
+
+/* Elemental Surface Backdrop Halos */
+.bg-halo-fire {
+  background: radial-gradient(circle at 50% 0%, rgba(232, 70, 30, 0.18) 0%, rgba(13, 13, 13, 0) 70%);
+}
+
+.bg-halo-water {
+  background: radial-gradient(circle at 50% 0%, rgba(0, 136, 224, 0.18) 0%, rgba(13, 13, 13, 0) 70%);
+}
+
+.bg-halo-earth {
+  background: radial-gradient(circle at 50% 0%, rgba(39, 174, 52, 0.18) 0%, rgba(13, 13, 13, 0) 70%);
+}
+
+.bg-halo-air {
+  background: radial-gradient(circle at 50% 0%, rgba(230, 191, 0, 0.18) 0%, rgba(13, 13, 13, 0) 70%);
+}
+
+.bg-halo-avatar {
+  background: radial-gradient(circle at 50% 0%, rgba(0, 255, 255, 0.18) 0%, rgba(13, 13, 13, 0) 70%);
+}
+
+/* Contextual Elemental Container Themes */
+.element-fire {
+  --element-primary: var(--color-fire-500);
+  --element-hover: var(--color-fire-600);
+  --element-active: var(--color-fire-700);
+  --element-glow: rgba(232, 70, 30, 0.4);
+  --element-bg: rgba(232, 70, 30, 0.08);
+  --element-border: rgba(232, 70, 30, 0.3);
+}
+
+.element-water {
+  --element-primary: var(--color-water-500);
+  --element-hover: var(--color-water-600);
+  --element-active: var(--color-water-700);
+  --element-glow: rgba(0, 191, 255, 0.4);
+  --element-bg: rgba(0, 136, 224, 0.08);
+  --element-border: rgba(0, 136, 224, 0.3);
+}
+
+.element-earth {
+  --element-primary: var(--color-earth-500);
+  --element-hover: var(--color-earth-600);
+  --element-active: var(--color-earth-700);
+  --element-glow: rgba(57, 255, 20, 0.4);
+  --element-bg: rgba(39, 174, 52, 0.08);
+  --element-border: rgba(39, 174, 52, 0.3);
+}
+
+.element-air {
+  --element-primary: var(--color-air-500);
+  --element-hover: var(--color-air-600);
+  --element-active: var(--color-air-700);
+  --element-glow: rgba(255, 215, 0, 0.4);
+  --element-bg: rgba(230, 191, 0, 0.08);
+  --element-border: rgba(230, 191, 0, 0.3);
+}

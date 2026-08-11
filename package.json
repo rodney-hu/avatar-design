@@ -1,0 +1,26 @@
+{
+  "name": "@elemental-ui/design-system",
+  "version": "1.0.0",
+  "description": "Avatar: The Last Airbender inspired elemental design system for Tailwind CSS v4",
+  "main": "src/index.css",
+  "style": "src/index.css",
+  "scripts": {
+    "build:showcase": "npx @tailwindcss/cli -i showcase/main.css -o showcase/dist/output.css --minify",
+    "dev:showcase": "npx @tailwindcss/cli -i showcase/main.css -o showcase/dist/output.css --watch",
+    "serve": "npx serve showcase"
+  },
+  "keywords": [
+    "design-system",
+    "tailwindcss",
+    "tailwind-v4",
+    "avatar-the-last-airbender",
+    "elemental-theme",
+    "dark-mode"
+  ],
+  "author": "Antigravity",
+  "license": "MIT",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.0.0",
+    "tailwindcss": "^4.0.0"
+  }
+}

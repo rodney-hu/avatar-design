@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🔥💧🌍🌀 Elemental Design System — ATLA Theme</title>
+  <meta name="description" content="A premium dark-first design system inspired by Avatar: The Last Airbender, built with Tailwind CSS v4.">
+  <link rel="stylesheet" href="./dist/output.css">
+  <script src="./main.js" defer></script>
+</head>
+<body class="bg-surface-void text-text-primary antialiased selection:bg-fire-500 selection:text-white">
+
+  <!-- TOP NAVIGATION BAR -->
+  <header class="navbar">
+    <a href="#" class="nav-brand">
+      <svg class="w-7 h-7 text-fire-500 glow-fire" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="5">
+        <path d="M 50 10 C 65 30 75 42 75 60 C 75 76.5 63.8 90 50 90 C 36.2 90 25 76.5 25 60 C 25 45 35 30 40 22 C 42 35 48 40 50 40 C 52 35 45 20 50 10 Z" />
+      </svg>
+      <span class="tracking-wider">ELEMENTAL <span class="text-fire-500 font-extrabold">UI</span></span>
+    </a>
+
+    <nav class="hidden md:flex items-center gap-6">
+      <a href="#colors" class="nav-link">Colors</a>
+      <a href="#typography" class="nav-link">Typography</a>
+      <a href="#buttons" class="nav-link">Buttons</a>
+      <a href="#cards" class="nav-link">Cards</a>
+      <a href="#forms" class="nav-link">Forms</a>
+      <a href="#components" class="nav-link">Components</a>
+      <a href="#landing" class="nav-link">Landing Blocks</a>
+    </nav>
+
+    <div class="flex items-center gap-3">
+      <button id="theme-toggle" class="btn btn-outline btn-sm">
+        ☀️ Light Mode
+      </button>
+      <a href="#integration" class="btn btn-fire btn-sm">
+        Get Presets
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section id="main-hero" class="hero hero-fire border-b border-border-subtle relative">
+    <div class="flex items-center gap-2 mb-2">
+      <span class="badge badge-fire">🔥 Fire Primary</span>
+      <span class="badge badge-water">💧 Water</span>
+      <span class="badge badge-earth">🌍 Earth</span>
+      <span class="badge badge-air">🌀 Air</span>
+      <span class="badge badge-avatar">⚡ Avatar State</span>
+    </div>
+
+    <h1 class="hero-title text-glow-fire">
+      HARNESS THE ELEMENTS <br/> IN YOUR UI
+    </h1>
+
+    <p class="hero-subtitle">
+      A complete dark-theme design system inspired by <em>Avatar: The Last Airbender</em>. Built with Tailwind CSS v4 for SaaS, landing pages, and web applications.
+    </p>
+
+    <!-- Element Theme Switcher Controls -->
+    <div class="flex flex-wrap items-center justify-center gap-3 mt-4 p-2 bg-surface-raised border border-border-subtle rounded-xl">
+      <span class="text-xs font-semibold uppercase text-text-muted px-2">Theme Preview:</span>
+      <button class="btn btn-sm btn-fire active element-filter-btn" data-element="fire">🔥 Fire Nation</button>
+      <button class="btn btn-sm btn-ghost element-filter-btn" data-element="water">💧 Water Tribe</button>
+      <button class="btn btn-sm btn-ghost element-filter-btn" data-element="earth">🌍 Earth Kingdom</button>
+      <button class="btn btn-sm btn-ghost element-filter-btn" data-element="air">🌀 Air Nomads</button>
+    </div>
+
+    <div class="flex flex-wrap items-center gap-4 mt-6">
+      <button class="btn btn-fire btn-lg" id="trigger-toast-btn">
+        <svg class="w-5 h-5" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="6">
+          <path d="M 50 10 C 65 30 75 42 75 60 C 75 76.5 63.8 90 50 90 C 36.2 90 25 76.5 25 60 C 25 45 35 30 40 22 C 42 35 48 40 50 40 C 52 35 45 20 50 10 Z" />
+        </svg>
+        Unleash Fire Toast
+      </button>
+      <button class="btn btn-outline btn-lg" id="open-modal-btn">
+        Open Bending Modal
+      </button>
+    </div>
+  </section>
+
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-7xl mx-auto px-6 py-16 space-y-24">
+
+    <!-- 1. COLOR SYSTEM -->
+    <section id="colors" class="space-y-8">
+      <div>
+        <span class="badge badge-fire mb-2">01. Color Palette</span>
+        <h2 class="text-3xl font-display font-bold">The Four Nations Palette</h2>
+        <p class="text-text-secondary mt-1">Deep dark surface system paired with vibrant elemental accents.</p>
+      </div>
+
+      <!-- Fire Nation Palette -->
+      <div class="space-y-3">
+        <div class="flex items-center gap-3">
+          <svg class="w-6 h-6 text-fire-500" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="6">
+            <path d="M 50 10 C 65 30 75 42 75 60 C 75 76.5 63.8 90 50 90 C 36.2 90 25 76.5 25 60 C 25 45 35 30 40 22 C 42 35 48 40 50 40 C 52 35 45 20 50 10 Z" />
+          </svg>
+          <h3 class="font-display text-xl font-semibold">Fire Nation (Primary Palette)</h3>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-5 md:grid-cols-10 gap-3">
+          <div class="space-y-1"><div class="h-16 rounded-md bg-fire-50 border border-border-subtle"></div><p class="text-xs font-mono text-center text-text-muted">50</p></div>
+          <div class="space-y-1"><div class="h-16 rounded-md bg-fire-100"></div><p class="text-xs font-mono text-center text-text-muted">100</p></div>
+          <div class="space-y-1"><div class="h-16 rounded-md bg-fire-200 text-black font-bold flex items-center justify-center text-xs">200</div><p class="text-xs font-mono text-center text-text-muted">200</p></div>
+          <div class="space-y-1"><div class="h-16 rounded-md bg-fire-300 text-black font-bold flex items-center justify-center text-xs">300</div><p class="text-xs font-mono text-center text-text-muted">300</p></div>
+          <div class="space-y-1"><div class="h-16 rounded-md bg-fire-400 text-white font-bold flex items-center justify-center text-xs">400</div><p class="text-xs font-mono text-center text-text-muted">400</p></div>
+          <div class="space-y-1"><div class="h-16 rounded-md bg-fire-500 text-white font-bold flex items-center justify-center text-xs glow-fire">500</div><p class="text-xs font-mono text-center text-text-muted">500 (CTA)</p></div>
+          <div class="space-y-1"><div class="h-16 rounded-md bg-fire-600 text-white font-bold flex items-center justify-center text-xs">600</div><p class="text-xs font-mono text-center text-text-muted">600</p></div>
+          <div class="space-y-1"><div class="h-16 rounded-md bg-fire-700 text-white font-bold flex items-center justify-center text-xs">700</div><p class="text-xs font-mono text-center text-text-muted">700</p></div>
+          <div class="space-y-1"><div class="h-16 rounded-md bg-fire-800 text-white font-bold flex items-center justify-center text-xs">800</div><p class="text-xs font-mono text-center text-text-muted">800</p></div>
+          <div class="space-y-1"><div class="h-16 rounded-md bg-fire-900 text-white font-bold flex items-center justify-center text-xs">900</div><p class="text-xs font-mono text-center text-text-muted">900</p></div>
+        </div>
+      </div>
+
+      <!-- Water Tribe Palette -->
+      <div class="space-y-3">
+        <div class="flex items-center gap-3">
+          <svg class="w-6 h-6 text-water-500" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="6">
+            <circle cx="50" cy="50" r="40" /><path d="M 22 45 C 28 32 40 25 54 28 C 68 31 76 42 70 55 C 65 65 52 68 44 62 C 38 56 42 46 50 46" />
+          </svg>
+          <h3 class="font-display text-xl font-semibold">Water Tribe (Secondary Palette)</h3>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-5 md:grid-cols-10 gap-3">
+          <div class="space-y-1"><div class="h-16 rounded-md bg-water-50 border border-border-subtle"></div><p class="text-xs font-mono text-center text-text-muted">50</p></div>
+          <div class="space-y-1"><div class="h-16 rounded-md bg-water-100"></div><p class="text-xs font-mono text-center text-text-muted">100</p></div>
+          <div class="space-y-1"><div class="h-16 rounded-md bg-water-200 text-black font-bold flex items-center justify-center text-xs">200</div><p class="text-xs font-mono text-center text-text-muted">200</p></div>
+          <div class="space-y-1"><div class="h-16 rounded-md bg-water-300 text-black font-bold flex items-center justify-center text-xs">300</div><p class="text-xs font-mono text-center text-text-muted">300</p></div>
+          <div class="space-y-1"><div class="h-16 rounded-md bg-water-400 text-white font-bold flex items-center justify-center text-xs">400</div><p class="text-xs font-mono text-center text-text-muted">400</p></div>
+          <div class="space-y-1"><div class="h-16 rounded-md bg-water-500 text-white font-bold flex items-center justify-center text-xs glow-water">500</div><p class="text-xs font-mono text-center text-text-muted">500</p></div>
+          <div class="space-y-1"><div class="h-16 rounded-md bg-water-600 text-white font-bold flex items-center justify-center text-xs">600</div><p class="text-xs font-mono text-center text-text-muted">600</p></div>
+          <div class="space-y-1"><div class="h-16 rounded-md bg-water-700 text-white font-bold flex items-center justify-center text-xs">700</div><p class="text-xs font-mono text-center text-text-muted">700</p></div>
+          <div class="space-y-1"><div class="h-16 rounded-md bg-water-800 text-white font-bold flex items-center justify-center text-xs">800</div><p class="text-xs font-mono text-center text-text-muted">800</p></div>
+          <div class="space-y-1"><div class="h-16 rounded-md bg-water-900 text-white font-bold flex items-center justify-center text-xs">900</div><p class="text-xs font-mono text-center text-text-muted">900</p></div>
+        </div>
+      </div>
+
+      <!-- Earth & Air Palettes -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Earth -->
+        <div class="space-y-3">
+          <div class="flex items-center gap-3">
+            <svg class="w-6 h-6 text-earth-500" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="6">
+              <polygon points="50 12, 85 30, 85 70, 50 88, 15 70, 15 30" /><circle cx="50" cy="35" r="10" />
+            </svg>
+            <h3 class="font-display text-xl font-semibold">Earth Kingdom</h3>
+          </div>
+          <div class="grid grid-cols-5 gap-2">
+            <div class="h-12 rounded-md bg-earth-300 text-black font-bold flex items-center justify-center text-xs">300</div>
+            <div class="h-12 rounded-md bg-earth-400 text-black font-bold flex items-center justify-center text-xs">400</div>
+            <div class="h-12 rounded-md bg-earth-500 text-white font-bold flex items-center justify-center text-xs glow-earth">500</div>
+            <div class="h-12 rounded-md bg-earth-700 text-white font-bold flex items-center justify-center text-xs">700</div>
+            <div class="h-12 rounded-md bg-earth-900 text-white font-bold flex items-center justify-center text-xs">900</div>
+          </div>
+        </div>
+        <!-- Air -->
+        <div class="space-y-3">
+          <div class="flex items-center gap-3">
+            <svg class="w-6 h-6 text-air-500" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="6">
+              <circle cx="50" cy="50" r="40" /><path d="M 50 25 C 42 25 36 31 38 38 C 40 44 48 44 48 39" />
+            </svg>
+            <h3 class="font-display text-xl font-semibold">Air Nomads</h3>
+          </div>
+          <div class="grid grid-cols-5 gap-2">
+            <div class="h-12 rounded-md bg-air-300 text-black font-bold flex items-center justify-center text-xs">300</div>
+            <div class="h-12 rounded-md bg-air-400 text-black font-bold flex items-center justify-center text-xs">400</div>
+            <div class="h-12 rounded-md bg-air-500 text-black font-bold flex items-center justify-center text-xs glow-air">500</div>
+            <div class="h-12 rounded-md bg-air-700 text-white font-bold flex items-center justify-center text-xs">700</div>
+            <div class="h-12 rounded-md bg-air-900 text-white font-bold flex items-center justify-center text-xs">900</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. TYPOGRAPHY -->
+    <section id="typography" class="space-y-8">
+      <div>
+        <span class="badge badge-air mb-2">02. Typography</span>
+        <h2 class="text-3xl font-display font-bold">Type Hierarchy</h2>
+        <p class="text-text-secondary mt-1">Cinzel for scrolls and headlines, Inter for interface copy, JetBrains Mono for code.</p>
+      </div>
+
+      <div class="card space-y-6">
+        <div class="border-b border-border-subtle pb-4">
+          <p class="text-xs font-mono text-text-muted mb-1">Display XL / Cinzel / 72px</p>
+          <h1 class="text-5xl md:text-7xl font-display font-extrabold text-glow-fire text-fire-500">THE FIRE NATION</h1>
+        </div>
+        <div class="border-b border-border-subtle pb-4">
+          <p class="text-xs font-mono text-text-muted mb-1">Heading LG / Cinzel / 32px</p>
+          <h2 class="text-3xl font-display font-bold">Master All Four Elements</h2>
+        </div>
+        <div class="border-b border-border-subtle pb-4">
+          <p class="text-xs font-mono text-text-muted mb-1">Body LG / Inter / 18px</p>
+          <p class="text-lg text-text-secondary leading-relaxed">
+            Water is the element of change. Earth is the element of substance. Fire is the element of power. Air is the element of freedom.
+          </p>
+        </div>
+        <div>
+          <p class="text-xs font-mono text-text-muted mb-1">Code / JetBrains Mono / 14px</p>
+          <code class="font-mono text-sm text-air-400 bg-surface-raised px-3 py-1.5 rounded-md border border-border-default block w-fit">
+            const bendingMaster = new ElementalBender('Avatar Aang');
+          </code>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. BUTTONS -->
+    <section id="buttons" class="space-y-8">
+      <div>
+        <span class="badge badge-water mb-2">03. Buttons & Actions</span>
+        <h2 class="text-3xl font-display font-bold">Bending Action Buttons</h2>
+        <p class="text-text-secondary mt-1">Elemental hover glows, tactile active states, and custom variants.</p>
+      </div>
+
+      <div class="card space-y-8">
+        <!-- Elemental Variants -->
+        <div>
+          <h4 class="text-sm font-semibold uppercase text-text-muted mb-3">Elemental Variants</h4>
+          <div class="flex flex-wrap gap-4 items-center">
+            <button class="btn btn-fire">🔥 Fire CTA</button>
+            <button class="btn btn-water">💧 Water Action</button>
+            <button class="btn btn-earth">🌍 Earth Stable</button>
+            <button class="btn btn-air">🌀 Air Flow</button>
+            <button class="btn btn-avatar">⚡ Avatar State</button>
+          </div>
+        </div>
+
+        <!-- Styles & Sizes -->
+        <div>
+          <h4 class="text-sm font-semibold uppercase text-text-muted mb-3">Styles & Sizes</h4>
+          <div class="flex flex-wrap gap-4 items-center">
+            <button class="btn btn-fire btn-lg">Large Fire</button>
+            <button class="btn btn-fire">Medium Fire</button>
+            <button class="btn btn-fire btn-sm">Small Fire</button>
+            <button class="btn btn-outline">Outline</button>
+            <button class="btn btn-ghost">Ghost Link</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. CARDS -->
+    <section id="cards" class="space-y-8">
+      <div>
+        <span class="badge badge-earth mb-2">04. Cards & Containers</span>
+        <h2 class="text-3xl font-display font-bold">Layered Surfaces & Glass</h2>
+        <p class="text-text-secondary mt-1">Depth layers from `#0a0a0a` to elevated cards with glowing borders.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Fire Card -->
+        <div class="card card-fire space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="badge badge-fire">🔥 Fire Nation</span>
+            <svg class="w-6 h-6 text-fire-500" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="6">
+              <path d="M 50 10 C 65 30 75 42 75 60 C 75 76.5 63.8 90 50 90 C 36.2 90 25 76.5 25 60 C 25 45 35 30 40 22 C 42 35 48 40 50 40 C 52 35 45 20 50 10 Z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-display font-bold">Sun Warrior Temple</h3>
+          <p class="text-sm text-text-secondary">The original source of firebending power, guarded by the dragons Ran and Shaw.</p>
+          <button class="btn btn-fire btn-sm w-full mt-2">Enter Temple</button>
+        </div>
+
+        <!-- Water Card -->
+        <div class="card card-water space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="badge badge-water">💧 Northern Tribe</span>
+            <svg class="w-6 h-6 text-water-500" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="6">
+              <circle cx="50" cy="50" r="40" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-display font-bold">Spirit Oasis</h3>
+          <p class="text-sm text-text-secondary">A sacred haven located at the North Pole where Tui and La circle in eternal harmony.</p>
+          <button class="btn btn-water btn-sm w-full mt-2">Visit Sanctuary</button>
+        </div>
+
+        <!-- Glassmorphism Card -->
+        <div class="card card-glass space-y-3 border-avatar-cyan/40">
+          <div class="flex items-center justify-between">
+            <span class="badge badge-avatar">⚡ Glassmorphism</span>
+            <svg class="w-6 h-6 text-avatar-cyan" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="6">
+              <path d="M 50 20 L 65 50 L 55 50 L 55 75 L 45 75 L 45 50 L 35 50 Z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-display font-bold">Cosmic Energy Overlay</h3>
+          <p class="text-sm text-text-secondary">Backdrop blur effect (`backdrop-filter: blur(16px)`) with glowing highlights.</p>
+          <button class="btn btn-avatar btn-sm w-full mt-2">Unlock Energy</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. FORMS & INPUTS -->
+    <section id="forms" class="space-y-8">
+      <div>
+        <span class="badge badge-fire mb-2">05. Forms & Inputs</span>
+        <h2 class="text-3xl font-display font-bold">Form Controls</h2>
+        <p class="text-text-secondary mt-1">Inputs with elemental focus halos, custom toggles, and select menus.</p>
+      </div>
+
+      <div class="card grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="space-y-4">
+          <div>
+            <label class="text-xs font-semibold uppercase text-text-muted block mb-1">Avatar Name</label>
+            <input type="text" class="input input-fire" placeholder="e.g. Aang, Korra, Roku" value="Aang">
+          </div>
+          <div>
+            <label class="text-xs font-semibold uppercase text-text-muted block mb-1">Primary Element</label>
+            <select class="select">
+              <option>🔥 Firebending</option>
+              <option>💧 Waterbending</option>
+              <option>🌍 Earthbending</option>
+              <option>🌀 Airbending</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="space-y-4">
+          <div>
+            <label class="text-xs font-semibold uppercase text-text-muted block mb-1">Scroll Notes</label>
+            <textarea class="textarea" rows="3" placeholder="Write ancient bending techniques..."></textarea>
+          </div>
+
+          <div class="flex items-center justify-between pt-2">
+            <label class="flex items-center gap-2 cursor-pointer text-sm">
+              <input type="checkbox" class="checkbox" checked>
+              <span>Enable Avatar State</span>
+            </label>
+
+            <div class="flex items-center gap-2">
+              <span class="text-xs text-text-muted">Ember Glow</span>
+              <label class="toggle-switch">
+                <input type="checkbox" checked>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. DATA DISPLAY & TABLES -->
+    <section id="components" class="space-y-8">
+      <div>
+        <span class="badge badge-water mb-2">06. Data & Dashboards</span>
+        <h2 class="text-3xl font-display font-bold">Stats & Tables</h2>
+        <p class="text-text-secondary mt-1">Data components for SaaS dashboards and analytics screens.</p>
+      </div>
+
+      <!-- Stat Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="stat-card border-fire-500/30">
+          <span class="stat-label">Fire Power Index</span>
+          <span class="stat-value text-fire-500 text-glow-fire">98.4%</span>
+          <span class="text-xs text-earth-400">↑ +14.2% Comet boost</span>
+        </div>
+        <div class="stat-card border-water-500/30">
+          <span class="stat-label">Oceanic Flow Rate</span>
+          <span class="stat-value text-water-500 text-glow-water">1,420 L/s</span>
+          <span class="text-xs text-water-400">Full Moon Alignment</span>
+        </div>
+        <div class="stat-card border-earth-500/30">
+          <span class="stat-label">Seismic Density</span>
+          <span class="stat-value text-earth-500 text-glow-earth">840 MPa</span>
+          <span class="text-xs text-earth-400">Ground vibration stable</span>
+        </div>
+        <div class="stat-card border-air-500/30">
+          <span class="stat-label">Air Velocity</span>
+          <span class="stat-value text-air-500 text-glow-air">120 km/h</span>
+          <span class="text-xs text-air-400">Glider lift optimal</span>
+        </div>
+      </div>
+
+      <!-- Elemental Table -->
+      <table class="table-elemental">
+        <thead>
+          <tr>
+            <th>Master</th>
+            <th>Affiliation</th>
+            <th>Specialty</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="font-semibold text-fire-400">Zuko</td>
+            <td>Fire Nation</td>
+            <td>Lightning Redirection</td>
+            <td><span class="badge badge-fire">Active Fire Lord</span></td>
+          </tr>
+          <tr>
+            <td class="font-semibold text-water-400">Katara</td>
+            <td>Southern Water Tribe</td>
+            <td>Bloodbending / Healing</td>
+            <td><span class="badge badge-water">Grandmaster</span></td>
+          </tr>
+          <tr>
+            <td class="font-semibold text-earth-400">Toph Beifong</td>
+            <td>Earth Kingdom</td>
+            <td>Metalbending Creator</td>
+            <td><span class="badge badge-earth">Chief of Police</span></td>
+          </tr>
+          <tr>
+            <td class="font-semibold text-air-400">Aang</td>
+            <td>Air Nomads</td>
+            <td>Energybending</td>
+            <td><span class="badge badge-avatar">Avatar State</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 7. ALERTS & FEEDBACK -->
+    <section class="space-y-8">
+      <div>
+        <span class="badge badge-fire mb-2">07. Feedback & Alerts</span>
+        <h2 class="text-3xl font-display font-bold">Elemental Notifications</h2>
+        <p class="text-text-secondary mt-1">Status callouts themed after each element.</p>
+      </div>
+
+      <div class="space-y-4">
+        <div class="alert alert-fire">
+          <span class="font-bold">🔥 Fire Warning:</span> High thermal activity detected in the Caldera.
+        </div>
+        <div class="alert alert-water">
+          <span class="font-bold">💧 Water Info:</span> Tidal waves arriving at high tide tonight.
+        </div>
+        <div class="alert alert-earth">
+          <span class="font-bold">🌍 Earth Success:</span> Defense walls fortified at Ba Sing Se.
+        </div>
+        <div class="alert alert-air">
+          <span class="font-bold">🌀 Air Notice:</span> Tailwinds favorable for Northern Air Temple flight.
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. LANDING PAGE BLOCKS -->
+    <section id="landing" class="space-y-8">
+      <div>
+        <span class="badge badge-avatar mb-2">08. SaaS & Landing Blocks</span>
+        <h2 class="text-3xl font-display font-bold">Pricing & Testimonials</h2>
+        <p class="text-text-secondary mt-1">Pre-built landing page layouts designed for conversion.</p>
+      </div>
+
+      <!-- Pricing Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+        <!-- Standard -->
+        <div class="pricing-card">
+          <span class="badge badge-air w-fit">Initiate</span>
+          <h3 class="text-2xl font-display font-bold">Air Nomad</h3>
+          <div class="pricing-price">$19 <span class="text-sm font-normal text-text-muted">/mo</span></div>
+          <p class="text-sm text-text-secondary">Essential bending tokens and basic components.</p>
+          <button class="btn btn-outline w-full">Start Free Trial</button>
+        </div>
+
+        <!-- Featured (Fire) -->
+        <div class="pricing-card pricing-featured">
+          <div class="absolute -top-3 right-6"><span class="badge badge-fire">🔥 Most Popular</span></div>
+          <span class="badge badge-fire w-fit">Fire Master</span>
+          <h3 class="text-2xl font-display font-bold">Fire Nation Pro</h3>
+          <div class="pricing-price text-fire-500 text-glow-fire">$49 <span class="text-sm font-normal text-text-muted">/mo</span></div>
+          <p class="text-sm text-text-secondary">Full elemental component suite, glowing effects & Tailwind v4 preset.</p>
+          <button class="btn btn-fire w-full">Unlock Full Power</button>
+        </div>
+
+        <!-- Enterprise -->
+        <div class="pricing-card">
+          <span class="badge badge-avatar w-fit">Avatar</span>
+          <h3 class="text-2xl font-display font-bold">Avatar Enterprise</h3>
+          <div class="pricing-price">$149 <span class="text-sm font-normal text-text-muted">/mo</span></div>
+          <p class="text-sm text-text-secondary">Custom element styling, dedicated support & source SVGs.</p>
+          <button class="btn btn-outline w-full">Contact White Lotus</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. INTEGRATION GUIDE -->
+    <section id="integration" class="space-y-8 border-t border-border-subtle pt-16">
+      <div>
+        <span class="badge badge-fire mb-2">09. Installation Guide</span>
+        <h2 class="text-3xl font-display font-bold">How to Use in Any Tailwind v4 Project</h2>
+        <p class="text-text-secondary mt-1">One CSS file unlocks the entire Avatar elemental system.</p>
+      </div>
+
+      <div class="card space-y-4">
+        <p class="text-sm text-text-secondary">Add this import to your project's main stylesheet:</p>
+        <div class="code-block">
+          <button class="btn btn-ghost btn-sm copy-btn" data-code-target="import-code">Copy</button>
+          <pre id="import-code"><code>@import "tailwindcss";
+@import "/Users/hu/.gemini/antigravity/scratch/elemental-ds/src/index.css";</code></pre>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- INTERACTIVE MODAL DEMO -->
+  <div id="modal-backdrop" class="modal-backdrop hidden">
+    <div class="modal animate-scale-in">
+      <div class="flex items-center justify-between border-b border-border-subtle pb-3 mb-4">
+        <h3 class="font-display text-xl font-bold text-fire-500">🔥 Firebending Scroll</h3>
+        <button id="close-modal-btn" class="text-text-muted hover:text-white font-bold">&times;</button>
+      </div>
+      <p class="text-sm text-text-secondary leading-relaxed mb-6">
+        Fire is the element of power. Its people have desire and will, and the energy and drive to get what they want.
+      </p>
+      <div class="flex justify-end gap-3">
+        <button class="btn btn-ghost btn-sm" onclick="document.getElementById('modal-backdrop').classList.add('hidden')">Cancel</button>
+        <button class="btn btn-fire btn-sm">Accept Flame</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST CONTAINER -->
+  <div id="toast-container" class="fixed bottom-6 right-6 z-50 flex flex-col gap-3 max-w-sm"></div>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-border-subtle py-12 text-center text-sm text-text-muted bg-surface-base">
+    <p>🔥💧🌍🌀 Elemental UI Design System — Inspired by Avatar: The Last Airbender</p>
+  </footer>
+
+</body>
+</html>

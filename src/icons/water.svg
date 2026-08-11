@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Outer Circle -->
+  <circle cx="50" cy="50" r="40" />
+  <!-- Upper Swirl Wave -->
+  <path d="M 22 45 
+           C 28 32 40 25 54 28 
+           C 68 31 76 42 70 55 
+           C 65 65 52 68 44 62 
+           C 38 56 42 46 50 46 
+           C 55 46 58 50 56 54" stroke-width="3" />
+  <!-- Lower Ocean Wave -->
+  <path d="M 18 62 
+           C 25 55 35 55 42 60 
+           C 49 65 60 65 68 58 
+           C 74 53 82 56 82 62 
+           C 82 74 68 82 50 82 
+           C 32 82 18 72 18 62 Z" stroke-width="3" />
+</svg>

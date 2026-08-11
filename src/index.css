@@ -1,0 +1,31 @@
+/* 🔥💧🌍🌀 Elemental Design System — Main Bundle */
+@import "tailwindcss";
+@import "./elemental-preset.css";
+@import "./elemental-animations.css";
+@import "./elemental-utilities.css";
+@import "./elemental-components.css";
+
+/* Light mode overrides */
+.light {
+  --color-surface-void: #f5f0eb;
+  --color-surface-base: #faf7f4;
+  --color-surface-raised: #ffffff;
+  --color-surface-elevated: #ffffff;
+  --color-surface-overlay: #ffffff;
+
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #555555;
+  --color-text-muted: #888888;
+  --color-text-disabled: #bbbbbb;
+
+  --color-border-subtle: #e5e0db;
+  --color-border-default: #d4cec8;
+  --color-border-strong: #b0a99f;
+}
+
+body {
+  background-color: var(--color-surface-void);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}

@@ -1,0 +1,120 @@
+/* 🔥💧🌍🌀 Elemental Animations & Keyframes */
+
+@keyframes ember-pulse {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(232, 70, 30, 0.4), 0 0 40px rgba(232, 70, 30, 0.15);
+    border-color: rgba(232, 70, 30, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(255, 107, 53, 0.7), 0 0 80px rgba(255, 69, 0, 0.35);
+    border-color: rgba(255, 107, 53, 0.9);
+  }
+}
+
+@keyframes water-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes earth-rumble {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-2px) rotate(-0.5deg);
+  }
+  75% {
+    transform: translateY(1px) rotate(0.5deg);
+  }
+}
+
+@keyframes air-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes avatar-state-cycle {
+  0% {
+    box-shadow: 0 0 25px rgba(232, 70, 30, 0.6), 0 0 60px rgba(232, 70, 30, 0.3);
+    border-color: #e8461e;
+  }
+  25% {
+    box-shadow: 0 0 25px rgba(0, 191, 255, 0.6), 0 0 60px rgba(0, 191, 255, 0.3);
+    border-color: #0088e0;
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(57, 255, 20, 0.6), 0 0 60px rgba(57, 255, 20, 0.3);
+    border-color: #27ae34;
+  }
+  75% {
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.6), 0 0 60px rgba(255, 215, 0, 0.3);
+    border-color: #e6bf00;
+  }
+  100% {
+    box-shadow: 0 0 25px rgba(232, 70, 30, 0.6), 0 0 60px rgba(232, 70, 30, 0.3);
+    border-color: #e8461e;
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Animation Utility Classes */
+.animate-ember {
+  animation: ember-pulse 3s infinite ease-in-out;
+}
+
+.animate-water-flow {
+  background-size: 200% 200%;
+  animation: water-flow 6s infinite ease;
+}
+
+.animate-earth-rumble:hover {
+  animation: earth-rumble 0.3s ease-in-out;
+}
+
+.animate-air-float {
+  animation: air-float 4s infinite ease-in-out;
+}
+
+.animate-avatar-state {
+  animation: avatar-state-cycle 8s infinite linear;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.4s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}

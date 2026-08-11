@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Flame Outer Silhouette -->
+  <path d="M 50 10 
+           C 65 30 75 42 75 60 
+           C 75 76.5 63.8 90 50 90 
+           C 36.2 90 25 76.5 25 60 
+           C 25 45 35 30 40 22 
+           C 42 35 48 40 50 40 
+           C 52 35 45 20 50 10 Z" fill="none" />
+  <!-- Inner Flame Spiral -->
+  <path d="M 50 78 
+           C 58 78 64 72 64 64 
+           C 64 56 56 50 48 54 
+           C 42 57 42 66 48 68 
+           C 52 70 56 66 54 62" fill="none" stroke-width="3" />
+</svg>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Outer Circle -->
+  <circle cx="50" cy="50" r="40" stroke-width="3.5" />
+  <!-- Top Swirl -->
+  <path d="M 50 25 C 42 25 36 31 38 38 C 40 44 48 44 48 39 C 48 35 44 34 42 36" stroke-width="3" />
+  <!-- Bottom Left Swirl -->
+  <path d="M 32 64 C 28 57 32 49 39 49 C 46 49 49 57 45 61 C 42 64 38 61 39 58" stroke-width="3" />
+  <!-- Bottom Right Swirl -->
+  <path d="M 68 64 C 72 57 68 49 61 49 C 54 49 51 57 55 61 C 58 64 62 61 61 58" stroke-width="3" />
+  <!-- Connecting Air Gust Lines -->
+  <path d="M 48 39 C 40 50 39 49 39 49" stroke-width="2.5" />
+  <path d="M 45 61 C 55 61 61 49 61 49" stroke-width="2.5" />
+  <path d="M 55 61 C 48 44 48 39 48 39" stroke-width="2.5" />
+</svg>

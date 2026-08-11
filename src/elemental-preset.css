@@ -1,0 +1,118 @@
+/* 🔥💧🌍🌀 Elemental Design System — Preset Tokens for Tailwind CSS v4 */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+@theme {
+  /* ---------------- TYPOGRAPHY ---------------- */
+  --font-display: "Cinzel", Georgia, serif;
+  --font-body: "Inter", system-ui, -apple-system, sans-serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  /* ---------------- SURFACE DEPTH (DARK MODE) ---------------- */
+  --color-surface-void: #0a0a0a;
+  --color-surface-base: #0d0d0d;
+  --color-surface-raised: #1a1a1a;
+  --color-surface-elevated: #252525;
+  --color-surface-overlay: #2f2f2f;
+
+  /* ---------------- LIGHT MODE SURFACES ---------------- */
+  --color-surface-light-void: #f5f0eb;
+  --color-surface-light-base: #faf7f4;
+  --color-surface-light-raised: #ffffff;
+  --color-surface-light-elevated: #ffffff;
+  --color-surface-light-overlay: #ffffff;
+
+  /* ---------------- 🔥 FIRE NATION (PRIMARY BRAND) ---------------- */
+  --color-fire-50: #fff5f0;
+  --color-fire-100: #ffe0cc;
+  --color-fire-200: #ffb899;
+  --color-fire-300: #ff8c5c;
+  --color-fire-400: #ff6b35;
+  --color-fire-500: #e8461e;
+  --color-fire-600: #c43518;
+  --color-fire-700: #9c2812;
+  --color-fire-800: #741e0e;
+  --color-fire-900: #4a1209;
+  --color-fire-glow: #ff4500;
+
+  /* Primary Brand Aliases -> Fire */
+  --color-primary-50: var(--color-fire-50);
+  --color-primary-100: var(--color-fire-100);
+  --color-primary-200: var(--color-fire-200);
+  --color-primary-300: var(--color-fire-300);
+  --color-primary-400: var(--color-fire-400);
+  --color-primary-500: var(--color-fire-500);
+  --color-primary-600: var(--color-fire-600);
+  --color-primary-700: var(--color-fire-700);
+  --color-primary-800: var(--color-fire-800);
+  --color-primary-900: var(--color-fire-900);
+  --color-primary-glow: var(--color-fire-glow);
+
+  /* ---------------- 💧 WATER TRIBE ---------------- */
+  --color-water-50: #f0f9ff;
+  --color-water-100: #cce8ff;
+  --color-water-200: #8ecfff;
+  --color-water-300: #4db8ff;
+  --color-water-400: #1aa3ff;
+  --color-water-500: #0088e0;
+  --color-water-600: #006db3;
+  --color-water-700: #005289;
+  --color-water-800: #003a63;
+  --color-water-900: #00243d;
+  --color-water-glow: #00bfff;
+
+  /* ---------------- 🌍 EARTH KINGDOM ---------------- */
+  --color-earth-50: #f0fff4;
+  --color-earth-100: #c6f6d5;
+  --color-earth-200: #88e8a0;
+  --color-earth-300: #4cd964;
+  --color-earth-400: #2ecc40;
+  --color-earth-500: #27ae34;
+  --color-earth-600: #1f8c2a;
+  --color-earth-700: #186b20;
+  --color-earth-800: #114e18;
+  --color-earth-900: #0a3010;
+  --color-earth-glow: #39ff14;
+
+  /* ---------------- 🌀 AIR NOMADS ---------------- */
+  --color-air-50: #fffef5;
+  --color-air-100: #fff8cc;
+  --color-air-200: #ffed8a;
+  --color-air-300: #ffe048;
+  --color-air-400: #ffd700;
+  --color-air-500: #e6bf00;
+  --color-air-600: #b89700;
+  --color-air-700: #8a7100;
+  --color-air-800: #5c4b00;
+  --color-air-900: #3a3000;
+  --color-air-glow: #ffd700;
+
+  /* ---------------- ⚡ AVATAR STATE ---------------- */
+  --color-avatar-glow: #00ffff;
+  --color-avatar-white: #ffffff;
+  --color-avatar-amber: #ffcc00;
+
+  /* ---------------- NEUTRALS & TEXT ---------------- */
+  --color-text-primary: #f0f0f0;
+  --color-text-secondary: #a0a0a0;
+  --color-text-muted: #666666;
+  --color-text-disabled: #444444;
+
+  --color-border-subtle: #1f1f1f;
+  --color-border-default: #2a2a2a;
+  --color-border-strong: #3a3a3a;
+
+  /* ---------------- BORDER RADIUS (SUBTLE 4-8px) ---------------- */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-full: 9999px;
+
+  /* ---------------- SHADOWS & GLOWS ---------------- */
+  --shadow-fire: 0 0 20px rgba(232, 70, 30, 0.35), 0 0 60px rgba(232, 70, 30, 0.15);
+  --shadow-water: 0 0 20px rgba(0, 191, 255, 0.35), 0 0 60px rgba(0, 191, 255, 0.15);
+  --shadow-earth: 0 0 20px rgba(57, 255, 20, 0.35), 0 0 60px rgba(57, 255, 20, 0.15);
+  --shadow-air: 0 0 20px rgba(255, 215, 0, 0.35), 0 0 60px rgba(255, 215, 0, 0.15);
+  --shadow-avatar: 0 0 25px rgba(0, 255, 255, 0.5), 0 0 70px rgba(0, 255, 255, 0.25);
+}
