@@ -21,6 +21,10 @@
   --color-border-subtle: #e5e0db;
   --color-border-default: #d4cec8;
   --color-border-strong: #b0a99f;
+
+  /* Fire-as-text must darken on parchment. The dark-mode value (fire-300)
+     lands at ~2.2:1 here; fire-700 restores it to ~9.9:1. */
+  --fire-text: var(--color-fire-700);
 }
 
 body {

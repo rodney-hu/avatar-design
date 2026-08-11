@@ -2,12 +2,12 @@
 
 @keyframes ember-pulse {
   0%, 100% {
-    box-shadow: 0 0 15px rgba(232, 70, 30, 0.4), 0 0 40px rgba(232, 70, 30, 0.15);
-    border-color: rgba(232, 70, 30, 0.6);
+    box-shadow: 0 0 15px rgb(var(--fire-500-rgb) / 0.4), 0 0 40px rgb(var(--fire-500-rgb) / 0.15);
+    border-color: rgb(var(--fire-500-rgb) / 0.6);
   }
   50% {
-    box-shadow: 0 0 35px rgba(255, 107, 53, 0.7), 0 0 80px rgba(255, 69, 0, 0.35);
-    border-color: rgba(255, 107, 53, 0.9);
+    box-shadow: 0 0 35px rgb(var(--fire-400-rgb) / 0.7), 0 0 80px rgb(var(--fire-glow-rgb) / 0.35);
+    border-color: rgb(var(--fire-400-rgb) / 0.9);
   }
 }
 
@@ -46,8 +46,8 @@
 
 @keyframes avatar-state-cycle {
   0% {
-    box-shadow: 0 0 25px rgba(232, 70, 30, 0.6), 0 0 60px rgba(232, 70, 30, 0.3);
-    border-color: #e8461e;
+    box-shadow: 0 0 25px rgb(var(--fire-500-rgb) / 0.6), 0 0 60px rgb(var(--fire-500-rgb) / 0.3);
+    border-color: var(--color-fire-500);
   }
   25% {
     box-shadow: 0 0 25px rgba(0, 191, 255, 0.6), 0 0 60px rgba(0, 191, 255, 0.3);
@@ -62,8 +62,8 @@
     border-color: #e6bf00;
   }
   100% {
-    box-shadow: 0 0 25px rgba(232, 70, 30, 0.6), 0 0 60px rgba(232, 70, 30, 0.3);
-    border-color: #e8461e;
+    box-shadow: 0 0 25px rgb(var(--fire-500-rgb) / 0.6), 0 0 60px rgb(var(--fire-500-rgb) / 0.3);
+    border-color: var(--color-fire-500);
   }
 }
 

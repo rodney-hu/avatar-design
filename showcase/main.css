@@ -8,7 +8,7 @@
   padding: 1rem;
   font-family: var(--font-mono);
   font-size: 0.8125rem;
-  color: #ff8c5c;
+  color: var(--fire-text);
   overflow-x: auto;
   position: relative;
 }

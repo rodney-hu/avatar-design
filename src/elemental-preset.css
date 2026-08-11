@@ -23,17 +23,19 @@
   --color-surface-light-overlay: #ffffff;
 
   /* ---------------- 🔥 FIRE NATION (PRIMARY BRAND) ---------------- */
-  --color-fire-50: #fff5f0;
-  --color-fire-100: #ffe0cc;
-  --color-fire-200: #ffb899;
-  --color-fire-300: #ff8c5c;
-  --color-fire-400: #ff6b35;
-  --color-fire-500: #e8461e;
-  --color-fire-600: #c43518;
-  --color-fire-700: #9c2812;
-  --color-fire-800: #741e0e;
-  --color-fire-900: #4a1209;
-  --color-fire-glow: #ff4500;
+  /* Cardinal red variant — anchored at #aa0000. Steps 300/400/500 and the glow
+     have RGB channel twins in the :root block below; keep the pairs in sync. */
+  --color-fire-50: #fff2f2;
+  --color-fire-100: #ffd6d6;
+  --color-fire-200: #ffa3a3;
+  --color-fire-300: #f76d6d;
+  --color-fire-400: #dd3333;
+  --color-fire-500: #aa0000;
+  --color-fire-600: #8f0000;
+  --color-fire-700: #6e0000;
+  --color-fire-800: #4d0000;
+  --color-fire-900: #2e0000;
+  --color-fire-glow: #e01010;
 
   /* Primary Brand Aliases -> Fire */
   --color-primary-50: var(--color-fire-50);
@@ -110,9 +112,30 @@
   --radius-full: 9999px;
 
   /* ---------------- SHADOWS & GLOWS ---------------- */
-  --shadow-fire: 0 0 20px rgba(232, 70, 30, 0.35), 0 0 60px rgba(232, 70, 30, 0.15);
+  --shadow-fire: 0 0 20px rgb(var(--fire-500-rgb) / 0.35), 0 0 60px rgb(var(--fire-500-rgb) / 0.15);
   --shadow-water: 0 0 20px rgba(0, 191, 255, 0.35), 0 0 60px rgba(0, 191, 255, 0.15);
   --shadow-earth: 0 0 20px rgba(57, 255, 20, 0.35), 0 0 60px rgba(57, 255, 20, 0.15);
   --shadow-air: 0 0 20px rgba(255, 215, 0, 0.35), 0 0 60px rgba(255, 215, 0, 0.15);
   --shadow-avatar: 0 0 25px rgba(0, 255, 255, 0.5), 0 0 70px rgba(0, 255, 255, 0.25);
+}
+
+/* ---------------- FIRE RGB CHANNELS ----------------
+   Space-separated channels for alpha compositing: rgb(var(--fire-500-rgb) / 0.4).
+   Every glow, tint, and halo in the system reads from these, so the whole fire
+   theme swaps by editing these three lines plus the hex tokens above.
+
+   Deliberately outside @theme: these are referenced only from hand-written CSS,
+   never from a generated utility, and Tailwind v4 tree-shakes unused theme
+   variables (the --color-primary-* aliases above never reach the compiled
+   output for exactly this reason). A plain :root block is passed through. */
+:root {
+  --fire-500-rgb: 170 0 0;
+  --fire-400-rgb: 221 51 51;
+  --fire-glow-rgb: 224 16 16;
+
+  /* Fire used as TEXT on a fire-tinted surface (.badge-fire, .alert-fire).
+     Flips to a dark step in light mode — see the .light block in index.css.
+     A single ramp step cannot serve both themes: on #0d0d0d it must be light,
+     on #faf7f4 parchment it must be dark. */
+  --fire-text: var(--color-fire-300);
 }
