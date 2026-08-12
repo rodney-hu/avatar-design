@@ -1,4 +1,5 @@
 /* 🔥💧🌍🌀 Elemental Design System — Main Bundle */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 @import "./elemental-preset.css";
 @import "./elemental-animations.css";

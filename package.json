@@ -5,6 +5,7 @@
   "main": "src/index.css",
   "style": "src/index.css",
   "scripts": {
+    "build": "npx @tailwindcss/cli -i showcase/main.css -o showcase/dist/output.css --minify",
     "build:showcase": "npx @tailwindcss/cli -i showcase/main.css -o showcase/dist/output.css --minify",
     "dev:showcase": "npx @tailwindcss/cli -i showcase/main.css -o showcase/dist/output.css --watch",
     "serve": "npx serve showcase"
