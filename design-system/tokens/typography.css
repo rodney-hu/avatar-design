@@ -1,0 +1,45 @@
+/* Type system — three tiers.
+
+   INTER (--font-display, 700-800 with negative tracking) is the DEFAULT
+   headline face for every tier: hero titles, section h2, card titles, stat
+   values, prices, the brand lockup.
+   BRUSH (--font-brush, Takashi Japan) appears ONLY where it is specifically
+   referenced — as its own standalone heading or section (e.g. an element
+   name heading a block). Never mixed inline into an Inter line as an accent,
+   and never a subhead, label, number or body string. One weight, no bold;
+   1.75rem and up.
+   BODY (--font-body, Inter 300-700) is all interface copy.
+   MONO (--font-mono) is code, token names and numeric keys. */
+:root{
+  --font-brush:"Takashi Japan","Brush Script MT",cursive;
+  --font-display:"Inter",system-ui,-apple-system,sans-serif;
+  --font-body:"Inter",system-ui,-apple-system,sans-serif;
+  --font-sans:"Inter",system-ui,-apple-system,sans-serif;
+  --font-mono:"JetBrains Mono",monospace;
+
+  /* Sizes as used across the source components */
+  --text-xs:0.75rem;--text-sm:0.8125rem;--text-base:0.9375rem;--text-md:1.0625rem;--text-lg:1.125rem;--text-xl:1.35rem;--text-2xl:1.5rem;--text-3xl:2rem;--text-display:3rem;
+  --text-hero:clamp(2.75rem,6.5vw,5rem);
+
+  --leading-tight:1.1;--leading-snug:1.25;--leading-normal:1.5;--leading-relaxed:1.6;
+  /* The brush face needs more air than a serif did — its strokes overhang. */
+  --leading-brush:1.18;
+  --weight-light:300;--weight-regular:400;--weight-medium:500;--weight-semibold:600;--weight-bold:700;--weight-extrabold:800;--weight-black:900;
+
+  /* Uppercase label treatment used on stat labels, badges, table headers */
+  --tracking-label:0.05em;--tracking-badge:0.02em;--tracking-brand:0.05em;
+  /* Display headings in Inter need negative tracking to read as display type */
+  --tracking-display:-0.02em;
+  --tracking-brush:0.01em;
+
+  /* Semantic roles */
+  --type-hero:var(--weight-extrabold) var(--text-hero)/var(--leading-tight) var(--font-display);
+  --type-heading:var(--weight-bold) var(--text-3xl)/var(--leading-snug) var(--font-display);
+  --type-body:var(--weight-regular) var(--text-base)/var(--leading-relaxed) var(--font-body);
+  --type-code:var(--weight-regular) var(--text-sm)/var(--leading-normal) var(--font-mono);
+}
+
+/* Standalone utility: apply to a whole heading element, never a span inside
+   an Inter line. 1.75rem and up only. */
+.brush{font-family:var(--font-brush);font-weight:400;letter-spacing:var(--tracking-brush);line-height:var(--leading-brush)}
+.brush-italic{font-family:var(--font-brush);font-style:italic;font-weight:400;letter-spacing:var(--tracking-brush);line-height:var(--leading-brush)}

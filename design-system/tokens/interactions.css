@@ -1,0 +1,58 @@
+/* MICRO-INTERACTIONS — buttons, form fields, data.
+   Everything rides the motion tokens (tokens/motion.css) and the element
+   personality channels (--ui-duration, --ui-ease, --ui-press-scale), so a
+   water button sheens slower than a fire one without extra rules.
+   Click bursts and stat count-up are runtime: assets/motion.js + StatCard. */
+
+/* ---- Button sheen: a diagonal light sweep across the face on hover ---- */
+.btn{position:relative;overflow:hidden;isolation:isolate}
+.btn::after{content:"";position:absolute;inset:-1px;pointer-events:none;border-radius:inherit;background:linear-gradient(105deg,transparent 30%,rgb(255 255 255 / var(--sheen-strength,0.26)) 48%,rgb(255 255 255 / calc(var(--sheen-strength,0.26) * 0.4)) 54%,transparent 70%);transform:translateX(-110%);transition:transform 0s linear var(--duration-slow)}
+.btn:hover::after{transform:translateX(110%);transition:transform calc(var(--ui-duration) * 3.2) var(--ease-standard)}
+.btn-outline,.btn-ghost{--sheen-strength:0.08 /* @kind other */}
+.btn-air{--sheen-strength:0.3 /* @kind other */}
+.btn-no-sheen::after,.btn:disabled::after{display:none}
+
+/* ---- Click burst layer (particles spawned by assets/motion.js) ---- */
+.em-burst-layer{position:fixed;inset:0;pointer-events:none;z-index:2147483000;overflow:visible}
+.em-burst-layer>i{position:absolute;left:0;top:0;display:block;border-radius:50%;will-change:transform,opacity}
+
+/* ---- Fields: focus bloom + underline sweep ----
+   --field-rgb tints both. .input-<el> retints. */
+.input,.select,.textarea{--field-rgb:var(--fire-500-rgb)}
+.input-water,.field-water{--field-rgb:var(--water-500-rgb)}
+.input-earth,.field-earth{--field-rgb:var(--earth-500-rgb)}
+.input-air,.field-air{--field-rgb:var(--air-500-rgb)}
+.input:focus,.select:focus,.textarea:focus{border-color:rgb(var(--field-rgb));box-shadow:0 0 0 3px rgb(var(--field-rgb) / 0.2),0 0 18px rgb(var(--field-rgb) / calc(0.16 * var(--glow-strength,1)));background:var(--color-surface-base);animation:field-bloom var(--duration-moderate) var(--ease-enter)}
+@keyframes field-bloom{0%{box-shadow:0 0 0 0 rgb(var(--field-rgb) / 0.55),0 0 0 rgb(var(--field-rgb) / 0)}45%{box-shadow:0 0 0 6px rgb(var(--field-rgb) / 0.18),0 0 30px rgb(var(--field-rgb) / calc(0.32 * var(--glow-strength,1)))}}
+.field{display:flex;flex-direction:column;gap:0.25rem;width:100%}
+.field-control{position:relative;display:block}
+.field-line{position:absolute;left:10%;right:10%;bottom:0;height:2px;border-radius:2px;pointer-events:none;background:linear-gradient(90deg,transparent,rgb(var(--field-rgb)) 25%,rgb(var(--field-rgb)) 75%,transparent);box-shadow:0 0 10px rgb(var(--field-rgb) / 0.6);transform:scaleX(0);transform-origin:left center;opacity:0;transition:transform var(--duration-moderate) var(--ease-enter),opacity var(--duration-fast) var(--ease-enter)}
+.field-control:focus-within .field-line{transform:scaleX(1);opacity:1}
+.field-label{transition:color var(--duration-fast) var(--ease-enter)}
+.field:focus-within .field-label{color:rgb(var(--field-rgb))}
+
+/* ---- Checkbox: pop + tick draws itself in ---- */
+.check{position:relative;display:inline-grid;place-items:center;flex:none;--field-rgb:var(--fire-500-rgb)}
+.check>.checkbox{appearance:none;-webkit-appearance:none;margin:0;grid-area:1/1;display:block;transition:background-color var(--duration-fast) var(--ease-enter),border-color var(--duration-fast) var(--ease-enter),box-shadow var(--duration-base) var(--ease-enter)}
+.check>.checkbox:hover{border-color:rgb(var(--field-rgb) / 0.7)}
+.check>.checkbox:focus-visible{outline:2px solid rgb(var(--field-rgb));outline-offset:2px}
+.check>.checkbox:checked{background:rgb(var(--field-rgb));border-color:rgb(var(--field-rgb));box-shadow:0 0 12px rgb(var(--field-rgb) / calc(0.45 * var(--glow-strength,1)));animation:check-pop var(--duration-moderate) var(--ease-spring)}
+.check-mark{grid-area:1/1;width:0.8rem;height:0.8rem;pointer-events:none;overflow:visible}
+.check-mark path{fill:none;stroke:#ffffff;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset var(--duration-instant) var(--ease-exit)}
+.check>.checkbox:checked+.check-mark path{stroke-dashoffset:0;transition:stroke-dashoffset var(--duration-base) var(--ease-enter) 60ms}
+@keyframes check-pop{0%{transform:scale(0.8)}100%{transform:scale(1)}}
+
+/* ---- Toggle: knob stretches while pressed (the slide already springs) ---- */
+.toggle-switch:active .toggle-slider:before{transform:scaleX(1.28);transform-origin:left center}
+.toggle-switch:active input:checked+.toggle-slider:before{transform:translateX(0.92rem) scaleX(1.28)}
+
+/* ---- Data: tabular figures, change flash ---- */
+.stat-value{font-variant-numeric:tabular-nums}
+.stat-card[data-flash="up"]{animation:stat-flash-up var(--duration-slower) var(--ease-enter)}
+.stat-card[data-flash="down"]{animation:stat-flash-down var(--duration-slower) var(--ease-enter)}
+.stat-card[data-flash="up"] .stat-delta{animation:stat-nudge-up var(--duration-moderate) var(--ease-spring)}
+.stat-card[data-flash="down"] .stat-delta{animation:stat-nudge-down var(--duration-moderate) var(--ease-spring)}
+@keyframes stat-flash-up{0%{box-shadow:inset 0 0 0 1px rgb(var(--earth-500-rgb) / 0.9),0 0 26px rgb(var(--earth-glow-rgb) / calc(0.35 * var(--glow-strength,1)));background-color:rgb(var(--earth-500-rgb) / 0.1)}}
+@keyframes stat-flash-down{0%{box-shadow:inset 0 0 0 1px rgb(var(--fire-500-rgb) / 0.9),0 0 26px rgb(var(--fire-glow-rgb) / calc(0.35 * var(--glow-strength,1)));background-color:rgb(var(--fire-500-rgb) / 0.1)}}
+@keyframes stat-nudge-up{0%{transform:translateY(4px);opacity:.4}}
+@keyframes stat-nudge-down{0%{transform:translateY(-4px);opacity:.4}}

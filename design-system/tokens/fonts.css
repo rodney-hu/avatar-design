@@ -1,0 +1,12 @@
+/* Webfonts.
+
+   TAKASHI JAPAN (brush display) — user-supplied, vendored in assets/fonts/.
+   LICENCE: Freeware, NON-COMMERCIAL (fontspace.com/takashi-japan-font-f163898).
+   A commercial licence must be obtained before shipping this to production.
+
+   Inter and JetBrains Mono still load from the Google CDN, as upstream does.
+   Cinzel was removed — the brush face replaces it at display scale, and Inter
+   carries every heading tier below that. */
+@font-face{font-family:"Takashi Japan";src:url("../assets/fonts/TakashiJapan-Regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Takashi Japan";src:url("../assets/fonts/TakashiJapan-Italic.ttf") format("truetype");font-weight:400;font-style:italic;font-display:swap}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');

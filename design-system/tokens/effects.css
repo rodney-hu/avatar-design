@@ -1,0 +1,55 @@
+/* Glows, text glows, gradients, backdrop halos, contextual element scopes.
+   Tailwind @utility blocks from src/elemental-utilities.css rewritten as plain
+   classes so the system works without a Tailwind build. */
+/* GLOW SYSTEM
+   Every glow = a tight CORE halo in the element's glow step + a wide AMBIENT
+   bloom in its 500 step. Three knobs, all inherited:
+     --glow-rgb / --glow-ambient-rgb  which element (set by .glow-<el> or .element-<el>)
+     --glow-size                       0.5 sm · 1 md (default) · 1.6 lg · 2.4 xl
+     --glow-strength                   global alpha multiplier (:root 1, .light 0.8)
+   Composite values are declared on the SAME rule as their inputs so scoped
+   overrides re-resolve per element. */
+.glow,.glow-fire,.glow-water,.glow-earth,.glow-air,.glow-avatar,
+.glow-hover,.glow-fire-hover,.glow-water-hover,.glow-earth-hover,.glow-air-hover{
+  --_g:var(--glow-size,1);--_s:var(--glow-strength,1);
+  --_glow:0 0 calc(20px * var(--_g)) rgb(var(--glow-rgb,var(--fire-glow-rgb)) / calc(0.4 * var(--_s))),0 0 calc(50px * var(--_g)) rgb(var(--glow-ambient-rgb,var(--fire-500-rgb)) / calc(0.18 * var(--_s)));
+  --_glow-hot:0 0 calc(26px * var(--_g)) rgb(var(--glow-rgb,var(--fire-glow-rgb)) / calc(0.5 * var(--_s))),0 0 calc(64px * var(--_g)) rgb(var(--glow-ambient-rgb,var(--fire-500-rgb)) / calc(0.24 * var(--_s)))}
+.glow-fire,.glow-fire-hover{--glow-rgb:var(--fire-glow-rgb);--glow-ambient-rgb:var(--fire-500-rgb)}
+.glow-water,.glow-water-hover{--glow-rgb:var(--water-glow-rgb);--glow-ambient-rgb:var(--water-500-rgb)}
+.glow-earth,.glow-earth-hover{--glow-rgb:var(--earth-glow-rgb);--glow-ambient-rgb:var(--earth-500-rgb)}
+.glow-air,.glow-air-hover{--glow-rgb:var(--air-glow-rgb);--glow-ambient-rgb:var(--air-500-rgb)}
+.glow-avatar{--glow-rgb:var(--avatar-glow-rgb);--glow-ambient-rgb:var(--avatar-glow-rgb);--glow-size:1.25}
+.glow,.glow-fire,.glow-water,.glow-earth,.glow-air,.glow-avatar{box-shadow:var(--_glow)}
+.glow-hover,.glow-fire-hover,.glow-water-hover,.glow-earth-hover,.glow-air-hover{transition:box-shadow var(--duration-base) var(--ease-enter),border-color var(--duration-base) var(--ease-enter),transform var(--duration-base) var(--ease-enter)}
+.glow-hover:hover,.glow-fire-hover:hover,.glow-water-hover:hover,.glow-earth-hover:hover,.glow-air-hover:hover{box-shadow:var(--_glow-hot);border-color:rgb(var(--glow-rgb,var(--fire-glow-rgb)) / 0.8)}
+.glow-sm{--glow-size:0.5}.glow-md{--glow-size:1}.glow-lg{--glow-size:1.6}.glow-xl{--glow-size:2.4}
+
+/* Light theme: neon halos turn muddy on parchment, so glows become a soft
+   colored drop shadow in the 500 step. */
+.light .glow,.light .glow-fire,.light .glow-water,.light .glow-earth,.light .glow-air,.light .glow-avatar,.light.glow{box-shadow:0 calc(4px * var(--_g)) calc(16px * var(--_g)) rgb(var(--glow-ambient-rgb,var(--fire-500-rgb)) / calc(0.22 * var(--_s))),0 calc(12px * var(--_g)) calc(40px * var(--_g)) rgb(var(--glow-ambient-rgb,var(--fire-500-rgb)) / calc(0.12 * var(--_s)))}
+.light .glow-hover:hover,.light .glow-fire-hover:hover,.light .glow-water-hover:hover,.light .glow-earth-hover:hover,.light .glow-air-hover:hover{box-shadow:0 calc(6px * var(--_g)) calc(20px * var(--_g)) rgb(var(--glow-ambient-rgb,var(--fire-500-rgb)) / calc(0.28 * var(--_s))),0 calc(16px * var(--_g)) calc(48px * var(--_g)) rgb(var(--glow-ambient-rgb,var(--fire-500-rgb)) / calc(0.16 * var(--_s)))}
+
+.text-glow,.text-glow-fire,.text-glow-water,.text-glow-earth,.text-glow-air,.text-glow-avatar{--_s:var(--glow-strength,1);text-shadow:0 0 12px rgb(var(--glow-rgb,var(--fire-glow-rgb)) / calc(0.7 * var(--_s))),0 0 25px rgb(var(--glow-ambient-rgb,var(--fire-500-rgb)) / calc(0.45 * var(--_s)))}
+.text-glow-fire{--glow-rgb:var(--fire-glow-rgb);--glow-ambient-rgb:var(--fire-400-rgb)}
+.text-glow-water{--glow-rgb:var(--water-glow-rgb);--glow-ambient-rgb:var(--water-500-rgb)}
+.text-glow-earth{--glow-rgb:var(--earth-glow-rgb);--glow-ambient-rgb:var(--earth-500-rgb)}
+.text-glow-air{--glow-rgb:var(--air-glow-rgb);--glow-ambient-rgb:var(--air-500-rgb)}
+.text-glow-avatar{--glow-rgb:var(--avatar-glow-rgb);--glow-ambient-rgb:var(--avatar-glow-rgb)}
+.light .text-glow,.light .text-glow-fire,.light .text-glow-water,.light .text-glow-earth,.light .text-glow-air,.light .text-glow-avatar{text-shadow:0 1px 10px rgb(var(--glow-ambient-rgb,var(--fire-500-rgb)) / calc(0.25 * var(--_s)))}
+
+.gradient-fire{background:linear-gradient(135deg,var(--color-fire-500) 0%,var(--color-fire-400) 50%,var(--color-fire-700) 100%)}
+.gradient-water{background:linear-gradient(135deg,#0088e0 0%,#1aa3ff 50%,#003a63 100%)}
+.gradient-earth{background:linear-gradient(135deg,#27ae34 0%,#4cd964 50%,#114e18 100%)}
+.gradient-air{background:linear-gradient(135deg,#e6bf00 0%,#ffd700 50%,#5c4b00 100%)}
+.gradient-avatar{background:linear-gradient(135deg,var(--color-fire-500) 0%,#0088e0 33%,#27ae34 66%,#e6bf00 100%)}
+
+.bg-halo-fire{background:radial-gradient(circle at 50% 0%,rgb(var(--fire-500-rgb) / 0.18) 0%,rgba(13,13,13,0) 70%)}
+.bg-halo-water{background:radial-gradient(circle at 50% 0%,rgb(var(--water-500-rgb) / 0.18) 0%,rgba(13,13,13,0) 70%)}
+.bg-halo-earth{background:radial-gradient(circle at 50% 0%,rgb(var(--earth-500-rgb) / 0.18) 0%,rgba(13,13,13,0) 70%)}
+.bg-halo-air{background:radial-gradient(circle at 50% 0%,rgb(var(--air-500-rgb) / 0.18) 0%,rgba(13,13,13,0) 70%)}
+.bg-halo-avatar{background:radial-gradient(circle at 50% 0%,rgb(var(--avatar-glow-rgb) / 0.18) 0%,rgba(13,13,13,0) 70%)}
+
+.element-fire{--glow-rgb:var(--fire-glow-rgb);--glow-ambient-rgb:var(--fire-500-rgb);--element-primary:var(--color-fire-500);--element-hover:var(--color-fire-600);--element-active:var(--color-fire-700);--element-glow:rgb(var(--fire-500-rgb) / 0.4);--element-bg:rgb(var(--fire-500-rgb) / 0.08);--element-border:rgb(var(--fire-500-rgb) / 0.3)}
+.element-water{--glow-rgb:var(--water-glow-rgb);--glow-ambient-rgb:var(--water-500-rgb);--element-primary:var(--color-water-500);--element-hover:var(--color-water-600);--element-active:var(--color-water-700);--element-glow:rgb(var(--water-glow-rgb) / 0.4);--element-bg:rgb(var(--water-500-rgb) / 0.08);--element-border:rgb(var(--water-500-rgb) / 0.3)}
+.element-earth{--glow-rgb:var(--earth-glow-rgb);--glow-ambient-rgb:var(--earth-500-rgb);--element-primary:var(--color-earth-500);--element-hover:var(--color-earth-600);--element-active:var(--color-earth-700);--element-glow:rgb(var(--earth-glow-rgb) / 0.4);--element-bg:rgb(var(--earth-500-rgb) / 0.08);--element-border:rgb(var(--earth-500-rgb) / 0.3)}
+.element-air{--glow-rgb:var(--air-glow-rgb);--glow-ambient-rgb:var(--air-500-rgb);--element-primary:var(--color-air-500);--element-hover:var(--color-air-600);--element-active:var(--color-air-700);--element-glow:rgb(var(--air-glow-rgb) / 0.4);--element-bg:rgb(var(--air-500-rgb) / 0.08);--element-border:rgb(var(--air-500-rgb) / 0.3)}

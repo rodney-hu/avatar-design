@@ -1,0 +1,19 @@
+<!-- @dsCard group="Motion" viewport="760x320" name="Choreography" subtitle="data-choreo + data-choreo-role: surface → heading → body/media → action, one beat (1.5× stagger) apart. Travel scales with size" -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="../styles.css">
+<style>body{margin:0;background:var(--color-surface-void);color:var(--color-text-primary);font-family:var(--font-body);padding:24px;display:grid;grid-template-columns:1.1fr 1fr;gap:28px;align-items:start}.lbl{font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--color-text-muted)}.panel{padding:22px;display:grid;grid-template-columns:1fr 120px;gap:10px 18px}.media{grid-row:1 / span 3;grid-column:2;border-radius:var(--radius-md);background:linear-gradient(135deg,var(--color-fire-700),var(--color-fire-500));min-height:120px}.rules{display:flex;flex-direction:column;gap:10px;font-size:13px;color:var(--color-text-secondary);line-height:1.45}.rules b{color:var(--color-text-primary);font-weight:600}.t{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-top:4px}.t span{font-family:var(--font-mono);font-size:10px;color:var(--color-text-muted)}.t i{display:block;background:var(--color-fire-500);border-radius:2px;margin-bottom:4px}</style></head>
+<body>
+<div style="display:flex;flex-direction:column;gap:10px"><span class="lbl">Order · replays</span>
+<div class="card elevation-2 panel" data-choreo="" data-choreo-role="surface" data-reveal-loop="3600">
+<h3 data-choreo-role="heading" style="margin:0;font-family:var(--font-display);font-weight:800;font-size:20px">Master the flame</h3>
+<p data-choreo-role="body" style="margin:0;font-size:13px;color:var(--color-text-secondary);line-height:1.5">Four lessons on breath, stance and control.</p>
+<div data-choreo-role="action" style="display:flex;gap:8px;align-items:end"><button class="btn btn-fire btn-sm">Begin</button><button class="btn btn-ghost btn-sm">Later</button></div>
+<div class="media" data-choreo-role="media"></div>
+</div></div>
+<div class="rules"><span class="lbl">Rules</span>
+<div><b>Order.</b> Surface, then heading, then body and media, then actions. Exits never stagger.</div>
+<div><b>Concurrency.</b> At most three groups in motion per viewport, one hero moment per view, one or two idle loops visible.</div>
+<div><b>Travel by size.</b></div>
+<div class="t"><div><i style="height:4px"></i><span>xs 4</span></div><div><i style="height:8px"></i><span>sm 8</span></div><div><i style="height:16px"></i><span>md 16</span></div><div><i style="height:32px"></i><span>lg 32</span></div><div><i style="height:56px"></i><span>xl 56</span></div></div>
+<div><b>Never animate:</b> the navbar, text while it's being read, table rows on sort or filter, the focus ring's position.</div>
+</div>
+<script src="../assets/motion.js"></script></body></html>

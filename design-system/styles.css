@@ -1,0 +1,18 @@
+/* Elemental Design System — global entry. Imports only. */
+@import "./tokens/fonts.css";
+@import "./tokens/colors.css";
+@import "./tokens/surfaces.css";
+@import "./tokens/typography.css";
+@import "./tokens/spacing.css";
+@import "./tokens/radii.css";
+@import "./tokens/shadows.css";
+@import "./tokens/animations.css";
+@import "./tokens/effects.css";
+@import "./tokens/components.css";
+@import "./tokens/materials.css";
+@import "./tokens/interactions.css";
+@import "./tokens/transitions.css";
+/* motion.css loads LAST on purpose: effects.css and components.css set the
+   `background` shorthand on .gradient-* and .btn-*, which resets
+   background-size to auto. Drift's oversizing must come after them. */
+@import "./tokens/motion.css";

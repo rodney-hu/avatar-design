@@ -1,0 +1,19 @@
+<!-- @dsCard group="Motion" viewport="760x330" subtitle="Duration scale picked by distance travelled; four easings: enter, exit, standard, spring" name="Motion tokens" -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="../styles.css">
+<style>body{margin:0;background:var(--color-surface-void);color:var(--color-text-primary);font-family:var(--font-body);padding:20px 24px;display:grid;grid-template-columns:1fr 1fr;gap:28px}.h{font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--color-text-muted);margin-bottom:10px}.r{display:grid;grid-template-columns:118px 1fr;align-items:center;gap:10px;height:30px}.n{font-family:var(--font-mono);font-size:11px;color:var(--fire-text)}.track{position:relative;height:6px;border-radius:3px;background:var(--color-surface-raised)}.dot{position:absolute;top:-4px;left:0;width:14px;height:14px;border-radius:50%;background:var(--color-fire-500);box-shadow:var(--shadow-fire)}.go .dot{left:calc(100% - 14px)}.v{font-family:var(--font-mono);font-size:10px;color:var(--color-text-muted);margin-left:6px}</style></head>
+<body><div><div class="h">Duration · hover to compare</div>
+<div class="r"><span class="n">instant</span><div class="track"><div class="dot" style="transition:left var(--duration-instant) var(--ease-enter)"></div></div></div>
+<div class="r"><span class="n">fast</span><div class="track"><div class="dot" style="transition:left var(--duration-fast) var(--ease-enter)"></div></div></div>
+<div class="r"><span class="n">base</span><div class="track"><div class="dot" style="transition:left var(--duration-base) var(--ease-enter)"></div></div></div>
+<div class="r"><span class="n">moderate</span><div class="track"><div class="dot" style="transition:left var(--duration-moderate) var(--ease-enter)"></div></div></div>
+<div class="r"><span class="n">slow</span><div class="track"><div class="dot" style="transition:left var(--duration-slow) var(--ease-enter)"></div></div></div>
+<div class="r"><span class="n">slower</span><div class="track"><div class="dot" style="transition:left var(--duration-slower) var(--ease-enter)"></div></div></div>
+<div class="k v" style="margin:8px 0 0">120 · 200 · 320 · 500 · 700 · 1100ms · ambient 6s · exits ×0.7</div></div>
+<div><div class="h">Easing · all at 1100ms</div>
+<div class="r"><span class="n">enter</span><div class="track"><div class="dot" style="transition:left var(--duration-slower) var(--ease-enter)"></div></div></div>
+<div class="r"><span class="n">exit</span><div class="track"><div class="dot" style="transition:left var(--duration-slower) var(--ease-exit)"></div></div></div>
+<div class="r"><span class="n">standard</span><div class="track"><div class="dot" style="transition:left var(--duration-slower) var(--ease-standard)"></div></div></div>
+<div class="r"><span class="n">spring</span><div class="track"><div class="dot" style="transition:left var(--duration-slower) var(--ease-spring)"></div></div></div>
+<div class="v" style="margin:8px 0 0">enter = expo-out · exit = expo-in · standard = in-out · spring = overshoot + settle</div></div>
+<script>let on=false;setInterval(()=>{on=!on;document.querySelectorAll('.r').forEach(r=>r.classList.toggle('go',on))},1600);setTimeout(()=>document.querySelectorAll('.r').forEach(r=>r.classList.add('go')),300);</script>
+</body></html>

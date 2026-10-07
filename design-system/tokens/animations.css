@@ -1,0 +1,18 @@
+/* Elemental keyframes + animation utility classes (from src/elemental-animations.css) */
+@keyframes ember-pulse{0%,100%{box-shadow:0 0 15px rgb(var(--fire-500-rgb) / 0.4),0 0 40px rgb(var(--fire-500-rgb) / 0.15);border-color:rgb(var(--fire-500-rgb) / 0.6)}50%{box-shadow:0 0 35px rgb(var(--fire-400-rgb) / 0.7),0 0 80px rgb(var(--fire-glow-rgb) / 0.35);border-color:rgb(var(--fire-400-rgb) / 0.9)}}
+@keyframes water-flow{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@keyframes earth-rumble{0%,100%{transform:translateY(0)}25%{transform:translateY(-2px) rotate(-0.5deg)}75%{transform:translateY(1px) rotate(0.5deg)}}
+@keyframes air-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes avatar-state-cycle{0%{box-shadow:0 0 25px rgb(var(--fire-500-rgb) / 0.6),0 0 60px rgb(var(--fire-500-rgb) / 0.3);border-color:var(--color-fire-500)}25%{box-shadow:0 0 25px rgba(0,191,255,0.6),0 0 60px rgba(0,191,255,0.3);border-color:#0088e0}50%{box-shadow:0 0 25px rgba(57,255,20,0.6),0 0 60px rgba(57,255,20,0.3);border-color:#27ae34}75%{box-shadow:0 0 25px rgba(255,215,0,0.6),0 0 60px rgba(255,215,0,0.3);border-color:#e6bf00}100%{box-shadow:0 0 25px rgb(var(--fire-500-rgb) / 0.6),0 0 60px rgb(var(--fire-500-rgb) / 0.3);border-color:var(--color-fire-500)}}
+@keyframes fade-in-up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes scale-in{from{opacity:0;transform:scale(0.95)}to{opacity:1;transform:scale(1)}}
+.animate-ember{animation:ember-pulse 3s infinite var(--ease-standard)}
+.animate-water-flow{background-size:200% 200%;animation:water-flow var(--duration-ambient) infinite var(--ease-standard)}
+.animate-earth-rumble:hover{animation:earth-rumble var(--duration-base) var(--ease-standard)}
+.animate-air-float{animation:air-float 4s infinite var(--ease-standard)}
+.animate-avatar-state{animation:avatar-state-cycle 8s infinite linear}
+.animate-fade-in-up{animation:fade-in-up var(--duration-moderate) var(--ease-enter) forwards}
+.animate-scale-in{animation:scale-in var(--duration-moderate) var(--ease-enter) forwards}
+/* Exits: same keyframes reversed, expo-in, 70% duration. */
+.animate-fade-out-down{animation:fade-in-up calc(var(--duration-moderate) * var(--duration-exit-ratio)) var(--ease-exit) reverse forwards}
+.animate-scale-out{animation:scale-in calc(var(--duration-moderate) * var(--duration-exit-ratio)) var(--ease-exit) reverse forwards}

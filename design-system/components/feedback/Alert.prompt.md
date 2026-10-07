@@ -1,0 +1,22 @@
+Inline status callout — also the toast body (the showcase reuses `.alert` inside its toast stack).
+
+```jsx
+<Alert variant="earth" title="Defenses fortified">Walls held at Ba Sing Se.</Alert>
+```
+
+Semantics map to elements: fire = warning, water = info, earth = success, air = notice. For a toast, render it fixed bottom-right with `animate-scale-in`.
+
+## As a toast
+Use the stack structure so neighbours glide when toasts arrive or leave:
+```jsx
+<div className="toast-stack">
+  {toasts.map(t => (
+    <div key={t.id} className="toast-slot" data-state={t.closing ? 'closed' : 'open'}>
+      <div className="toast-slot-inner"><div className="toast-pad">
+        <Alert className="toast" variant="fire" title="Saved">Changes stored.</Alert>
+      </div></div>
+    </div>
+  ))}
+</div>
+```
+To dismiss, set `closing`, then remove it after 600ms.

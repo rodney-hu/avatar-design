@@ -1,0 +1,100 @@
+/* TRANSITIONS — choreography, exits and page transitions.
+   Builds on motion.css tokens (durations, easings, personality channels). */
+:root{
+  /* TRAVEL BY SIZE — the bigger the thing, the further it moves. */
+  --travel-xs:4px;  /* tooltips, badges, popovers */
+  --travel-sm:8px;  /* buttons, inputs, text lines */
+  --travel-md:16px; /* cards, toasts, modals */
+  --travel-lg:32px; /* sections, media */
+  --travel-xl:56px; /* hero */
+  /* One choreography beat = 1.5× the active personality's stagger. */
+  --choreo-step:calc(var(--motion-stagger,90ms) * 1.5); /* @kind other */
+}
+
+/* ---- CHOREOGRAPHY ----
+   Inside [data-choreo], tag pieces with data-choreo-role. They arrive in order:
+   surface (0) → heading (1) → body / media (2) → action (3).
+   The container reveals on scroll like [data-reveal] (needs assets/motion.js). */
+[data-choreo-role]{--_beat:0 /* @kind other */;--_travel:var(--travel-sm)}
+[data-choreo-role="surface"]{--_beat:0 /* @kind other */}
+[data-choreo-role="heading"]{--_beat:1 /* @kind other */;--_travel:var(--travel-md)}
+[data-choreo-role="body"]{--_beat:2 /* @kind other */}
+[data-choreo-role="media"]{--_beat:2 /* @kind other */;--_travel:var(--travel-lg)}
+[data-choreo-role="action"]{--_beat:3 /* @kind other */}
+.motion-ready [data-choreo] [data-choreo-role],.motion-ready [data-choreo][data-choreo-role]{opacity:0;transform:translate3d(0,var(--_travel),0);transition:opacity var(--motion-duration) var(--motion-ease),transform var(--motion-duration) var(--motion-ease);transition-delay:calc(var(--_beat) * var(--choreo-step))}
+.motion-ready [data-choreo] [data-choreo-role="surface"],.motion-ready [data-choreo][data-choreo-role="surface"]{transform:scale(0.985)}
+.motion-ready [data-choreo].is-revealed [data-choreo-role],.motion-ready [data-choreo].is-revealed[data-choreo-role]{opacity:1;transform:none}
+
+/* ---- EXITS ----
+   Exits use --ease-exit at --duration-exit-ratio of the enter, and never stagger:
+   everything leaves together. Components flip data-state="open" → "closed",
+   wait for the exit, then unmount. */
+@keyframes backdrop-in{from{opacity:0}}
+@keyframes backdrop-out{to{opacity:0}}
+@keyframes modal-in{from{opacity:0;transform:translate3d(0,var(--travel-md),0) scale(0.97)}}
+@keyframes modal-out{to{opacity:0;transform:translate3d(0,calc(var(--travel-md) * 0.5),0) scale(0.97)}}
+@keyframes choreo-rise{from{opacity:0;transform:translate3d(0,var(--travel-sm),0)}}
+.modal-backdrop[data-state="open"]{animation:backdrop-in var(--duration-moderate) var(--ease-enter) both}
+.modal-backdrop[data-state="closed"]{animation:backdrop-out calc(var(--duration-moderate) * var(--duration-exit-ratio)) var(--ease-exit) forwards;pointer-events:none}
+.modal[data-state="open"]{animation:modal-in var(--duration-moderate) var(--ease-enter) both}
+.modal[data-state="closed"]{animation:modal-out calc(var(--duration-moderate) * var(--duration-exit-ratio)) var(--ease-exit) forwards}
+/* Modal content follows the surface: header → body → footer. */
+.modal[data-state="open"] > *{animation:choreo-rise var(--duration-moderate) var(--ease-enter) both}
+.modal[data-state="open"] > :nth-child(1){animation-delay:calc(var(--choreo-step) * 1)}
+.modal[data-state="open"] > :nth-child(2){animation-delay:calc(var(--choreo-step) * 2)}
+.modal[data-state="open"] > :nth-child(3){animation-delay:calc(var(--choreo-step) * 3)}
+
+/* Tooltip: 120ms hover intent before entering, leaves at once. Slides toward its trigger. */
+.tooltip-text{transform:translate(-50%,var(--travel-xs)) scale(0.96);transform-origin:50% 100%;transition:opacity var(--duration-fast) var(--ease-exit),transform var(--duration-fast) var(--ease-exit),visibility 0s linear var(--duration-fast)}
+.tooltip[data-side="bottom"] .tooltip-text{bottom:auto;top:125%;transform:translate(-50%,calc(var(--travel-xs) * -1)) scale(0.96);transform-origin:50% 0%}
+.tooltip:hover .tooltip-text,.tooltip:focus-within .tooltip-text{transform:translate(-50%,0) scale(1);transition:opacity var(--duration-base) var(--ease-enter) 120ms,transform var(--duration-base) var(--ease-enter) 120ms,visibility 0s linear 120ms}
+
+/* Popover / dropdown: grows from the edge that touches its trigger.
+   data-side="bottom|top", data-align="start|center|end", data-state="open|closed". */
+@keyframes popover-in{from{opacity:0;transform:translate3d(0,var(--_dy),0) scale(0.92)}}
+@keyframes popover-out{to{opacity:0;transform:translate3d(0,var(--_dy),0) scale(0.96)}}
+.popover{position:absolute;z-index:20;min-width:180px;padding:0.375rem;border-radius:var(--radius-md);background:var(--color-surface-overlay);border:1px solid var(--color-border-strong);box-shadow:0 12px 32px rgba(0,0,0,0.45);--_ox:left /* @kind other */;--_oy:top /* @kind other */;--_dy:calc(var(--travel-xs) * -1);transform-origin:var(--_ox) var(--_oy)}
+.popover[data-side="top"]{--_oy:bottom /* @kind other */;--_dy:var(--travel-xs)}
+.popover[data-align="center"]{--_ox:center /* @kind other */}
+.popover[data-align="end"]{--_ox:right /* @kind other */}
+.popover[data-state="open"]{animation:popover-in var(--duration-base) var(--ease-enter) both}
+.popover[data-state="closed"]{animation:popover-out calc(var(--duration-base) * var(--duration-exit-ratio)) var(--ease-exit) forwards;pointer-events:none}
+.popover-item{display:block;padding:0.5rem 0.75rem;border-radius:var(--radius-sm);font-size:0.875rem;color:var(--color-text-secondary);cursor:pointer;transition:background-color var(--duration-instant) var(--ease-enter),color var(--duration-instant) var(--ease-enter)}
+.popover-item:hover{background:rgb(var(--fire-500-rgb) / 0.1);color:var(--color-text-primary)}
+
+/* Toast stack: each toast lives in a .toast-slot whose row height animates,
+   so neighbours glide to make room on enter and close the gap on exit.
+   Structure: .toast-stack > .toast-slot[data-state] > .toast-slot-inner > .toast-pad > .alert.toast */
+@keyframes toast-slot-in{from{grid-template-rows:0fr}}
+@keyframes toast-slot-out{to{grid-template-rows:0fr}}
+@keyframes toast-in{from{opacity:0;transform:translate3d(var(--travel-lg),0,0) scale(0.98)}}
+@keyframes toast-out{to{opacity:0;transform:translate3d(var(--travel-lg),0,0) scale(0.98)}}
+.toast-stack{position:fixed;right:1.5rem;bottom:1.5rem;z-index:60;display:flex;flex-direction:column;width:min(360px,calc(100vw - 3rem))}
+.toast-slot{display:grid;grid-template-rows:1fr;overflow:hidden;animation:toast-slot-in var(--duration-moderate) var(--ease-enter) both}
+.toast-slot-inner{min-height:0}
+.toast-pad{padding-top:0.75rem}
+.toast-slot .toast{animation:toast-in var(--duration-moderate) var(--ease-enter) both}
+.toast-slot[data-state="closed"]{animation:toast-slot-out var(--duration-base) var(--ease-standard) calc(var(--duration-fast)) forwards}
+.toast-slot[data-state="closed"] .toast{animation:toast-out calc(var(--duration-moderate) * var(--duration-exit-ratio)) var(--ease-exit) forwards}
+.toast{backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+.toast.alert-fire{background:linear-gradient(rgb(var(--fire-500-rgb) / 0.12),rgb(var(--fire-500-rgb) / 0.12)),var(--color-surface-elevated)}
+.toast.alert-water{background:linear-gradient(rgb(var(--water-500-rgb) / 0.12),rgb(var(--water-500-rgb) / 0.12)),var(--color-surface-elevated)}
+.toast.alert-earth{background:linear-gradient(rgb(var(--earth-500-rgb) / 0.12),rgb(var(--earth-500-rgb) / 0.12)),var(--color-surface-elevated)}
+.toast.alert-air{background:linear-gradient(rgb(var(--air-500-rgb) / 0.12),rgb(var(--air-500-rgb) / 0.12)),var(--color-surface-elevated)}
+
+/* ---- PAGE TRANSITIONS ----
+   Same-document: wrap the state change in ElementalMotion.transition(fn) (View Transitions API).
+   Cross-document: same-origin navigations crossfade automatically.
+   Shared elements: give the element on both pages the same data-vt="name"
+   (unique per page); it morphs between positions. The active nav link and the
+   navbar are shared by default. */
+@view-transition{navigation:auto}
+@keyframes page-out{to{opacity:0;transform:translate3d(0,calc(var(--travel-sm) * -0.5),0)}}
+@keyframes page-in{from{opacity:0;transform:translate3d(0,var(--travel-sm),0)}}
+::view-transition-old(root){animation:page-out calc(var(--duration-base) * var(--duration-exit-ratio)) var(--ease-exit) both}
+::view-transition-new(root){animation:page-in var(--duration-moderate) var(--ease-enter) calc(var(--duration-base) * 0.4) both}
+::view-transition-group(*){animation-duration:var(--duration-moderate);animation-timing-function:var(--ease-enter)}
+.navbar{view-transition-name:site-nav}
+.nav-link-active{view-transition-name:nav-indicator}
+/* Browsers without View Transitions: the keyed page wrapper fades in on mount. */
+html:not(.vt-supported) [data-page]{animation:page-in var(--duration-moderate) var(--ease-enter) both}
