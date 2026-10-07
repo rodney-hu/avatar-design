@@ -5,6 +5,7 @@
 @import "./elemental-animations.css";
 @import "./elemental-utilities.css";
 @import "./elemental-components.css";
+@import "./elemental-materials.css";
 
 /* Brush accent face, vendored in src/fonts/.
    LICENCE: Takashi Japan is a freeware demo font for NON-COMMERCIAL use
