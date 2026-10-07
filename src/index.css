@@ -1,4 +1,5 @@
 /* Elemental Design System — Main Bundle
+   Import order matters: elemental-motion.css must load last (see that file). */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 @import "./elemental-preset.css";
@@ -6,6 +7,7 @@
 @import "./elemental-utilities.css";
 @import "./elemental-components.css";
 @import "./elemental-materials.css";
+@import "./elemental-motion.css";
 
 /* Brush accent face, vendored in src/fonts/.
    LICENCE: Takashi Japan is a freeware demo font for NON-COMMERCIAL use
