@@ -1,4 +1,5 @@
-/* 🔥💧🌍🌀 Elemental Animations & Keyframes */
+/* Elemental Animations & Keyframes
+   Timings come from the motion tokens in elemental-motion.css. */
 
 @keyframes ember-pulse {
   0%, 100% {
@@ -91,20 +92,20 @@
 
 /* Animation Utility Classes */
 .animate-ember {
-  animation: ember-pulse 3s infinite ease-in-out;
+  animation: ember-pulse 3s infinite var(--ease-standard);
 }
 
 .animate-water-flow {
   background-size: 200% 200%;
-  animation: water-flow 6s infinite ease;
+  animation: water-flow var(--duration-ambient) infinite var(--ease-standard);
 }
 
 .animate-earth-rumble:hover {
-  animation: earth-rumble 0.3s ease-in-out;
+  animation: earth-rumble var(--duration-base) var(--ease-standard);
 }
 
 .animate-air-float {
-  animation: air-float 4s infinite ease-in-out;
+  animation: air-float 4s infinite var(--ease-standard);
 }
 
 .animate-avatar-state {
@@ -112,9 +113,18 @@
 }
 
 .animate-fade-in-up {
-  animation: fade-in-up 0.4s ease-out forwards;
+  animation: fade-in-up var(--duration-moderate) var(--ease-enter) forwards;
 }
 
 .animate-scale-in {
-  animation: scale-in 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: scale-in var(--duration-moderate) var(--ease-enter) forwards;
+}
+
+/* Exits: same keyframes reversed, expo-in, 70% of the enter duration. */
+.animate-fade-out-down {
+  animation: fade-in-up calc(var(--duration-moderate) * var(--duration-exit-ratio)) var(--ease-exit) reverse forwards;
+}
+
+.animate-scale-out {
+  animation: scale-in calc(var(--duration-moderate) * var(--duration-exit-ratio)) var(--ease-exit) reverse forwards;
 }

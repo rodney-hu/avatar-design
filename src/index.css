@@ -1,12 +1,31 @@
-/* 🔥💧🌍🌀 Elemental Design System — Main Bundle */
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+/* Elemental Design System — Main Bundle
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 @import "./elemental-preset.css";
 @import "./elemental-animations.css";
 @import "./elemental-utilities.css";
 @import "./elemental-components.css";
 
-/* Light mode overrides */
+/* Brush accent face, vendored in src/fonts/.
+   LICENCE: Takashi Japan is a freeware demo font for NON-COMMERCIAL use
+   (fontspace.com/takashi-japan-font-f163898). A commercial licence is
+   required before public release. */
+@font-face {
+  font-family: "Takashi Japan";
+  src: url("./fonts/TakashiJapan-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Takashi Japan";
+  src: url("./fonts/TakashiJapan-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Light mode: warm parchment */
 .light {
   --color-surface-void: #f5f0eb;
   --color-surface-base: #faf7f4;
@@ -23,14 +42,58 @@
   --color-border-default: #d4cec8;
   --color-border-strong: #b0a99f;
 
-  /* Fire-as-text must darken on parchment. The dark-mode value (fire-300)
-     lands at ~2.2:1 here; fire-700 restores it to ~9.9:1. */
+  /* fire-500 lands at ~2.2:1 on parchment; fire-700 restores ~9.9:1 */
   --fire-text: var(--color-fire-700);
+  --water-text: var(--color-water-700);
+  --earth-text: var(--color-earth-700);
+  --air-text: var(--color-air-700);
+  --avatar-text: var(--color-water-700);
+
+  --surface-nav: rgba(250, 247, 244, 0.85);
+  --surface-glass: rgba(255, 255, 255, 0.7);
+  --surface-glass-border: rgba(26, 26, 26, 0.08);
+  --surface-scrim: rgba(40, 32, 26, 0.6);
+
+  /* Neon halos turn muddy on parchment: glows become soft colored drop shadows. */
+  --glow-strength: 0.8;
+  --shadow-fire: 0 4px 16px rgb(var(--fire-500-rgb) / 0.2), 0 12px 40px rgb(var(--fire-500-rgb) / 0.12);
+  --shadow-water: 0 4px 16px rgb(var(--water-500-rgb) / 0.2), 0 12px 40px rgb(var(--water-500-rgb) / 0.12);
+  --shadow-earth: 0 4px 16px rgb(var(--earth-500-rgb) / 0.2), 0 12px 40px rgb(var(--earth-500-rgb) / 0.12);
+  --shadow-air: 0 4px 16px rgb(var(--air-500-rgb) / 0.22), 0 12px 40px rgb(var(--air-500-rgb) / 0.14);
+  --shadow-avatar: 0 4px 16px rgb(var(--water-500-rgb) / 0.2), 0 12px 40px rgb(var(--water-500-rgb) / 0.12);
 }
 
-body {
-  background-color: var(--color-surface-void);
-  color: var(--color-text-primary);
-  font-family: var(--font-body);
-  transition: background-color 0.3s ease, color 0.3s ease;
+/* Base element styles sit in the base layer so component classes
+   (.nav-link, .breadcrumb-item) and utilities override them. */
+@layer base {
+  body {
+    background-color: var(--color-surface-void);
+    color: var(--color-text-primary);
+    font-family: var(--font-body);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  a {
+    color: var(--color-fire-400);
+    text-decoration: none;
+  }
+  a:hover {
+    color: var(--color-fire-300);
+  }
+}
+
+/* Brush face: apply to a whole standalone heading, never a span inside an
+   Inter line. 1.75rem and up only. One weight, no bold. */
+.brush {
+  font-family: var(--font-brush);
+  font-weight: 400;
+  letter-spacing: var(--tracking-brush);
+  line-height: var(--leading-brush);
+}
+.brush-italic {
+  font-family: var(--font-brush);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: var(--tracking-brush);
+  line-height: var(--leading-brush);
 }
