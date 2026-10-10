@@ -1,11 +1,45 @@
-/* 🔥💧🌍🌀 Elemental Design System — Preset Tokens for Tailwind CSS v4 */
+/* Elemental Design System — Preset Tokens for Tailwind CSS v4
+   Source of truth: design-system/tokens/*.css (plain CSS). Values here must match.
 
-@theme {
-  /* ---------------- TYPOGRAPHY ---------------- */
-  --font-display: "Cinzel", Georgia, serif;
+   `@theme static` emits every token even when no generated utility uses it.
+   The design system reads tokens from hand-written CSS, inline styles and
+   motion.js, so none of them may be tree-shaken. */
+
+@theme static {
+  /* ---------------- TYPOGRAPHY ----------------
+     Inter 700-800 with negative tracking is the headline face for every tier, except Display XL (hero), which is Cinzel 800.
+     The brush face (Takashi Japan) is only for standalone one- or two-word
+     element headings, never inside prose or a headline line. */
+  --font-brush: "Takashi Japan", "Brush Script MT", cursive;
+  --font-display: "Inter", system-ui, -apple-system, sans-serif;
+  --font-hero: "Cinzel", Georgia, serif;
   --font-body: "Inter", system-ui, -apple-system, sans-serif;
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
   --font-mono: "JetBrains Mono", monospace;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.8125rem;
+  --text-base: 0.9375rem;
+  --text-md: 1.0625rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.35rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 2rem;
+  --text-display: 3rem;
+  --text-hero: clamp(2.75rem, 6.5vw, 5rem);
+
+  --leading-tight: 1.1;
+  --leading-snug: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.6;
+  /* The brush face needs more air — its strokes overhang. */
+  --leading-brush: 1.18;
+
+  --tracking-label: 0.05em;
+  --tracking-badge: 0.02em;
+  --tracking-brand: 0.05em;
+  --tracking-display: -0.02em;
+  --tracking-brush: 0.01em;
 
   /* ---------------- SURFACE DEPTH (DARK MODE) ---------------- */
   --color-surface-void: #0a0a0a;
@@ -21,9 +55,8 @@
   --color-surface-light-elevated: #ffffff;
   --color-surface-light-overlay: #ffffff;
 
-  /* ---------------- 🔥 FIRE NATION (PRIMARY BRAND) ---------------- */
-  /* Cardinal red variant — anchored at #aa0000. Steps 300/400/500 and the glow
-     have RGB channel twins in the :root block below; keep the pairs in sync. */
+  /* ---------------- FIRE NATION (PRIMARY BRAND) ----------------
+     Cardinal red, anchored at #aa0000. RGB twins live in :root below. */
   --color-fire-50: #fff2f2;
   --color-fire-100: #ffd6d6;
   --color-fire-200: #ffa3a3;
@@ -49,7 +82,7 @@
   --color-primary-900: var(--color-fire-900);
   --color-primary-glow: var(--color-fire-glow);
 
-  /* ---------------- 💧 WATER TRIBE ---------------- */
+  /* ---------------- WATER TRIBE ---------------- */
   --color-water-50: #f0f9ff;
   --color-water-100: #cce8ff;
   --color-water-200: #8ecfff;
@@ -62,7 +95,7 @@
   --color-water-900: #00243d;
   --color-water-glow: #00bfff;
 
-  /* ---------------- 🌍 EARTH KINGDOM ---------------- */
+  /* ---------------- EARTH KINGDOM ---------------- */
   --color-earth-50: #f0fff4;
   --color-earth-100: #c6f6d5;
   --color-earth-200: #88e8a0;
@@ -75,7 +108,7 @@
   --color-earth-900: #0a3010;
   --color-earth-glow: #39ff14;
 
-  /* ---------------- 🌀 AIR NOMADS ---------------- */
+  /* ---------------- AIR NOMADS ---------------- */
   --color-air-50: #fffef5;
   --color-air-100: #fff8cc;
   --color-air-200: #ffed8a;
@@ -88,7 +121,7 @@
   --color-air-900: #3a3000;
   --color-air-glow: #ffd700;
 
-  /* ---------------- ⚡ AVATAR STATE ---------------- */
+  /* ---------------- AVATAR STATE ---------------- */
   --color-avatar-glow: #00ffff;
   --color-avatar-white: #ffffff;
   --color-avatar-amber: #ffcc00;
@@ -103,38 +136,105 @@
   --color-border-default: #2a2a2a;
   --color-border-strong: #3a3a3a;
 
-  /* ---------------- BORDER RADIUS (SUBTLE 4-8px) ---------------- */
+  /* ---------------- BORDER RADIUS (SUBTLE 4-12px) ---------------- */
   --radius-sm: 4px;
   --radius-md: 6px;
   --radius-lg: 8px;
   --radius-xl: 12px;
   --radius-full: 9999px;
 
-  /* ---------------- SHADOWS & GLOWS ---------------- */
-  --shadow-fire: 0 0 20px rgb(var(--fire-500-rgb) / 0.35), 0 0 60px rgb(var(--fire-500-rgb) / 0.15);
-  --shadow-water: 0 0 20px rgba(0, 191, 255, 0.35), 0 0 60px rgba(0, 191, 255, 0.15);
-  --shadow-earth: 0 0 20px rgba(57, 255, 20, 0.35), 0 0 60px rgba(57, 255, 20, 0.15);
-  --shadow-air: 0 0 20px rgba(255, 215, 0, 0.35), 0 0 60px rgba(255, 215, 0, 0.15);
-  --shadow-avatar: 0 0 25px rgba(0, 255, 255, 0.5), 0 0 70px rgba(0, 255, 255, 0.25);
+  /* ---------------- SHADOWS & GLOWS ----------------
+     Two-stop halo: a 20px core in the glow step + a 60px ambient bloom in the
+     500 step, scaled by --glow-strength. Light-theme values are in index.css.
+     For scoped/sized glows use the .glow-* utilities. */
+  --shadow-fire: 0 0 20px rgb(var(--fire-glow-rgb) / calc(0.35 * var(--glow-strength))), 0 0 60px rgb(var(--fire-500-rgb) / calc(0.18 * var(--glow-strength)));
+  --shadow-water: 0 0 20px rgb(var(--water-glow-rgb) / calc(0.35 * var(--glow-strength))), 0 0 60px rgb(var(--water-500-rgb) / calc(0.18 * var(--glow-strength)));
+  --shadow-earth: 0 0 20px rgb(var(--earth-glow-rgb) / calc(0.35 * var(--glow-strength))), 0 0 60px rgb(var(--earth-500-rgb) / calc(0.18 * var(--glow-strength)));
+  --shadow-air: 0 0 20px rgb(var(--air-glow-rgb) / calc(0.35 * var(--glow-strength))), 0 0 60px rgb(var(--air-500-rgb) / calc(0.18 * var(--glow-strength)));
+  --shadow-avatar: 0 0 25px rgb(var(--avatar-glow-rgb) / calc(0.5 * var(--glow-strength))), 0 0 70px rgb(var(--avatar-glow-rgb) / calc(0.25 * var(--glow-strength)));
+  /* Depth shadow used on hovered cards (full scale: --elevation-*) */
+  --shadow-depth: 0 8px 30px rgba(0, 0, 0, 0.5);
+
+  /* ---------------- EASINGS ----------------
+     enter: expo-out, things arriving · exit: expo-in, things leaving
+     standard: in-out, things moving on screen · spring: overshoot + settle */
+  --ease-enter: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-exit: cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-standard: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring: linear(0, 0.009, 0.035 2.1%, 0.141, 0.281 6.7%, 0.723 12.9%, 0.938 16.7%, 1.017, 1.077, 1.121, 1.149 24.3%, 1.159, 1.163, 1.161, 1.154 29.9%, 1.129 32.8%, 1.051 39.6%, 1.017 43.1%, 0.991, 0.977 51%, 0.974 53.8%, 0.975 57.1%, 0.997 69.8%, 1.003 76.9%, 1);
+  --ease-out-expo: var(--ease-enter); /* legacy alias */
 }
 
-/* ---------------- FIRE RGB CHANNELS ----------------
-   Space-separated channels for alpha compositing: rgb(var(--fire-500-rgb) / 0.4).
-   Every glow, tint, and halo in the system reads from these, so the whole fire
-   theme swaps by editing these three lines plus the hex tokens above.
-
-   Deliberately outside @theme: these are referenced only from hand-written CSS,
-   never from a generated utility, and Tailwind v4 tree-shakes unused theme
-   variables (the --color-primary-* aliases above never reach the compiled
-   output for exactly this reason). A plain :root block is passed through. */
+/* ---------------- NON-THEME TOKENS ----------------
+   Tokens with no Tailwind namespace. They are read only by hand-written CSS
+   and motion.js, so they live in a plain :root block. */
 :root {
+  /* RGB channels for alpha compositing: rgb(var(--fire-500-rgb) / 0.4).
+     Every glow, tint and material reads from these. Keep in sync with the
+     hex steps above. */
   --fire-500-rgb: 170 0 0;
   --fire-400-rgb: 221 51 51;
   --fire-glow-rgb: 224 16 16;
+  --water-500-rgb: 0 136 224;
+  --water-glow-rgb: 0 191 255;
+  --earth-500-rgb: 39 174 52;
+  --earth-glow-rgb: 57 255 20;
+  --air-500-rgb: 230 191 0;
+  --air-glow-rgb: 255 215 0;
+  --avatar-glow-rgb: 0 255 255;
 
-  /* Fire used as TEXT on a fire-tinted surface (.badge-fire, .alert-fire).
-     Flips to a dark step in light mode — see the .light block in index.css.
-     A single ramp step cannot serve both themes: on #0d0d0d it must be light,
-     on #faf7f4 parchment it must be dark. */
-  --fire-text: var(--color-fire-300);
+  /* Fire used as TEXT. fire-500 by explicit design direction — ~2.5:1 on the
+     dark base, so it fails WCAG AA for body copy. Reserve it for
+     headline-scale type, badges and accents. Flips to fire-700 on .light. */
+  --fire-text: var(--color-fire-500);
+  /* Companion text steps for badges and alerts. Flip on .light. */
+  --water-text: #4db8ff;
+  --earth-text: #4cd964;
+  --air-text: #ffd700;
+  --avatar-text: #00ffff;
+
+  /* Alpha-composited surfaces (flip on .light) */
+  --surface-nav: rgba(13, 13, 13, 0.85);
+  --surface-glass: rgba(26, 26, 26, 0.65);
+  --surface-glass-border: rgba(255, 255, 255, 0.08);
+  --surface-scrim: rgba(0, 0, 0, 0.8);
+
+  /* Global glow alpha multiplier: 1 on dark, 0.8 on .light */
+  --glow-strength: 1;
+
+  /* Font weights */
+  --weight-light: 300;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  --weight-extrabold: 800;
+  --weight-black: 900;
+
+  /* Semantic type roles */
+  --type-hero: var(--weight-extrabold) var(--text-hero) / var(--leading-tight) var(--font-hero);
+  --type-heading: var(--weight-bold) var(--text-3xl) / var(--leading-snug) var(--font-display);
+  --type-body: var(--weight-regular) var(--text-base) / var(--leading-relaxed) var(--font-body);
+  --type-code: var(--weight-regular) var(--text-sm) / var(--leading-normal) var(--font-mono);
+
+  /* Spacing names for the rem values the components use */
+  --space-1: 0.25rem;
+  --space-1-5: 0.375rem;
+  --space-2: 0.5rem;
+  --space-2-5: 0.625rem;
+  --space-3: 0.75rem;
+  --space-3-5: 0.875rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-7: 1.75rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-24: 6rem;
+  --gutter-page: 1.5rem;
+  --gutter-section: 6rem;
+  --max-width-content: 80rem;
+  --max-width-prose: 680px;
 }

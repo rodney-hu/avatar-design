@@ -1,0 +1,660 @@
+/* Elemental Motion — tokens, choreography, exits, page transitions, scroll
+   and pointer effects, element motion personalities.
+   Source of truth: design-system/tokens/motion.css + transitions.css.
+
+   Tuned "cinematic": long travel, 700ms base, expo-out easing throughout.
+   Every effect is opt-in via a data attribute and driven by showcase/motion.js.
+   Without JS nothing is hidden — the .motion-ready guard on <html> means
+   reveals only arm once the script is running.
+
+   Easings (--ease-enter, --ease-exit, --ease-standard, --ease-spring) are
+   theme tokens in elemental-preset.css.
+
+   This file is UNLAYERED and must be imported LAST: the gradient utilities
+   and .btn-* set the `background` shorthand, which resets background-size,
+   and the drift classes below must win over them.
+
+   prefers-reduced-motion is deliberately not handled, per the brand spec.
+   This is a known accessibility risk. */
+
+:root {
+  /* DURATION SCALE — pick by distance/size travelled, not by taste.
+     instant: color/opacity on tiny UI · fast: hover, press, focus
+     base: toggles, tooltips, dropdowns · moderate: cards, modals, toasts
+     slow: section reveals (the cinematic default) · slower: hero entrances
+     ambient: idle loops (edge light, drift, flicker) */
+  --duration-instant: 120ms;
+  --duration-fast: 200ms;
+  --duration-base: 320ms;
+  --duration-moderate: 500ms;
+  --duration-slow: 700ms;
+  --duration-slower: 1100ms;
+  --duration-ambient: 6000ms;
+  /* Exits run ~70% of their enter duration. */
+  --duration-exit-ratio: 0.7;
+  /* Legacy motion aliases (used by reveal/bloom/tilt) */
+  --motion-duration: var(--duration-slow);
+  --motion-duration-fast: var(--duration-base);
+  --motion-duration-slow: var(--duration-slower);
+  --motion-ease: var(--ease-enter);
+  /* UI micro-interaction channels — element personalities override these */
+  --ui-duration: var(--duration-fast);
+  --ui-ease: var(--ease-enter);
+  --ui-lift: -1px;
+  --ui-press: 0px;
+  --ui-press-scale: 0.98;
+  --motion-stagger: 90ms;
+  /* Cinematic travel distances */
+  --motion-rise: 40px;
+  --motion-parallax-range: 80px;
+  --motion-tilt-max: 7deg;
+  /* Runtime channels written by showcase/motion.js */
+  --bloom: 1;
+  --parallax-y: 0px;
+  --tilt-x: 0deg;
+  --tilt-y: 0deg;
+  --pointer-x: 50%;
+  --pointer-y: 50%;
+}
+
+:root {
+  /* TRAVEL BY SIZE — the bigger the thing, the further it moves. */
+  --travel-xs: 4px; /* tooltips, badges, popovers */
+  --travel-sm: 8px; /* buttons, inputs, text lines */
+  --travel-md: 16px; /* cards, toasts, modals */
+  --travel-lg: 32px; /* sections, media */
+  --travel-xl: 56px; /* hero */
+  /* One choreography beat = 1.5× the active personality's stagger. */
+  --choreo-step: calc(var(--motion-stagger, 90ms) * 1.5);
+}
+
+/* ---- CHOREOGRAPHY ----
+   Inside [data-choreo], tag pieces with data-choreo-role. They arrive in order:
+   surface (0) → heading (1) → body / media (2) → action (3).
+   The container reveals on scroll like [data-reveal] (needs showcase/motion.js). */
+[data-choreo-role] {
+  --_beat: 0;
+  --_travel: var(--travel-sm);
+}
+
+[data-choreo-role="surface"] {
+  --_beat: 0;
+}
+
+[data-choreo-role="heading"] {
+  --_beat: 1;
+  --_travel: var(--travel-md);
+}
+
+[data-choreo-role="body"] {
+  --_beat: 2;
+}
+
+[data-choreo-role="media"] {
+  --_beat: 2;
+  --_travel: var(--travel-lg);
+}
+
+[data-choreo-role="action"] {
+  --_beat: 3;
+}
+
+.motion-ready [data-choreo] [data-choreo-role], .motion-ready [data-choreo][data-choreo-role] {
+  opacity: 0;
+  transform: translate3d(0, var(--_travel), 0);
+  transition: opacity var(--motion-duration) var(--motion-ease), transform var(--motion-duration) var(--motion-ease);
+  transition-delay: calc(var(--_beat) * var(--choreo-step));
+}
+
+.motion-ready [data-choreo] [data-choreo-role="surface"], .motion-ready [data-choreo][data-choreo-role="surface"] {
+  transform: scale(0.985);
+}
+
+.motion-ready [data-choreo].is-revealed [data-choreo-role], .motion-ready [data-choreo].is-revealed[data-choreo-role] {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---- EXITS ----
+   Exits use --ease-exit at --duration-exit-ratio of the enter, and never stagger:
+   everything leaves together. Components flip data-state="open" → "closed",
+   wait for the exit, then unmount. */
+@keyframes backdrop-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes backdrop-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, var(--travel-md), 0) scale(0.97);
+  }
+}
+
+@keyframes modal-out {
+  to {
+    opacity: 0;
+    transform: translate3d(0, calc(var(--travel-md) * 0.5), 0) scale(0.97);
+  }
+}
+
+@keyframes choreo-rise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, var(--travel-sm), 0);
+  }
+}
+
+.modal-backdrop[data-state="open"] {
+  animation: backdrop-in var(--duration-moderate) var(--ease-enter) both;
+}
+
+.modal-backdrop[data-state="closed"] {
+  animation: backdrop-out calc(var(--duration-moderate) * var(--duration-exit-ratio)) var(--ease-exit) forwards;
+  pointer-events: none;
+}
+
+.modal[data-state="open"] {
+  animation: modal-in var(--duration-moderate) var(--ease-enter) both;
+}
+
+.modal[data-state="closed"] {
+  animation: modal-out calc(var(--duration-moderate) * var(--duration-exit-ratio)) var(--ease-exit) forwards;
+}
+
+/* Modal content follows the surface: header → body → footer. */
+.modal[data-state="open"] > * {
+  animation: choreo-rise var(--duration-moderate) var(--ease-enter) both;
+}
+
+.modal[data-state="open"] > :nth-child(1) {
+  animation-delay: calc(var(--choreo-step) * 1);
+}
+
+.modal[data-state="open"] > :nth-child(2) {
+  animation-delay: calc(var(--choreo-step) * 2);
+}
+
+.modal[data-state="open"] > :nth-child(3) {
+  animation-delay: calc(var(--choreo-step) * 3);
+}
+
+/* Tooltip: 120ms hover intent before entering, leaves at once. Slides toward its trigger. */
+.tooltip-text {
+  transform: translate(-50%, var(--travel-xs)) scale(0.96);
+  transform-origin: 50% 100%;
+  transition: opacity var(--duration-fast) var(--ease-exit), transform var(--duration-fast) var(--ease-exit), visibility 0s linear var(--duration-fast);
+}
+
+.tooltip[data-side="bottom"] .tooltip-text {
+  bottom: auto;
+  top: 125%;
+  transform: translate(-50%, calc(var(--travel-xs) * -1)) scale(0.96);
+  transform-origin: 50% 0%;
+}
+
+.tooltip:hover .tooltip-text, .tooltip:focus-within .tooltip-text {
+  transform: translate(-50%, 0) scale(1);
+  transition: opacity var(--duration-base) var(--ease-enter) 120ms, transform var(--duration-base) var(--ease-enter) 120ms, visibility 0s linear 120ms;
+}
+
+/* Popover / dropdown: grows from the edge that touches its trigger.
+   data-side="bottom|top", data-align="start|center|end", data-state="open|closed". */
+@keyframes popover-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, var(--_dy), 0) scale(0.92);
+  }
+}
+
+@keyframes popover-out {
+  to {
+    opacity: 0;
+    transform: translate3d(0, var(--_dy), 0) scale(0.96);
+  }
+}
+
+.popover {
+  position: absolute;
+  z-index: 20;
+  min-width: 180px;
+  padding: 0.375rem;
+  border-radius: var(--radius-md);
+  background: var(--color-surface-overlay);
+  border: 1px solid var(--color-border-strong);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+  --_ox: left;
+  --_oy: top;
+  --_dy: calc(var(--travel-xs) * -1);
+  transform-origin: var(--_ox) var(--_oy);
+}
+
+.popover[data-side="top"] {
+  --_oy: bottom;
+  --_dy: var(--travel-xs);
+}
+
+.popover[data-align="center"] {
+  --_ox: center;
+}
+
+.popover[data-align="end"] {
+  --_ox: right;
+}
+
+.popover[data-state="open"] {
+  animation: popover-in var(--duration-base) var(--ease-enter) both;
+}
+
+.popover[data-state="closed"] {
+  animation: popover-out calc(var(--duration-base) * var(--duration-exit-ratio)) var(--ease-exit) forwards;
+  pointer-events: none;
+}
+
+.popover-item {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: background-color var(--duration-instant) var(--ease-enter), color var(--duration-instant) var(--ease-enter);
+}
+
+.popover-item:hover {
+  background: rgb(var(--fire-500-rgb) / 0.1);
+  color: var(--color-text-primary);
+}
+
+/* Toast stack: each toast lives in a .toast-slot whose row height animates,
+   so neighbours glide to make room on enter and close the gap on exit.
+   Structure: .toast-stack > .toast-slot[data-state] > .toast-slot-inner > .toast-pad > .alert.toast */
+@keyframes toast-slot-in {
+  from {
+    grid-template-rows: 0fr;
+  }
+}
+
+@keyframes toast-slot-out {
+  to {
+    grid-template-rows: 0fr;
+  }
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translate3d(var(--travel-lg), 0, 0) scale(0.98);
+  }
+}
+
+@keyframes toast-out {
+  to {
+    opacity: 0;
+    transform: translate3d(var(--travel-lg), 0, 0) scale(0.98);
+  }
+}
+
+.toast-stack {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  width: min(360px, calc(100vw - 3rem));
+}
+
+.toast-slot {
+  display: grid;
+  grid-template-rows: 1fr;
+  overflow: hidden;
+  animation: toast-slot-in var(--duration-moderate) var(--ease-enter) both;
+}
+
+.toast-slot-inner {
+  min-height: 0;
+}
+
+.toast-pad {
+  padding-top: 0.75rem;
+}
+
+.toast-slot .toast {
+  animation: toast-in var(--duration-moderate) var(--ease-enter) both;
+}
+
+.toast-slot[data-state="closed"] {
+  animation: toast-slot-out var(--duration-base) var(--ease-standard) calc(var(--duration-fast)) forwards;
+}
+
+.toast-slot[data-state="closed"] .toast {
+  animation: toast-out calc(var(--duration-moderate) * var(--duration-exit-ratio)) var(--ease-exit) forwards;
+}
+
+.toast {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.toast.alert-fire {
+  background: linear-gradient(rgb(var(--fire-500-rgb) / 0.12), rgb(var(--fire-500-rgb) / 0.12)), var(--color-surface-elevated);
+}
+
+.toast.alert-water {
+  background: linear-gradient(rgb(var(--water-500-rgb) / 0.12), rgb(var(--water-500-rgb) / 0.12)), var(--color-surface-elevated);
+}
+
+.toast.alert-earth {
+  background: linear-gradient(rgb(var(--earth-500-rgb) / 0.12), rgb(var(--earth-500-rgb) / 0.12)), var(--color-surface-elevated);
+}
+
+.toast.alert-air {
+  background: linear-gradient(rgb(var(--air-500-rgb) / 0.12), rgb(var(--air-500-rgb) / 0.12)), var(--color-surface-elevated);
+}
+
+/* ---- PAGE TRANSITIONS ----
+   Same-document: wrap the state change in ElementalMotion.transition(fn) (View Transitions API).
+   Cross-document: same-origin navigations crossfade automatically.
+   Shared elements: give the element on both pages the same data-vt="name"
+   (unique per page); it morphs between positions. The active nav link and the
+   navbar are shared by default. */
+@view-transition {
+  navigation: auto;
+}
+
+@keyframes page-out {
+  to {
+    opacity: 0;
+    transform: translate3d(0, calc(var(--travel-sm) * -0.5), 0);
+  }
+}
+
+@keyframes page-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, var(--travel-sm), 0);
+  }
+}
+
+::view-transition-old(root) {
+  animation: page-out calc(var(--duration-base) * var(--duration-exit-ratio)) var(--ease-exit) both;
+}
+
+::view-transition-new(root) {
+  animation: page-in var(--duration-moderate) var(--ease-enter) calc(var(--duration-base) * 0.4) both;
+}
+
+::view-transition-group(*) {
+  animation-duration: var(--duration-moderate);
+  animation-timing-function: var(--ease-enter);
+}
+
+.navbar {
+  view-transition-name: site-nav;
+}
+
+.nav-link-active {
+  view-transition-name: nav-indicator;
+}
+
+/* Browsers without View Transitions: the keyed page wrapper fades in on mount. */
+html:not(.vt-supported) [data-page] {
+  animation: page-in var(--duration-moderate) var(--ease-enter) both;
+}
+
+/* ---- Shared transform chain ----
+   Reveal travel, parallax drift and pointer tilt must compose, and CSS has no
+   transform-shorthand-per-property — so every rule that transforms writes the
+   SAME chain and varies only its own term. The root channel defaults keep the
+   unused terms neutral. Keep these five declarations in sync. */
+/* ---- Scroll reveal + stagger ---- */
+.motion-ready [data-reveal] {
+  opacity: 0;
+  transform: translate3d(0, calc(var(--motion-rise) + var(--parallax-y)), 0) perspective(1100px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
+  transition: opacity var(--motion-duration) var(--motion-ease), transform var(--motion-duration) var(--motion-ease);
+  will-change: opacity, transform;
+}
+
+.motion-ready [data-reveal].is-revealed {
+  opacity: 1;
+  transform: translate3d(0, var(--parallax-y), 0) perspective(1100px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
+}
+
+/* Children of a [data-stagger] container inherit an index-based delay. */
+.motion-ready [data-stagger] > * {
+  opacity: 0;
+  transform: translate3d(0, calc(var(--motion-rise) + var(--parallax-y)), 0) perspective(1100px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
+  transition: opacity var(--motion-duration) var(--motion-ease), transform var(--motion-duration) var(--motion-ease);
+  transition-delay: calc(var(--i, 0) * var(--motion-stagger));
+  will-change: opacity, transform;
+}
+
+.motion-ready [data-stagger].is-revealed > * {
+  opacity: 1;
+  transform: translate3d(0, var(--parallax-y), 0) perspective(1100px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
+}
+
+/* ---- Halo bloom on scroll ----
+   --bloom runs 0 → 1 as the element crosses the viewport; the halo's alpha and
+   spread both ride it, so a section ignites as it arrives. */
+[data-halo-bloom] {
+  position: relative;
+  isolation: isolate;
+}
+
+[data-halo-bloom]::before {
+  content: "";
+  position: absolute;
+  inset: -20% -10% auto -10%;
+  height: 120%;
+  z-index: -1;
+  pointer-events: none;
+  opacity: var(--bloom);
+  transform: scale(calc(0.86 + var(--bloom) * 0.14));
+  transition: opacity 120ms linear, transform 240ms var(--motion-ease);
+  background: radial-gradient(circle at 50% 0%, rgb(var(--bloom-rgb, var(--fire-500-rgb)) / calc(0.26 * var(--bloom))) 0%, rgba(13, 13, 13, 0) 70%);
+}
+
+[data-halo-bloom="water"] {
+  --bloom-rgb: 0 136 224;
+}
+
+[data-halo-bloom="earth"] {
+  --bloom-rgb: 39 174 52;
+}
+
+[data-halo-bloom="air"] {
+  --bloom-rgb: 230 191 0;
+}
+
+[data-halo-bloom="avatar"] {
+  --bloom-rgb: 0 255 255;
+}
+
+/* ---- Parallax halo layers ---- */
+[data-parallax] {
+  transform: translate3d(0, var(--parallax-y), 0) perspective(1100px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
+  will-change: transform;
+}
+
+/* ---- Magnetic card tilt ----
+   Perspective lives in the shared transform chain above, so a tilted card needs
+   no wrapper and composes cleanly with reveal/stagger. The pointer position
+   also drives a specular sheen, which is what sells it.
+   Specificity note: these selectors must out-rank `.motion-ready [data-stagger]
+   > *` (0,2,0) for the transition swap to land — hence the .motion-ready prefix. */
+.motion-ready [data-tilt] {
+  transform: translate3d(0, var(--parallax-y), 0) perspective(1100px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
+  transform-style: preserve-3d;
+  transition: transform var(--motion-duration-fast) var(--motion-ease), box-shadow var(--motion-duration-fast) var(--motion-ease), opacity var(--motion-duration) var(--motion-ease);
+}
+
+.motion-ready [data-tilt].is-tilting {
+  transition: transform 90ms linear, box-shadow 90ms linear;
+}
+
+[data-tilt]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity var(--motion-duration-fast) var(--motion-ease);
+  background: radial-gradient(420px circle at var(--pointer-x) var(--pointer-y), rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0) 60%);
+}
+
+[data-tilt].is-tilting::after {
+  opacity: 1;
+}
+
+/* ---- Gradient drift ----
+   Slow 18s crawl across an oversized gradient. Pair with .gradient-* fills. */
+@keyframes gradient-drift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.motion-gradient-drift {
+  background-size: 220% 220%;
+  animation: gradient-drift 18s var(--motion-ease) infinite;
+}
+
+.motion-gradient-drift-slow {
+  background-size: 260% 260%;
+  animation: gradient-drift 32s ease-in-out infinite;
+}
+
+/* ---- ELEMENT MOTION PERSONALITIES ----
+   Each .element-* scope retunes the shared channels, so reveals, hovers and
+   presses inside it move in character. Fire is the :root default.
+   Fire  — quick, sharp, flickers. Short travel, no overshoot.
+   Water — slow, continuous sine flow. Long travel, never stops abruptly.
+   Earth — heavy. Short travel, decisive settle, presses sink deep, never floats.
+   Air   — light, springy. Longest travel, overshoots and hangs. */
+.element-fire, .btn-fire, .card-fire {
+  --motion-duration: 560ms;
+  --motion-ease: var(--ease-enter);
+  --motion-rise: 28px;
+  --motion-stagger: 60ms;
+  --ui-duration: 160ms;
+  --ui-ease: cubic-bezier(0.2, 0.9, 0.1, 1);
+  --ui-lift: -1px;
+  --ui-press: 0px;
+  --ui-press-scale: 0.97;
+  --element-idle: ember-flicker 2.4s steps(1, end) infinite;
+}
+
+.element-water, .btn-water, .card-water {
+  --motion-duration: 950ms;
+  --motion-ease: cubic-bezier(0.37, 0, 0.63, 1);
+  --motion-rise: 44px;
+  --motion-stagger: 120ms;
+  --ui-duration: 420ms;
+  --ui-ease: cubic-bezier(0.37, 0, 0.63, 1);
+  --ui-lift: -2px;
+  --ui-press: 1px;
+  --ui-press-scale: 0.99;
+  --element-idle: tide 7s cubic-bezier(0.37, 0, 0.63, 1) infinite;
+}
+
+.element-earth, .btn-earth, .card-earth {
+  --motion-duration: 620ms;
+  --motion-ease: cubic-bezier(0.25, 1, 0.5, 1);
+  --motion-rise: 14px;
+  --motion-stagger: 70ms;
+  --ui-duration: 260ms;
+  --ui-ease: cubic-bezier(0.25, 1, 0.5, 1);
+  --ui-lift: 0px;
+  --ui-press: 2px;
+  --ui-press-scale: 0.985;
+  --element-idle: none;
+}
+
+.element-air, .btn-air, .card-air {
+  --motion-duration: 900ms;
+  --motion-ease: var(--ease-spring);
+  --motion-rise: 56px;
+  --motion-stagger: 100ms;
+  --ui-duration: 480ms;
+  --ui-ease: var(--ease-spring);
+  --ui-lift: -4px;
+  --ui-press: -1px;
+  --ui-press-scale: 0.97;
+  --element-idle: air-float 4s cubic-bezier(0.37, 0, 0.63, 1) infinite;
+}
+
+/* Idle signatures — opt in with .element-idle on a hero mark or featured surface. */
+@keyframes ember-flicker {
+  0% {
+    opacity: 1;
+  }
+  8% {
+    opacity: .86;
+  }
+  11% {
+    opacity: 1;
+  }
+  37% {
+    opacity: .93;
+  }
+  40% {
+    opacity: 1;
+  }
+  71% {
+    opacity: .82;
+  }
+  73% {
+    opacity: .97;
+  }
+  76% {
+    opacity: 1;
+  }
+}
+
+@keyframes tide {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -5px, 0);
+  }
+}
+
+.element-idle {
+  animation: var(--element-idle, ember-flicker 2.4s steps(1, end) infinite);
+}
+
+/* Interactive surfaces inherit the personality. */
+.ui-motion {
+  transition: transform var(--ui-duration) var(--ui-ease), box-shadow var(--ui-duration) var(--ui-ease), background-color var(--ui-duration) var(--ui-ease), border-color var(--ui-duration) var(--ui-ease), color var(--ui-duration) var(--ui-ease);
+}
+
+.ui-motion:hover {
+  transform: translateY(var(--ui-lift));
+}
+
+.ui-motion:active {
+  transform: translateY(var(--ui-press)) scale(var(--ui-press-scale));
+  transition-duration: calc(var(--ui-duration) * 0.5);
+}
+
+/* Earth lands with a rumble on press. */
+.element-earth .ui-motion:active, .element-earth.ui-motion:active, .btn-earth:active, .element-earth .btn:active {
+  animation: earth-rumble var(--duration-base) var(--ease-standard);
+}

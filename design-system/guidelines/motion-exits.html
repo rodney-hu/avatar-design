@@ -1,0 +1,22 @@
+<!-- @dsCard group="Motion" viewport="760x340" name="Exits & overlays" subtitle="data-state open → closed. Modal scales out, popover grows from its trigger edge, toasts glide to fill the gap. Exits: expo-in, 0.7× duration, no stagger" -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="../styles.css">
+<style>body{margin:0;background:var(--color-surface-void);color:var(--color-text-primary);font-family:var(--font-body);padding:22px 24px;display:grid;grid-template-columns:1.25fr .9fr 1fr;gap:22px;height:100vh;box-sizing:border-box}.lbl{font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--color-text-muted);display:block;margin-bottom:10px}.stage{position:relative;height:250px;border-radius:var(--radius-lg);border:1px dashed var(--color-border-subtle);overflow:hidden}.stage .modal-backdrop{position:absolute}.stage .modal{padding:18px;width:86%}</style></head>
+<body>
+<div><span class="lbl">Modal</span><div class="stage"><div class="modal-backdrop" id="bd" data-state="open"><div class="modal glass-thick border-gradient elevation-4" id="md" data-state="open" style="--elevation-glow:var(--shadow-fire)">
+<div style="border-bottom:1px solid var(--color-border-subtle);padding-bottom:8px;margin-bottom:10px;font-family:var(--font-display);font-weight:700;color:var(--color-fire-500)">Firebending Scroll</div>
+<div style="font-size:12px;color:var(--color-text-secondary);margin-bottom:14px">Fire is the element of power.</div>
+<div style="display:flex;justify-content:flex-end;gap:8px"><button class="btn btn-ghost btn-sm">Cancel</button><button class="btn btn-fire btn-sm">Accept</button></div>
+</div></div></div></div>
+<div><span class="lbl">Popover · from trigger</span><div class="stage" style="padding:16px;box-sizing:border-box"><div style="position:relative;display:inline-block"><button class="btn btn-outline btn-sm">Element ▾</button>
+<div class="popover" id="pop" data-side="bottom" data-align="start" data-state="open" style="top:calc(100% + 6px);left:0"><span class="popover-item">Fire</span><span class="popover-item">Water</span><span class="popover-item">Earth</span><span class="popover-item">Air</span></div></div>
+<div style="position:absolute;left:16px;bottom:16px"><span class="tooltip" data-side="top"><button class="btn btn-ghost btn-sm">Hover me</button><span class="tooltip-text">120ms intent delay</span></span></div></div></div>
+<div><span class="lbl">Toast stack</span><div class="stage"><div class="toast-stack" id="ts" style="position:absolute;right:12px;bottom:12px;width:calc(100% - 24px)"></div></div></div>
+<script>
+const bd=document.getElementById('bd'),md=document.getElementById('md'),pop=document.getElementById('pop'),ts=document.getElementById('ts');
+let open=true;setInterval(()=>{open=!open;const s=open?'open':'closed';[bd,md].forEach(e=>{e.dataset.state=s;if(open){e.style.animation='none';e.offsetWidth;e.style.animation=''}});},2200);
+let p=true;setInterval(()=>{p=!p;pop.dataset.state=p?'open':'closed';if(p){pop.style.animation='none';pop.offsetWidth;pop.style.animation=''}},1500);
+const els=['fire','water','earth','air'];let n=0;
+function toast(){const el=els[n++%4];const s=document.createElement('div');s.className='toast-slot';s.dataset.state='open';s.innerHTML='<div class="toast-slot-inner"><div class="toast-pad"><div class="alert alert-'+el+' toast" style="padding:10px 14px"><div><h4 style="margin:0;font-weight:700;font-size:13px;text-transform:capitalize">'+el+' saved</h4><p style="margin:2px 0 0;font-size:11px;color:var(--color-text-secondary)">Changes stored.</p></div></div></div></div>';ts.appendChild(s);
+setTimeout(()=>{s.dataset.state='closed';setTimeout(()=>s.remove(),600)},3000);}
+toast();setInterval(toast,1100);
+</script></body></html>

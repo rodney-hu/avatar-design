@@ -1,0 +1,11 @@
+<!-- @dsCard group="Motion" viewport="700x180" subtitle="Halo and content separate by depth — 80px range, halo at 0.35, content at 0.08" name="Parallax layers" -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="../styles.css">
+<style>body{margin:0;background:var(--color-surface-void);color:var(--color-text-primary);font-family:var(--font-body);padding:16px}.k{font-family:var(--font-mono);font-size:10px;color:var(--color-text-muted)}.row{display:flex;gap:12px;align-items:center}.tile{background:var(--color-surface-raised);border:1px solid var(--color-border-default);border-radius:var(--radius-lg);padding:12px;font-size:12px;color:var(--color-text-secondary)}</style></head>
+<body><div style="position:relative;height:120px;border-radius:var(--radius-lg);border:1px solid var(--color-border-subtle);overflow:hidden;background:var(--color-surface-base)">
+<div class="bg-halo-fire" data-parallax="0.35" style="position:absolute;inset:-30% 0 auto 0;height:160%;--parallax-y:-22px"></div>
+<div data-parallax="0.08" style="position:relative;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;--parallax-y:5px">
+<div style="font-family:var(--font-display);font-weight:800;font-size:28px;letter-spacing:var(--tracking-display);line-height:1.1" class="text-glow-fire">Harness the Elements</div>
+<div style="font-size:12px;color:var(--color-text-secondary)">Foreground drifts at a fraction of the halo's rate</div>
+</div></div>
+<div class="k" style="margin-top:10px">data-parallax="0.35" · --motion-parallax-range 80px · transform only, never top/margin</div>
+<script src="../assets/motion.js"></script></body></html>

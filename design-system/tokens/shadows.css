@@ -1,0 +1,21 @@
+/* Glows do the work shadows normally would. Each element has a two-stop halo:
+   a 20px core in the glow step and a 60px ambient bloom in the 500 step.
+   Static tokens for component rules; for scoped/sized glows use .glow-* classes. */
+:root{
+  --glow-strength:1; /* @kind other */
+  --shadow-fire:0 0 20px rgb(var(--fire-glow-rgb) / calc(0.35 * var(--glow-strength))),0 0 60px rgb(var(--fire-500-rgb) / calc(0.18 * var(--glow-strength)));
+  --shadow-water:0 0 20px rgb(var(--water-glow-rgb) / calc(0.35 * var(--glow-strength))),0 0 60px rgb(var(--water-500-rgb) / calc(0.18 * var(--glow-strength)));
+  --shadow-earth:0 0 20px rgb(var(--earth-glow-rgb) / calc(0.35 * var(--glow-strength))),0 0 60px rgb(var(--earth-500-rgb) / calc(0.18 * var(--glow-strength)));
+  --shadow-air:0 0 20px rgb(var(--air-glow-rgb) / calc(0.35 * var(--glow-strength))),0 0 60px rgb(var(--air-500-rgb) / calc(0.18 * var(--glow-strength)));
+  --shadow-avatar:0 0 25px rgb(var(--avatar-glow-rgb) / calc(0.5 * var(--glow-strength))),0 0 70px rgb(var(--avatar-glow-rgb) / calc(0.25 * var(--glow-strength)));
+  /* Depth shadow used on hovered cards (see materials.css for the full elevation scale) */
+  --shadow-depth:0 8px 30px rgba(0,0,0,0.5);
+}
+.light{
+  --glow-strength:0.8; /* @kind other */
+  --shadow-fire:0 4px 16px rgb(var(--fire-500-rgb) / 0.2),0 12px 40px rgb(var(--fire-500-rgb) / 0.12);
+  --shadow-water:0 4px 16px rgb(var(--water-500-rgb) / 0.2),0 12px 40px rgb(var(--water-500-rgb) / 0.12);
+  --shadow-earth:0 4px 16px rgb(var(--earth-500-rgb) / 0.2),0 12px 40px rgb(var(--earth-500-rgb) / 0.12);
+  --shadow-air:0 4px 16px rgb(var(--air-500-rgb) / 0.22),0 12px 40px rgb(var(--air-500-rgb) / 0.14);
+  --shadow-avatar:0 4px 16px rgb(var(--water-500-rgb) / 0.2),0 12px 40px rgb(var(--water-500-rgb) / 0.12);
+}

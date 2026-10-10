@@ -1,0 +1,507 @@
+/* Elemental Materials & Micro-interactions
+   Source of truth: design-system/tokens/materials.css + interactions.css.
+
+   MATERIALS — depth, glass, grain, edge light, spotlight.
+   Elevation = soft ambient shadow + sharper key shadow + 1px top highlight.
+   All classes compose with the element glows via --elevation-glow.
+
+   MICRO-INTERACTIONS — buttons, form fields, data.
+   Everything rides the motion tokens and the element personality channels
+   (--ui-duration, --ui-ease, --ui-press-scale) from elemental-motion.css.
+   Click bursts, edge-light orbit, spotlight and stat count-up are runtime:
+   showcase/motion.js.
+
+   Tokens are unlayered; rules sit in the components layer after
+   elemental-components.css so they extend those classes and Tailwind
+   utilities can still override them. */
+
+@property --edge-angle {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0deg;
+}
+
+:root {
+  /* Elevation: 0 flat · 1 resting · 2 raised/hover · 3 popover · 4 modal */
+  --edge-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  --elevation-0: none;
+  --elevation-1: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 1px 2px rgba(0, 0, 0, 0.5), 0 2px 8px rgba(0, 0, 0, 0.25);
+  --elevation-2: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 2px 4px rgba(0, 0, 0, 0.45), 0 10px 28px rgba(0, 0, 0, 0.38);
+  --elevation-3: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 4px 10px rgba(0, 0, 0, 0.42), 0 20px 52px rgba(0, 0, 0, 0.5);
+  --elevation-4: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 8px 18px rgba(0, 0, 0, 0.45), 0 36px 90px rgba(0, 0, 0, 0.6);
+  /* Glass tiers */
+  --glass-thin-bg: rgba(26, 26, 26, 0.42);
+  --glass-thin-blur: blur(8px) saturate(140%);
+  --glass-bg: rgba(26, 26, 26, 0.62);
+  --glass-blur: blur(16px) saturate(160%);
+  --glass-thick-bg: rgba(20, 20, 20, 0.8);
+  --glass-thick-blur: blur(28px) saturate(180%);
+  --glass-edge: linear-gradient(180deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.04) 38%, rgba(255, 255, 255, 0.02) 70%, rgba(255, 255, 255, 0.1) 100%);
+  /* Grain */
+  --grain-opacity: 0.07;
+  --grain-blend: overlay;
+  /* Edge light + spotlight */
+  --edge-light-duration: 6s;
+  --edge-light-rgb: var(--fire-500-rgb);
+  --spotlight-size: 420px;
+  --spotlight-strength: 0.12;
+  --spot-on: 0; /* runtime channel written by motion.js */
+}
+
+.light {
+  --edge-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  --elevation-1: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 1px 2px rgba(60, 40, 24, 0.08), 0 2px 8px rgba(60, 40, 24, 0.06);
+  --elevation-2: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 2px 4px rgba(60, 40, 24, 0.08), 0 10px 28px rgba(60, 40, 24, 0.1);
+  --elevation-3: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 4px 10px rgba(60, 40, 24, 0.08), 0 20px 52px rgba(60, 40, 24, 0.14);
+  --elevation-4: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 8px 18px rgba(60, 40, 24, 0.1), 0 36px 90px rgba(60, 40, 24, 0.2);
+  --glass-thin-bg: rgba(255, 255, 255, 0.45);
+  --glass-bg: rgba(255, 255, 255, 0.66);
+  --glass-thick-bg: rgba(255, 255, 255, 0.82);
+  --glass-edge: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(26, 26, 26, 0.06) 45%, rgba(26, 26, 26, 0.1) 100%);
+  --grain-opacity: 0.05;
+  --grain-blend: multiply;
+}
+
+.element-water {
+  --edge-light-rgb: var(--water-500-rgb);
+}
+
+.element-earth {
+  --edge-light-rgb: var(--earth-500-rgb);
+}
+
+.element-air {
+  --edge-light-rgb: var(--air-500-rgb);
+}
+
+@layer components {
+  /* Rings sit over the 1px border at inset:-1px; parents that clip (.card) must not. */
+  .edge-light, .border-gradient, [data-spotlight] {
+    overflow: visible;
+  }
+
+  .navbar-edge {
+    box-shadow: var(--edge-highlight);
+  }
+
+  .navbar.elevation-2 {
+    transition: box-shadow var(--motion-duration-fast) var(--motion-ease);
+  }
+
+  /* ---- Elevation ---- */
+  .elevation-0 {
+    box-shadow: var(--elevation-glow, 0 0 #0000);
+  }
+
+  .elevation-1 {
+    box-shadow: var(--elevation-1), var(--elevation-glow, 0 0 #0000);
+  }
+
+  .elevation-2 {
+    box-shadow: var(--elevation-2), var(--elevation-glow, 0 0 #0000);
+  }
+
+  .elevation-3 {
+    box-shadow: var(--elevation-3), var(--elevation-glow, 0 0 #0000);
+  }
+
+  .elevation-4 {
+    box-shadow: var(--elevation-4), var(--elevation-glow, 0 0 #0000);
+  }
+
+  .elevation-lift {
+    transition: box-shadow var(--motion-duration-fast) var(--motion-ease), transform var(--motion-duration-fast) var(--motion-ease);
+  }
+
+  .elevation-lift:hover {
+    box-shadow: var(--elevation-3), var(--elevation-glow, 0 0 #0000);
+    transform: translateY(-2px);
+  }
+
+  /* ---- Glass tiers ---- */
+  .glass-thin, .glass, .glass-thick {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .glass-thin {
+    background: var(--glass-thin-bg);
+    backdrop-filter: var(--glass-thin-blur);
+    -webkit-backdrop-filter: var(--glass-thin-blur);
+  }
+
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+  }
+
+  .glass-thick {
+    background: var(--glass-thick-bg);
+    backdrop-filter: var(--glass-thick-blur);
+    -webkit-backdrop-filter: var(--glass-thick-blur);
+  }
+
+  /* ---- Gradient border (1px lit edge, brightest on top) ---- */
+  .border-gradient {
+    position: relative;
+    border-color: transparent!important;
+  }
+
+  .border-gradient::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    pointer-events: none;
+    background: var(--border-gradient, var(--glass-edge));
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
+
+  /* ---- Grain overlay ---- */
+  .grain {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: 1;
+    opacity: var(--grain-opacity);
+    mix-blend-mode: var(--grain-blend);
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    background-size: 160px 160px;
+  }
+
+  .light .grain::after, .grain.light::after {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.2 0 0 0 0 0.14 0 0 0 0 0.08 0 0 0 1 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+
+  /* ---- Edge light: a comet of element color orbiting the border ----
+     Reserve for ONE featured surface per view (pricing "popular", hero card).
+     The orbit is driven by showcase/motion.js writing --edge-angle each frame. */
+  .edge-light {
+    position: relative;
+    isolation: isolate;
+    border-color: transparent!important;
+  }
+
+  .edge-light::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    pointer-events: none;
+    background: conic-gradient(from var(--edge-angle), rgb(var(--edge-light-rgb) / 0.12) 0deg, rgb(var(--edge-light-rgb) / 0.12) 220deg, rgb(var(--edge-light-rgb) / 0.9) 300deg, rgb(255 255 255 / 0.95) 320deg, rgb(var(--edge-light-rgb) / 0.12) 345deg);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
+
+  .edge-light::after {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    z-index: -1;
+    pointer-events: none;
+    background: conic-gradient(from var(--edge-angle), transparent 0deg, transparent 260deg, rgb(var(--edge-light-rgb) / 0.55) 315deg, transparent 350deg);
+    filter: blur(14px);
+    opacity: 0.7;
+  }
+
+  /* ---- Cursor spotlight (driven by showcase/motion.js: [data-spotlight]) ----
+     Light pools under the pointer on the fill AND brightens the border nearest it. */
+  [data-spotlight] {
+    position: relative;
+    isolation: isolate;
+  }
+
+  [data-spotlight]>.spotlight-fill, [data-spotlight]::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    pointer-events: none;
+    transition: opacity var(--motion-duration-fast) var(--motion-ease);
+    opacity: var(--spot-on);
+  }
+
+  [data-spotlight]::before {
+    padding: 1px;
+    background: radial-gradient(calc(var(--spotlight-size) * 0.6) circle at var(--pointer-x) var(--pointer-y), rgb(var(--edge-light-rgb) / 0.85), transparent 70%);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    z-index: 2;
+  }
+
+  [data-spotlight] {
+    background-image: radial-gradient(var(--spotlight-size) circle at var(--pointer-x) var(--pointer-y), rgb(var(--edge-light-rgb) / calc(var(--spotlight-strength) * var(--spot-on))), transparent 60%);
+  }
+
+  /* ==========================================
+     MICRO-INTERACTIONS
+     ========================================== */
+  /* ---- Button sheen: a diagonal light sweep across the face on hover ---- */
+  .btn {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  .btn::after {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    pointer-events: none;
+    border-radius: inherit;
+    background: linear-gradient(105deg, transparent 30%, rgb(255 255 255 / var(--sheen-strength, 0.26)) 48%, rgb(255 255 255 / calc(var(--sheen-strength, 0.26) * 0.4)) 54%, transparent 70%);
+    transform: translateX(-110%);
+    transition: transform 0s linear var(--duration-slow);
+  }
+
+  .btn:hover::after {
+    transform: translateX(110%);
+    transition: transform calc(var(--ui-duration) * 3.2) var(--ease-standard);
+  }
+
+  .btn-outline, .btn-ghost {
+    --sheen-strength: 0.08;
+  }
+
+  .btn-air {
+    --sheen-strength: 0.3;
+  }
+
+  .btn-no-sheen::after, .btn:disabled::after {
+    display: none;
+  }
+
+  /* ---- Click burst layer (particles spawned by showcase/motion.js) ---- */
+  .em-burst-layer {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2147483000;
+    overflow: visible;
+  }
+
+  .em-burst-layer>i {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: block;
+    border-radius: 50%;
+    will-change: transform, opacity;
+  }
+
+  /* ---- Fields: focus bloom + underline sweep ----
+     --field-rgb tints both. .input-<el> retints. */
+  .input, .select, .textarea {
+    --field-rgb: var(--fire-500-rgb);
+  }
+
+  .input-water, .field-water {
+    --field-rgb: var(--water-500-rgb);
+  }
+
+  .input-earth, .field-earth {
+    --field-rgb: var(--earth-500-rgb);
+  }
+
+  .input-air, .field-air {
+    --field-rgb: var(--air-500-rgb);
+  }
+
+  .input:focus, .select:focus, .textarea:focus {
+    border-color: rgb(var(--field-rgb));
+    box-shadow: 0 0 0 3px rgb(var(--field-rgb) / 0.2), 0 0 18px rgb(var(--field-rgb) / calc(0.16 * var(--glow-strength, 1)));
+    background: var(--color-surface-base);
+    animation: field-bloom var(--duration-moderate) var(--ease-enter);
+  }
+
+  @keyframes field-bloom {
+    0% {
+      box-shadow: 0 0 0 0 rgb(var(--field-rgb) / 0.55), 0 0 0 rgb(var(--field-rgb) / 0);
+    }
+    45% {
+      box-shadow: 0 0 0 6px rgb(var(--field-rgb) / 0.18), 0 0 30px rgb(var(--field-rgb) / calc(0.32 * var(--glow-strength, 1)));
+    }
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    width: 100%;
+  }
+
+  .field-control {
+    position: relative;
+    display: block;
+  }
+
+  .field-line {
+    position: absolute;
+    left: 10%;
+    right: 10%;
+    bottom: 0;
+    height: 2px;
+    border-radius: 2px;
+    pointer-events: none;
+    background: linear-gradient(90deg, transparent, rgb(var(--field-rgb)) 25%, rgb(var(--field-rgb)) 75%, transparent);
+    box-shadow: 0 0 10px rgb(var(--field-rgb) / 0.6);
+    transform: scaleX(0);
+    transform-origin: left center;
+    opacity: 0;
+    transition: transform var(--duration-moderate) var(--ease-enter), opacity var(--duration-fast) var(--ease-enter);
+  }
+
+  .field-control:focus-within .field-line {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+
+  .field-label {
+    transition: color var(--duration-fast) var(--ease-enter);
+  }
+
+  .field:focus-within .field-label {
+    color: rgb(var(--field-rgb));
+  }
+
+  /* ---- Checkbox: pop + tick draws itself in ---- */
+  .check {
+    position: relative;
+    display: inline-grid;
+    place-items: center;
+    flex: none;
+    --field-rgb: var(--fire-500-rgb);
+  }
+
+  .check>.checkbox {
+    appearance: none;
+    -webkit-appearance: none;
+    margin: 0;
+    grid-area: 1/1;
+    display: block;
+    transition: background-color var(--duration-fast) var(--ease-enter), border-color var(--duration-fast) var(--ease-enter), box-shadow var(--duration-base) var(--ease-enter);
+  }
+
+  .check>.checkbox:hover {
+    border-color: rgb(var(--field-rgb) / 0.7);
+  }
+
+  .check>.checkbox:focus-visible {
+    outline: 2px solid rgb(var(--field-rgb));
+    outline-offset: 2px;
+  }
+
+  .check>.checkbox:checked {
+    background: rgb(var(--field-rgb));
+    border-color: rgb(var(--field-rgb));
+    box-shadow: 0 0 12px rgb(var(--field-rgb) / calc(0.45 * var(--glow-strength, 1)));
+    animation: check-pop var(--duration-moderate) var(--ease-spring);
+  }
+
+  .check-mark {
+    grid-area: 1/1;
+    width: 0.8rem;
+    height: 0.8rem;
+    pointer-events: none;
+    overflow: visible;
+  }
+
+  .check-mark path {
+    fill: none;
+    stroke: #ffffff;
+    stroke-width: 2.4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    transition: stroke-dashoffset var(--duration-instant) var(--ease-exit);
+  }
+
+  .check>.checkbox:checked+.check-mark path {
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset var(--duration-base) var(--ease-enter) 60ms;
+  }
+
+  @keyframes check-pop {
+    0% {
+      transform: scale(0.8);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  /* ---- Toggle: knob stretches while pressed (the slide already springs) ---- */
+  .toggle-switch:active .toggle-slider:before {
+    transform: scaleX(1.28);
+    transform-origin: left center;
+  }
+
+  .toggle-switch:active input:checked+.toggle-slider:before {
+    transform: translateX(0.92rem) scaleX(1.28);
+  }
+
+  /* ---- Data: tabular figures, change flash ---- */
+  .stat-value {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .stat-card[data-flash="up"] {
+    animation: stat-flash-up var(--duration-slower) var(--ease-enter);
+  }
+
+  .stat-card[data-flash="down"] {
+    animation: stat-flash-down var(--duration-slower) var(--ease-enter);
+  }
+
+  .stat-card[data-flash="up"] .stat-delta {
+    animation: stat-nudge-up var(--duration-moderate) var(--ease-spring);
+  }
+
+  .stat-card[data-flash="down"] .stat-delta {
+    animation: stat-nudge-down var(--duration-moderate) var(--ease-spring);
+  }
+
+  @keyframes stat-flash-up {
+    0% {
+      box-shadow: inset 0 0 0 1px rgb(var(--earth-500-rgb) / 0.9), 0 0 26px rgb(var(--earth-glow-rgb) / calc(0.35 * var(--glow-strength, 1)));
+      background-color: rgb(var(--earth-500-rgb) / 0.1);
+    }
+  }
+
+  @keyframes stat-flash-down {
+    0% {
+      box-shadow: inset 0 0 0 1px rgb(var(--fire-500-rgb) / 0.9), 0 0 26px rgb(var(--fire-glow-rgb) / calc(0.35 * var(--glow-strength, 1)));
+      background-color: rgb(var(--fire-500-rgb) / 0.1);
+    }
+  }
+
+  @keyframes stat-nudge-up {
+    0% {
+      transform: translateY(4px);
+      opacity: .4;
+    }
+  }
+
+  @keyframes stat-nudge-down {
+    0% {
+      transform: translateY(-4px);
+      opacity: .4;
+    }
+  }
+}

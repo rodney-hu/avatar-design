@@ -5,9 +5,9 @@
   "main": "src/index.css",
   "style": "src/index.css",
   "scripts": {
-    "build": "npx @tailwindcss/cli -i showcase/main.css -o showcase/dist/output.css --minify",
-    "build:showcase": "npx @tailwindcss/cli -i showcase/main.css -o showcase/dist/output.css --minify",
-    "dev:showcase": "npx @tailwindcss/cli -i showcase/main.css -o showcase/dist/output.css --watch",
+    "build": "mkdir -p showcase/dist/fonts && cp src/fonts/*.ttf showcase/dist/fonts/ && npx @tailwindcss/cli -i showcase/main.css -o showcase/dist/output.css --minify",
+    "build:showcase": "npm run build",
+    "dev:showcase": "mkdir -p showcase/dist/fonts && cp src/fonts/*.ttf showcase/dist/fonts/ && npx @tailwindcss/cli -i showcase/main.css -o showcase/dist/output.css --watch",
     "serve": "npx serve showcase"
   },
   "keywords": [

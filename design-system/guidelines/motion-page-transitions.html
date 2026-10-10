@@ -1,0 +1,16 @@
+<!-- @dsCard group="Motion" viewport="760x320" name="Page transitions" subtitle="ElementalMotion.transition(fn): old page lifts out, new rises in. Elements sharing data-vt morph between positions; the active nav link slides" -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="../styles.css">
+<style>body{margin:0;background:var(--color-surface-void);color:var(--color-text-primary);font-family:var(--font-body)}.bar{display:flex;align-items:center;gap:6px;padding:12px 20px;border-bottom:1px solid var(--color-border-subtle)}.pg{padding:22px 24px;display:grid;gap:18px}.tile{border-radius:var(--radius-lg);background:linear-gradient(135deg,var(--color-fire-700),var(--color-fire-500))}.ln{height:10px;border-radius:5px;background:var(--color-surface-raised)}.note{font-family:var(--font-mono);font-size:10px;color:var(--color-text-muted);margin-left:auto}</style></head>
+<body>
+<div class="bar"><a href="#" class="nav-link" data-p="a">Overview</a><a href="#" class="nav-link" data-p="b">Detail</a><span class="note">shared: data-vt="hero-tile"</span></div>
+<div id="page"></div>
+<script src="../assets/motion.js"></script>
+<script>
+const P={a:'<div class="pg" style="grid-template-columns:1.2fr 1fr"><div class="tile" data-vt="hero-tile" style="height:190px"></div><div style="display:grid;gap:12px;align-content:center"><h3 style="margin:0;font-family:var(--font-display);font-weight:800;font-size:22px">The Fire Nation</h3><div class="ln" style="width:90%"></div><div class="ln" style="width:70%"></div><div class="ln" style="width:80%"></div></div></div>',
+b:'<div class="pg" style="grid-template-columns:1fr 96px"><div style="display:grid;gap:12px;align-content:start"><h3 style="margin:0;font-family:var(--font-display);font-weight:800;font-size:22px">Detail</h3><div class="ln" style="width:95%"></div><div class="ln" style="width:85%"></div><div class="ln" style="width:92%"></div><div class="ln" style="width:60%"></div></div><div class="tile" data-vt="hero-tile" style="height:96px"></div></div>'};
+let cur=null;
+function show(k){cur=k;document.getElementById('page').innerHTML=P[k];document.querySelectorAll('[data-p]').forEach(a=>a.classList.toggle('nav-link-active',a.dataset.p===k));}
+function go(k){if(k===cur)return;ElementalMotion.transition(()=>show(k));}
+document.querySelectorAll('[data-p]').forEach(a=>a.onclick=e=>{e.preventDefault();go(a.dataset.p)});
+show('a');ElementalMotion.scan();setInterval(()=>go(cur==='a'?'b':'a'),2600);
+</script></body></html>
