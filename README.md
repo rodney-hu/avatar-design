@@ -10,7 +10,7 @@ A premium, dark-first design system inspired by the Avatar: The Last Airbender u
 - **Water, Earth and Air accents**: oceanic blue, emerald and amber ramps for secondary actions, success and notice states.
 - **Avatar State**: a cyan accent and a multi-element animated glow.
 - **Dark-first surfaces**: a layered depth system (`#0a0a0a` to `#2f2f2f`) with a warm parchment light theme (`.light`).
-- **Typography**: Inter 700–800 with negative tracking for every headline, Inter for body copy, JetBrains Mono for code, and the Takashi Japan brush face for standalone one- or two-word element accents only.
+- **Typography**: Inter 700–800 with negative tracking for headlines, Cinzel 800 for the Display XL hero (72px), Inter for body copy, JetBrains Mono for code, and the Takashi Japan brush face for standalone one- or two-word element accents only.
 - **Glow system**: core halo + ambient bloom per element, four sizes, a global `--glow-strength`, scoped by `.element-*`, soft drop shadows on light.
 - **Materials**: elevation 0–4, three glass tiers, lit gradient borders, film grain, an orbiting edge light and a cursor spotlight.
 - **Motion**: one duration and easing scale, element motion personalities, choreography, exit animations, view-transition page changes and micro-interactions (button sheen, click bursts, focus bloom, checkbox draw-in, stat count-up).

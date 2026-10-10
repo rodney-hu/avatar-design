@@ -7,11 +7,12 @@
 
 @theme static {
   /* ---------------- TYPOGRAPHY ----------------
-     Inter 700-800 with negative tracking is the headline face for every tier.
+     Inter 700-800 with negative tracking is the headline face for every tier, except Display XL (hero), which is Cinzel 800.
      The brush face (Takashi Japan) is only for standalone one- or two-word
      element headings, never inside prose or a headline line. */
   --font-brush: "Takashi Japan", "Brush Script MT", cursive;
   --font-display: "Inter", system-ui, -apple-system, sans-serif;
+  --font-hero: "Cinzel", Georgia, serif;
   --font-body: "Inter", system-ui, -apple-system, sans-serif;
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
   --font-mono: "JetBrains Mono", monospace;
@@ -211,7 +212,7 @@
   --weight-black: 900;
 
   /* Semantic type roles */
-  --type-hero: var(--weight-extrabold) var(--text-hero) / var(--leading-tight) var(--font-display);
+  --type-hero: var(--weight-extrabold) var(--text-hero) / var(--leading-tight) var(--font-hero);
   --type-heading: var(--weight-bold) var(--text-3xl) / var(--leading-snug) var(--font-display);
   --type-body: var(--weight-regular) var(--text-base) / var(--leading-relaxed) var(--font-body);
   --type-code: var(--weight-regular) var(--text-sm) / var(--leading-normal) var(--font-mono);
