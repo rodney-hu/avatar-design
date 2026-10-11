@@ -18,7 +18,7 @@
     "elemental-theme",
     "dark-mode"
   ],
-  "author": "Antigravity",
+  "author": "Rodney Hu",
   "license": "MIT",
   "devDependencies": {
     "@tailwindcss/cli": "^4.0.0",
