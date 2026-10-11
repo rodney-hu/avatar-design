@@ -10,7 +10,7 @@ A premium, dark-first design system inspired by the Avatar: The Last Airbender u
 - **Water, Earth and Air accents**: oceanic blue, emerald and amber ramps for secondary actions, success and notice states.
 - **Avatar State**: a cyan accent and a multi-element animated glow.
 - **Dark-first surfaces**: a layered depth system (`#0a0a0a` to `#2f2f2f`) with a warm parchment light theme (`.light`).
-- **Typography**: Inter 700–800 with negative tracking for headlines, Cinzel 800 for the Display XL hero (72px), Inter for body copy, JetBrains Mono for code, and the Takashi Japan brush face for standalone one- or two-word element accents only.
+- **Typography**: Cinzel 800 for the Display XL hero (72px), Inter (700–800, negative tracking) for body copy and every other heading, JetBrains Mono for code, and the Avatar Airbender brush face for standalone single-line headings only.
 - **Glow system**: core halo + ambient bloom per element, four sizes, a global `--glow-strength`, scoped by `.element-*`, soft drop shadows on light.
 - **Materials**: elevation 0–4, three glass tiers, lit gradient borders, film grain, an orbiting edge light and a cursor spotlight.
 - **Motion**: one duration and easing scale, element motion personalities, choreography, exit animations, view-transition page changes and micro-interactions (button sheen, click bursts, focus bloom, checkbox draw-in, stat count-up).
@@ -60,7 +60,7 @@ Then open `http://localhost:3000`.
 - `src/elemental-components.css`: component classes (buttons, cards, forms, navigation, data, alerts, modal, tooltip, hero, pricing, testimonials).
 - `src/elemental-materials.css`: elevation, glass, gradient border, grain, edge light, spotlight and micro-interactions.
 - `src/elemental-motion.css`: motion tokens, choreography, exits, toasts, popovers, page transitions, scroll/pointer effects and element personalities. **Must load last.**
-- `src/fonts/`: Takashi Japan brush face (see licence note below).
+- `src/fonts/`: Avatar Airbender brush face and its licence (free for personal and commercial use; credit FontGet.com if you redistribute it).
 - `showcase/`: interactive showcase (`index.html`, `main.js`, `main.css`, `motion.js`).
 - `design-system/`: reference export from the design project — plain-CSS tokens, reference React components with props (`.d.ts`) and usage rules (`.prompt.md`), guideline specimens (`guidelines/*.html`) and the showcase UI kit. It is the source of truth for values; it is not part of the build.
 - `docs/SKILL.md`: agent skill for designing with the system.
@@ -99,5 +99,5 @@ Keep the pairs in sync — they describe the same colors in two formats.
 
 ## Known risks
 
-- **Font licence.** Takashi Japan is a freeware demo font for non-commercial use. A commercial licence is required before public release.
+- **Font credit.** Avatar Airbender is free for commercial use but must credit FontGet.com if redistributed; keep `src/fonts/LICENSE-AvatarAirbender.txt` with the font.
 - **Reduced motion.** `prefers-reduced-motion` is deliberately not handled, per the brand spec. This is an accessibility risk.

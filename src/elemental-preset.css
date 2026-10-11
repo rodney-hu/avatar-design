@@ -7,10 +7,11 @@
 
 @theme static {
   /* ---------------- TYPOGRAPHY ----------------
-     Inter 700-800 with negative tracking is the headline face for every tier, except Display XL (hero), which is Cinzel 800.
-     The brush face (Takashi Japan) is only for standalone one- or two-word
-     element headings, never inside prose or a headline line. */
-  --font-brush: "Takashi Japan", "Brush Script MT", cursive;
+     Three faces: Cinzel 800 for the Display XL hero only, Inter (700-800,
+     negative tracking) for body copy and every other heading, and the brush
+     face (Avatar Airbender) for standalone single-line headings, never inside
+     prose or an Inter line. */
+  --font-brush: "Avatar Airbender", "Brush Script MT", cursive;
   --font-display: "Inter", system-ui, -apple-system, sans-serif;
   --font-hero: "Cinzel", Georgia, serif;
   --font-body: "Inter", system-ui, -apple-system, sans-serif;
