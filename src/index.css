@@ -9,22 +9,14 @@
 @import "./elemental-materials.css";
 @import "./elemental-motion.css";
 
-/* Brush accent face, vendored in src/fonts/.
-   LICENCE: Takashi Japan is a freeware demo font for NON-COMMERCIAL use
-   (fontspace.com/takashi-japan-font-f163898). A commercial licence is
-   required before public release. */
+/* Brush accent face, vendored in src/fonts/. Avatar Airbender is free for
+   personal and commercial use; credit FontGet.com if you redistribute it
+   (see src/fonts/LICENSE-AvatarAirbender.txt). One style only. */
 @font-face {
-  font-family: "Takashi Japan";
-  src: url("./fonts/TakashiJapan-Regular.ttf") format("truetype");
+  font-family: "Avatar Airbender";
+  src: url("./fonts/AvatarAirbender.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Takashi Japan";
-  src: url("./fonts/TakashiJapan-Italic.ttf") format("truetype");
-  font-weight: 400;
-  font-style: italic;
   font-display: swap;
 }
 
@@ -89,13 +81,6 @@
    Inter line. 1.75rem and up only. One weight, no bold. */
 .brush {
   font-family: var(--font-brush);
-  font-weight: 400;
-  letter-spacing: var(--tracking-brush);
-  line-height: var(--leading-brush);
-}
-.brush-italic {
-  font-family: var(--font-brush);
-  font-style: italic;
   font-weight: 400;
   letter-spacing: var(--tracking-brush);
   line-height: var(--leading-brush);
