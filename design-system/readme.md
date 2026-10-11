@@ -32,9 +32,9 @@ The voice is confident, in-world, and slightly theatrical. Product nouns are rep
 
 **Surfaces.** Dark-first, five near-black layers: void `#0a0a0a` → base `#0d0d0d` → raised `#1a1a1a` → elevated `#252525` → overlay `#2f2f2f`. A second theme, `.light`, swaps them for warm parchment (`#f5f0eb` → `#ffffff`) with earth-toned borders. Two background colors per screen is the practical limit: void for the page, base or raised for cards.
 
-**Type.** Three tiers. **Inter** (300–800) is the DEFAULT headline face at every scale — hero titles, section headings, card titles, stat values, prices and the brand lockup, set at 700–800 with `--tracking-display` (-0.02em), plus all interface copy at a 15px base. **Takashi Japan** (brush, one weight, regular + italic) appears only where it is specifically referenced — as its own standalone heading or section, e.g. an element name heading a block — applied with `.brush`/`.brush-italic` to the whole element, at 1.75rem and up. It is never mixed into an Inter line as an accent; that breaks the flow. **JetBrains Mono** is code, token names and numeric keys. Body prose runs 1.6 line-height; brush runs 1.18 (its strokes overhang). Never set a subhead, label, numeral or body string in brush, and never put a brush span inside an Inter heading.
+**Type.** Three faces plus mono. **Cinzel** (800, `--font-hero`) is the Display XL hero title only (`.hero-title`, `--type-hero`). **Inter** (300–800) is every other headline tier — section headings, card titles, stat values, prices and the brand lockup, set at 700–800 with `--tracking-display` (-0.02em), plus all interface copy at a 15px base. **Avatar Airbender** (brush, one weight, no italic) appears only where it is specifically referenced — as a standalone single-line heading or section, e.g. an element name heading a block — applied with `.brush` to the whole element, at 1.75rem and up. It is never mixed into an Inter line as an accent; that breaks the flow. **JetBrains Mono** is code, token names and numeric keys. Body prose runs 1.6 line-height; brush runs 1.18 (its strokes overhang). Never set a subhead, label, numeral or body string in brush, and never put a brush span inside an Inter heading.
 
-**Type divergence from source.** Upstream uses Cinzel for all display type. Cinzel was removed at the user's direction; Inter now carries every headline tier; the brush face is reserved for standalone headings where it is specifically referenced. The token name `--font-display` was kept so consuming code does not break.
+**Type divergence from source.** Upstream uses Cinzel for all display type. Cinzel is now kept for the hero title only; Inter carries every other headline tier; the brush face is reserved for standalone headings where it is specifically referenced. The token name `--font-display` was kept so consuming code does not break.
 
 **Backgrounds.** No photography, no illustration, no repeating texture, no grain. Depth comes from two devices only: flat layered surfaces, and top-anchored radial halos at 18–20% alpha (`.bg-halo-*`, `.hero-*`) that fade to transparent by 70%. Gradients exist but are restricted — 135° two-stop fills on buttons, three-stop `.gradient-*` for decorative blocks, and one four-stop `gradient-avatar` spanning all four elements.
 
@@ -164,7 +164,7 @@ Root manifest:
 | `components/` | React primitives, grouped by concern (below) |
 | `ui_kits/showcase/` | Interactive recreation of the source's showcase site |
 | `guidelines/` | 35 foundation specimen cards (Colors, Type, Spacing, Brand, Motion) |
-| `assets/fonts/` | Takashi Japan brush face (regular + italic) |
+| `assets/fonts/` | Avatar Airbender brush face + licence |
 | `assets/motion.js` | Motion runtime — reveal, stagger, bloom, parallax, tilt |
 | `thumbnail.html` | Homepage tile |
 | `SKILL.md` | Agent Skills entry point |
@@ -192,5 +192,5 @@ No slide template exists in the source, so no sample slides were authored.
 ## Caveats
 
 - **`prefers-reduced-motion` is deliberately ignored**, per direction. Users who set that OS preference will still get the full reveal, bloom, parallax and tilt choreography. If this system ships to a public audience, add a `@media (prefers-reduced-motion: reduce)` block to `tokens/motion.css` that zeroes `--motion-rise` and `--motion-parallax-range` and disables the drift animation — that keeps the fades and drops all movement, which is the usual compromise.
-- **Fonts.** Inter and JetBrains Mono load from the Google CDN, as upstream does. **Takashi Japan is vendored in `assets/fonts/` and is licensed Freeware, NON-COMMERCIAL** ([source](https://www.fontspace.com/takashi-japan-font-f163898)) — a commercial licence is required before this ships to production. These are also "Demo" builds, so glyph coverage may be incomplete (accents, punctuation, some numerals); check any new string at hero scale.
+- **Fonts.** Cinzel, Inter and JetBrains Mono load from the Google CDN. **Avatar Airbender** is vendored in `assets/fonts/`; it is free for personal and commercial use, with a FontGet.com credit required if the font file is redistributed (`assets/fonts/LICENSE-AvatarAirbender.txt`). It is a display face with limited glyph coverage, so check any new brush string at size.
 - **No logo exists**, so the brand lockup is plain Inter type.

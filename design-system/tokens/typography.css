@@ -1,9 +1,10 @@
-/* Type system — three tiers.
+/* Type system — three faces plus mono.
 
-   INTER (--font-display, 700-800 with negative tracking) is the DEFAULT
-   headline face for every tier: hero titles, section h2, card titles, stat
-   values, prices, the brand lockup.
-   BRUSH (--font-brush, Takashi Japan) appears ONLY where it is specifically
+   CINZEL (--font-hero, 800) is the Display XL hero title ONLY.
+   INTER (--font-display, 700-800 with negative tracking) is every other
+   headline tier: section h2, card titles, stat values, prices, the brand
+   lockup.
+   BRUSH (--font-brush, Avatar Airbender) appears ONLY where it is specifically
    referenced — as its own standalone heading or section (e.g. an element
    name heading a block). Never mixed inline into an Inter line as an accent,
    and never a subhead, label, number or body string. One weight, no bold;
@@ -11,7 +12,8 @@
    BODY (--font-body, Inter 300-700) is all interface copy.
    MONO (--font-mono) is code, token names and numeric keys. */
 :root{
-  --font-brush:"Takashi Japan","Brush Script MT",cursive;
+  --font-brush:"Avatar Airbender","Brush Script MT",cursive;
+  --font-hero:"Cinzel",Georgia,serif;
   --font-display:"Inter",system-ui,-apple-system,sans-serif;
   --font-body:"Inter",system-ui,-apple-system,sans-serif;
   --font-sans:"Inter",system-ui,-apple-system,sans-serif;
@@ -33,7 +35,7 @@
   --tracking-brush:0.01em;
 
   /* Semantic roles */
-  --type-hero:var(--weight-extrabold) var(--text-hero)/var(--leading-tight) var(--font-display);
+  --type-hero:var(--weight-extrabold) var(--text-hero)/var(--leading-tight) var(--font-hero);
   --type-heading:var(--weight-bold) var(--text-3xl)/var(--leading-snug) var(--font-display);
   --type-body:var(--weight-regular) var(--text-base)/var(--leading-relaxed) var(--font-body);
   --type-code:var(--weight-regular) var(--text-sm)/var(--leading-normal) var(--font-mono);
@@ -42,4 +44,3 @@
 /* Standalone utility: apply to a whole heading element, never a span inside
    an Inter line. 1.75rem and up only. */
 .brush{font-family:var(--font-brush);font-weight:400;letter-spacing:var(--tracking-brush);line-height:var(--leading-brush)}
-.brush-italic{font-family:var(--font-brush);font-style:italic;font-weight:400;letter-spacing:var(--tracking-brush);line-height:var(--leading-brush)}
