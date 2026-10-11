@@ -100,7 +100,7 @@ input:checked + .toggle-slider:before{transform:translateX(1.2rem);background-co
 .hero-water{background:radial-gradient(circle at 50% 20%,rgba(0,136,224,0.2) 0%,rgba(13,13,13,0) 70%)}
 .hero-earth{background:radial-gradient(circle at 50% 20%,rgba(39,174,52,0.2) 0%,rgba(13,13,13,0) 70%)}
 .hero-air{background:radial-gradient(circle at 50% 20%,rgba(230,191,0,0.2) 0%,rgba(13,13,13,0) 70%)}
-.hero-title{font-family:var(--font-display);font-size:clamp(2.75rem,6.5vw,5rem);font-weight:800;letter-spacing:var(--tracking-display);line-height:1.1;color:var(--color-text-primary)}
+.hero-title{font-family:var(--font-hero);font-size:clamp(2.75rem,6.5vw,5rem);font-weight:800;letter-spacing:var(--tracking-display);line-height:1.1;color:var(--color-text-primary)}
 .hero-subtitle{font-size:clamp(1.125rem,2vw,1.35rem);color:var(--color-text-secondary);max-width:680px;line-height:1.6}
 .pricing-card{background:var(--color-surface-base);border:1px solid var(--color-border-subtle);border-radius:var(--radius-xl);padding:2.5rem 2rem;display:flex;flex-direction:column;gap:1.5rem;position:relative;transition:box-shadow var(--duration-base) var(--ui-ease),border-color var(--duration-base) var(--ui-ease),transform var(--duration-base) var(--ui-ease)}
 .pricing-featured{background:var(--color-surface-raised);border:2px solid var(--color-fire-500);box-shadow:0 10px 40px rgb(var(--fire-500-rgb) / 0.25);transform:scale(1.03)}
