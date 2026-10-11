@@ -1,4 +1,4 @@
-# Elemental Design System — "Bending UI"
+# Elemental Design System
 
 A premium, dark-first design system inspired by the Avatar: The Last Airbender universe. Built for modern web applications, landing pages, and SaaS tools using Tailwind CSS v4.
 
