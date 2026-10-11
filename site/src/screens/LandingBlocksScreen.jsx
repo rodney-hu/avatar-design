@@ -1,6 +1,12 @@
-const { Badge, Button, Card, PricingCard, TestimonialCard } = window.ElementalUIDesignSystem_5d6c38;
+import React from "react";
+import { Badge } from "@ds/core/Badge.jsx";
+import { Button } from "@ds/core/Button.jsx";
+import { Card } from "@ds/core/Card.jsx";
+import CodeBlock from "../CodeBlock.jsx";
+import { PricingCard } from "@ds/marketing/PricingCard.jsx";
+import { TestimonialCard } from "@ds/marketing/TestimonialCard.jsx";
 
-function LandingBlocksScreen() {
+export default function LandingBlocksScreen() {
   return (
     <main className="shell-main">
       <section style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }} data-halo-bloom="avatar">
@@ -46,13 +52,12 @@ function LandingBlocksScreen() {
         </div>
         <Card style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }} data-reveal>
           <p style={{ margin: 0, fontSize: '0.875rem', color: 'var(--color-text-secondary)' }}>Add this import to your project's main stylesheet:</p>
-          <div className="code-block">
-            <pre style={{ margin: 0 }}><code>{'@import "tailwindcss";\n@import "./path/to/elemental-ds/src/index.css";'}</code></pre>
-          </div>
+          <CodeBlock>{'@import "tailwindcss";\n@import "./path/to/elemental-ds/src/index.css";'}</CodeBlock>
+          <p style={{ margin: 0, fontSize: '0.875rem', color: 'var(--color-text-secondary)' }}>For reveal, tilt, spotlight, edge light, click bursts and page transitions, also load the motion runtime:</p>
+          <CodeBlock>{'<script src="./path/to/elemental-ds/showcase/motion.js"></script>'}</CodeBlock>
         </Card>
       </section>
     </main>
   );
 }
 
-Object.assign(window, { LandingBlocksScreen });

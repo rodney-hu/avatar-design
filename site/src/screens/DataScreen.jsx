@@ -1,6 +1,13 @@
-const { Badge, StatCard, DataTable, Alert, Breadcrumb, Sidebar, SidebarItem } = window.ElementalUIDesignSystem_5d6c38;
+import React from "react";
+import { Badge } from "@ds/core/Badge.jsx";
+import { StatCard } from "@ds/data/StatCard.jsx";
+import { DataTable } from "@ds/data/DataTable.jsx";
+import { Alert } from "@ds/feedback/Alert.jsx";
+import { Breadcrumb } from "@ds/navigation/Breadcrumb.jsx";
+import { Sidebar } from "@ds/navigation/Sidebar.jsx";
+import { SidebarItem } from "@ds/navigation/SidebarItem.jsx";
 
-function DataScreen() {
+export default function DataScreen() {
   const [power, setPower] = React.useState(98.4);
   React.useEffect(() => {
     const t = setInterval(() => setPower((p) => Math.round(Math.min(99.9, Math.max(94, p + (Math.random() - 0.45) * 3)) * 10) / 10), 4000);
@@ -21,7 +28,7 @@ function DataScreen() {
           <StatCard element="earth" label="Seismic Density" value="840 MPa" delta="Ground vibration stable" />
           <StatCard element="air" label="Air Velocity" value="120 km/h" delta="Glider lift optimal" />
         </div>
-        <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }} data-reveal>
+        <div className="data-split" style={{ display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }} data-reveal>
           <Sidebar style={{ height: 'auto', borderRadius: 'var(--radius-lg)', border: '1px solid var(--color-border-subtle)' }}>
             <SidebarItem active>Fire Nation</SidebarItem>
             <SidebarItem>Water Tribe</SidebarItem>
@@ -59,4 +66,3 @@ function DataScreen() {
   );
 }
 
-Object.assign(window, { DataScreen });

@@ -1,4 +1,17 @@
 {
   "buildCommand": "npm run build",
-  "outputDirectory": "showcase"
+  "outputDirectory": "dist",
+  "redirects": [
+    {
+      "source": "/classic",
+      "destination": "/classic/",
+      "permanent": false
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/((?!classic/|assets/).*)",
+      "destination": "/index.html"
+    }
+  ]
 }

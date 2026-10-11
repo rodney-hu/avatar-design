@@ -10,7 +10,7 @@ Read `design-system/readme.md` (visual foundations, motion and glow systems, con
 - `design-system/components/` — reference components: `.d.ts` (props API), `.jsx` (reference implementation), `.prompt.md` (usage rules).
 - `design-system/guidelines/` — specimen pages; open them in a browser.
 - `src/` — the production Tailwind v4 preset and component classes.
-- `showcase/` — the live showcase and `motion.js` runtime.
+- `site/` — the React site (Vite + `design-system/components`, routes `/`, `/components`, `/data`, `/landing`); `showcase/` is the static Tailwind showcase served at `/classic/`.
 
 If creating visual artifacts (slides, mocks, throwaway prototypes, etc), copy assets out and create static HTML files for the user to view. If working on production code, use the classes and tokens in `src/` and follow the rules in the design-system docs.
 

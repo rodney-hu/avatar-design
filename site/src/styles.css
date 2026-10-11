@@ -1,0 +1,5 @@
+/* The one stylesheet source is src/index.css. This entry only tells Tailwind
+   where else to look for utility classes: the design-system components apply
+   text-glow-* and similar @utility classes that Tailwind emits on demand. */
+@import "../../src/index.css";
+@source "../../design-system/components";
