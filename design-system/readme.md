@@ -162,7 +162,6 @@ Root manifest:
 | `styles.css` | Global entry — `@import` list only. Consumers link this one file. |
 | `tokens/` | `fonts.css`, `colors.css`, `surfaces.css`, `typography.css`, `spacing.css`, `radii.css`, `shadows.css`, `animations.css`, `motion.css`, `effects.css`, `components.css` |
 | `components/` | React primitives, grouped by concern (below) |
-| `ui_kits/showcase/` | Interactive recreation of the source's showcase site |
 | `guidelines/` | 35 foundation specimen cards (Colors, Type, Spacing, Brand, Motion) |
 | `assets/fonts/` | Avatar Airbender brush face + licence |
 | `assets/motion.js` | Motion runtime — reveal, stagger, bloom, parallax, tilt |
@@ -183,9 +182,9 @@ The inventory maps 1:1 onto the component families defined in `src/elemental-com
 - **`tokens/spacing.css` and the type-scale tokens** — the source relies on Tailwind's default scale. These name the values its own components already use; no new values were introduced.
 - **`tokens/motion.css` + `assets/motion.js`** — the source has no scroll or pointer motion at all. This layer was authored to the brand's existing easing and glow vocabulary rather than imported from anywhere.
 
-### UI kit
+### Showcase site
 
-`ui_kits/showcase/index.html` — the showcase site, click-through: nav switches sections, the hero's element switcher retints halo/glow/CTA, the theme toggle flips to parchment, and the toast and modal demos work. Screens are `ShowcaseShell.jsx`, `LandingScreen.jsx`, `ComponentsScreen.jsx`, `DataScreen.jsx`, `LandingBlocksScreen.jsx`.
+The UI kit screens now live in `site/src/screens/` (`LandingScreen.jsx`, `ComponentsScreen.jsx`, `DataScreen.jsx`, `LandingBlocksScreen.jsx`) with the shell in `site/src/App.jsx`; Vite builds them against `components/` here, and `npm run dev` serves them. The site is click-through: nav switches sections, the hero's element switcher retints halo/glow/CTA, the theme toggle flips to parchment, and the toast and modal demos work. Routes are `/`, `/components`, `/data` and `/landing`.
 
 No slide template exists in the source, so no sample slides were authored.
 

@@ -1,4 +1,8 @@
-const { Hero, Badge, Button, Card } = window.ElementalUIDesignSystem_5d6c38;
+import React from "react";
+import { Hero } from "@ds/marketing/Hero.jsx";
+import { Badge } from "@ds/core/Badge.jsx";
+import { Button } from "@ds/core/Button.jsx";
+import { Card } from "@ds/core/Card.jsx";
 
 const RAMP = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900];
 const DARK_TEXT = { fire: [50, 100, 200, 300], water: [50, 100, 200, 300], earth: [50, 100, 200, 300, 400], air: [50, 100, 200, 300, 400, 500] };
@@ -34,15 +38,13 @@ function Ramp({ family }) {
 function PaletteBlock({ family, title }) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }} data-reveal>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                <h3 style={{ margin: 0, fontFamily: 'var(--font-display)', fontSize: '1.25rem', fontWeight: 600 }}>{title}</h3>
-      </div>
+      <h3 className="brush" style={{ margin: 0, fontSize: '1.75rem' }}>{title}</h3>
       <Ramp family={family} />
     </div>
   );
 }
 
-function LandingScreen({ onToast, onModal }) {
+export default function LandingScreen({ onToast, onModal }) {
   const [element, setElement] = React.useState('fire');
   const elements = ['fire', 'water', 'earth', 'air'];
   const labels = { fire: 'Fire Nation', water: 'Water Tribe', earth: 'Earth Kingdom', air: 'Air Nomads' };
@@ -87,7 +89,7 @@ function LandingScreen({ onToast, onModal }) {
           </div>
           <PaletteBlock family="fire" title="Fire Nation (Primary Palette)" />
           <PaletteBlock family="water" title="Water Tribe (Secondary Palette)" />
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }} data-reveal>
+          <div className="grid2" data-reveal>
             <PaletteBlock family="earth" title="Earth Kingdom" />
             <PaletteBlock family="air" title="Air Nomads" />
           </div>
@@ -97,23 +99,27 @@ function LandingScreen({ onToast, onModal }) {
           <div className="sec-head" data-reveal>
             <Badge variant="air" style={{ width: 'fit-content' }}>02. Typography</Badge>
             <h2>Type Hierarchy</h2>
-            <p>Inter for every headline, a brush face for standalone element headings and all interface copy, JetBrains Mono for code.</p>
+            <p>Cinzel for the hero, Inter for body copy and headings, the Avatar Airbender brush face for standalone single-line headings, JetBrains Mono for code.</p>
           </div>
           <Card style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }} data-stagger>
             <div style={{ borderBottom: '1px solid var(--color-border-subtle)', paddingBottom: '1rem' }}>
-              <p className="ckey" style={{ textAlign: 'left', margin: '0 0 4px' }}>Display / Inter 800 / 80px</p>
-              <h1 style={{ margin: 0, fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: 'clamp(2.75rem,6.5vw,5rem)', lineHeight: 1.1, letterSpacing: 'var(--tracking-display)', color: 'var(--color-fire-500)' }}>The Fire Nation</h1>
+              <p className="ckey" style={{ textAlign: 'left', margin: '4px 0' }}>Display XL / Cinzel 800 / 72px</p>
+              <h1 style={{ margin: 0, fontFamily: 'var(--font-hero)', fontWeight: 800, fontSize: 'var(--text-hero)', lineHeight: 'var(--leading-tight)', letterSpacing: 'var(--tracking-display)', color: 'var(--color-fire-500)' }}>The Fire Nation</h1>
             </div>
             <div style={{ borderBottom: '1px solid var(--color-border-subtle)', paddingBottom: '1rem' }}>
-              <p className="ckey" style={{ textAlign: 'left', margin: '0 0 4px' }}>Heading LG / Inter 800 / 32px</p>
+              <p className="ckey" style={{ textAlign: 'left', margin: '4px 0' }}>Brush accent / Avatar Airbender / 40px</p>
+              <h2 className="brush" style={{ margin: 0, fontSize: '2.5rem', color: 'var(--color-water-500)' }}>Waterbending</h2>
+            </div>
+            <div style={{ borderBottom: '1px solid var(--color-border-subtle)', paddingBottom: '1rem' }}>
+              <p className="ckey" style={{ textAlign: 'left', margin: '4px 0' }}>Heading LG / Inter 800 / 32px</p>
               <h2 style={{ margin: 0, fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '2rem', letterSpacing: 'var(--tracking-display)' }}>Master All Four Elements</h2>
             </div>
             <div style={{ borderBottom: '1px solid var(--color-border-subtle)', paddingBottom: '1rem' }}>
-              <p className="ckey" style={{ textAlign: 'left', margin: '0 0 4px' }}>Body LG / Inter / 18px</p>
+              <p className="ckey" style={{ textAlign: 'left', margin: '4px 0' }}>Body LG / Inter / 18px</p>
               <p style={{ margin: 0, fontSize: '1.125rem', color: 'var(--color-text-secondary)', lineHeight: 1.6 }}>Water is the element of change. Earth is the element of substance. Fire is the element of power. Air is the element of freedom.</p>
             </div>
             <div>
-              <p className="ckey" style={{ textAlign: 'left', margin: '0 0 4px' }}>Code / JetBrains Mono / 14px</p>
+              <p className="ckey" style={{ textAlign: 'left', margin: '4px 0' }}>Code / JetBrains Mono / 14px</p>
               <code className="code-block" style={{ display: 'block', width: 'fit-content' }}>const bendingMaster = new ElementalBender('Avatar Aang');</code>
             </div>
           </Card>
@@ -123,4 +129,3 @@ function LandingScreen({ onToast, onModal }) {
   );
 }
 
-Object.assign(window, { LandingScreen, PaletteBlock });

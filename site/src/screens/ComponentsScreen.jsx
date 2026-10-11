@@ -1,6 +1,15 @@
-const { Badge, Button, Card, Input, Select, Textarea, Checkbox, ToggleSwitch, Tooltip } = window.ElementalUIDesignSystem_5d6c38;
+import React from "react";
+import { Badge } from "@ds/core/Badge.jsx";
+import { Button } from "@ds/core/Button.jsx";
+import { Card } from "@ds/core/Card.jsx";
+import { Input } from "@ds/forms/Input.jsx";
+import { Select } from "@ds/forms/Select.jsx";
+import { Textarea } from "@ds/forms/Textarea.jsx";
+import { Checkbox } from "@ds/forms/Checkbox.jsx";
+import { ToggleSwitch } from "@ds/forms/ToggleSwitch.jsx";
+import { Tooltip } from "@ds/feedback/Tooltip.jsx";
 
-function ComponentsScreen({ onModal }) {
+export default function ComponentsScreen({ onModal }) {
   const elements = ['fire', 'water', 'earth', 'air', 'avatar'];
   return (
     <main className="shell-main">
@@ -70,7 +79,7 @@ function ComponentsScreen({ onModal }) {
           <h2>Form Controls</h2>
           <p>Inputs with elemental focus halos, custom toggles, and select menus.</p>
         </div>
-        <Card style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }} data-reveal>
+        <Card className="grid2" data-reveal>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
             <Input id="avatar-name" label="Avatar Name" defaultValue="Aang" placeholder="e.g. Aang, Korra, Roku" />
             <Select id="primary-element" label="Primary Element" options={['Firebending', 'Waterbending', 'Earthbending', 'Airbending']} />
@@ -88,4 +97,3 @@ function ComponentsScreen({ onModal }) {
   );
 }
 
-Object.assign(window, { ComponentsScreen });
