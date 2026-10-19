@@ -1,13 +1,13 @@
 The default container for grouped content — panels, feature tiles, form blocks.
 
 ```jsx
-<Card variant="fire">
-  <Badge variant="fire">Fire Nation</Badge>
+<Card element="fire">
+  <Badge element="fire">Fire Nation</Badge>
   <h3>Sun Warrior Temple</h3>
 </Card>
 ```
 
-Elemental variants (fire/water/earth/air) add a 30% tinted border that brightens to 70% on hover with a depth shadow plus a 25px element glow. `glass` is a blurred 65% overlay for content floating above imagery.
+Cards are neutral by default. `element` (any element or status name) adds a 30% tinted border that brightens to 70% on hover with a depth shadow plus a 25px element glow, and scopes the edge light, spotlight and motion personality. `variant` is the surface: `base` (default), `raised`, or `glass`, a blurred 65% overlay for content floating above imagery. A color passed as `variant` still works but is deprecated.
 
 ## Materials
 - `elevation` 0–4 (default 1). Use 2 for hover/raised, `lift` for clickable cards.

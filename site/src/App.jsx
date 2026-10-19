@@ -101,7 +101,7 @@ export default function App() {
         {toasts.map((t) => (
           <div key={t.id} className="toast-slot" data-state={t.closing ? 'closed' : 'open'}>
             <div className="toast-slot-inner"><div className="toast-pad">
-              <Alert variant="fire" className="toast" title="Fire Nation Power Unleashed">Component action completed successfully.</Alert>
+              <Alert element="fire" className="toast" title="Fire Nation Power Unleashed">Component action completed successfully.</Alert>
             </div></div>
           </div>
         ))}

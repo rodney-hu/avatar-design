@@ -1,10 +1,12 @@
+import type { Element } from '../elements';
+
 /**
  * Centered landing hero with a top-anchored elemental radial halo.
  * @startingPoint section="Marketing" subtitle="Centered hero with elemental halo" viewport="700x340"
  */
 export interface HeroProps extends React.HTMLAttributes<HTMLElement> {
-  /** Which halo and title glow to use. Default 'fire'. */
-  element?: 'fire' | 'water' | 'earth' | 'air';
+  /** Which halo and title glow to use. Accepts success, warning and info; danger falls back to fire. Default 'fire'. */
+  element?: Element | 'success' | 'warning' | 'info';
   /** Badge row above the headline. */
   eyebrow?: React.ReactNode;
   /** Inter 800 headline, clamp(2.75rem, 6.5vw, 5rem). No brush spans. */

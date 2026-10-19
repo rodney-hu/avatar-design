@@ -1,4 +1,4 @@
-<!-- @dsCard group="Components" viewport="700x330" name="Feedback" subtitle="Alert variants, Tooltip, and the dialog surface" -->
+<!-- @dsCard group="Components" viewport="700x330" name="Feedback" subtitle="Alert elements, Tooltip, and the dialog surface" -->
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css">
 <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
@@ -12,13 +12,13 @@ function Demo(){
   const [open,setOpen] = React.useState(false);
   return (<>
     <div style={{display:'flex',flexDirection:'column',gap:8}}>
-      <Alert variant="fire"><b>Fire Warning:</b> High thermal activity in the Caldera.</Alert>
-      <Alert variant="water"><b>Water Info:</b> Tidal waves at high tide tonight.</Alert>
-      <Alert variant="earth"><b>Earth Success:</b> Walls fortified at Ba Sing Se.</Alert>
-      <Alert variant="air"><b>Air Notice:</b> Tailwinds favorable for flight.</Alert>
+      <Alert element="fire"><b>Fire Warning:</b> High thermal activity in the Caldera.</Alert>
+      <Alert element="water"><b>Water Info:</b> Tidal waves at high tide tonight.</Alert>
+      <Alert element="earth"><b>Earth Success:</b> Walls fortified at Ba Sing Se.</Alert>
+      <Alert element="air"><b>Air Notice:</b> Tailwinds favorable for flight.</Alert>
     </div>
     <div className="row">
-      <Tooltip text="Cycles all four elements"><Button variant="avatar" size="sm">Avatar State</Button></Tooltip>
+      <Tooltip text="Cycles all four elements"><Button element="avatar" size="sm">Avatar State</Button></Tooltip>
       <Button variant="outline" size="sm" onClick={()=>setOpen(true)}>Open Modal</Button>
     </div>
     <Modal open={open} title="Firebending Scroll" onClose={()=>setOpen(false)}

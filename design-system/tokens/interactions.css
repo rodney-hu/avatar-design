@@ -17,11 +17,16 @@
 .em-burst-layer>i{position:absolute;left:0;top:0;display:block;border-radius:50%;will-change:transform,opacity}
 
 /* ---- Fields: focus bloom + underline sweep ----
-   --field-rgb tints both. .input-<el> retints. */
-.input,.select,.textarea{--field-rgb:var(--fire-500-rgb)}
-.input-water,.field-water{--field-rgb:var(--water-500-rgb)}
-.input-earth,.field-earth{--field-rgb:var(--earth-500-rgb)}
-.input-air,.field-air{--field-rgb:var(--air-500-rgb)}
+   --field-rgb tints the bloom, underline, checkbox and toggle; --field-text is
+   the focused label's text step. Both inherit, so .field-<el> works on the
+   control or any parent. .input-<el> is the old name, kept as an alias. */
+:root{--field-rgb:var(--fire-500-rgb)}
+.field-fire{--field-rgb:var(--fire-500-rgb);--field-text:var(--fire-text)}
+.field-water,.input-water{--field-rgb:var(--water-500-rgb);--field-text:var(--water-text)}
+.field-earth,.input-earth{--field-rgb:var(--earth-500-rgb);--field-text:var(--earth-text)}
+.field-air,.input-air{--field-rgb:var(--air-500-rgb);--field-text:var(--air-text)}
+.field-avatar,.input-avatar{--field-rgb:var(--avatar-glow-rgb);--field-text:var(--avatar-text)}
+.field-danger,.input-danger{--field-rgb:var(--danger-500-rgb);--field-text:var(--danger-text)}
 .input:focus,.select:focus,.textarea:focus{border-color:rgb(var(--field-rgb));box-shadow:0 0 0 3px rgb(var(--field-rgb) / 0.2),0 0 18px rgb(var(--field-rgb) / calc(0.16 * var(--glow-strength,1)));background:var(--color-surface-base);animation:field-bloom var(--duration-moderate) var(--ease-enter)}
 @keyframes field-bloom{0%{box-shadow:0 0 0 0 rgb(var(--field-rgb) / 0.55),0 0 0 rgb(var(--field-rgb) / 0)}45%{box-shadow:0 0 0 6px rgb(var(--field-rgb) / 0.18),0 0 30px rgb(var(--field-rgb) / calc(0.32 * var(--glow-strength,1)))}}
 .field{display:flex;flex-direction:column;gap:0.25rem;width:100%}
@@ -29,10 +34,10 @@
 .field-line{position:absolute;left:10%;right:10%;bottom:0;height:2px;border-radius:2px;pointer-events:none;background:linear-gradient(90deg,transparent,rgb(var(--field-rgb)) 25%,rgb(var(--field-rgb)) 75%,transparent);box-shadow:0 0 10px rgb(var(--field-rgb) / 0.6);transform:scaleX(0);transform-origin:left center;opacity:0;transition:transform var(--duration-moderate) var(--ease-enter),opacity var(--duration-fast) var(--ease-enter)}
 .field-control:focus-within .field-line{transform:scaleX(1);opacity:1}
 .field-label{transition:color var(--duration-fast) var(--ease-enter)}
-.field:focus-within .field-label{color:rgb(var(--field-rgb))}
+.field:focus-within .field-label{color:var(--field-text,var(--fire-text))}
 
 /* ---- Checkbox: pop + tick draws itself in ---- */
-.check{position:relative;display:inline-grid;place-items:center;flex:none;--field-rgb:var(--fire-500-rgb)}
+.check{position:relative;display:inline-grid;place-items:center;flex:none}
 .check>.checkbox{appearance:none;-webkit-appearance:none;margin:0;grid-area:1/1;display:block;transition:background-color var(--duration-fast) var(--ease-enter),border-color var(--duration-fast) var(--ease-enter),box-shadow var(--duration-base) var(--ease-enter)}
 .check>.checkbox:hover{border-color:rgb(var(--field-rgb) / 0.7)}
 .check>.checkbox:focus-visible{outline:2px solid rgb(var(--field-rgb));outline-offset:2px}

@@ -4,7 +4,7 @@
 <ToggleSwitch id="ember" label="Ember Glow" defaultChecked />
 ```
 
-Checked state fills fire-600 with a 10px fire glow and slides the knob 1.2rem.
+Checked state fills the `element` color (default fire, any element or status name) with a 10px glow and slides the knob 1.2rem.
 
 ## Micro-interactions
 The knob slides on `--ease-spring` and stretches 28% while pressed.

@@ -47,6 +47,8 @@
 .element-water{--edge-light-rgb:var(--water-500-rgb)}
 .element-earth{--edge-light-rgb:var(--earth-500-rgb)}
 .element-air{--edge-light-rgb:var(--air-500-rgb)}
+.element-avatar{--edge-light-rgb:var(--avatar-glow-rgb)}
+.element-danger{--edge-light-rgb:var(--danger-500-rgb)}
 
 /* Rings sit over the 1px border at inset:-1px; parents that clip (.card) must not. */
 .edge-light,.border-gradient,[data-spotlight]{overflow:visible}

@@ -11,14 +11,14 @@ const { Hero, PricingCard, TestimonialCard, Badge, Button } = window.ElementalUI
 function Demo(){
   return (<>
     <Hero element="fire" style={{padding:'28px 16px',gap:'0.75rem',borderRadius:'var(--radius-lg)',border:'1px solid var(--color-border-subtle)'}}
-      eyebrow={<><Badge variant="fire">Fire</Badge><Badge variant="water">Water</Badge><Badge variant="earth">Earth</Badge><Badge variant="air">Air</Badge></>}
+      eyebrow={<><Badge element="fire">Fire</Badge><Badge element="water">Water</Badge><Badge element="earth">Earth</Badge><Badge element="air">Air</Badge></>}
       title={<span style={{fontSize:'2rem'}}>Harness the Elements</span>}
       subtitle="A complete dark-theme design system for SaaS, landing pages and web apps."
       actions={<><Button size="sm">Get Presets</Button><Button variant="outline" size="sm">Docs</Button></>} />
     <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:18,alignItems:'center'}}>
-      <PricingCard style={{padding:'20px 16px',gap:'0.75rem'}} tier={<Badge variant="air">Initiate</Badge>} name="Air Nomad" price="$19" description="Essential tokens." action={<Button variant="outline" size="sm" fullWidth>Start Trial</Button>}/>
-      <PricingCard featured style={{padding:'20px 16px',gap:'0.75rem'}} ribbon={<Badge variant="fire">Popular</Badge>} tier={<Badge variant="fire">Fire Master</Badge>} name="Fire Nation Pro" price="$49" description="Full suite + glows." action={<Button size="sm" fullWidth>Unlock</Button>}/>
-      <PricingCard style={{padding:'20px 16px',gap:'0.75rem'}} tier={<Badge variant="avatar">Avatar</Badge>} name="Enterprise" price="$149" description="Custom styling." action={<Button variant="outline" size="sm" fullWidth>Contact</Button>}/>
+      <PricingCard style={{padding:'20px 16px',gap:'0.75rem'}} tier={<Badge element="air">Initiate</Badge>} name="Air Nomad" price="$19" description="Essential tokens." action={<Button variant="outline" size="sm" fullWidth>Start Trial</Button>}/>
+      <PricingCard featured style={{padding:'20px 16px',gap:'0.75rem'}} ribbon={<Badge element="fire">Popular</Badge>} tier={<Badge element="fire">Fire Master</Badge>} name="Fire Nation Pro" price="$49" description="Full suite + glows." action={<Button size="sm" fullWidth>Unlock</Button>}/>
+      <PricingCard style={{padding:'20px 16px',gap:'0.75rem'}} tier={<Badge element="avatar">Avatar</Badge>} name="Enterprise" price="$149" description="Custom styling." action={<Button variant="outline" size="sm" fullWidth>Contact</Button>}/>
     </div>
     <TestimonialCard style={{padding:'1rem'}} quote="Water is the element of change. Earth is the element of substance. Fire is the element of power. Air is the element of freedom."
       author="Iroh" role="Order of the White Lotus"/>

@@ -1,5 +1,5 @@
 /**
- * Bordered 8px-radius table; header row sits on the raised surface in uppercase.
+ * Bordered 8px-radius table (class .data-table; .table-elemental is the old name); header row sits on the raised surface in uppercase.
  * @startingPoint section="Data" subtitle="Elemental table and KPI tiles" viewport="700x300"
  */
 export interface DataTableProps extends React.TableHTMLAttributes<HTMLTableElement> {

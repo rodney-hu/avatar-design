@@ -1,10 +1,10 @@
 Inline status callout — also the toast body (the showcase reuses `.alert` inside its toast stack).
 
 ```jsx
-<Alert variant="earth" title="Defenses fortified">Walls held at Ba Sing Se.</Alert>
+<Alert element="earth" title="Defenses fortified">Walls held at Ba Sing Se.</Alert>
 ```
 
-Semantics map to elements: fire = warning, water = info, earth = success, air = notice. For a toast, render it fixed bottom-right with `animate-scale-in`.
+Use status names for meaning: `success` (earth), `warning` (air), `info` (water) and `danger` (its own tokens, fire by default). Any element works too, including `avatar`. `variant` is the old name for `element` and is deprecated. For a toast, render it fixed bottom-right with `animate-scale-in`.
 
 ## As a toast
 Use the stack structure so neighbours glide when toasts arrive or leave:
@@ -13,7 +13,7 @@ Use the stack structure so neighbours glide when toasts arrive or leave:
   {toasts.map(t => (
     <div key={t.id} className="toast-slot" data-state={t.closing ? 'closed' : 'open'}>
       <div className="toast-slot-inner"><div className="toast-pad">
-        <Alert className="toast" variant="fire" title="Saved">Changes stored.</Alert>
+        <Alert className="toast" element="fire" title="Saved">Changes stored.</Alert>
       </div></div>
     </div>
   ))}

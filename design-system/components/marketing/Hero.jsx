@@ -1,13 +1,14 @@
 import React from 'react';
+import { resolveElement } from '../elements.js';
 
-const HALOS = { fire: 'hero-fire', water: 'hero-water', earth: 'hero-earth', air: 'hero-air' };
-const GLOWS = { fire: 'text-glow-fire', water: 'text-glow-water', earth: 'text-glow-earth', air: 'text-glow-air' };
-
-export function Hero({ element = 'fire', eyebrow, title, subtitle, actions, glowTitle = true, parallaxHalo = false, children, className = '', ...rest }) {
+/* Hero has no danger style: danger resolves to fire. */
+export function Hero({ element: elementProp = 'fire', eyebrow, title, subtitle, actions, glowTitle = true, parallaxHalo = false, children, className = '', ...rest }) {
+  const element = resolveElement(elementProp, 'fire', false);
+  const halo = 'hero-' + element;
   const content = (
     <>
       {eyebrow && <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', justifyContent: 'center' }}>{eyebrow}</div>}
-      <h1 className={['hero-title', glowTitle && GLOWS[element]].filter(Boolean).join(' ')} style={{ margin: 0 }}>{title}</h1>
+      <h1 className={['hero-title', glowTitle && 'text-glow-' + element].filter(Boolean).join(' ')} style={{ margin: 0 }}>{title}</h1>
       {subtitle && <p className="hero-subtitle" style={{ margin: 0 }}>{subtitle}</p>}
       {children}
       {actions && <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', justifyContent: 'center' }}>{actions}</div>}
@@ -25,7 +26,7 @@ export function Hero({ element = 'fire', eyebrow, title, subtitle, actions, glow
   if (parallaxHalo) {
     return (
       <section className={['hero', className].filter(Boolean).join(' ')} {...rest}>
-        <div className={HALOS[element]} data-parallax="0.35" aria-hidden="true"
+        <div className={halo} data-parallax="0.35" aria-hidden="true"
           style={{ position: 'absolute', top: -40, bottom: -40, left: 0, right: 0, pointerEvents: 'none', zIndex: 0 }} />
         <div data-parallax="0.08"
           style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'inherit', width: '100%' }}>
@@ -36,7 +37,7 @@ export function Hero({ element = 'fire', eyebrow, title, subtitle, actions, glow
   }
 
   return (
-    <section className={['hero', HALOS[element], className].filter(Boolean).join(' ')} {...rest}>
+    <section className={['hero', halo, className].filter(Boolean).join(' ')} {...rest}>
       {content}
     </section>
   );

@@ -10,7 +10,7 @@ A dark-first design system for web apps, landing pages and SaaS tools, themed on
 - **Glows.** Colored halos instead of plain shadows, in four sizes, with one setting (`--glow-strength`) to make them stronger or softer.
 - **Materials.** Elevation levels, glass panels, gradient borders, film grain, an orbiting edge light and a cursor spotlight.
 - **Motion.** Scroll reveals, staggered entrances, page transitions and small touches like button sheens and click bursts.
-- **21 React components** across six groups.
+- **21 React components** across six groups. Every one takes its color the same way: `element="water"`, or a status name like `element="success"` or `element="danger"`.
 
 ## Use it in your project
 
@@ -42,6 +42,7 @@ npm install
 npm run dev        # http://localhost:5173
 npm run build      # builds into dist/
 npm run preview    # serves dist/ at http://localhost:4173
+npm run build:ds   # rebuilds the bundle the component preview cards use
 ```
 
 | Page | What it shows |

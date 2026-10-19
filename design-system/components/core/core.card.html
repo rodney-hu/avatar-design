@@ -11,21 +11,22 @@ const { Button, Badge, Card } = window.ElementalUIDesignSystem_5d6c38;
 const els = ['fire','water','earth','air','avatar'];
 function Demo(){
   return (<>
-    <div className="lbl">Button — elemental variants</div>
-    <div className="row">{els.map(e=><Button key={e} variant={e}>{e[0].toUpperCase()+e.slice(1)}</Button>)}</div>
-    <div className="lbl">Sizes, quiet variants, disabled</div>
+    <div className="lbl">Button — element</div>
+    <div className="row">{els.map(e=><Button key={e} element={e}>{e[0].toUpperCase()+e.slice(1)}</Button>)}</div>
+    <div className="lbl">Sizes, outline and ghost variants, disabled</div>
     <div className="row">
       <Button size="lg">Large</Button><Button>Medium</Button><Button size="sm">Small</Button>
       <Button variant="outline">Outline</Button><Button variant="ghost">Ghost</Button>
       <Button disabled>Disabled</Button>
     </div>
-    <div className="lbl">Badge</div>
-    <div className="row">{els.map(e=><Badge key={e} variant={e}>{e}</Badge>)}</div>
+    <div className="lbl">Badge — elements and status names</div>
+    <div className="row">{els.map(e=><Badge key={e} element={e}>{e}</Badge>)}</div>
+    <div className="row">{['success','warning','info','danger'].map(e=><Badge key={e} element={e}>{e}</Badge>)}</div>
     <div className="lbl">Card</div>
     <div className="row" style={{alignItems:'stretch'}}>
       {['fire','water','glass'].map(v=>(
-        <Card key={v} variant={v} style={{width:210,display:'flex',flexDirection:'column',gap:8}}>
-          <Badge variant={v==='glass'?'avatar':v} style={{width:'fit-content'}}>{v}</Badge>
+        <Card key={v} {...(v==='glass'?{variant:'glass'}:{element:v})} style={{width:210,display:'flex',flexDirection:'column',gap:8}}>
+          <Badge element={v==='glass'?'avatar':v} style={{width:'fit-content'}}>{v}</Badge>
           <div style={{fontFamily:'var(--font-display)',fontWeight:700,fontSize:'1.125rem'}}>Card {v}</div>
           <div style={{fontSize:'0.8125rem',color:'var(--color-text-secondary)'}}>Tinted border, hover glow.</div>
         </Card>

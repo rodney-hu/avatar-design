@@ -40,9 +40,12 @@
   /* fire-500 reads 6.9:1 on parchment and 5.2:1 on its badge tint */
   --fire-text: var(--color-fire-500);
   --fire-link: var(--color-fire-500);
+  --danger-text: var(--color-danger-500);
+  --danger-link: var(--color-danger-500);
   --water-text: var(--color-water-700);
   --earth-text: var(--color-earth-700);
-  --air-text: var(--color-air-700);
+  /* air-700 is only ~4.1:1 on its badge tint; this darker step is 4.8:1+ on every light tint. */
+  --air-text: #7d6600;
   --avatar-text: var(--color-water-700);
 
   --surface-nav: rgba(250, 247, 244, 0.85);

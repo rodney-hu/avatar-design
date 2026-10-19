@@ -74,6 +74,14 @@
   --edge-light-rgb: var(--air-500-rgb);
 }
 
+.element-avatar {
+  --edge-light-rgb: var(--avatar-glow-rgb);
+}
+
+.element-danger {
+  --edge-light-rgb: var(--danger-500-rgb);
+}
+
 @layer components {
   /* Rings sit over the 1px border at inset:-1px; parents that clip (.card) must not. */
   .edge-light, .border-gradient, [data-spotlight] {
@@ -310,21 +318,43 @@
   }
 
   /* ---- Fields: focus bloom + underline sweep ----
-     --field-rgb tints both. .input-<el> retints. */
-  .input, .select, .textarea {
+     --field-rgb tints the bloom, underline, checkbox and toggle; --field-text
+     is the readable text step for the focused label. Both inherit, so
+     .field-<el> works on the control itself or on any parent. --field-text
+     has no :root value; it falls back to --fire-text where it is read, so
+     it still flips on .light. .input-<el> is the old name, kept as an alias. */
+  :root {
     --field-rgb: var(--fire-500-rgb);
   }
 
-  .input-water, .field-water {
+  .field-fire {
+    --field-rgb: var(--fire-500-rgb);
+    --field-text: var(--fire-text);
+  }
+
+  .field-water, .input-water {
     --field-rgb: var(--water-500-rgb);
+    --field-text: var(--water-text);
   }
 
-  .input-earth, .field-earth {
+  .field-earth, .input-earth {
     --field-rgb: var(--earth-500-rgb);
+    --field-text: var(--earth-text);
   }
 
-  .input-air, .field-air {
+  .field-air, .input-air {
     --field-rgb: var(--air-500-rgb);
+    --field-text: var(--air-text);
+  }
+
+  .field-avatar, .input-avatar {
+    --field-rgb: var(--avatar-glow-rgb);
+    --field-text: var(--avatar-text);
+  }
+
+  .field-danger, .input-danger {
+    --field-rgb: var(--danger-500-rgb);
+    --field-text: var(--danger-text);
   }
 
   .input:focus, .select:focus, .textarea:focus {
@@ -381,7 +411,7 @@
   }
 
   .field:focus-within .field-label {
-    color: rgb(var(--field-rgb));
+    color: var(--field-text, var(--fire-text));
   }
 
   /* ---- Checkbox: pop + tick draws itself in ---- */
@@ -390,7 +420,6 @@
     display: inline-grid;
     place-items: center;
     flex: none;
-    --field-rgb: var(--fire-500-rgb);
   }
 
   .check>.checkbox {

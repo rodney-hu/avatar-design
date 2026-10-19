@@ -27,13 +27,15 @@
   /* fire-500 reads 6.9:1 on parchment and 5.2:1 on its badge tint */
   --fire-text:var(--color-fire-500);
   --fire-link:var(--color-fire-500);
+  --danger-text:var(--color-danger-500);
+  --danger-link:var(--color-danger-500);
   --surface-nav:rgba(250,247,244,0.85);
   --surface-glass:rgba(255,255,255,0.7);
   --surface-glass-border:rgba(26,26,26,0.08);
   --surface-scrim:rgba(40,32,26,0.6);
   --water-text:var(--color-water-700);
   --earth-text:var(--color-earth-700);
-  --air-text:var(--color-air-700);
+  --air-text:#7d6600;
   --avatar-text:var(--color-water-700);
 }
 body{background-color:var(--color-surface-void);color:var(--color-text-primary);font-family:var(--font-body);transition:background-color .3s ease,color .3s ease}

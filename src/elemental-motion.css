@@ -365,6 +365,14 @@
   background: linear-gradient(rgb(var(--air-500-rgb) / 0.12), rgb(var(--air-500-rgb) / 0.12)), var(--color-surface-elevated);
 }
 
+.toast.alert-avatar {
+  background: linear-gradient(rgb(var(--avatar-glow-rgb) / 0.12), rgb(var(--avatar-glow-rgb) / 0.12)), var(--color-surface-elevated);
+}
+
+.toast.alert-danger {
+  background: linear-gradient(rgb(var(--danger-500-rgb) / 0.12), rgb(var(--danger-500-rgb) / 0.12)), var(--color-surface-elevated);
+}
+
 /* ---- PAGE TRANSITIONS ----
    Same-document: wrap the state change in ElementalMotion.transition(fn) (View Transitions API).
    Cross-document: same-origin navigations crossfade automatically.
@@ -552,7 +560,8 @@ html:not(.vt-supported) [data-page] {
    Water — slow, continuous sine flow. Long travel, never stops abruptly.
    Earth — heavy. Short travel, decisive settle, presses sink deep, never floats.
    Air   — light, springy. Longest travel, overshoots and hangs. */
-.element-fire, .btn-fire, .card-fire {
+.element-fire, .btn-fire, .card-fire,
+.element-danger, .btn-danger, .card-danger {
   --motion-duration: 560ms;
   --motion-ease: var(--ease-enter);
   --motion-rise: 28px;
