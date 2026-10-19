@@ -10,6 +10,7 @@
   --shadow-avatar:0 0 25px rgb(var(--avatar-glow-rgb) / calc(0.5 * var(--glow-strength))),0 0 70px rgb(var(--avatar-glow-rgb) / calc(0.25 * var(--glow-strength)));
   /* Depth shadow used on hovered cards (see materials.css for the full elevation scale) */
   --shadow-depth:0 8px 30px rgba(0,0,0,0.5);
+  --shadow-popover:0 12px 32px rgba(0,0,0,0.45);
 }
 .light{
   --glow-strength:0.8; /* @kind other */

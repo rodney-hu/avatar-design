@@ -170,6 +170,8 @@
   --shadow-avatar: 0 0 25px rgb(var(--avatar-glow-rgb) / calc(0.5 * var(--glow-strength))), 0 0 70px rgb(var(--avatar-glow-rgb) / calc(0.25 * var(--glow-strength)));
   /* Depth shadow used on hovered cards (full scale: --elevation-*) */
   --shadow-depth: 0 8px 30px rgba(0, 0, 0, 0.5);
+  /* Floating menus and popovers */
+  --shadow-popover: 0 12px 32px rgba(0, 0, 0, 0.45);
 
   /* ---------------- EASINGS ----------------
      enter: expo-out, things arriving · exit: expo-in, things leaving
@@ -200,6 +202,17 @@
   --avatar-glow-rgb: 0 255 255;
   --danger-500-rgb: var(--fire-500-rgb);
   --danger-glow-rgb: var(--fire-glow-rgb);
+  /* Neutral channels, for glare, edges and shade: rgb(var(--white-rgb) / 0.15). */
+  --white-rgb: 255 255 255;
+  --black-rgb: 0 0 0;
+
+  /* Text and marks on filled controls (buttons, checked boxes, toggle knob). */
+  --color-on-fill: #ffffff;
+  /* Near-black ink: text on the light air fill, the avatar button's face. */
+  --color-ink: #0d0d0d;
+  /* The 1px light edge on solid buttons. */
+  --fill-edge: rgb(var(--white-rgb) / 0.15);
+  --fill-edge-strong: rgb(var(--white-rgb) / 0.2);
 
   /* Fire used as TEXT: fire-300, the same 300 step as the other elements'
      text (~6.5:1 on badge, alert and nav tints). fire-500 itself is only

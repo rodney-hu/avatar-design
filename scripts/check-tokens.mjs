@@ -1,7 +1,11 @@
 /* Fails when the two token sources drift: every custom property defined in
    src/*.css (the Tailwind build) must have the same value under the same
    selector in design-system/tokens/*.css (the plain-CSS export), and the
-   :root and .light sets must match in both directions. Runs before every build. */
+   :root and .light sets must match in both directions.
+   Also fails on a literal color (hex, rgb(), rgba()) used directly in a
+   property in src/*.css: colors are defined once as tokens and used through
+   var(). CSS masks are exempt, since a mask reads only alpha.
+   Runs before every build. */
 import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -37,8 +41,19 @@ const themed = (k) => k.startsWith(':root {') || k.startsWith('.light {');
 for (const k of src.keys()) if (themed(k) && !ds.has(k)) problems.push(`${k} is in src/ but missing from design-system/tokens/`);
 for (const k of ds.keys()) if (themed(k) && !src.has(k)) problems.push(`${k} is in design-system/tokens/ but missing from src/`);
 
+// Literal colors outside token definitions.
+for (const file of cssIn('src')) {
+  const css = readFileSync(file, 'utf8').replace(/\/\*[\s\S]*?\*\//g, '');
+  for (const [, prop, value] of css.matchAll(/(?<=[{;\n])\s*([a-zA-Z-]+)\s*:\s*([^;{}]+)/g)) {
+    if (prop.startsWith('--') || prop.includes('mask')) continue;
+    for (const [c] of value.matchAll(/#[0-9a-fA-F]{3,8}\b|rgba?\((?!\s*var\()[^)]*\)/g)) {
+      problems.push(`${file.slice(root.length)}: \`${prop}: ${c}\` is a literal color; define a token and use var()`);
+    }
+  }
+}
+
 if (problems.length) {
-  console.error(`Token drift: ${problems.length} problem(s) between src/ and design-system/tokens/\n  ${problems.join('\n  ')}`);
+  console.error(`Token check: ${problems.length} problem(s)\n  ${problems.join('\n  ')}`);
   process.exit(1);
 }
-console.log(`Tokens in sync (${[...src.keys()].filter((k) => ds.has(k)).length} shared properties).`);
+console.log(`Tokens in sync (${[...src.keys()].filter((k) => ds.has(k)).length} shared properties), no literal colors.`);

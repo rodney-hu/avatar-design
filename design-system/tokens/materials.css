@@ -56,13 +56,13 @@
 .navbar.elevation-2{transition:box-shadow var(--motion-duration-fast) var(--motion-ease)}
 
 /* ---- Elevation ---- */
-.elevation-0{box-shadow:var(--elevation-glow,0 0 #0000)}
-.elevation-1{box-shadow:var(--elevation-1),var(--elevation-glow,0 0 #0000)}
-.elevation-2{box-shadow:var(--elevation-2),var(--elevation-glow,0 0 #0000)}
-.elevation-3{box-shadow:var(--elevation-3),var(--elevation-glow,0 0 #0000)}
-.elevation-4{box-shadow:var(--elevation-4),var(--elevation-glow,0 0 #0000)}
+.elevation-0{box-shadow:var(--elevation-glow,0 0 transparent)}
+.elevation-1{box-shadow:var(--elevation-1),var(--elevation-glow,0 0 transparent)}
+.elevation-2{box-shadow:var(--elevation-2),var(--elevation-glow,0 0 transparent)}
+.elevation-3{box-shadow:var(--elevation-3),var(--elevation-glow,0 0 transparent)}
+.elevation-4{box-shadow:var(--elevation-4),var(--elevation-glow,0 0 transparent)}
 .elevation-lift{transition:box-shadow var(--motion-duration-fast) var(--motion-ease),transform var(--motion-duration-fast) var(--motion-ease)}
-.elevation-lift:hover{box-shadow:var(--elevation-3),var(--elevation-glow,0 0 #0000);transform:translateY(-2px)}
+.elevation-lift:hover{box-shadow:var(--elevation-3),var(--elevation-glow,0 0 transparent);transform:translateY(-2px)}
 
 /* ---- Glass tiers ---- */
 :where(.glass-thin,.glass,.glass-thick){position:relative;isolation:isolate}
@@ -83,7 +83,7 @@
    Reserve for ONE featured surface per view (pricing "popular", hero card).
    The orbit is driven by assets/motion.js writing --edge-angle each frame. */
 .edge-light{position:relative;isolation:isolate;border-color:transparent!important}
-.edge-light::before{content:"";position:absolute;inset:-1px;border-radius:inherit;padding:1px;pointer-events:none;background:conic-gradient(from var(--edge-angle),rgb(var(--edge-light-rgb) / 0.12) 0deg,rgb(var(--edge-light-rgb) / 0.12) 220deg,rgb(var(--edge-light-rgb) / 0.9) 300deg,rgb(255 255 255 / 0.95) 320deg,rgb(var(--edge-light-rgb) / 0.12) 345deg);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+.edge-light::before{content:"";position:absolute;inset:-1px;border-radius:inherit;padding:1px;pointer-events:none;background:conic-gradient(from var(--edge-angle),rgb(var(--edge-light-rgb) / 0.12) 0deg,rgb(var(--edge-light-rgb) / 0.12) 220deg,rgb(var(--edge-light-rgb) / 0.9) 300deg,rgb(var(--white-rgb) / 0.95) 320deg,rgb(var(--edge-light-rgb) / 0.12) 345deg);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
 .edge-light::after{content:"";position:absolute;inset:-1px;border-radius:inherit;z-index:-1;pointer-events:none;background:conic-gradient(from var(--edge-angle),transparent 0deg,transparent 260deg,rgb(var(--edge-light-rgb) / 0.55) 315deg,transparent 350deg);filter:blur(14px);opacity:0.7}
 
 /* ---- Cursor spotlight (driven by assets/motion.js: [data-spotlight]) ----
