@@ -228,41 +228,41 @@
 }
 
 @utility gradient-water {
-  background: linear-gradient(135deg, #0088e0 0%, #1aa3ff 50%, #003a63 100%);
+  background: linear-gradient(135deg, var(--color-water-500) 0%, var(--color-water-400) 50%, var(--color-water-800) 100%);
 }
 
 @utility gradient-earth {
-  background: linear-gradient(135deg, #27ae34 0%, #4cd964 50%, #114e18 100%);
+  background: linear-gradient(135deg, var(--color-earth-500) 0%, var(--color-earth-300) 50%, var(--color-earth-800) 100%);
 }
 
 @utility gradient-air {
-  background: linear-gradient(135deg, #e6bf00 0%, #ffd700 50%, #5c4b00 100%);
+  background: linear-gradient(135deg, var(--color-air-500) 0%, var(--color-air-400) 50%, var(--color-air-800) 100%);
 }
 
 @utility gradient-avatar {
-  background: linear-gradient(135deg, var(--color-fire-500) 0%, #0088e0 33%, #27ae34 66%, #e6bf00 100%);
+  background: linear-gradient(135deg, var(--color-fire-500) 0%, var(--color-water-500) 33%, var(--color-earth-500) 66%, var(--color-air-500) 100%);
 }
 
 /* Elemental Surface Backdrop Halos */
 
 .bg-halo-fire {
-  background: radial-gradient(circle at 50% 0%, rgb(var(--fire-500-rgb) / 0.18) 0%, rgba(13, 13, 13, 0) 70%);
+  background: radial-gradient(circle at 50% 0%, rgb(var(--fire-500-rgb) / 0.18) 0%, transparent 70%);
 }
 
 .bg-halo-water {
-  background: radial-gradient(circle at 50% 0%, rgb(var(--water-500-rgb) / 0.18) 0%, rgba(13, 13, 13, 0) 70%);
+  background: radial-gradient(circle at 50% 0%, rgb(var(--water-500-rgb) / 0.18) 0%, transparent 70%);
 }
 
 .bg-halo-earth {
-  background: radial-gradient(circle at 50% 0%, rgb(var(--earth-500-rgb) / 0.18) 0%, rgba(13, 13, 13, 0) 70%);
+  background: radial-gradient(circle at 50% 0%, rgb(var(--earth-500-rgb) / 0.18) 0%, transparent 70%);
 }
 
 .bg-halo-air {
-  background: radial-gradient(circle at 50% 0%, rgb(var(--air-500-rgb) / 0.18) 0%, rgba(13, 13, 13, 0) 70%);
+  background: radial-gradient(circle at 50% 0%, rgb(var(--air-500-rgb) / 0.18) 0%, transparent 70%);
 }
 
 .bg-halo-avatar {
-  background: radial-gradient(circle at 50% 0%, rgb(var(--avatar-glow-rgb) / 0.18) 0%, rgba(13, 13, 13, 0) 70%);
+  background: radial-gradient(circle at 50% 0%, rgb(var(--avatar-glow-rgb) / 0.18) 0%, transparent 70%);
 }
 
 /* Contextual Elemental Container Themes

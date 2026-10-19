@@ -6,7 +6,7 @@
 
 /* ---- Button sheen: a diagonal light sweep across the face on hover ---- */
 .btn{position:relative;overflow:hidden;isolation:isolate}
-.btn::after{content:"";position:absolute;inset:-1px;pointer-events:none;border-radius:inherit;background:linear-gradient(105deg,transparent 30%,rgb(255 255 255 / var(--sheen-strength,0.26)) 48%,rgb(255 255 255 / calc(var(--sheen-strength,0.26) * 0.4)) 54%,transparent 70%);transform:translateX(-110%);transition:transform 0s linear var(--duration-slow)}
+.btn::after{content:"";position:absolute;inset:-1px;pointer-events:none;border-radius:inherit;background:linear-gradient(105deg,transparent 30%,rgb(var(--white-rgb) / var(--sheen-strength,0.26)) 48%,rgb(var(--white-rgb) / calc(var(--sheen-strength,0.26) * 0.4)) 54%,transparent 70%);transform:translateX(-110%);transition:transform 0s linear var(--duration-slow)}
 .btn:hover::after{transform:translateX(110%);transition:transform calc(var(--ui-duration) * 3.2) var(--ease-standard)}
 .btn-outline,.btn-ghost{--sheen-strength:0.08 /* @kind other */}
 .btn-air{--sheen-strength:0.3 /* @kind other */}
@@ -44,7 +44,7 @@
 .check>.checkbox:focus-visible{outline:2px solid rgb(var(--field-rgb));outline-offset:2px}
 .check>.checkbox:checked{background:rgb(var(--field-rgb));border-color:rgb(var(--field-rgb));box-shadow:0 0 12px rgb(var(--field-rgb) / calc(0.45 * var(--glow-strength,1)));animation:check-pop var(--duration-moderate) var(--ease-spring)}
 .check-mark{grid-area:1/1;width:0.8rem;height:0.8rem;pointer-events:none;overflow:visible}
-.check-mark path{fill:none;stroke:#ffffff;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset var(--duration-instant) var(--ease-exit)}
+.check-mark path{fill:none;stroke:var(--color-on-fill);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset var(--duration-instant) var(--ease-exit)}
 .check>.checkbox:checked+.check-mark path{stroke-dashoffset:0;transition:stroke-dashoffset var(--duration-base) var(--ease-enter) 60ms}
 @keyframes check-pop{0%{transform:scale(0.8)}100%{transform:scale(1)}}
 

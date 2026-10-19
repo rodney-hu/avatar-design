@@ -73,7 +73,7 @@
    --bloom runs 0 → 1 as the element crosses the viewport; the halo's alpha and
    spread both ride it, so a section ignites as it arrives. */
 [data-halo-bloom]{position:relative;isolation:isolate}
-[data-halo-bloom]::before{content:"";position:absolute;inset:-20% -10% auto -10%;height:120%;z-index:-1;pointer-events:none;opacity:var(--bloom);transform:scale(calc(0.86 + var(--bloom) * 0.14));transition:opacity 120ms linear,transform 240ms var(--motion-ease);background:radial-gradient(circle at 50% 0%,rgb(var(--bloom-rgb,var(--fire-500-rgb)) / calc(0.26 * var(--bloom))) 0%,rgba(13,13,13,0) 70%)}
+[data-halo-bloom]::before{content:"";position:absolute;inset:-20% -10% auto -10%;height:120%;z-index:-1;pointer-events:none;opacity:var(--bloom);transform:scale(calc(0.86 + var(--bloom) * 0.14));transition:opacity 120ms linear,transform 240ms var(--motion-ease);background:radial-gradient(circle at 50% 0%,rgb(var(--bloom-rgb,var(--fire-500-rgb)) / calc(0.26 * var(--bloom))) 0%,transparent 70%)}
 [data-halo-bloom="water"]{--bloom-rgb:0 136 224 /* @kind color */}
 [data-halo-bloom="earth"]{--bloom-rgb:39 174 52 /* @kind color */}
 [data-halo-bloom="air"]{--bloom-rgb:230 191 0 /* @kind color */}
@@ -90,7 +90,7 @@
    > *` (0,2,0) for the transition swap to land — hence the .motion-ready prefix. */
 .motion-ready [data-tilt]{transform:translate3d(0,var(--parallax-y),0) perspective(1100px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));transform-style:preserve-3d;transition:transform var(--motion-duration-fast) var(--motion-ease),box-shadow var(--motion-duration-fast) var(--motion-ease),opacity var(--motion-duration) var(--motion-ease)}
 .motion-ready [data-tilt].is-tilting{transition:transform 90ms linear,box-shadow 90ms linear}
-[data-tilt]::after{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;opacity:0;transition:opacity var(--motion-duration-fast) var(--motion-ease);background:radial-gradient(420px circle at var(--pointer-x) var(--pointer-y),rgba(255,255,255,0.07) 0%,rgba(255,255,255,0) 60%)}
+[data-tilt]::after{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;opacity:0;transition:opacity var(--motion-duration-fast) var(--motion-ease);background:radial-gradient(420px circle at var(--pointer-x) var(--pointer-y),rgb(var(--white-rgb) / 0.07) 0%,rgb(var(--white-rgb) / 0) 60%)}
 [data-tilt].is-tilting::after{opacity:1}
 
 /* ---- Gradient drift ----

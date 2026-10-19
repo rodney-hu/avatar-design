@@ -84,9 +84,9 @@
 
   .btn-fire {
     background: linear-gradient(135deg, var(--color-fire-500) 0%, var(--color-fire-400) 100%);
-    color: #ffffff;
+    color: var(--color-on-fill);
     box-shadow: 0 4px 14px rgb(var(--fire-500-rgb) / 0.35);
-    border-color: rgba(255, 255, 255, 0.15);
+    border-color: var(--fill-edge);
   }
 
   .btn-fire:hover {
@@ -106,9 +106,9 @@
 
   .btn-water {
     background: linear-gradient(135deg, var(--color-water-700) 0%, var(--color-water-600) 100%);
-    color: #ffffff;
+    color: var(--color-on-fill);
     box-shadow: 0 4px 14px rgb(var(--water-500-rgb) / 0.35);
-    border-color: rgba(255, 255, 255, 0.15);
+    border-color: var(--fill-edge);
   }
 
   .btn-water:hover {
@@ -119,9 +119,9 @@
 
   .btn-earth {
     background: linear-gradient(135deg, var(--color-earth-700) 0%, var(--color-earth-600) 100%);
-    color: #ffffff;
+    color: var(--color-on-fill);
     box-shadow: 0 4px 14px rgb(var(--earth-500-rgb) / 0.35);
-    border-color: rgba(255, 255, 255, 0.15);
+    border-color: var(--fill-edge);
   }
 
   .btn-earth:hover {
@@ -132,10 +132,10 @@
 
   .btn-air {
     background: linear-gradient(135deg, var(--color-air-700) 0%, var(--color-air-600) 100%);
-    color: #0d0d0d;
+    color: var(--color-ink);
     font-weight: 700;
     box-shadow: 0 4px 14px rgb(var(--air-500-rgb) / 0.35);
-    border-color: rgba(255, 255, 255, 0.2);
+    border-color: var(--fill-edge-strong);
   }
 
   .btn-air:hover {
@@ -145,8 +145,8 @@
   }
 
   .btn-avatar {
-    background: #0d0d0d;
-    color: #ffffff;
+    background: var(--color-ink);
+    color: var(--color-on-fill);
     border: 1px solid rgb(var(--avatar-glow-rgb) / 0.6);
     box-shadow: 0 0 20px rgb(var(--avatar-glow-rgb) / 0.4);
     animation: avatar-state-cycle 8s infinite linear;
@@ -158,9 +158,9 @@
 
   .btn-danger {
     background: linear-gradient(135deg, var(--color-danger-500) 0%, var(--color-danger-400) 100%);
-    color: #ffffff;
+    color: var(--color-on-fill);
     box-shadow: 0 4px 14px rgb(var(--danger-500-rgb) / 0.35);
-    border-color: rgba(255, 255, 255, 0.15);
+    border-color: var(--fill-edge);
   }
 
   .btn-danger:hover {
@@ -221,7 +221,7 @@
 
   .card-fire:hover {
     border-color: rgb(var(--fire-500-rgb) / 0.7);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5), 0 0 25px rgb(var(--fire-500-rgb) / 0.25);
+    box-shadow: var(--shadow-depth), 0 0 25px rgb(var(--fire-500-rgb) / 0.25);
   }
 
   .card-water {
@@ -231,7 +231,7 @@
 
   .card-water:hover {
     border-color: rgb(var(--water-glow-rgb) / 0.7);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5), 0 0 25px rgb(var(--water-glow-rgb) / 0.25);
+    box-shadow: var(--shadow-depth), 0 0 25px rgb(var(--water-glow-rgb) / 0.25);
   }
 
   .card-earth {
@@ -241,7 +241,7 @@
 
   .card-earth:hover {
     border-color: rgb(var(--earth-glow-rgb) / 0.7);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5), 0 0 25px rgb(var(--earth-glow-rgb) / 0.25);
+    box-shadow: var(--shadow-depth), 0 0 25px rgb(var(--earth-glow-rgb) / 0.25);
   }
 
   .card-air {
@@ -251,7 +251,7 @@
 
   .card-air:hover {
     border-color: rgb(var(--air-glow-rgb) / 0.7);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5), 0 0 25px rgb(var(--air-glow-rgb) / 0.25);
+    box-shadow: var(--shadow-depth), 0 0 25px rgb(var(--air-glow-rgb) / 0.25);
   }
 
   .card-avatar {
@@ -261,7 +261,7 @@
 
   .card-avatar:hover {
     border-color: rgb(var(--avatar-glow-rgb) / 0.7);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5), 0 0 25px rgb(var(--avatar-glow-rgb) / 0.25);
+    box-shadow: var(--shadow-depth), 0 0 25px rgb(var(--avatar-glow-rgb) / 0.25);
   }
 
   .card-danger {
@@ -271,7 +271,7 @@
 
   .card-danger:hover {
     border-color: rgb(var(--danger-500-rgb) / 0.7);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5), 0 0 25px rgb(var(--danger-500-rgb) / 0.25);
+    box-shadow: var(--shadow-depth), 0 0 25px rgb(var(--danger-500-rgb) / 0.25);
   }
 
   .card-glass {
@@ -385,7 +385,7 @@
 
   input:checked + .toggle-slider:before {
     transform: translateX(1.2rem);
-    background-color: #ffffff;
+    background-color: var(--color-on-fill);
   }
 
   /* ==========================================
@@ -414,6 +414,91 @@
     display: flex;
     align-items: center;
     gap: var(--space-3);
+  }
+
+  /* Small screens: links and actions fold into a panel behind the toggle.
+     At 900px and up the panel is display: contents, so the bar lays out
+     exactly as before and the toggle stays hidden. */
+  .navbar-panel {
+    display: contents;
+  }
+
+  .navbar-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--space-1);
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0 var(--space-2-5);
+    margin-left: auto;
+    background: none;
+    border: 1px solid var(--color-border-strong);
+    border-radius: var(--radius-md);
+    color: var(--color-text-primary);
+    cursor: pointer;
+  }
+
+  .navbar-toggle-bar {
+    display: block;
+    height: 2px;
+    border-radius: 1px;
+    background: currentColor;
+    transition: transform var(--duration-base) var(--ease-enter), opacity var(--duration-fast) var(--ease-enter);
+  }
+
+  .navbar-toggle[aria-expanded="true"] .navbar-toggle-bar:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+
+  .navbar-toggle[aria-expanded="true"] .navbar-toggle-bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .navbar-toggle[aria-expanded="true"] .navbar-toggle-bar:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  @media (max-width: 899.98px) {
+    .navbar {
+      padding: var(--space-3) var(--space-4);
+    }
+
+    .navbar-toggle {
+      display: flex;
+    }
+
+    .navbar-panel {
+      display: none;
+    }
+
+    .navbar-panel[data-open] {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: var(--space-4);
+      padding: var(--space-4);
+      background: var(--color-surface-overlay);
+      border-bottom: 1px solid var(--color-border-subtle);
+      box-shadow: var(--elevation-2);
+      transform-origin: top center;
+      animation: popover-in var(--duration-base) var(--ease-enter) both;
+      --_dy: calc(var(--travel-xs) * -1);
+    }
+
+    .navbar-panel[data-open] .navbar-links {
+      flex-direction: column;
+      align-items: stretch;
+      gap: var(--space-1);
+    }
+
+    .navbar-panel[data-open] .navbar-actions {
+      flex-wrap: wrap;
+    }
   }
 
   .nav-brand {
@@ -860,23 +945,23 @@
   }
 
   .hero-fire {
-    background: radial-gradient(circle at 50% 20%, rgb(var(--fire-500-rgb) / 0.2) 0%, rgba(13, 13, 13, 0) 70%);
+    background: radial-gradient(circle at 50% 20%, rgb(var(--fire-500-rgb) / 0.2) 0%, transparent 70%);
   }
 
   .hero-water {
-    background: radial-gradient(circle at 50% 20%, rgb(var(--water-500-rgb) / 0.2) 0%, rgba(13, 13, 13, 0) 70%);
+    background: radial-gradient(circle at 50% 20%, rgb(var(--water-500-rgb) / 0.2) 0%, transparent 70%);
   }
 
   .hero-earth {
-    background: radial-gradient(circle at 50% 20%, rgb(var(--earth-500-rgb) / 0.2) 0%, rgba(13, 13, 13, 0) 70%);
+    background: radial-gradient(circle at 50% 20%, rgb(var(--earth-500-rgb) / 0.2) 0%, transparent 70%);
   }
 
   .hero-air {
-    background: radial-gradient(circle at 50% 20%, rgb(var(--air-500-rgb) / 0.2) 0%, rgba(13, 13, 13, 0) 70%);
+    background: radial-gradient(circle at 50% 20%, rgb(var(--air-500-rgb) / 0.2) 0%, transparent 70%);
   }
 
   .hero-avatar {
-    background: radial-gradient(circle at 50% 20%, rgb(var(--avatar-glow-rgb) / 0.16) 0%, rgba(13, 13, 13, 0) 70%);
+    background: radial-gradient(circle at 50% 20%, rgb(var(--avatar-glow-rgb) / 0.16) 0%, transparent 70%);
   }
 
   .hero-title {

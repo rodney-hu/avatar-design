@@ -52,15 +52,15 @@
   }
   25% {
     box-shadow: 0 0 25px rgb(var(--water-glow-rgb) / 0.6), 0 0 60px rgb(var(--water-glow-rgb) / 0.3);
-    border-color: #0088e0;
+    border-color: var(--color-water-500);
   }
   50% {
     box-shadow: 0 0 25px rgb(var(--earth-glow-rgb) / 0.6), 0 0 60px rgb(var(--earth-glow-rgb) / 0.3);
-    border-color: #27ae34;
+    border-color: var(--color-earth-500);
   }
   75% {
     box-shadow: 0 0 25px rgb(var(--air-glow-rgb) / 0.6), 0 0 60px rgb(var(--air-glow-rgb) / 0.3);
-    border-color: #e6bf00;
+    border-color: var(--color-air-500);
   }
   100% {
     box-shadow: 0 0 25px rgb(var(--fire-500-rgb) / 0.6), 0 0 60px rgb(var(--fire-500-rgb) / 0.3);

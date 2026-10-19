@@ -53,7 +53,7 @@
    data-side="bottom|top", data-align="start|center|end", data-state="open|closed". */
 @keyframes popover-in{from{opacity:0;transform:translate3d(0,var(--_dy),0) scale(0.92)}}
 @keyframes popover-out{to{opacity:0;transform:translate3d(0,var(--_dy),0) scale(0.96)}}
-.popover{position:absolute;z-index:20;min-width:180px;padding:var(--space-1-5);border-radius:var(--radius-md);background:var(--color-surface-overlay);border:1px solid var(--color-border-strong);box-shadow:0 12px 32px rgba(0,0,0,0.45);--_ox:left /* @kind other */;--_oy:top /* @kind other */;--_dy:calc(var(--travel-xs) * -1);transform-origin:var(--_ox) var(--_oy)}
+.popover{position:absolute;z-index:20;min-width:180px;padding:var(--space-1-5);border-radius:var(--radius-md);background:var(--color-surface-overlay);border:1px solid var(--color-border-strong);box-shadow:var(--shadow-popover);--_ox:left /* @kind other */;--_oy:top /* @kind other */;--_dy:calc(var(--travel-xs) * -1);transform-origin:var(--_ox) var(--_oy)}
 .popover[data-side="top"]{--_oy:bottom /* @kind other */;--_dy:var(--travel-xs)}
 .popover[data-align="center"]{--_ox:center /* @kind other */}
 .popover[data-align="end"]{--_ox:right /* @kind other */}

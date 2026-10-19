@@ -38,6 +38,12 @@
   --avatar-glow-rgb:0 255 255; /* @kind color */
   --danger-500-rgb:var(--fire-500-rgb); /* @kind color */
   --danger-glow-rgb:var(--fire-glow-rgb); /* @kind color */
+  --white-rgb:255 255 255; /* @kind color */
+  --black-rgb:0 0 0; /* @kind color */
+  --color-on-fill:#ffffff;
+  --color-ink:#0d0d0d;
+  --fill-edge:rgb(var(--white-rgb) / 0.15);
+  --fill-edge-strong:rgb(var(--white-rgb) / 0.2);
 
   /* Fire used as TEXT: fire-300, the same 300 step as the other elements'
      text (~6.5:1 on badge, alert and nav tints). fire-500 itself is only
