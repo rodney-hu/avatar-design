@@ -11,3 +11,6 @@ Sticks to the top at z-index 50 with a 12px backdrop blur.
 
 ## Materials
 Default is thick glass with a 1px top highlight. Toggle `scrolled` once `window.scrollY > 8` to drop an elevation-2 shadow.
+
+## Accessibility
+Renders as a `<header>` landmark with a `<nav>` inside. Mark the current link with `active` so it gets `aria-current="page"`.

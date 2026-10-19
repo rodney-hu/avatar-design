@@ -9,6 +9,7 @@ import { TestimonialCard } from "@ds/marketing/TestimonialCard.jsx";
 export default function LandingBlocksScreen() {
   return (
     <main className="shell-main">
+      <h1 className="sr-only">Landing blocks</h1>
       <section style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }} data-halo-bloom="avatar">
         <div className="sec-head" data-reveal>
           <Badge variant="avatar" style={{ width: 'fit-content' }}>08. SaaS &amp; Landing Blocks</Badge>

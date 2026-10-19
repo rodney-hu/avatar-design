@@ -87,6 +87,6 @@ When you change a color, update both sets.
 
 ## Good to know
 
-- **Fire text contrast.** Fire-colored text is hard to read on the dark background. Use it for large headings, badges and accents, not body text. The light theme uses a darker red that reads well.
-- **Reduced motion.** The system does not turn off animation for people who ask their device to reduce motion.
+- **Accessibility.** Every page passes an automated WCAG 2.1 AA check in both themes. Fire badges, alerts and the active nav use near-white text on a red tint, because the deep brand red is too dark to read as text. Keyboard focus is always visible, and the modal keeps focus inside it.
+- **Reduced motion.** When someone asks their device for less motion, content appears at once and nothing moves with scroll or the pointer.
 - **Font licence.** The Avatar Airbender font is free for personal and commercial use. If you share the font file, credit FontGet.com and keep its licence file with it.

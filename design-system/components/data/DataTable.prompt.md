@@ -6,3 +6,6 @@ Dense record list; cells accept nodes so status columns can hold a Badge.
 ```
 
 Rows raise their background on hover; the last row drops its bottom border.
+
+## Accessibility
+Header cells carry `scope="col"`. Pass a short `caption` so screen readers can name the table.

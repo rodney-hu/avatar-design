@@ -1,6 +1,7 @@
 import React from 'react';
 
-const TINT = { fire: 'var(--color-fire-500)', water: 'var(--color-water-500)', earth: 'var(--color-earth-500)', air: 'var(--color-air-500)', none: 'var(--color-text-primary)' };
+/* Text reads the per-element text tokens, which pass contrast in both themes. */
+const TINT = { fire: 'var(--fire-text)', water: 'var(--water-text)', earth: 'var(--earth-text)', air: 'var(--air-text)', none: 'var(--color-text-primary)' };
 const GLOW = { fire: 'text-glow-fire', water: 'text-glow-water', earth: 'text-glow-earth', air: 'text-glow-air', none: '' };
 const BORDER = { fire: 'rgb(var(--fire-500-rgb) / 0.3)', water: 'rgb(var(--water-500-rgb) / 0.3)', earth: 'rgb(var(--earth-500-rgb) / 0.3)', air: 'rgb(var(--air-500-rgb) / 0.3)', none: 'var(--color-border-subtle)' };
 
@@ -17,6 +18,7 @@ function fmt(p, n) {
   return p.pre + s + p.post;
 }
 const easeOut = (t) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t));
+const reducedMotion = () => typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 export function StatCard({ label, value, delta, element = 'none', countUp = true, flash = true, duration = 1100, className = '', style, ...rest }) {
   const cardRef = React.useRef(null);
@@ -42,14 +44,14 @@ export function StatCard({ label, value, delta, element = 'none', countUp = true
     prev.current = p;
     if (!p || !valRef.current) return;
     if (old === null) {
-      if (!countUp) return;
+      if (!countUp || reducedMotion()) return;
       valRef.current.textContent = fmt(p, 0);
       const io = new IntersectionObserver((es) => { if (es[0].isIntersecting) { io.disconnect(); run(0, p, duration); } }, { threshold: 0.4 });
       io.observe(cardRef.current);
       return () => io.disconnect();
     }
     if (old && old.n !== p.n) {
-      run(old.n, p, duration * 0.64);
+      if (reducedMotion()) valRef.current.textContent = fmt(p, p.n); else run(old.n, p, duration * 0.64);
       if (flash && cardRef.current) {
         const el = cardRef.current;
         el.removeAttribute('data-flash'); void el.offsetWidth;

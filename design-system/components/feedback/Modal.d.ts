@@ -1,7 +1,7 @@
 export interface ModalProps extends React.HTMLAttributes<HTMLDivElement> {
   /** Default true. Setting false plays the exit (scale + fade, expo-in, ~350ms) before unmounting. */
   open?: boolean;
-  /** Inter 700 headline in fire-500. */
+  /** Inter 700 headline in --fire-text. Also the dialog's accessible name (aria-labelledby). */
   title?: React.ReactNode;
   /** Called by the ×, a backdrop click and Escape. */
   onClose?: () => void;

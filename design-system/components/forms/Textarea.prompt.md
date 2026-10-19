@@ -5,3 +5,6 @@ Multi-line field for notes and longer copy.
 ```
 
 Shares the input's surface, border and fire focus halo.
+
+## Accessibility
+`label` is always tied to the field: pass an `id`, or a stable one is generated.

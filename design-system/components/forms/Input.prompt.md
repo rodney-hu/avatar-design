@@ -8,3 +8,6 @@ Focus draws a 3px 20%-alpha halo in the chosen element and darkens the field to 
 
 ## Micro-interactions
 Focus blooms (the ring expands past 3px and settles back), a glowing underline sweeps in from the left and the label tints, all in the `element` color. Turn off the underline with `underline={false}`. Textarea and Select get the bloom only.
+
+## Accessibility
+`label` is always tied to the field: pass an `id`, or a stable one is generated.

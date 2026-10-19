@@ -1,7 +1,7 @@
 import React from 'react';
 
 export function PricingCard({ tier, name, price, period = '/mo', description, features = [], action, featured = false, ribbon, element = 'fire', spotlight = true, className = '', ...rest }) {
-  const glow = featured ? { color: 'var(--color-fire-500)' } : undefined;
+  const glow = featured ? { color: 'var(--fire-text)' } : undefined;
   return (
     <div className={['pricing-card', featured ? 'pricing-featured edge-light elevation-3' : 'elevation-1 elevation-lift', 'element-' + element, className].filter(Boolean).join(' ')} {...(spotlight && !featured ? { 'data-spotlight': '' } : {})} {...rest}>
       {ribbon && <div style={{ position: 'absolute', top: '-0.75rem', right: '1.5rem' }}>{ribbon}</div>}

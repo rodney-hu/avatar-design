@@ -5,3 +5,6 @@ Muted 14px trail above a page title.
 ```
 
 The last item is never a link and renders in primary text.
+
+## Accessibility
+Renders a `<nav aria-label="Breadcrumb">`; the last item gets `aria-current="page"`.

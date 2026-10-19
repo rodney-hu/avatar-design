@@ -20,7 +20,7 @@
   --color-avatar-glow:#00ffff;--color-avatar-white:#ffffff;--color-avatar-amber:#ffcc00;
 
   /* TEXT & BORDER (dark mode) */
-  --color-text-primary:#f0f0f0;--color-text-secondary:#a0a0a0;--color-text-muted:#666666;--color-text-disabled:#444444;
+  --color-text-primary:#f0f0f0;--color-text-secondary:#a0a0a0;--color-text-muted:#8c8c8c;--color-text-disabled:#444444;
   --color-border-subtle:#1f1f1f;--color-border-default:#2a2a2a;--color-border-strong:#3a3a3a;
 
   /* RGB channels for alpha compositing: rgb(var(--fire-500-rgb) / 0.4).
@@ -36,10 +36,12 @@
   --air-glow-rgb:255 215 0; /* @kind color */
   --avatar-glow-rgb:0 255 255; /* @kind color */
 
-  /* Fire used as TEXT. Set to fire-500 in BOTH themes by explicit design
-     direction — note this is ~2.5:1 on the dark base and does not meet WCAG AA
-     for body copy; reserve it for headline-scale type, badges and accents. */
-  --fire-text:var(--color-fire-500);
+  /* Fire used as TEXT: near-white on the red tint of badges, alerts and the
+     active nav (~17:1). fire-500 itself is only ~2.5:1 on the dark base, so
+     it stays on fills, borders and glows. Flips to fire-700 on .light. */
+  --fire-text:var(--color-fire-50);
+  /* Links and hover text that should still read red (~6.8:1). */
+  --fire-link:var(--color-fire-300);
   /* Companion text steps for the other elements, used by badges and alerts.
      These flip to dark steps on parchment — see .light in surfaces.css. */
   --water-text:#4db8ff;

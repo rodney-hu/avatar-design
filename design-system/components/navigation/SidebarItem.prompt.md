@@ -5,3 +5,6 @@ Row inside Sidebar; active and hover share one treatment.
 ```
 
 Active/hover raises the background and adds a 3px fire left border.
+
+## Accessibility
+`active` sets `aria-current="page"`. Keyboard focus shows a 2px ring.
