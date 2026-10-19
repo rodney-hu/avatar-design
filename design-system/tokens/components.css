@@ -70,6 +70,13 @@ input:checked + .toggle-slider:before{transform:translateX(1.2rem);background-co
 .navbar{display:flex;align-items:center;justify-content:space-between;padding:var(--space-4) var(--space-8);background:var(--surface-nav);backdrop-filter:blur(12px);border-bottom:1px solid var(--color-border-subtle);position:sticky;top:0;z-index:50}
 .navbar-links{display:flex;align-items:center;gap:var(--space-6)}
 .navbar-actions{display:flex;align-items:center;gap:var(--space-3)}
+.navbar-panel{display:contents}
+.navbar-toggle{display:none;flex-direction:column;justify-content:center;gap:var(--space-1);width:2.5rem;height:2.5rem;padding:0 var(--space-2-5);margin-left:auto;background:none;border:1px solid var(--color-border-strong);border-radius:var(--radius-md);color:var(--color-text-primary);cursor:pointer}
+.navbar-toggle-bar{display:block;height:2px;border-radius:1px;background:currentColor;transition:transform var(--duration-base) var(--ease-enter),opacity var(--duration-fast) var(--ease-enter)}
+.navbar-toggle[aria-expanded="true"] .navbar-toggle-bar:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.navbar-toggle[aria-expanded="true"] .navbar-toggle-bar:nth-child(2){opacity:0}
+.navbar-toggle[aria-expanded="true"] .navbar-toggle-bar:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+@media (max-width:899.98px){.navbar{padding:var(--space-3) var(--space-4)}.navbar-toggle{display:flex}.navbar-panel{display:none}.navbar-panel[data-open]{position:absolute;top:100%;left:0;right:0;display:flex;flex-direction:column;align-items:stretch;gap:var(--space-4);padding:var(--space-4);background:var(--color-surface-overlay);border-bottom:1px solid var(--color-border-subtle);box-shadow:var(--elevation-2);transform-origin:top center;animation:popover-in var(--duration-base) var(--ease-enter) both;--_dy:calc(var(--travel-xs) * -1)}.navbar-panel[data-open] .navbar-links{flex-direction:column;align-items:stretch;gap:var(--space-1)}.navbar-panel[data-open] .navbar-actions{flex-wrap:wrap}}
 .nav-brand{font-family:var(--font-display);font-size:var(--text-xl);font-weight:700;color:var(--color-text-primary);display:flex;align-items:center;gap:var(--space-2-5);text-decoration:none}
 .nav-link{font-family:var(--font-body);font-size:var(--text-base);font-weight:500;color:var(--color-text-secondary);text-decoration:none;padding:var(--space-1-5) var(--space-3);border-radius:var(--radius-sm);transition:color var(--duration-fast) var(--ease-enter),background-color var(--duration-fast) var(--ease-enter)}
 .nav-link:hover{color:var(--fire-link);background:rgb(var(--fire-500-rgb) / 0.08)}

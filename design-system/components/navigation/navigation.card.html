@@ -1,4 +1,4 @@
-<!-- @dsCard group="Components" viewport="700x340" name="Navigation" subtitle="Menu, Navbar, NavLink, Sidebar, SidebarItem, Breadcrumb" -->
+<!-- @dsCard group="Components" viewport="700x340" name="Navigation" subtitle="Navbar (folds into a menu below 900px; this card is 700px), Menu, NavLink, Sidebar, SidebarItem, Breadcrumb" -->
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css">
 <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
@@ -10,7 +10,7 @@
 const { Navbar, NavLink, Sidebar, SidebarItem, Breadcrumb, Button, Menu } = window.ElementalUIDesignSystem_5d6c38;
 function Demo(){
   return (<>
-    <Navbar style={{position:'static',margin:'-16px -16px 0'}}
+    <Navbar style={{position:'relative',margin:'-16px -16px 0'}}
       brand={<><span style={{letterSpacing:'.05em'}}>AVATAR <span style={{color:'var(--color-fire-500)',fontWeight:800}}>DESIGN</span></span></>}
       actions={<><Button variant="outline" size="sm">Light Mode</Button><Button size="sm">Get Presets</Button></>}>
       <NavLink href="#" active>Colors</NavLink><NavLink href="#">Typography</NavLink><NavLink href="#">Buttons</NavLink>

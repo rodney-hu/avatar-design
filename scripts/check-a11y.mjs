@@ -1,6 +1,7 @@
 /* Accessibility gate: serves the built site (run `npm run build` first) and
    runs axe-core (WCAG 2.1 A/AA + best practices) on every page in both
-   themes, plus the open modal, a toast and an open menu. Exits 1 on any
+   themes, plus the open modal, a toast, an open menu and the phone-width
+   navbar menu. Exits 1 on any
    violation. Run with `npm run check:a11y`; CI runs it on every push. */
 import { spawn } from 'node:child_process';
 import { readFileSync } from 'node:fs';
@@ -62,6 +63,13 @@ try {
     await page.getByRole('button', { name: /Scroll actions/ }).click();
     await page.waitForTimeout(300);
     await scan(page, `${theme} open menu`);
+    // Phone width: the Navbar folds into its menu panel.
+    await page.setViewportSize({ width: 390, height: 844 });
+    await open('/');
+    await page.locator('.navbar-toggle').click();
+    await page.waitForTimeout(300);
+    await scan(page, `${theme} 390px nav menu`);
+    await page.setViewportSize({ width: 1280, height: 900 });
   }
   await browser.close();
 } catch (err) {

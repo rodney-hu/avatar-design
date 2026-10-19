@@ -114,19 +114,9 @@ body {
   accent-color: var(--color-fire-500);
 }
 
-/* Small screens: the design reference is desktop-only; collapse its grids. */
+/* Small screens: collapse the showcase grids. The Navbar folds its own
+   links into a menu below 900px. */
 @media (max-width: 900px) {
-  .navbar {
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    padding: 0.75rem 1rem;
-  }
-  .navbar nav {
-    order: 3;
-    width: 100%;
-    overflow-x: auto;
-    gap: 0.25rem !important;
-  }
   .grid2,
   .grid3,
   .grid4 {

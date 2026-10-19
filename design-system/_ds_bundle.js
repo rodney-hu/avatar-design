@@ -809,7 +809,29 @@ var ElementalUIDesignSystem_5d6c38 = (function(exports, react) {
 	}
 	//#endregion
 	//#region design-system/components/navigation/Navbar.jsx
+	var NARROW = "(max-width: 899.98px)";
 	function Navbar({ brand, brandHref = "/", children, actions, glass = true, scrolled = false, className = "", ...rest }) {
+		const [open, setOpen] = react.default.useState(false);
+		const panelId = react.default.useId();
+		const toggleRef = react.default.useRef(null);
+		react.default.useEffect(() => {
+			if (!open || typeof window === "undefined" || !window.matchMedia) return void 0;
+			const mq = window.matchMedia(NARROW);
+			const onChange = () => {
+				if (!mq.matches) setOpen(false);
+			};
+			mq.addEventListener("change", onChange);
+			return () => mq.removeEventListener("change", onChange);
+		}, [open]);
+		const onKeyDown = (e) => {
+			if (open && e.key === "Escape") {
+				setOpen(false);
+				toggleRef.current?.focus();
+			}
+		};
+		const onPanelClick = (e) => {
+			if (e.target.closest("a")) setOpen(false);
+		};
 		const cls = [
 			"navbar",
 			glass && "glass-thick",
@@ -818,11 +840,34 @@ var ElementalUIDesignSystem_5d6c38 = (function(exports, react) {
 		];
 		return /* @__PURE__ */ react.default.createElement("header", {
 			className: cls.filter(Boolean).join(" "),
+			onKeyDown,
 			...rest
 		}, /* @__PURE__ */ react.default.createElement("a", {
 			href: brandHref,
 			className: "nav-brand"
-		}, brand), /* @__PURE__ */ react.default.createElement("nav", { className: "navbar-links" }, children), /* @__PURE__ */ react.default.createElement("div", { className: "navbar-actions" }, actions));
+		}, brand), /* @__PURE__ */ react.default.createElement("button", {
+			ref: toggleRef,
+			type: "button",
+			className: "navbar-toggle",
+			"aria-label": "Menu",
+			"aria-expanded": open,
+			"aria-controls": panelId,
+			onClick: () => setOpen(!open)
+		}, /* @__PURE__ */ react.default.createElement("span", {
+			className: "navbar-toggle-bar",
+			"aria-hidden": "true"
+		}), /* @__PURE__ */ react.default.createElement("span", {
+			className: "navbar-toggle-bar",
+			"aria-hidden": "true"
+		}), /* @__PURE__ */ react.default.createElement("span", {
+			className: "navbar-toggle-bar",
+			"aria-hidden": "true"
+		})), /* @__PURE__ */ react.default.createElement("div", {
+			id: panelId,
+			className: "navbar-panel",
+			"data-open": open || void 0,
+			onClick: onPanelClick
+		}, /* @__PURE__ */ react.default.createElement("nav", { className: "navbar-links" }, children), /* @__PURE__ */ react.default.createElement("div", { className: "navbar-actions" }, actions)));
 	}
 	//#endregion
 	//#region design-system/components/navigation/NavLink.jsx
