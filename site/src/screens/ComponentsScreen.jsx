@@ -16,16 +16,16 @@ export default function ComponentsScreen({ onModal }) {
       <h1 className="sr-only">Components</h1>
       <section style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }} data-halo-bloom>
         <div className="sec-head" data-reveal>
-          <Badge variant="water" style={{ width: 'fit-content' }}>03. Buttons &amp; Actions</Badge>
+          <Badge element="water" style={{ width: 'fit-content' }}>03. Buttons &amp; Actions</Badge>
           <h2>Bending Action Buttons</h2>
           <p>Elemental hover glows, tactile active states, and custom variants.</p>
         </div>
         <Card style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }} data-reveal>
           <div>
-            <h3 className="stat-label" style={{ margin: '0 0 0.75rem' }}>Elemental variants</h3>
+            <h3 className="stat-label" style={{ margin: '0 0 0.75rem' }}>Elements</h3>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>
               {elements.map((e) => (
-                <Button key={e} variant={e}>{e[0].toUpperCase() + e.slice(1)}</Button>
+                <Button key={e} element={e}>{e[0].toUpperCase() + e.slice(1)}</Button>
               ))}
             </div>
           </div>
@@ -38,57 +38,66 @@ export default function ComponentsScreen({ onModal }) {
               <Tooltip text="Secondary action, fire outline on hover"><Button variant="outline">Outline</Button></Tooltip>
               <Button variant="ghost">Ghost Link</Button>
               <Button disabled>Disabled</Button>
-              </div>
+            </div>
+          </div>
+          <div>
+            <h3 className="stat-label" style={{ margin: '0 0 0.75rem' }}>Status names</h3>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', alignItems: 'center' }}>
+              {['success', 'warning', 'info', 'danger'].map((s) => (
+                <Badge key={s} element={s}>{s}</Badge>
+              ))}
+              <Button element="danger" variant="outline" size="sm">Delete scroll</Button>
+            </div>
           </div>
         </Card>
       </section>
 
       <section style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }} data-halo-bloom="earth">
         <div className="sec-head" data-reveal>
-          <Badge variant="earth" style={{ width: 'fit-content' }}>04. Cards &amp; Containers</Badge>
+          <Badge element="earth" style={{ width: 'fit-content' }}>04. Cards &amp; Containers</Badge>
           <h2>Layered Surfaces &amp; Glass</h2>
           <p>Depth layers from #0a0a0a to elevated cards with glowing borders.</p>
         </div>
         <div className="grid3" data-stagger>
-          <Card variant="fire" elevation={2} data-tilt style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+          <Card element="fire" elevation={2} data-tilt style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-              <Badge variant="fire">Fire Nation</Badge>            </div>
+              <Badge element="fire">Fire Nation</Badge>            </div>
             <h3 style={{ margin: 0, fontFamily: 'var(--font-display)', fontSize: '1.25rem', fontWeight: 700 }}>Sun Warrior Temple</h3>
             <p style={{ margin: 0, fontSize: '0.875rem', color: 'var(--color-text-secondary)' }}>The original source of firebending power, guarded by the dragons Ran and Shaw.</p>
             <Button size="sm" fullWidth>Enter Temple</Button>
           </Card>
-          <Card variant="water" elevation={2} data-tilt style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+          <Card element="water" elevation={2} data-tilt style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-              <Badge variant="water">Northern Tribe</Badge>            </div>
+              <Badge element="water">Northern Tribe</Badge>            </div>
             <h3 style={{ margin: 0, fontFamily: 'var(--font-display)', fontSize: '1.25rem', fontWeight: 700 }}>Spirit Oasis</h3>
             <p style={{ margin: 0, fontSize: '0.875rem', color: 'var(--color-text-secondary)' }}>A sacred haven at the North Pole where Tui and La circle in eternal harmony.</p>
-            <Button variant="water" size="sm" fullWidth>Visit Sanctuary</Button>
+            <Button element="water" size="sm" fullWidth>Visit Sanctuary</Button>
           </Card>
           <Card variant="glass" elevation={2} data-tilt style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-              <Badge variant="avatar">Glassmorphism</Badge>            </div>
+              <Badge element="avatar">Glassmorphism</Badge>            </div>
             <h3 style={{ margin: 0, fontFamily: 'var(--font-display)', fontSize: '1.25rem', fontWeight: 700 }}>Cosmic Energy Overlay</h3>
             <p style={{ margin: 0, fontSize: '0.875rem', color: 'var(--color-text-secondary)' }}>Backdrop blur at 16px with glowing highlights.</p>
-            <Button variant="avatar" size="sm" fullWidth onClick={onModal}>Unlock Energy</Button>
+            <Button element="avatar" size="sm" fullWidth onClick={onModal}>Unlock Energy</Button>
           </Card>
         </div>
       </section>
 
       <section style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }} data-halo-bloom>
         <div className="sec-head" data-reveal>
-          <Badge variant="fire" style={{ width: 'fit-content' }}>05. Forms &amp; Inputs</Badge>
+          <Badge element="fire" style={{ width: 'fit-content' }}>05. Forms &amp; Inputs</Badge>
           <h2>Form Controls</h2>
           <p>Inputs with elemental focus halos, custom toggles, and select menus.</p>
         </div>
         <Card className="grid2" data-reveal>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
             <Input id="avatar-name" label="Avatar Name" defaultValue="Aang" placeholder="e.g. Aang, Korra, Roku" />
-            <Select id="primary-element" label="Primary Element" options={['Firebending', 'Waterbending', 'Earthbending', 'Airbending']} />
+            <Select id="primary-element" element="water" label="Primary Element" options={['Firebending', 'Waterbending', 'Earthbending', 'Airbending']} />
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-            <Textarea id="scroll-notes" label="Scroll Notes" placeholder="Write ancient bending techniques..." />
+            <Textarea id="scroll-notes" element="earth" label="Scroll Notes" placeholder="Write ancient bending techniques..." />
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: '0.5rem' }}>
-              <Checkbox id="avatar-state" label="Enable Avatar State" defaultChecked />
+              <Checkbox id="avatar-state" element="avatar" label="Enable Avatar State" defaultChecked />
               <ToggleSwitch id="ember-glow" label="Ember Glow" defaultChecked />
             </div>
           </div>

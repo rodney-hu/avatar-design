@@ -1,13 +1,15 @@
 import React from 'react';
+import { resolveElement } from '../elements.js';
 
-export function Textarea({ label, rows = 3, className = '', id, ...rest }) {
+export function Textarea({ label, element = 'fire', rows = 3, className = '', id, ...rest }) {
   const autoId = React.useId();
   const fieldId = id || autoId;
-  const field = <textarea id={fieldId} rows={rows} className={['textarea', className].filter(Boolean).join(' ')} {...rest} />;
+  const tint = 'field-' + resolveElement(element, 'fire');
+  const field = <textarea id={fieldId} rows={rows} className={['textarea', !label && tint, className].filter(Boolean).join(' ')} {...rest} />;
   if (!label) return field;
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
-      <label htmlFor={fieldId} className="stat-label" style={{ fontSize: '0.75rem' }}>{label}</label>
+    <div className={['field', tint].join(' ')}>
+      <label htmlFor={fieldId} className="field-label">{label}</label>
       {field}
     </div>
   );

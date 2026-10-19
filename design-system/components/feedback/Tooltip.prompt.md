@@ -1,7 +1,7 @@
 Hover and focus label; wrap a single focusable trigger.
 
 ```jsx
-<Tooltip text="Avatar State cycles all four elements"><Button variant="avatar" size="sm">Avatar</Button></Tooltip>
+<Tooltip text="Avatar State cycles all four elements"><Button element="avatar" size="sm">Avatar</Button></Tooltip>
 ```
 
 Always positioned above the trigger, single line (`white-space: nowrap`) — keep the text short.

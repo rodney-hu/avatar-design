@@ -17,6 +17,7 @@
   --color-air-50:#fffef5;--color-air-100:#fff8cc;--color-air-200:#ffed8a;--color-air-300:#ffe048;--color-air-400:#ffd700;--color-air-500:#e6bf00;--color-air-600:#b89700;--color-air-700:#8a7100;--color-air-800:#5c4b00;--color-air-900:#3a3000;--color-air-glow:#ffd700;
 
   /* AVATAR STATE */
+  --color-danger-50:var(--color-fire-50);--color-danger-100:var(--color-fire-100);--color-danger-200:var(--color-fire-200);--color-danger-300:var(--color-fire-300);--color-danger-400:var(--color-fire-400);--color-danger-500:var(--color-fire-500);--color-danger-600:var(--color-fire-600);--color-danger-700:var(--color-fire-700);--color-danger-800:var(--color-fire-800);--color-danger-900:var(--color-fire-900);--color-danger-glow:var(--color-fire-glow);
   --color-avatar-glow:#00ffff;--color-avatar-white:#ffffff;--color-avatar-amber:#ffcc00;
 
   /* TEXT & BORDER (dark mode) */
@@ -35,6 +36,8 @@
   --air-500-rgb:230 191 0; /* @kind color */
   --air-glow-rgb:255 215 0; /* @kind color */
   --avatar-glow-rgb:0 255 255; /* @kind color */
+  --danger-500-rgb:var(--fire-500-rgb); /* @kind color */
+  --danger-glow-rgb:var(--fire-glow-rgb); /* @kind color */
 
   /* Fire used as TEXT: fire-300, the same 300 step as the other elements'
      text (~6.5:1 on badge, alert and nav tints). fire-500 itself is only
@@ -49,4 +52,6 @@
   --earth-text:#4cd964;
   --air-text:#ffd700;
   --avatar-text:#00ffff;
+  --danger-text:var(--color-danger-300);
+  --danger-link:var(--color-danger-300);
 }

@@ -18,7 +18,7 @@ export default function DataScreen() {
       <h1 className="sr-only">Data</h1>
       <section style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }} data-halo-bloom="water">
         <div className="sec-head" data-reveal>
-          <Badge variant="water" style={{ width: 'fit-content' }}>06. Data &amp; Dashboards</Badge>
+          <Badge element="water" style={{ width: 'fit-content' }}>06. Data &amp; Dashboards</Badge>
           <h2>Stats &amp; Tables</h2>
           <p>Data components for SaaS dashboards and analytics screens.</p>
         </div>
@@ -41,10 +41,10 @@ export default function DataScreen() {
               caption="Bending masters"
               columns={['Master', 'Affiliation', 'Specialty', 'Status']}
               rows={[
-                [<span style={{ fontWeight: 600, color: 'var(--fire-text)' }}>Zuko</span>, 'Fire Nation', 'Lightning Redirection', <Badge variant="fire">Active Fire Lord</Badge>],
-                [<span style={{ fontWeight: 600, color: 'var(--water-text)' }}>Katara</span>, 'Southern Water Tribe', 'Bloodbending / Healing', <Badge variant="water">Grandmaster</Badge>],
-                [<span style={{ fontWeight: 600, color: 'var(--earth-text)' }}>Toph Beifong</span>, 'Earth Kingdom', 'Metalbending Creator', <Badge variant="earth">Chief of Police</Badge>],
-                [<span style={{ fontWeight: 600, color: 'var(--air-text)' }}>Aang</span>, 'Air Nomads', 'Energybending', <Badge variant="avatar">Avatar State</Badge>],
+                [<span style={{ fontWeight: 600, color: 'var(--fire-text)' }}>Zuko</span>, 'Fire Nation', 'Lightning Redirection', <Badge element="fire">Active Fire Lord</Badge>],
+                [<span style={{ fontWeight: 600, color: 'var(--water-text)' }}>Katara</span>, 'Southern Water Tribe', 'Bloodbending / Healing', <Badge element="water">Grandmaster</Badge>],
+                [<span style={{ fontWeight: 600, color: 'var(--earth-text)' }}>Toph Beifong</span>, 'Earth Kingdom', 'Metalbending Creator', <Badge element="earth">Chief of Police</Badge>],
+                [<span style={{ fontWeight: 600, color: 'var(--air-text)' }}>Aang</span>, 'Air Nomads', 'Energybending', <Badge element="avatar">Avatar State</Badge>],
               ]}
             />
           </div>
@@ -53,15 +53,15 @@ export default function DataScreen() {
 
       <section style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }} data-halo-bloom>
         <div className="sec-head" data-reveal>
-          <Badge variant="fire" style={{ width: 'fit-content' }}>07. Feedback &amp; Alerts</Badge>
+          <Badge element="fire" style={{ width: 'fit-content' }}>07. Feedback &amp; Alerts</Badge>
           <h2>Elemental Notifications</h2>
           <p>Status callouts themed after each element.</p>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }} data-stagger>
-          <Alert variant="fire"><b>Fire Warning:</b> High thermal activity detected in the Caldera.</Alert>
-          <Alert variant="water"><b>Water Info:</b> Tidal waves arriving at high tide tonight.</Alert>
-          <Alert variant="earth"><b>Earth Success:</b> Defense walls fortified at Ba Sing Se.</Alert>
-          <Alert variant="air"><b>Air Notice:</b> Tailwinds favorable for Northern Air Temple flight.</Alert>
+          <Alert element="fire"><b>Fire Warning:</b> High thermal activity detected in the Caldera.</Alert>
+          <Alert element="water"><b>Water Info:</b> Tidal waves arriving at high tide tonight.</Alert>
+          <Alert element="earth"><b>Earth Success:</b> Defense walls fortified at Ba Sing Se.</Alert>
+          <Alert element="air"><b>Air Notice:</b> Tailwinds favorable for Northern Air Temple flight.</Alert>
         </div>
       </section>
     </main>

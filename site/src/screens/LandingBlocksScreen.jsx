@@ -12,27 +12,27 @@ export default function LandingBlocksScreen() {
       <h1 className="sr-only">Landing blocks</h1>
       <section style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }} data-halo-bloom="avatar">
         <div className="sec-head" data-reveal>
-          <Badge variant="avatar" style={{ width: 'fit-content' }}>08. SaaS &amp; Landing Blocks</Badge>
+          <Badge element="avatar" style={{ width: 'fit-content' }}>08. SaaS &amp; Landing Blocks</Badge>
           <h2>Pricing &amp; Testimonials</h2>
           <p>Pre-built landing page layouts designed for conversion.</p>
         </div>
         <div className="grid3" style={{ alignItems: 'center', gap: '2rem' }} data-stagger data-spotlight-group>
           <PricingCard
-            tier={<Badge variant="air" style={{ width: 'fit-content' }}>Initiate</Badge>}
+            tier={<Badge element="air" style={{ width: 'fit-content' }}>Initiate</Badge>}
             name="Air Nomad" price="$19"
             description="Essential bending tokens and basic components."
             action={<Button variant="outline" fullWidth>Start Free Trial</Button>}
           />
           <PricingCard
             featured
-            ribbon={<Badge variant="fire">Most Popular</Badge>}
-            tier={<Badge variant="fire" style={{ width: 'fit-content' }}>Fire Master</Badge>}
+            ribbon={<Badge element="fire">Most Popular</Badge>}
+            tier={<Badge element="fire" style={{ width: 'fit-content' }}>Fire Master</Badge>}
             name="Fire Nation Pro" price="$49"
             description="Full elemental component suite, glowing effects and the Tailwind v4 preset."
             action={<Button fullWidth>Unlock Full Power</Button>}
           />
           <PricingCard
-            tier={<Badge variant="avatar" style={{ width: 'fit-content' }}>Avatar</Badge>}
+            tier={<Badge element="avatar" style={{ width: 'fit-content' }}>Avatar</Badge>}
             name="Avatar Enterprise" price="$149"
             description="Custom element styling and dedicated support."
             action={<Button variant="outline" fullWidth>Contact White Lotus</Button>}
@@ -47,7 +47,7 @@ export default function LandingBlocksScreen() {
 
       <section style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', borderTop: '1px solid var(--color-border-subtle)', paddingTop: '4rem' }} data-halo-bloom>
         <div className="sec-head" data-reveal>
-          <Badge variant="fire" style={{ width: 'fit-content' }}>09. Installation Guide</Badge>
+          <Badge element="fire" style={{ width: 'fit-content' }}>09. Installation Guide</Badge>
           <h2>How to Use in Any Tailwind v4 Project</h2>
           <p>One CSS file unlocks the entire elemental system.</p>
         </div>

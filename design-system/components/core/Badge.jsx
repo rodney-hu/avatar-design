@@ -1,7 +1,7 @@
 import React from 'react';
+import { resolveElement, colorFromVariant } from '../elements.js';
 
-const VARIANTS = { fire: 'badge-fire', water: 'badge-water', earth: 'badge-earth', air: 'badge-air', avatar: 'badge-avatar' };
-
-export function Badge({ variant = 'fire', children, className = '', ...rest }) {
-  return <span className={['badge', VARIANTS[variant], className].filter(Boolean).join(' ')} {...rest}>{children}</span>;
+export function Badge({ element, variant, children, className = '', ...rest }) {
+  const el = resolveElement(colorFromVariant('Badge', variant, element).element, 'fire');
+  return <span className={['badge', 'badge-' + el, className].filter(Boolean).join(' ')} {...rest}>{children}</span>;
 }

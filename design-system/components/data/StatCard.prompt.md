@@ -4,7 +4,7 @@ KPI tile for dashboard headers.
 <StatCard element="fire" label="Fire Power Index" value="98.4%" delta="↑ +14.2% Comet boost" />
 ```
 
-The element prop tints the value, adds its text glow and lifts the border to a 30%-alpha element tint.
+Neutral by default. `element` (any element or status name) tints the value, adds its text glow and lifts the border to a 30%-alpha element tint.
 
 ## Micro-interactions
 - **Count-up:** numeric values count up from 0 the first time the card scrolls into view. Turn it off with `countUp={false}` for static reports.

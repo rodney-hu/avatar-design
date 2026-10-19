@@ -1,8 +1,10 @@
-export type BadgeVariant = 'fire' | 'water' | 'earth' | 'air' | 'avatar';
+import type { ElementProp } from '../elements';
 
 export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
-  /** Default 'fire'. */
-  variant?: BadgeVariant;
+  /** Color: an element or a status name (success, warning, info, danger). Default 'fire'. */
+  element?: ElementProp;
+  /** Deprecated: the old name for `element`. Still works and warns once. */
+  variant?: ElementProp;
   children?: React.ReactNode;
 }
 

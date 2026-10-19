@@ -22,13 +22,13 @@ The voice is confident, in-world, and slightly theatrical. Product nouns are rep
 - **Person.** Copy addresses the reader as *you* implicitly, usually by imperative: "Unleash Fire Toast", "Enter Temple", "Unlock Full Power", "Contact White Lotus". First person never appears.
 - **Sentence shape.** Section subtitles are single declarative fragments, no period-heavy paragraphs: "Deep dark surface system paired with vibrant elemental accents." Feature blurbs run one or two sentences.
 - **Numbers and units.** Stats carry real units and a direction: "98.4%", "1,420 L/s", "840 MPa", "↑ +14.2% Comet boost".
-- **Naming.** Every variant is named for its element, not its semantics: `btn-fire` is the primary CTA, `alert-earth` is success, `alert-air` is a notice. Write new component names the same way.
+- **Naming.** Color classes are named for their element: `btn-fire`, `alert-earth`, `field-water`. Components take the color as `element`, which also accepts the status names `success` (earth), `warning` (air), `info` (water) and `danger`. Write new components the same way.
 - **Emoji.** The source uses element emoji (🔥💧🌍🌀⚡) freely in labels and copy. **This system does not**, and it ships no icon set in their place — element identity comes from color, glow and the standalone brush headings.
 - **In-world examples.** Sample data leans on the fiction (Zuko, Katara, Toph, Aang; Ba Sing Se; the Spirit Oasis). Keep placeholder copy in that register so mocks read as a set.
 
 ## Visual foundations
 
-**Color.** Four ten-step ramps plus a glow step each. Fire is the brand and the only CTA color, anchored at `#aa0000` (500) with `#e01010` as its glow. Water (`#0088e0`) is secondary and informational, Earth (`#27ae34`) is success, Air (`#e6bf00`) is warning/highlight. `--color-avatar-glow` (`#00ffff`) is reserved for one hero moment per view. Primary aliases (`--color-primary-*`) point at the fire ramp, so a rebrand is a single-file edit.
+**Color.** Four ten-step ramps plus a glow step each. Fire is the brand and the only CTA color, anchored at `#aa0000` (500) with `#e01010` as its glow. Water (`#0088e0`) is secondary and informational, Earth (`#27ae34`) is success, Air (`#e6bf00`) is warning/highlight. Danger (`--color-danger-*`) has its own tokens for destructive actions and errors; they point at the fire ramp, so changing danger's hue is a one-line edit. `--color-avatar-glow` (`#00ffff`) is reserved for one hero moment per view. Primary aliases (`--color-primary-*`) point at the fire ramp, so a rebrand is a single-file edit.
 
 **Surfaces.** Dark-first, five near-black layers: void `#0a0a0a` → base `#0d0d0d` → raised `#1a1a1a` → elevated `#252525` → overlay `#2f2f2f`. A second theme, `.light`, swaps them for warm parchment (`#f5f0eb` → `#ffffff`) with earth-toned borders. Two background colors per screen is the practical limit: void for the page, base or raised for cards.
 
@@ -172,7 +172,18 @@ Root manifest:
 
 `components/core/` — **Button**, **Badge**, **Card** `components/forms/` — **Input**, **Textarea**, **Select**, **Checkbox**, **ToggleSwitch** `components/navigation/` — **Navbar**, **NavLink**, **Sidebar**, **SidebarItem**, **Breadcrumb** `components/data/` — **StatCard**, **DataTable** `components/feedback/` — **Alert**, **Modal**, **Tooltip** `components/marketing/` — **Hero**, **PricingCard**, **TestimonialCard**
 
-Every component has a sibling `.d.ts` (props contract) and `.prompt.md` (what & when, usage example, variants). Each directory has one card HTML showing its states.
+Every component has a sibling `.d.ts` (props contract) and `.prompt.md` (what & when, usage example, variants). Each directory has one card HTML showing its states. The cards load `_ds_bundle.js`, which `npm run build:ds` rebuilds from the components and `assets/motion.js`; rebuild it after changing a component.
+
+### Color props
+
+One rule for every component (shared resolver: `components/elements.js`):
+
+- **`element` is the color:** `fire`, `water`, `earth`, `air` or `avatar`, or a status name: `success` (earth), `warning` (air), `info` (water) or `danger` (its own tokens, fire by default). Hero and PricingCard have no danger style; danger falls back to fire there.
+- **`variant` is the style:** Button `solid | outline | ghost`, Card `base | raised | glass`.
+- **Defaults:** components that are colored by nature (Button, Badge, Alert, Hero, PricingCard, every form control) default to `fire`. Containers (Card, StatCard) are neutral until you give them an element.
+- **Old API:** a color passed as `variant` on Button, Badge, Alert or Card still works and warns once in the console.
+
+In plain CSS the same names apply: `.btn-<el>`, `.badge-<el>`, `.alert-<el>`, `.card-<el>`, `.hero-<el>`, `.field-<el>` (on a control or any parent) and `.element-<el>` (scopes glows, edge light, outline-button hover and motion personality).
 
 The inventory maps 1:1 onto the component families defined in `src/elemental-components.css`: buttons, cards/surfaces, forms & inputs, checkbox, toggle, navbar, nav link, sidebar, breadcrumb, stat card, badge, table, alert/toast, modal, tooltip, hero, pricing card, testimonial card.
 

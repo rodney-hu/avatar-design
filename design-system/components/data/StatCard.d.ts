@@ -1,3 +1,5 @@
+import type { ElementProp } from '../elements';
+
 export interface StatCardProps extends React.HTMLAttributes<HTMLDivElement> {
   /** Uppercase caption. */
   label: string;
@@ -5,8 +7,8 @@ export interface StatCardProps extends React.HTMLAttributes<HTMLDivElement> {
   value: React.ReactNode;
   /** Small supporting line under the value. Nudges up or down on change. */
   delta?: React.ReactNode;
-  /** Tints value, glow and border. Default 'none'. */
-  element?: 'fire' | 'water' | 'earth' | 'air' | 'none';
+  /** Tints value, glow and border. Accepts status names. Default: none (neutral). */
+  element?: ElementProp | 'none';
   /** Count up from 0 (expo-out) the first time the card scrolls into view. Default true. */
   countUp?: boolean;
   /** When a numeric value changes, roll to the new figure and flash the card (earth green when up, fire red when down). Default true. */

@@ -9,7 +9,7 @@ function Segment({ value, options, onChange }) {
   return (
     <div className="tweaks-seg">
       {options.map((o) => (
-        <Button key={o} size="sm" variant={value === o ? 'fire' : 'ghost'} burst={false} onClick={() => onChange(o)}>{o}</Button>
+        <Button key={o} size="sm" variant={value === o ? 'solid' : 'ghost'} burst={false} onClick={() => onChange(o)}>{o}</Button>
       ))}
     </div>
   );

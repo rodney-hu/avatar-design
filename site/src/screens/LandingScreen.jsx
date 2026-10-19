@@ -57,23 +57,23 @@ export default function LandingScreen({ onToast, onModal }) {
         className="animate-fade-in-up"
         style={{ borderBottom: '1px solid var(--color-border-subtle)' }}
         eyebrow={<>
-          <Badge variant="fire">Fire Primary</Badge>
-          <Badge variant="water">Water</Badge>
-          <Badge variant="earth">Earth</Badge>
-          <Badge variant="air">Air</Badge>
-          <Badge variant="avatar">Avatar State</Badge>
+          <Badge element="fire">Fire Primary</Badge>
+          <Badge element="water">Water</Badge>
+          <Badge element="earth">Earth</Badge>
+          <Badge element="air">Air</Badge>
+          <Badge element="avatar">Avatar State</Badge>
         </>}
         title={<>Harness the Elements<br />in Your UI</>}
         subtitle="A complete dark-theme design system. Token-driven surfaces, elemental glows, and pre-built components for SaaS, landing pages, and web applications."
         actions={<>
-          <Button variant={element} size="lg" className="motion-gradient-drift-slow" onClick={onToast}>Unleash Toast</Button>
+          <Button element={element} size="lg" className="motion-gradient-drift-slow" onClick={onToast}>Unleash Toast</Button>
           <Button variant="outline" size="lg" onClick={onModal}>Open Bending Modal</Button>
         </>}
       >
         <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: '0.75rem', padding: '0.5rem', background: 'var(--color-surface-raised)', border: '1px solid var(--color-border-subtle)', borderRadius: 'var(--radius-xl)' }}>
           <span className="stat-label" style={{ padding: '0 0.5rem', fontSize: '0.75rem' }}>Theme preview</span>
           {elements.map((e) => (
-            <Button key={e} size="sm" variant={element === e ? e : 'ghost'} onClick={() => setElement(e)}>
+            <Button key={e} size="sm" element={e} variant={element === e ? 'solid' : 'ghost'} onClick={() => setElement(e)}>
               {labels[e]}
             </Button>
           ))}
@@ -83,7 +83,7 @@ export default function LandingScreen({ onToast, onModal }) {
       <div className="shell-main">
         <section style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }} data-halo-bloom>
           <div className="sec-head" data-reveal>
-            <Badge variant="fire" style={{ width: 'fit-content' }}>01. Color Palette</Badge>
+            <Badge element="fire" style={{ width: 'fit-content' }}>01. Color Palette</Badge>
             <h2>The Four Nations Palette</h2>
             <p>Deep dark surface system paired with vibrant elemental accents.</p>
           </div>
@@ -97,7 +97,7 @@ export default function LandingScreen({ onToast, onModal }) {
 
         <section style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }} data-halo-bloom="air">
           <div className="sec-head" data-reveal>
-            <Badge variant="air" style={{ width: 'fit-content' }}>02. Typography</Badge>
+            <Badge element="air" style={{ width: 'fit-content' }}>02. Typography</Badge>
             <h2>Type Hierarchy</h2>
             <p>Cinzel for the hero, Inter for body copy and headings, the Avatar Airbender brush face for standalone single-line headings, JetBrains Mono for code.</p>
           </div>

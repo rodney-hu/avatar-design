@@ -1,9 +1,10 @@
 import React from 'react';
+import { resolveElement } from '../elements.js';
 
 /* Text reads the per-element text tokens, which pass contrast in both themes. */
-const TINT = { fire: 'var(--fire-text)', water: 'var(--water-text)', earth: 'var(--earth-text)', air: 'var(--air-text)', none: 'var(--color-text-primary)' };
-const GLOW = { fire: 'text-glow-fire', water: 'text-glow-water', earth: 'text-glow-earth', air: 'text-glow-air', none: '' };
-const BORDER = { fire: 'rgb(var(--fire-500-rgb) / 0.3)', water: 'rgb(var(--water-500-rgb) / 0.3)', earth: 'rgb(var(--earth-500-rgb) / 0.3)', air: 'rgb(var(--air-500-rgb) / 0.3)', none: 'var(--color-border-subtle)' };
+const TINT = { fire: 'var(--fire-text)', water: 'var(--water-text)', earth: 'var(--earth-text)', air: 'var(--air-text)', avatar: 'var(--avatar-text)', danger: 'var(--danger-text)', none: 'var(--color-text-primary)' };
+const GLOW = { fire: 'text-glow-fire', water: 'text-glow-water', earth: 'text-glow-earth', air: 'text-glow-air', avatar: 'text-glow-avatar', danger: 'text-glow-fire', none: '' };
+const BORDER = { fire: 'rgb(var(--fire-500-rgb) / 0.3)', water: 'rgb(var(--water-500-rgb) / 0.3)', earth: 'rgb(var(--earth-500-rgb) / 0.3)', air: 'rgb(var(--air-500-rgb) / 0.3)', avatar: 'rgb(var(--avatar-glow-rgb) / 0.3)', danger: 'rgb(var(--danger-500-rgb) / 0.3)', none: 'var(--color-border-subtle)' };
 
 /* "1,420 L/s" -> { pre:'', n:1420, dec:0, comma:true, post:' L/s' } */
 function parse(v) {
@@ -20,7 +21,9 @@ function fmt(p, n) {
 const easeOut = (t) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t));
 const reducedMotion = () => typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-export function StatCard({ label, value, delta, element = 'none', countUp = true, flash = true, duration = 1100, className = '', style, ...rest }) {
+export function StatCard({ label, value, delta, element: elementProp, countUp = true, flash = true, duration = 1100, className = '', style, ...rest }) {
+  /* Neutral unless an element is given. */
+  const element = resolveElement(elementProp, 'none');
   const cardRef = React.useRef(null);
   const valRef = React.useRef(null);
   const prev = React.useRef(null);

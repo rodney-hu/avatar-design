@@ -1,8 +1,10 @@
-export type AlertVariant = 'fire' | 'water' | 'earth' | 'air';
+import type { ElementProp } from '../elements';
 
 export interface AlertProps extends React.HTMLAttributes<HTMLDivElement> {
-  /** fire = warning, water = info, earth = success, air = notice. Default 'fire'. */
-  variant?: AlertVariant;
+  /** Color: an element or a status name. success = earth, warning = air, info = water, danger = its own tokens (fire by default). Default 'fire'. */
+  element?: ElementProp;
+  /** Deprecated: the old name for `element`. Still works and warns once. */
+  variant?: ElementProp;
   /** Optional leading node. The system ships no icon set. */
   icon?: React.ReactNode;
   /** Bold 14px headline. */

@@ -189,6 +189,7 @@
   /* ---- Click burst: element-flavoured particles from the press point ----
      .btn-fire embers rise · .btn-water droplets + ripple · .btn-earth chunks
      fall under gravity · .btn-air motes spiral out · .btn-avatar cyan ring.
+     .btn-danger uses the fire embers.
      Opt out per button with data-burst="off". */
   var layer = null;
   function rgbVar(name) { return getComputedStyle(root).getPropertyValue(name).trim() || '224 16 16'; }
@@ -264,7 +265,7 @@
   document.addEventListener('pointerdown', function (e) {
     var b = e.target.closest && e.target.closest('.btn');
     if (reduced() || !b || b.disabled || b.getAttribute('aria-disabled') === 'true' || b.dataset.burst === 'off') return;
-    var kind = ['fire', 'water', 'earth', 'air', 'avatar'].filter(function (k) { return b.classList.contains('btn-' + k); })[0];
+    var kind = ['fire', 'water', 'earth', 'air', 'avatar'].filter(function (k) { return b.classList.contains('btn-' + k); })[0] || (b.classList.contains('btn-danger') ? 'fire' : undefined);
     if (kind) BURST[kind](e.clientX, e.clientY);
   }, { passive: true });
 

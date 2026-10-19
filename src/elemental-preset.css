@@ -127,6 +127,21 @@
   --color-avatar-white: #ffffff;
   --color-avatar-amber: #ffcc00;
 
+  /* ---------------- DANGER ----------------
+     Destructive actions and errors. Points at fire for now; repoint these
+     lines to give danger its own hue without touching any component. */
+  --color-danger-50: var(--color-fire-50);
+  --color-danger-100: var(--color-fire-100);
+  --color-danger-200: var(--color-fire-200);
+  --color-danger-300: var(--color-fire-300);
+  --color-danger-400: var(--color-fire-400);
+  --color-danger-500: var(--color-fire-500);
+  --color-danger-600: var(--color-fire-600);
+  --color-danger-700: var(--color-fire-700);
+  --color-danger-800: var(--color-fire-800);
+  --color-danger-900: var(--color-fire-900);
+  --color-danger-glow: var(--color-fire-glow);
+
   /* ---------------- NEUTRALS & TEXT ---------------- */
   --color-text-primary: #f0f0f0;
   --color-text-secondary: #a0a0a0;
@@ -183,6 +198,8 @@
   --air-500-rgb: 230 191 0;
   --air-glow-rgb: 255 215 0;
   --avatar-glow-rgb: 0 255 255;
+  --danger-500-rgb: var(--fire-500-rgb);
+  --danger-glow-rgb: var(--fire-glow-rgb);
 
   /* Fire used as TEXT: fire-300, the same 300 step as the other elements'
      text (~6.5:1 on badge, alert and nav tints). fire-500 itself is only
@@ -196,6 +213,9 @@
   --earth-text: #4cd964;
   --air-text: #ffd700;
   --avatar-text: #00ffff;
+  /* Danger text: the same 300 step as fire. Flips to danger-500 on .light. */
+  --danger-text: var(--color-danger-300);
+  --danger-link: var(--color-danger-300);
 
   /* Alpha-composited surfaces (flip on .light) */
   --surface-nav: rgba(13, 13, 13, 0.85);
