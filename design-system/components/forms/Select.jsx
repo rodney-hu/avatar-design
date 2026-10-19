@@ -1,24 +1,16 @@
 import React from 'react';
-import { resolveElement } from '../elements.js';
+import { Field } from './Field.jsx';
 
-export function Select({ label, element = 'fire', options = [], children, className = '', id, ...rest }) {
-  const autoId = React.useId();
-  const fieldId = id || autoId;
-  const tint = 'field-' + resolveElement(element, 'fire');
-  const field = (
-    <select id={fieldId} className={['select', !label && tint, className].filter(Boolean).join(' ')} {...rest}>
-      {children || options.map((o) => (
-        <option key={typeof o === 'string' ? o : o.value} value={typeof o === 'string' ? o : o.value}>
-          {typeof o === 'string' ? o : o.label}
-        </option>
-      ))}
-    </select>
-  );
-  if (!label) return field;
+export function Select({ label, hint, error, required, element = 'fire', underline = true, options = [], children, className = '', id, ...rest }) {
   return (
-    <div className={['field', tint].join(' ')}>
-      <label htmlFor={fieldId} className="field-label">{label}</label>
-      {field}
-    </div>
+    <Field label={label} hint={hint} error={error} required={required} element={element} underline={underline} id={id}>
+      <select className={['select', className].filter(Boolean).join(' ')} {...rest}>
+        {children || options.map((o) => (
+          <option key={typeof o === 'string' ? o : o.value} value={typeof o === 'string' ? o : o.value}>
+            {typeof o === 'string' ? o : o.label}
+          </option>
+        ))}
+      </select>
+    </Field>
   );
 }

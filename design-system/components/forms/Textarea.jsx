@@ -1,16 +1,10 @@
 import React from 'react';
-import { resolveElement } from '../elements.js';
+import { Field } from './Field.jsx';
 
-export function Textarea({ label, element = 'fire', rows = 3, className = '', id, ...rest }) {
-  const autoId = React.useId();
-  const fieldId = id || autoId;
-  const tint = 'field-' + resolveElement(element, 'fire');
-  const field = <textarea id={fieldId} rows={rows} className={['textarea', !label && tint, className].filter(Boolean).join(' ')} {...rest} />;
-  if (!label) return field;
+export function Textarea({ label, hint, error, required, element = 'fire', underline = true, rows = 3, className = '', id, ...rest }) {
   return (
-    <div className={['field', tint].join(' ')}>
-      <label htmlFor={fieldId} className="field-label">{label}</label>
-      {field}
-    </div>
+    <Field label={label} hint={hint} error={error} required={required} element={element} underline={underline} id={id}>
+      <textarea rows={rows} className={['textarea', className].filter(Boolean).join(' ')} {...rest} />
+    </Field>
   );
 }

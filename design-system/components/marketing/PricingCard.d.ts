@@ -3,12 +3,15 @@ import type { Element } from '../elements';
 export interface PricingCardProps extends React.HTMLAttributes<HTMLDivElement> {
   /** Small tier Badge above the name. */
   tier?: React.ReactNode;
+  /** Plan name, Inter 700 at 24px. */
   name?: React.ReactNode;
   /** Headline figure, e.g. "$49". */
   price?: React.ReactNode;
   /** Default '/mo'. */
   period?: React.ReactNode;
+  /** One muted line under the price. */
   description?: React.ReactNode;
+  /** Feature lines, rendered as a list. */
   features?: React.ReactNode[];
   /** Full-width Button. */
   action?: React.ReactNode;

@@ -7,7 +7,7 @@ Top-level site chrome; pair with NavLink children and Button actions.
 </Navbar>
 ```
 
-Sticks to the top at z-index 50 with a 12px backdrop blur.
+Sticks to the top at z-index 50 with a 12px backdrop blur. The brand links to `brandHref` (default `/`).
 
 ## Materials
 Default is thick glass with a 1px top highlight. Toggle `scrolled` once `window.scrollY > 8` to drop an elevation-2 shadow.

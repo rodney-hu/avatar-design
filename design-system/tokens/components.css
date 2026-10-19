@@ -9,6 +9,10 @@
 .btn-sm{padding:0.375rem 0.875rem;font-size:0.8125rem}
 .btn-lg{padding:0.875rem 1.75rem;font-size:1.0625rem}
 .btn-icon{padding:0.625rem;border-radius:var(--radius-md)}
+.btn[aria-busy="true"]{cursor:progress}
+.btn-label{opacity:0}
+.btn-spinner{position:absolute;inset:0;margin:auto;width:1em;height:1em;border:2px solid currentColor;border-top-color:transparent;border-radius:50%;animation:btn-spin 0.7s linear infinite}
+@keyframes btn-spin{to{transform:rotate(360deg)}}
 .btn-fire{background:linear-gradient(135deg,var(--color-fire-500) 0%,var(--color-fire-400) 100%);color:#ffffff;box-shadow:0 4px 14px rgb(var(--fire-500-rgb) / 0.35);border-color:rgba(255,255,255,0.15)}
 .btn-fire:hover{background:linear-gradient(135deg,var(--color-fire-400) 0%,var(--color-fire-500) 100%);box-shadow:0 6px 20px rgb(var(--fire-500-rgb) / 0.55),0 0 30px rgb(var(--fire-glow-rgb) / 0.3);transform:translateY(var(--ui-lift))}
 .btn:active:not(:disabled){transform:translateY(var(--ui-press)) scale(var(--ui-press-scale))}
@@ -76,6 +80,8 @@ input:checked + .toggle-slider:before{transform:translateX(1.2rem);background-co
 .stat-card{background:var(--color-surface-base);border:1px solid var(--color-border-subtle);border-radius:var(--radius-lg);padding:1.25rem 1.5rem;display:flex;flex-direction:column;gap:0.375rem}
 .stat-label{font-size:0.8125rem;font-weight:500;color:var(--color-text-muted);text-transform:uppercase;letter-spacing:0.05em}
 .field-label{font-size:0.75rem;font-weight:500;color:var(--color-text-muted);text-transform:uppercase;letter-spacing:0.05em}
+.field-hint{margin:0;font-size:0.75rem;line-height:1.4;color:var(--color-text-muted)}
+.field-error{margin:0;font-size:0.75rem;line-height:1.4;font-weight:500;color:var(--danger-text)}
 .stat-value{font-family:var(--font-display);font-size:2rem;font-weight:700;letter-spacing:var(--tracking-display);color:var(--color-text-primary)}
 .badge{display:inline-flex;align-items:center;gap:0.375rem;padding:0.25rem 0.625rem;border-radius:var(--radius-full);font-size:0.75rem;font-weight:600;letter-spacing:0.02em;text-transform:uppercase}
 .badge-fire{background:rgb(var(--fire-500-rgb) / 0.15);color:var(--fire-text);border:1px solid rgb(var(--fire-500-rgb) / 0.35)}

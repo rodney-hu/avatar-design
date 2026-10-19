@@ -364,6 +364,11 @@
     animation: field-bloom var(--duration-moderate) var(--ease-enter);
   }
 
+  :is(.input, .select, .textarea)[aria-invalid="true"] {
+    --field-rgb: var(--danger-500-rgb);
+    border-color: var(--color-danger-400);
+  }
+
   @keyframes field-bloom {
     0% {
       box-shadow: 0 0 0 0 rgb(var(--field-rgb) / 0.55), 0 0 0 rgb(var(--field-rgb) / 0);

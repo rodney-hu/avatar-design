@@ -170,9 +170,11 @@ Root manifest:
 
 ### Components
 
-`components/core/` — **Button**, **Badge**, **Card** `components/forms/` — **Input**, **Textarea**, **Select**, **Checkbox**, **ToggleSwitch** `components/navigation/` — **Navbar**, **NavLink**, **Sidebar**, **SidebarItem**, **Breadcrumb** `components/data/` — **StatCard**, **DataTable** `components/feedback/` — **Alert**, **Modal**, **Tooltip** `components/marketing/` — **Hero**, **PricingCard**, **TestimonialCard**
+`components/core/` — **Button**, **Badge**, **Card** `components/forms/` — **Field**, **Input**, **Textarea**, **Select**, **Checkbox**, **ToggleSwitch** `components/navigation/` — **Navbar**, **NavLink**, **Sidebar**, **SidebarItem**, **Breadcrumb** `components/data/` — **StatCard**, **DataTable** `components/feedback/` — **Alert**, **Modal**, **Tooltip** `components/marketing/` — **Hero**, **PricingCard**, **TestimonialCard**
 
 Every component has a sibling `.d.ts` (props contract) and `.prompt.md` (what & when, usage example, variants). Each directory has one card HTML showing its states. The cards load `_ds_bundle.js`, which `npm run build:ds` rebuilds from the components and `assets/motion.js`; rebuild it after changing a component.
+
+The inventory maps 1:1 onto the component families defined in `src/elemental-components.css`: buttons, cards/surfaces, forms & inputs, checkbox, toggle, navbar, nav link, sidebar, breadcrumb, stat card, badge, table, alert/toast, modal, tooltip, hero, pricing card, testimonial card.
 
 ### Color props
 
@@ -185,7 +187,9 @@ One rule for every component (shared resolver: `components/elements.js`):
 
 In plain CSS the same names apply: `.btn-<el>`, `.badge-<el>`, `.alert-<el>`, `.card-<el>`, `.hero-<el>`, `.field-<el>` (on a control or any parent) and `.element-<el>` (scopes glows, edge light, outline-button hover and motion personality).
 
-The inventory maps 1:1 onto the component families defined in `src/elemental-components.css`: buttons, cards/surfaces, forms & inputs, checkbox, toggle, navbar, nav link, sidebar, breadcrumb, stat card, badge, table, alert/toast, modal, tooltip, hero, pricing card, testimonial card.
+### Forms
+
+Input, Select and Textarea are built on **Field**, which wires the label, hint and error to the control for screen readers. Pass `hint` for help text, `error` for a message (it sets `aria-invalid` and turns the field danger red) and `required` for the native attribute plus a visual `*`. Wrap any other control in `Field` to get the same behavior. Buttons that submit take `loading`, which shows a spinner, sets `aria-busy` and ignores clicks without losing focus.
 
 ### Intentional additions
 

@@ -4,7 +4,7 @@ Inline status callout — also the toast body (the showcase reuses `.alert` insi
 <Alert element="earth" title="Defenses fortified">Walls held at Ba Sing Se.</Alert>
 ```
 
-Use status names for meaning: `success` (earth), `warning` (air), `info` (water) and `danger` (its own tokens, fire by default). Any element works too, including `avatar`. `variant` is the old name for `element` and is deprecated. For a toast, render it fixed bottom-right with `animate-scale-in`.
+Use status names for meaning: `success` (earth), `warning` (air), `info` (water) and `danger` (its own tokens, fire by default). Any element works too, including `avatar`. `icon` takes an optional leading node (the system ships no icon set). `variant` is the old name for `element` and is deprecated. For a toast, render it fixed bottom-right with `animate-scale-in`.
 
 ## As a toast
 Use the stack structure so neighbours glide when toasts arrive or leave:

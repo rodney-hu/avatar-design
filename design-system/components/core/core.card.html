@@ -13,11 +13,11 @@ function Demo(){
   return (<>
     <div className="lbl">Button — element</div>
     <div className="row">{els.map(e=><Button key={e} element={e}>{e[0].toUpperCase()+e.slice(1)}</Button>)}</div>
-    <div className="lbl">Sizes, outline and ghost variants, disabled</div>
+    <div className="lbl">Sizes, outline and ghost variants, disabled, loading</div>
     <div className="row">
       <Button size="lg">Large</Button><Button>Medium</Button><Button size="sm">Small</Button>
       <Button variant="outline">Outline</Button><Button variant="ghost">Ghost</Button>
-      <Button disabled>Disabled</Button>
+      <Button disabled>Disabled</Button><Button loading>Saving</Button>
     </div>
     <div className="lbl">Badge — elements and status names</div>
     <div className="row">{els.map(e=><Badge key={e} element={e}>{e}</Badge>)}</div>

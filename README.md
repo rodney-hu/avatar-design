@@ -10,7 +10,7 @@ A dark-first design system for web apps, landing pages and SaaS tools, themed on
 - **Glows.** Colored halos instead of plain shadows, in four sizes, with one setting (`--glow-strength`) to make them stronger or softer.
 - **Materials.** Elevation levels, glass panels, gradient borders, film grain, an orbiting edge light and a cursor spotlight.
 - **Motion.** Scroll reveals, staggered entrances, page transitions and small touches like button sheens and click bursts.
-- **21 React components** across six groups. Every one takes its color the same way: `element="water"`, or a status name like `element="success"` or `element="danger"`.
+- **22 React components** across six groups. Every one takes its color the same way: `element="water"`, or a status name like `element="success"` or `element="danger"`.
 
 ## Use it in your project
 
@@ -71,7 +71,7 @@ Each component lives in `design-system/components/` with a props file (`.d.ts`) 
 | Group | Components |
 | --- | --- |
 | Core | Button, Badge, Card |
-| Forms | Input, Select, Textarea, Checkbox, ToggleSwitch |
+| Forms | Field, Input, Select, Textarea, Checkbox, ToggleSwitch |
 | Feedback | Alert, Modal, Tooltip |
 | Navigation | Navbar, NavLink, Sidebar, SidebarItem, Breadcrumb |
 | Marketing | Hero, PricingCard, TestimonialCard |
