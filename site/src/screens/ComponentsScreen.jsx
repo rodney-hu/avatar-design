@@ -8,6 +8,7 @@ import { Textarea } from "@ds/forms/Textarea.jsx";
 import { Checkbox } from "@ds/forms/Checkbox.jsx";
 import { ToggleSwitch } from "@ds/forms/ToggleSwitch.jsx";
 import { Tooltip } from "@ds/feedback/Tooltip.jsx";
+import { Menu } from "@ds/navigation/Menu.jsx";
 
 export default function ComponentsScreen({ onModal }) {
   const elements = ['fire', 'water', 'earth', 'air', 'avatar'];
@@ -49,6 +50,11 @@ export default function ComponentsScreen({ onModal }) {
                 <Badge key={s} element={s}>{s}</Badge>
               ))}
               <Button element="danger" variant="outline" size="sm">Delete scroll</Button>
+              <Menu label="Scroll actions" items={[
+                { label: 'Copy to archive', onSelect: () => {} },
+                { label: 'Share with the Order', onSelect: () => {} },
+                { label: 'Burn (sealed)', disabled: true },
+              ]} />
             </div>
           </div>
         </Card>

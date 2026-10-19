@@ -103,9 +103,13 @@ input:checked + .toggle-slider:before{transform:translateX(1.2rem);background-co
 .data-table td,.table-elemental td{padding:var(--space-4) var(--space-5);color:var(--color-text-primary);font-size:var(--text-base);border-bottom:1px solid var(--color-border-subtle);background:var(--color-surface-base)}
 .data-table tr:last-child td,.table-elemental tr:last-child td{border-bottom:none}
 .data-table tr:hover td,.table-elemental tr:hover td{background:var(--color-surface-raised)}
+.data-table td.data-table-empty{padding:var(--space-8) var(--space-5);text-align:center;color:var(--color-text-muted)}
 
 /* ALERTS & TOASTS */
 .alert{display:flex;align-items:flex-start;gap:var(--space-3-5);padding:var(--space-4) var(--space-5);border-radius:var(--radius-md);font-size:var(--text-base);border:1px solid}
+.alert-content{flex:1;min-width:0}
+.alert-close{margin:calc(var(--space-1) * -1) calc(var(--space-1) * -1) 0 0;padding:0 var(--space-1);background:none;border:none;color:inherit;font-size:var(--text-lg);line-height:1;cursor:pointer;opacity:0.75}
+.alert-close:hover{opacity:1}
 .alert-title{margin:0;font-weight:700;font-size:0.875rem}
 .alert-body{margin:0}
 .alert-title + .alert-body{margin-top:0.125rem;font-size:var(--text-xs);color:var(--color-text-secondary)}

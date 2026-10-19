@@ -170,7 +170,7 @@ Root manifest:
 
 ### Components
 
-`components/core/` — **Button**, **Badge**, **Card** `components/forms/` — **Field**, **Input**, **Textarea**, **Select**, **Checkbox**, **ToggleSwitch** `components/navigation/` — **Navbar**, **NavLink**, **Sidebar**, **SidebarItem**, **Breadcrumb** `components/data/` — **StatCard**, **DataTable** `components/feedback/` — **Alert**, **Modal**, **Tooltip** `components/marketing/` — **Hero**, **PricingCard**, **TestimonialCard**
+`components/core/` — **Button**, **Badge**, **Card** `components/forms/` — **Field**, **Input**, **Textarea**, **Select**, **Checkbox**, **ToggleSwitch** `components/navigation/` — **Navbar**, **NavLink**, **Menu**, **Sidebar**, **SidebarItem**, **Breadcrumb** `components/data/` — **StatCard**, **DataTable** `components/feedback/` — **Alert**, **Toast**, **Modal**, **Tooltip** `components/marketing/` — **Hero**, **PricingCard**, **TestimonialCard**
 
 Every component has a sibling `.d.ts` (props contract) and `.prompt.md` (what & when, usage example, variants). Each directory has one card HTML showing its states. The cards load `_ds_bundle.js`, which `npm run build:ds` rebuilds from the components and `assets/motion.js`; rebuild it after changing a component.
 

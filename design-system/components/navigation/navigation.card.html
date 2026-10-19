@@ -1,4 +1,4 @@
-<!-- @dsCard group="Components" viewport="700x340" name="Navigation" subtitle="Navbar, NavLink, Sidebar, SidebarItem, Breadcrumb" -->
+<!-- @dsCard group="Components" viewport="700x340" name="Navigation" subtitle="Menu, Navbar, NavLink, Sidebar, SidebarItem, Breadcrumb" -->
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css">
 <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
@@ -7,7 +7,7 @@
 <style>body{margin:0;background:var(--color-surface-void);color:var(--color-text-primary);font-family:var(--font-body);padding:16px}#root{display:flex;flex-direction:column;gap:14px}.row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}.lbl{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--color-text-muted);font-weight:600}</style></head>
 <body><div id="root"></div>
 <script type="text/babel">
-const { Navbar, NavLink, Sidebar, SidebarItem, Breadcrumb, Button } = window.ElementalUIDesignSystem_5d6c38;
+const { Navbar, NavLink, Sidebar, SidebarItem, Breadcrumb, Button, Menu } = window.ElementalUIDesignSystem_5d6c38;
 function Demo(){
   return (<>
     <Navbar style={{position:'static',margin:'-16px -16px 0'}}
@@ -26,6 +26,8 @@ function Demo(){
       <div style={{flex:1,display:'flex',flexDirection:'column',gap:10}}>
         <div className="lbl">Nav link states</div>
         <div className="row"><NavLink href="#">Default</NavLink><NavLink href="#" active>Active</NavLink></div>
+        <div className="lbl">Menu</div>
+        <div className="row"><Menu label="Scroll actions" element="water" items={[{label:'Copy to archive'},{label:'Share with the Order'},{label:'Burn (sealed)',disabled:true}]} /></div>
       </div>
     </div>
   </>);

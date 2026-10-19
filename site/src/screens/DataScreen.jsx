@@ -9,6 +9,7 @@ import { SidebarItem } from "@ds/navigation/SidebarItem.jsx";
 
 export default function DataScreen() {
   const [power, setPower] = React.useState(98.4);
+  const [notice, setNotice] = React.useState(true);
   React.useEffect(() => {
     const t = setInterval(() => setPower((p) => Math.round(Math.min(99.9, Math.max(94, p + (Math.random() - 0.45) * 3)) * 10) / 10), 4000);
     return () => clearInterval(t);
@@ -61,7 +62,9 @@ export default function DataScreen() {
           <Alert element="fire"><b>Fire Warning:</b> High thermal activity detected in the Caldera.</Alert>
           <Alert element="water"><b>Water Info:</b> Tidal waves arriving at high tide tonight.</Alert>
           <Alert element="earth"><b>Earth Success:</b> Defense walls fortified at Ba Sing Se.</Alert>
-          <Alert element="air"><b>Air Notice:</b> Tailwinds favorable for Northern Air Temple flight.</Alert>
+          {notice
+            ? <Alert element="air" onDismiss={() => setNotice(false)}><b>Air Notice:</b> Tailwinds favorable for Northern Air Temple flight.</Alert>
+            : <Alert element="avatar"><b>Dismissed.</b> Alerts with <code>onDismiss</code> get a close button.</Alert>}
         </div>
       </section>
     </main>

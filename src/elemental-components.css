@@ -654,6 +654,12 @@
     background: var(--color-surface-raised);
   }
 
+  .data-table td.data-table-empty {
+    padding: var(--space-8) var(--space-5);
+    text-align: center;
+    color: var(--color-text-muted);
+  }
+
   /* ==========================================
      ALERTS & TOASTS
      ========================================== */
@@ -665,6 +671,27 @@
     border-radius: var(--radius-md);
     font-size: var(--text-base);
     border: 1px solid;
+  }
+
+  .alert-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .alert-close {
+    margin: calc(var(--space-1) * -1) calc(var(--space-1) * -1) 0 0;
+    padding: 0 var(--space-1);
+    background: none;
+    border: none;
+    color: inherit;
+    font-size: var(--text-lg);
+    line-height: 1;
+    cursor: pointer;
+    opacity: 0.75;
+  }
+
+  .alert-close:hover {
+    opacity: 1;
   }
 
   .alert-title {

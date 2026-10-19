@@ -60,7 +60,14 @@
 .popover[data-state="open"]{animation:popover-in var(--duration-base) var(--ease-enter) both}
 .popover[data-state="closed"]{animation:popover-out calc(var(--duration-base) * var(--duration-exit-ratio)) var(--ease-exit) forwards;pointer-events:none}
 .popover-item{display:block;padding:var(--space-2) var(--space-3);border-radius:var(--radius-sm);font-size:0.875rem;color:var(--color-text-secondary);cursor:pointer;transition:background-color var(--duration-instant) var(--ease-enter),color var(--duration-instant) var(--ease-enter)}
-.popover-item:hover{background:rgb(var(--fire-500-rgb) / 0.1);color:var(--color-text-primary)}
+.popover-item:hover,.popover-item:focus-visible{background:rgb(var(--element-rgb,var(--fire-500-rgb)) / 0.1);color:var(--color-text-primary)}
+button.popover-item{width:100%;text-align:left;background:none;border:0;font-family:inherit}
+.popover-item[aria-disabled="true"]{opacity:0.45;cursor:not-allowed;background:none}
+.menu{position:relative;display:inline-block}
+.menu>.popover{top:calc(100% + var(--space-1));left:0}
+.menu>.popover[data-side="top"]{top:auto;bottom:calc(100% + var(--space-1))}
+.menu>.popover[data-align="end"]{left:auto;right:0}
+.card:has(.menu>.popover){overflow:visible;z-index:30}
 
 /* Toast stack: each toast lives in a .toast-slot whose row height animates,
    so neighbours glide to make room on enter and close the gap on exit.

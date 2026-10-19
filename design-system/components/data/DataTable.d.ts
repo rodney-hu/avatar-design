@@ -9,6 +9,8 @@ export interface DataTableProps extends React.TableHTMLAttributes<HTMLTableEleme
   rows?: React.ReactNode[][];
   /** Names the table for screen readers. Visually hidden. */
   caption?: string;
+  /** Shown in one centered, muted row when rows is empty. Default 'Nothing here yet.' */
+  empty?: React.ReactNode;
 }
 
 export declare function DataTable(props: DataTableProps): JSX.Element;
