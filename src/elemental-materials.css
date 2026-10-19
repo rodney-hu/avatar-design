@@ -118,8 +118,10 @@
     transform: translateY(-2px);
   }
 
-  /* ---- Glass tiers ---- */
-  .glass-thin, .glass, .glass-thick {
+  /* ---- Glass tiers ----
+     :where() keeps these at zero specificity so a component's own position
+     wins (the sticky .navbar, fixed panels) instead of being forced relative. */
+  :where(.glass-thin, .glass, .glass-thick) {
     position: relative;
     isolation: isolate;
   }
@@ -143,8 +145,11 @@
   }
 
   /* ---- Gradient border (1px lit edge, brightest on top) ---- */
-  .border-gradient {
+  :where(.border-gradient) {
     position: relative;
+  }
+
+  .border-gradient {
     border-color: transparent!important;
   }
 

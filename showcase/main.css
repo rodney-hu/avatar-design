@@ -3,7 +3,7 @@
 /* The design-system/ reference folder is not part of the build. */
 @source not "../design-system";
 
-/* Showcase layout helpers (from design-system/ui_kits/showcase) */
+/* Showcase layout helpers */
 body {
   margin: 0;
 }

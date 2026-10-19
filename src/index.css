@@ -61,6 +61,15 @@
 /* Base element styles sit in the base layer so component classes
    (.nav-link, .breadcrumb-item) and utilities override them. */
 @layer base {
+  /* Section halos ([data-halo-bloom]) bleed past their section on purpose.
+     Clip them at the page edge so they never add a horizontal scrollbar.
+     Both rules are needed: html's value goes to the viewport, so body keeps
+     its own clip. clip (not hidden) keeps position: sticky working. */
+  html,
+  body {
+    overflow-x: clip;
+  }
+
   body {
     background-color: var(--color-surface-void);
     color: var(--color-text-primary);

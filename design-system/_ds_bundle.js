@@ -1888,7 +1888,7 @@ function LandingBlocksScreen() {
     style: {
       margin: 0
     }
-  }, /*#__PURE__*/React.createElement("code", null, '@import "tailwindcss";\n@import "./path/to/elemental-ds/src/index.css";'))))));
+  }, /*#__PURE__*/React.createElement("code", null, '@import "tailwindcss";\n@import "./path/to/avatar-design/src/index.css";'))))));
 }
 Object.assign(window, {
   LandingBlocksScreen

@@ -107,7 +107,7 @@ export default function LandingScreen({ onToast, onModal }) {
               <h1 style={{ margin: 0, fontFamily: 'var(--font-hero)', fontWeight: 800, fontSize: 'var(--text-hero)', lineHeight: 'var(--leading-tight)', letterSpacing: 'var(--tracking-display)', color: 'var(--color-fire-500)' }}>The Fire Nation</h1>
             </div>
             <div style={{ borderBottom: '1px solid var(--color-border-subtle)', paddingBottom: '1rem' }}>
-              <p className="ckey" style={{ textAlign: 'left', margin: '4px 0' }}>Brush accent / Avatar Airbender / 40px</p>
+              <p className="ckey" style={{ textAlign: 'left', margin: '4px 0' }}>Brush heading / Avatar Airbender / 40px</p>
               <h2 className="brush" style={{ margin: 0, fontSize: '2.5rem', color: 'var(--color-water-500)' }}>Waterbending</h2>
             </div>
             <div style={{ borderBottom: '1px solid var(--color-border-subtle)', paddingBottom: '1rem' }}>

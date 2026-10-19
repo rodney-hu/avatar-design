@@ -220,7 +220,7 @@ const brandCss = (key) => {
   const b = BRANDS[key];
   let css = ':root{';
   STEPS.forEach((step, i) => { css += `--color-fire-${step}:${b.ramp[i]};`; });
-  css += `--color-fire-glow:${b.ramp[4]};--fire-500-rgb:${b.c500};--fire-400-rgb:${b.c400};--fire-glow-rgb:${b.glow};`;
+  css += `--color-fire-glow:rgb(${b.glow});--fire-500-rgb:${b.c500};--fire-400-rgb:${b.c400};--fire-glow-rgb:${b.glow};`;
   css += `--fire-text:var(--color-fire-${b.text});}`;
   css += `.light{--fire-text:var(--color-fire-${b.lightText})}`;
   return css;

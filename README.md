@@ -1,84 +1,73 @@
 # Elemental Design System
 
-A premium, dark-first design system inspired by the Avatar: The Last Airbender universe. Built for modern web applications, landing pages, and SaaS tools using Tailwind CSS v4.
+A dark-first design system for web apps, landing pages and SaaS tools, themed on the four elements from *Avatar: The Last Airbender*. It is built for Tailwind CSS v4.
 
-> **Cardinal Red variant** — the Fire Nation primary palette is a deep cardinal red anchored at `#aa0000`. See [Theming](#theming) for how to retune it.
+## What's included
 
-## Features
+- **Colors.** Fire is the primary color, a deep red (`#aa0000`). Water (blue), Earth (green) and Air (amber) are accents. Cyan is the "Avatar State" highlight.
+- **Themes.** Dark by default. Add the `.light` class for a warm parchment theme.
+- **Type.** Cinzel for the hero title. Inter for all other headings and body text. JetBrains Mono for code. The Avatar Airbender brush font for standalone headings.
+- **Glows.** Colored halos instead of plain shadows, in four sizes, with one setting (`--glow-strength`) to make them stronger or softer.
+- **Materials.** Elevation levels, glass panels, gradient borders, film grain, an orbiting edge light and a cursor spotlight.
+- **Motion.** Scroll reveals, staggered entrances, page transitions and small touches like button sheens and click bursts.
+- **21 React components** across six groups.
 
-- **Fire Nation primary**: deep cardinal red for bold actions, CTAs and active states.
-- **Water, Earth and Air accents**: oceanic blue, emerald and amber ramps for secondary actions, success and notice states.
-- **Avatar State**: a cyan accent and a multi-element animated glow.
-- **Dark-first surfaces**: a layered depth system (`#0a0a0a` to `#2f2f2f`) with a warm parchment light theme (`.light`).
-- **Typography**: Cinzel 800 for the Display XL hero (72px), Inter (700–800, negative tracking) for body copy and every other heading, JetBrains Mono for code, and the Avatar Airbender brush face for standalone single-line headings only.
-- **Glow system**: core halo + ambient bloom per element, four sizes, a global `--glow-strength`, scoped by `.element-*`, soft drop shadows on light.
-- **Materials**: elevation 0–4, three glass tiers, lit gradient borders, film grain, an orbiting edge light and a cursor spotlight.
-- **Motion**: one duration and easing scale, element motion personalities, choreography, exit animations, view-transition page changes and micro-interactions (button sheen, click bursts, focus bloom, checkbox draw-in, stat count-up).
-- **Tailwind CSS v4 CSS-first preset**: `@theme` tokens and `@utility` glows — import one CSS file to get everything.
+## Use it in your project
 
-## Installation & Usage
-
-### 1. In any Tailwind v4 project
+Add two imports to your main stylesheet:
 
 ```css
 @import "tailwindcss";
-@import "./path/to/elemental-ds/src/index.css";
+@import "./path/to/avatar-design/src/index.css";
 ```
 
-`src/index.css` loads the brush face from `src/fonts/` with a relative URL. Bundlers that rebase CSS URLs (Vite, webpack, Next.js) pick this up automatically; the Tailwind CLI does not, so copy `src/fonts/` next to your compiled CSS as `fonts/` (the showcase build does this).
+Vite, webpack and Next.js load the brush font automatically. With the Tailwind CLI, copy `src/fonts/` next to your compiled CSS as `fonts/`.
 
-### 2. Motion runtime (optional)
+### Motion (optional)
 
-Scroll reveal, stagger, halo bloom, parallax, tilt, cursor spotlight, edge-light orbit, click bursts and page transitions are driven by a small vanilla script. Load it in `<head>` so reveals arm before first paint:
+The scroll and pointer effects need a small script. Load it in `<head>`:
 
 ```html
-<script src="./path/to/elemental-ds/showcase/motion.js"></script>
+<script src="./path/to/avatar-design/showcase/motion.js"></script>
 ```
 
-Every effect is opt-in by data attribute (`data-reveal`, `data-stagger`, `data-choreo`, `data-halo-bloom`, `data-parallax`, `data-tilt`, `data-spotlight`, `data-spotlight-group`, `data-vt`) or class (`.edge-light`, `.btn-<element>` for bursts). Without the script nothing is hidden. Wrap same-document state changes in `ElementalMotion.transition(fn)` to get a view-transition crossfade.
+Turn effects on per element with data attributes such as `data-reveal`, `data-stagger`, `data-tilt` and `data-spotlight`. Without the script, nothing is hidden.
 
-### 3. Live site
+## Run the site
 
-The site is a Vite + React app built from the design system’s own React components in `design-system/components/`, styled by `src/index.css`.
+The site shows every part of the system. It is a Vite + React app.
 
 ```bash
-git clone https://github.com/rodney-hu/avatar-design.git
-cd avatar-design
 npm install
-npm run dev        # http://localhost:5173, hot reload
-npm run build      # production build into dist/
-npm run preview    # serve dist/ at http://localhost:4173
+npm run dev        # http://localhost:5173
+npm run build      # builds into dist/
+npm run preview    # serves dist/ at http://localhost:4173
 ```
 
-| Route | Screen |
+| Page | What it shows |
 | --- | --- |
-| `/` | Hero, 01. Color Palette, 02. Typography |
-| `/components` | 03. Buttons, 04. Cards, 05. Forms |
-| `/data` | 06. Data & Dashboards, 07. Feedback & Alerts |
-| `/landing` | 08. SaaS & Landing Blocks, 09. Installation Guide |
-| `/classic/` | The original static Tailwind showcase, kept as a fallback until the React site is signed off |
+| `/` | Hero, colors, typography |
+| `/components` | Buttons, cards, forms |
+| `/data` | Stats, tables, alerts |
+| `/landing` | Pricing, testimonials, install guide |
+| `/classic/` | A plain HTML version of the showcase |
 
-`dist/` is generated by `npm run build` (the React app, then the classic showcase copied to `dist/classic/`) and is gitignored; Vercel rebuilds it on every deploy. `npm run dev:classic` watches the static showcase on its own.
+The site deploys to Vercel with `npm run build`.
 
-## File Structure
+## Project layout
 
-- `src/index.css`: main bundle — imports, `@font-face`, the `.light` theme and base styles.
-- `src/elemental-preset.css`: tokens (`@theme static`) plus non-theme tokens (RGB channels, text and surface tokens, spacing, weights).
-- `src/elemental-animations.css`: keyframes and `.animate-*` classes, including exit variants.
-- `src/elemental-utilities.css`: glow and text-glow utilities, gradients, backdrop halos, `.element-*` scopes.
-- `src/elemental-components.css`: component classes (buttons, cards, forms, navigation, data, alerts, modal, tooltip, hero, pricing, testimonials).
-- `src/elemental-materials.css`: elevation, glass, gradient border, grain, edge light, spotlight and micro-interactions.
-- `src/elemental-motion.css`: motion tokens, choreography, exits, toasts, popovers, page transitions, scroll/pointer effects and element personalities. **Must load last.**
-- `src/fonts/`: Avatar Airbender brush face and its licence (free for personal and commercial use; credit FontGet.com if you redistribute it).
-- `site/`: the React site (Vite root). `src/main.jsx` mounts the router, `App.jsx` is the shell (navbar, theme toggle, modal, toasts), `screens/` holds the four routes, `TweaksPanel.jsx` the brand / glow / density tweaks and `styles.css` the single stylesheet entry (it imports `src/index.css` and points Tailwind at the components). `site.css` is page layout only.
-- `vite.config.mjs`: root `site/`, output `dist/`, alias `@ds` for `design-system/components`.
-- `showcase/`: the static Tailwind showcase (`index.html`, `main.js`, `main.css`, `motion.js`), served at `/classic/`.
-- `design-system/`: the design project’s export — plain-CSS tokens, React components with props (`.d.ts`) and usage rules (`.prompt.md`), guideline specimens (`guidelines/*.html`) and `assets/motion.js`. `components/` and `assets/motion.js` are built into the site; the tokens and guidelines are the reference for values and are not part of the build.
-- `docs/SKILL.md`: agent skill for designing with the system.
+| Path | What it is |
+| --- | --- |
+| `src/` | The Tailwind v4 stylesheets. `index.css` is the one file to import. |
+| `src/fonts/` | The Avatar Airbender font and its licence. |
+| `site/` | The React site. |
+| `showcase/` | The plain HTML showcase and `motion.js`. |
+| `design-system/` | React components, plain-CSS tokens and guideline pages. |
+| `docs/SKILL.md` | Instructions for AI agents designing with the system. |
 
 ## Components
 
-21 React components in six groups, in `design-system/components/`. Each has a `.d.ts` and a `.prompt.md`, and the site imports them directly (`import { Button } from "@ds/core/Button.jsx"`), so there is one copy of each. The class recipes they apply live in `src/elemental-components.css`.
+Each component lives in `design-system/components/` with a props file (`.d.ts`) and usage notes (`.prompt.md`).
 
 | Group | Components |
 | --- | --- |
@@ -89,26 +78,17 @@ npm run preview    # serve dist/ at http://localhost:4173
 | Marketing | Hero, PricingCard, TestimonialCard |
 | Data | DataTable, StatCard |
 
-Overlays use `data-state="open|closed"`: keep the element mounted, flip the state, and remove it after the exit (0.7× the enter duration).
+## Change the colors
 
-## Theming
+All colors live in `src/elemental-preset.css`. Each element has two matching sets of values:
 
-Every glow, tint, halo and material reads from the tokens in `src/elemental-preset.css`, so retuning an element means editing that one file:
+1. **Hex values** in the `@theme` block, such as `--color-fire-500`. These power Tailwind classes like `bg-fire-500`.
+2. **RGB values** in the `:root` block, such as `--fire-500-rgb`. These power the glows.
 
-1. **The hex ramp** (inside `@theme`) — `--color-<element>-50` through `-900` plus `--color-<element>-glow`. These drive Tailwind utilities like `bg-fire-500`.
-2. **The RGB channels** (in the `:root` block) — `--<element>-500-rgb` and `--<element>-glow-rgb` (plus `--fire-400-rgb`), written as space-separated channels so they composite with alpha:
+When you change a color, update both sets.
 
-```css
-box-shadow: 0 0 20px rgb(var(--fire-500-rgb) / 0.4);
-```
+## Good to know
 
-Keep the pairs in sync — they describe the same colors in two formats.
-
-**Glow strength.** `--glow-strength` multiplies every glow's alpha: 1 on dark, 0.8 on `.light`. Override it on any scope to calm or intensify glows.
-
-**Contrast caveat.** `--fire-text` (used by `.badge-fire`, `.alert-fire` and code blocks) is `fire-500` on dark by design direction. That is ~2.5:1 on the dark base and fails WCAG AA for body copy, so reserve fire text for headline-scale type, badges and accents. On `.light` it flips to `fire-700` (~9.9:1).
-
-## Known risks
-
-- **Font credit.** Avatar Airbender is free for commercial use but must credit FontGet.com if redistributed; keep `src/fonts/LICENSE-AvatarAirbender.txt` with the font.
-- **Reduced motion.** `prefers-reduced-motion` is deliberately not handled, per the brand spec. This is an accessibility risk.
+- **Fire text contrast.** Fire-colored text is hard to read on the dark background. Use it for large headings, badges and accents, not body text. The light theme uses a darker red that reads well.
+- **Reduced motion.** The system does not turn off animation for people who ask their device to reduce motion.
+- **Font licence.** The Avatar Airbender font is free for personal and commercial use. If you share the font file, credit FontGet.com and keep its licence file with it.
