@@ -54,6 +54,34 @@
     border-radius: var(--radius-md);
   }
 
+  /* Loading: the label stays in place (and in the accessibility tree) but
+     turns transparent, so the button keeps its width under the spinner. */
+  .btn[aria-busy="true"] {
+    cursor: progress;
+  }
+
+  .btn-label {
+    opacity: 0;
+  }
+
+  .btn-spinner {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 1em;
+    height: 1em;
+    border: 2px solid currentColor;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: btn-spin 0.7s linear infinite;
+  }
+
+  @keyframes btn-spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
   .btn-fire {
     background: linear-gradient(135deg, var(--color-fire-500) 0%, var(--color-fire-400) 100%);
     color: #ffffff;
@@ -463,6 +491,21 @@
     color: var(--color-text-muted);
     text-transform: uppercase;
     letter-spacing: 0.05em;
+  }
+
+  .field-hint {
+    margin: 0;
+    font-size: 0.75rem;
+    line-height: 1.4;
+    color: var(--color-text-muted);
+  }
+
+  .field-error {
+    margin: 0;
+    font-size: 0.75rem;
+    line-height: 1.4;
+    font-weight: 500;
+    color: var(--danger-text);
   }
 
   .stat-value {

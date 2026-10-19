@@ -11,6 +11,7 @@ export interface HeroProps extends React.HTMLAttributes<HTMLElement> {
   eyebrow?: React.ReactNode;
   /** Inter 800 headline, clamp(2.75rem, 6.5vw, 5rem). No brush spans. */
   title?: React.ReactNode;
+  /** Supporting line under the title, max 680px wide. */
   subtitle?: React.ReactNode;
   /** Button row below the copy. */
   actions?: React.ReactNode;

@@ -5,6 +5,8 @@ Plan tile for pricing grids — exactly one card per grid should be `featured`.
   ribbon={<Badge>Most Popular</Badge>} action={<Button fullWidth>Unlock Full Power</Button>} />
 ```
 
+`price` is the headline figure and `period` its suffix (default `/mo`). `description` is one muted line under the price; `features` is an array of nodes rendered as a list.
+
 12px radius, 40px/32px padding; featured scales to 1.03 so grids should be `items-center`.
 
 ## Materials

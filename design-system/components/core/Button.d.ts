@@ -20,6 +20,8 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   iconOnly?: boolean;
   /** Stretch to the container width. */
   fullWidth?: boolean;
+  /** Show a spinner in place of the label, set aria-busy and ignore clicks. Keeps width, focus and accessible name. Default false. */
+  loading?: boolean;
   /** Diagonal light sweep on hover. Default true. */
   sheen?: boolean;
   /** Element particle burst from the press point (fire embers, water ripple, earth chunks, air motes, avatar rings; danger uses embers). Needs assets/motion.js. Outline and ghost never burst. Default true. */

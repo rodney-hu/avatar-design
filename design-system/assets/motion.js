@@ -264,7 +264,7 @@
   };
   document.addEventListener('pointerdown', function (e) {
     var b = e.target.closest && e.target.closest('.btn');
-    if (reduced() || !b || b.disabled || b.getAttribute('aria-disabled') === 'true' || b.dataset.burst === 'off') return;
+    if (reduced() || !b || b.disabled || b.getAttribute('aria-disabled') === 'true' || b.getAttribute('aria-busy') === 'true' || b.dataset.burst === 'off') return;
     var kind = ['fire', 'water', 'earth', 'air', 'avatar'].filter(function (k) { return b.classList.contains('btn-' + k); })[0] || (b.classList.contains('btn-danger') ? 'fire' : undefined);
     if (kind) BURST[kind](e.clientX, e.clientY);
   }, { passive: true });

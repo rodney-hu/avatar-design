@@ -11,6 +11,8 @@ import { Tooltip } from "@ds/feedback/Tooltip.jsx";
 
 export default function ComponentsScreen({ onModal }) {
   const elements = ['fire', 'water', 'earth', 'air', 'avatar'];
+  const [saving, setSaving] = React.useState(false);
+  const save = () => { setSaving(true); setTimeout(() => setSaving(false), 1500); };
   return (
     <main className="shell-main">
       <h1 className="sr-only">Components</h1>
@@ -100,6 +102,16 @@ export default function ComponentsScreen({ onModal }) {
               <Checkbox id="avatar-state" element="avatar" label="Enable Avatar State" defaultChecked />
               <ToggleSwitch id="ember-glow" label="Ember Glow" defaultChecked />
             </div>
+          </div>
+        </Card>
+        <Card data-reveal style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+          <h3 className="stat-label" style={{ margin: 0 }}>Validation &amp; loading</h3>
+          <div className="grid2">
+            <Input id="bender-name" label="Bender Name" required defaultValue="Zuko" error="That name is already taken." />
+            <Select id="nation" label="Home Nation" hint="Where your training began." options={['Fire Nation', 'Water Tribes', 'Earth Kingdom', 'Air Nomads']} />
+          </div>
+          <div>
+            <Button loading={saving} onClick={save}>Save Profile</Button>
           </div>
         </Card>
       </section>

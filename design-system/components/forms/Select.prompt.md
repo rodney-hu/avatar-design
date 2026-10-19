@@ -4,7 +4,7 @@ Native dropdown styled to match Input.
 <Select id="el" label="Primary Element" options={['Firebending','Waterbending','Earthbending','Airbending']} />
 ```
 
-Uses the browser's own menu — no custom popover exists in this system. `element` sets the focus bloom and label tint; default fire.
+Uses the browser's own menu — no custom popover exists in this system. Built on `Field`, like Input: `element` sets the focus bloom, underline and label tint (default fire), and it takes `hint`, `error`, `required` and `underline` (default true).
 
 ## Accessibility
-`label` is always tied to the field: pass an `id`, or a stable one is generated.
+`label` is always tied to the field: pass an `id`, or a stable one is generated. `hint` and `error` are linked with `aria-describedby`, and `error` sets `aria-invalid`.

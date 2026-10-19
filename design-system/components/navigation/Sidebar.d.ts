@@ -5,7 +5,9 @@
 export interface SidebarProps extends React.HTMLAttributes<HTMLElement> {
   /** Landmark element. Default 'aside'. Use 'nav' (with aria-label) for a navigation rail, or when it sits inside <main>. */
   as?: 'aside' | 'nav' | 'div';
+  /** Top slot, usually the brand. */
   header?: React.ReactNode;
+  /** Bottom slot, pinned to the foot of the rail (account, settings). */
   footer?: React.ReactNode;
   children?: React.ReactNode;
 }
