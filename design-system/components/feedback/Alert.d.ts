@@ -7,6 +7,8 @@ export interface AlertProps extends React.HTMLAttributes<HTMLDivElement> {
   icon?: React.ReactNode;
   /** Bold 14px headline. */
   title?: React.ReactNode;
+  /** Default 'status' (announced politely). Use 'alert' for urgent errors that must interrupt. */
+  role?: 'status' | 'alert' | string;
   children?: React.ReactNode;
 }
 

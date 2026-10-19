@@ -64,7 +64,7 @@ export default function App() {
       <Navbar
         scrolled={scrolled}
         onClick={(e) => { if (e.target.closest('.nav-brand')) onNavClick('/')(e); }}
-        brand={<span style={{ letterSpacing: 'var(--tracking-brand)' }}>AVATAR <span style={{ color: 'var(--color-fire-500)', fontWeight: 800 }}>DESIGN</span></span>}
+        brand={<span style={{ letterSpacing: 'var(--tracking-brand)' }}>AVATAR <span style={{ color: 'var(--fire-link)', fontWeight: 800 }}>DESIGN</span></span>}
         actions={<>
           <Button variant="outline" size="sm" onClick={() => setLight(!light)}>{light ? 'Dark Mode' : 'Light Mode'}</Button>
           <Button size="sm" onClick={() => go('/landing')}>Get Presets</Button>
@@ -97,7 +97,7 @@ export default function App() {
         Fire is the element of power. Its people have desire and will, and the energy and drive to get what they want.
       </Modal>
 
-      <div className="toast-stack">
+      <div className="toast-stack" role="region" aria-label="Notifications">
         {toasts.map((t) => (
           <div key={t.id} className="toast-slot" data-state={t.closing ? 'closed' : 'open'}>
             <div className="toast-slot-inner"><div className="toast-pad">

@@ -122,3 +122,12 @@
 .ui-motion:active{transform:translateY(var(--ui-press)) scale(var(--ui-press-scale));transition-duration:calc(var(--ui-duration) * 0.5)}
 /* Earth lands with a rumble on press. */
 .element-earth .ui-motion:active,.element-earth.ui-motion:active,.btn-earth:active,.element-earth .btn:active{animation:earth-rumble var(--duration-base) var(--ease-standard)}
+
+/* REDUCED MOTION — finished state at once, no scroll/pointer movement, no idle loops.
+   assets/motion.js also skips tilt, parallax, the edge-light orbit and bursts. */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:0.01ms !important;animation-iteration-count:1 !important;animation-delay:0ms !important;transition-duration:0.01ms !important;transition-delay:0ms !important;scroll-behavior:auto !important}
+  .motion-ready [data-reveal],.motion-ready [data-stagger] > *,.motion-ready [data-choreo] [data-choreo-role],.motion-ready [data-choreo][data-choreo-role]{opacity:1 !important;transform:none !important}
+  [data-parallax],[data-tilt]{transform:none !important}
+  ::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none !important}
+}

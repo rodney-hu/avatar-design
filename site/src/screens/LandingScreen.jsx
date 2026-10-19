@@ -50,7 +50,7 @@ export default function LandingScreen({ onToast, onModal }) {
   const labels = { fire: 'Fire Nation', water: 'Water Tribe', earth: 'Earth Kingdom', air: 'Air Nomads' };
 
   return (
-    <>
+    <main>
       <Hero
         element={element}
         parallaxHalo
@@ -80,7 +80,7 @@ export default function LandingScreen({ onToast, onModal }) {
         </div>
       </Hero>
 
-      <main className="shell-main">
+      <div className="shell-main">
         <section style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }} data-halo-bloom>
           <div className="sec-head" data-reveal>
             <Badge variant="fire" style={{ width: 'fit-content' }}>01. Color Palette</Badge>
@@ -104,7 +104,7 @@ export default function LandingScreen({ onToast, onModal }) {
           <Card style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }} data-stagger>
             <div style={{ borderBottom: '1px solid var(--color-border-subtle)', paddingBottom: '1rem' }}>
               <p className="ckey" style={{ textAlign: 'left', margin: '4px 0' }}>Display XL / Cinzel 800 / 72px</p>
-              <h1 style={{ margin: 0, fontFamily: 'var(--font-hero)', fontWeight: 800, fontSize: 'var(--text-hero)', lineHeight: 'var(--leading-tight)', letterSpacing: 'var(--tracking-display)', color: 'var(--color-fire-500)' }}>The Fire Nation</h1>
+              <h1 style={{ margin: 0, fontFamily: 'var(--font-hero)', fontWeight: 800, fontSize: 'var(--text-hero)', lineHeight: 'var(--leading-tight)', letterSpacing: 'var(--tracking-display)', color: 'var(--fire-text)' }}>The Fire Nation</h1>
             </div>
             <div style={{ borderBottom: '1px solid var(--color-border-subtle)', paddingBottom: '1rem' }}>
               <p className="ckey" style={{ textAlign: 'left', margin: '4px 0' }}>Brush heading / Avatar Airbender / 40px</p>
@@ -124,8 +124,8 @@ export default function LandingScreen({ onToast, onModal }) {
             </div>
           </Card>
         </section>
-      </main>
-    </>
+      </div>
+    </main>
   );
 }
 

@@ -1,5 +1,5 @@
 export interface NavLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
-  /** Fire text, 12%-alpha fill and a 2px fire underline. */
+  /** --fire-text (fire-300 on dark), 12%-alpha fire fill and a 2px fire underline. Sets aria-current="page". */
   active?: boolean;
   children?: React.ReactNode;
 }

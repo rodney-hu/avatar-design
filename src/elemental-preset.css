@@ -130,7 +130,7 @@
   /* ---------------- NEUTRALS & TEXT ---------------- */
   --color-text-primary: #f0f0f0;
   --color-text-secondary: #a0a0a0;
-  --color-text-muted: #666666;
+  --color-text-muted: #8c8c8c;
   --color-text-disabled: #444444;
 
   --color-border-subtle: #1f1f1f;
@@ -184,10 +184,13 @@
   --air-glow-rgb: 255 215 0;
   --avatar-glow-rgb: 0 255 255;
 
-  /* Fire used as TEXT. fire-500 by explicit design direction — ~2.5:1 on the
-     dark base, so it fails WCAG AA for body copy. Reserve it for
-     headline-scale type, badges and accents. Flips to fire-700 on .light. */
-  --fire-text: var(--color-fire-500);
+  /* Fire used as TEXT: fire-300, the same 300 step as the other elements'
+     text (~6.5:1 on badge, alert and nav tints). fire-500 itself is only
+     ~2.5:1 on the dark base, so it stays on fills, borders and glows.
+     Flips to fire-500 on .light. */
+  --fire-text: var(--color-fire-300);
+  /* Links and hover text that should still read red (~6.8:1). */
+  --fire-link: var(--color-fire-300);
   /* Companion text steps for badges and alerts. Flip on .light. */
   --water-text: #4db8ff;
   --earth-text: #4cd964;

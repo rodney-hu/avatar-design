@@ -7,6 +7,8 @@ export interface DataTableProps extends React.TableHTMLAttributes<HTMLTableEleme
   columns?: (string | { header: React.ReactNode })[];
   /** Row-major cell content; cells may be nodes (e.g. a Badge). */
   rows?: React.ReactNode[][];
+  /** Names the table for screen readers. Visually hidden. */
+  caption?: string;
 }
 
 export declare function DataTable(props: DataTableProps): JSX.Element;

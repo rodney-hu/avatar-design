@@ -58,7 +58,7 @@ The voice is confident, in-world, and slightly theatrical. Product nouns are rep
 - **Magnetic tilt** — `data-tilt` rotates a card up to ±7° toward the pointer and tracks a 420px specular sheen across it. 90ms linear while tracking, 320ms expo on release.
 - **Gradient drift** — `.motion-gradient-drift` crawls an oversized elemental gradient over 18s (32s for the `-slow` variant), giving ambient life with no visible loop point.
 
-The runtime adds `.motion-ready` to `<html>`, so nothing is hidden if the script fails to load, and it re-scans on DOM mutation so React-rendered screens are picked up automatically. Per direction, `prefers-reduced-motion` is **not** honoured — see Caveats below if that needs revisiting.
+The runtime adds `.motion-ready` to `<html>`, so nothing is hidden if the script fails to load, and it re-scans on DOM mutation so React-rendered screens are picked up automatically. `prefers-reduced-motion` is honoured: content shows at once, idle loops stop, and the runtime skips tilt, parallax, the edge-light orbit and bursts.
 
 **Motion restraint.** The brand reads premium because motion is slow and sparse. One bloom per section, one reveal per content block, tilt on card grids only. Do not stack reveal, tilt and drift on the same element.
 
@@ -66,7 +66,7 @@ The runtime adds `.motion-ready` to `<html>`, so nothing is hidden if the script
 
 **Layout.** Content maxes at 80rem centered with 1.5rem gutters, sections separated by 6rem. The navbar is `position: sticky; top: 0; z-index: 50`; the sidebar is a fixed 260px, 100vh. Modals sit at z-index 100. Heroes are centered columns with 6rem/2rem padding and a 1.5rem gap.
 
-**Contrast note.** `--color-fire-400` (`#dd3333`) reaches only 3.85:1 on the dark base and fails WCAG AA as text. Fire-as-text therefore reads from `--fire-text`, which is fire-500 on dark (by design direction, ~2.5:1, so headline-scale type, badges and accents only) and fire-700 on parchment. If you re-anchor the fire ramp, re-check `.badge-fire` and `.alert-fire`.
+**Contrast note.** Fire-500 (`#aa0000`) is ~2.5:1 on the dark base, so it is used for fills, borders and glows, never for text. Fire-as-text reads from `--fire-text`: fire-300 on dark (~6.5:1 on the badge, alert and nav tints, the same 300 step as the other elements) and fire-500 on parchment (6.9:1, 5.2:1 on its badge tint). Links and hover text use `--fire-link`, which matches it. Muted text is `#8c8c8c` on dark and `#666666` on parchment, both above 4.5:1. Every element's text token passes WCAG AA in both themes; re-check them if you re-anchor a ramp.
 
 **Divergence: alpha surfaces flip per theme.** Upstream hardcodes three translucent fills inside its component rules — the navbar (`rgba(13,13,13,0.85)`), the glass card (`rgba(26,26,26,0.65)`) and the modal backdrop (`rgba(0,0,0,0.8)`) — so they stay dark when `.light` is applied and the navbar's own text becomes unreadable. This system moves them to `--surface-nav`, `--surface-glass`, `--surface-glass-border` and `--surface-scrim`, which the `.light` block re-points at parchment equivalents. Same values as the source in dark mode; readable in both. For the same reason, badge and alert text for water, earth, air and avatar now read from `--water-text` / `--earth-text` / `--air-text` / `--avatar-text` (the source's own light steps on dark, 700 steps on parchment) rather than hardcoded hexes.
 
@@ -189,6 +189,6 @@ No slide template exists in the source, so no sample slides were authored.
 
 ## Caveats
 
-- **`prefers-reduced-motion` is deliberately ignored**, per direction. Users who set that OS preference will still get the full reveal, bloom, parallax and tilt choreography. If this system ships to a public audience, add a `@media (prefers-reduced-motion: reduce)` block to `tokens/motion.css` that zeroes `--motion-rise` and `--motion-parallax-range` and disables the drift animation — that keeps the fades and drops all movement, which is the usual compromise.
+- **Reduced motion is honoured.** The `@media (prefers-reduced-motion: reduce)` block at the end of `tokens/motion.css` shows revealed content at once, stops idle loops and view transitions, and pins parallax and tilt. `assets/motion.js` reads the same setting live and skips tilt, parallax, the edge-light orbit and click bursts.
 - **Fonts.** Cinzel, Inter and JetBrains Mono load from the Google CDN. **Avatar Airbender** is vendored in `assets/fonts/`; it is free for personal and commercial use, with a FontGet.com credit required if the font file is redistributed (`assets/fonts/LICENSE-AvatarAirbender.txt`). It is a display face with limited glyph coverage, so check any new brush string at size.
 - **No logo exists**, so the brand lockup is plain Inter type.

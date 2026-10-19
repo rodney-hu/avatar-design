@@ -136,7 +136,7 @@
 
   .btn-outline:hover {
     border-color: var(--color-fire-500);
-    color: var(--color-fire-400);
+    color: var(--fire-link);
     box-shadow: 0 0 15px rgb(var(--fire-500-rgb) / 0.25);
   }
 
@@ -291,6 +291,11 @@
     box-shadow: 0 0 10px rgb(var(--fire-500-rgb) / 0.4);
   }
 
+  .toggle-switch input:focus-visible + .toggle-slider {
+    outline: 2px solid var(--focus-ring, var(--color-fire-400));
+    outline-offset: 2px;
+  }
+
   input:checked + .toggle-slider:before {
     transform: translateX(1.2rem);
     background-color: #ffffff;
@@ -335,12 +340,12 @@
   }
 
   .nav-link:hover {
-    color: var(--color-fire-400);
+    color: var(--fire-link);
     background: rgb(var(--fire-500-rgb) / 0.08);
   }
 
   .nav-link-active {
-    color: var(--color-fire-500);
+    color: var(--fire-text);
     font-weight: 600;
     background: rgb(var(--fire-500-rgb) / 0.12);
     border-bottom: 2px solid var(--color-fire-500);
@@ -389,7 +394,7 @@
   }
 
   .breadcrumb-item:hover {
-    color: var(--color-fire-400);
+    color: var(--fire-link);
   }
 
   /* ==========================================
@@ -590,7 +595,7 @@
     transition: opacity var(--duration-fast) var(--ease-enter);
   }
 
-  .tooltip:hover .tooltip-text {
+  .tooltip:hover .tooltip-text, .tooltip:focus-within .tooltip-text {
     visibility: visible;
     opacity: 1;
   }

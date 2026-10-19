@@ -13,6 +13,7 @@ export default function ComponentsScreen({ onModal }) {
   const elements = ['fire', 'water', 'earth', 'air', 'avatar'];
   return (
     <main className="shell-main">
+      <h1 className="sr-only">Components</h1>
       <section style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }} data-halo-bloom>
         <div className="sec-head" data-reveal>
           <Badge variant="water" style={{ width: 'fit-content' }}>03. Buttons &amp; Actions</Badge>
@@ -21,7 +22,7 @@ export default function ComponentsScreen({ onModal }) {
         </div>
         <Card style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }} data-reveal>
           <div>
-            <h4 className="stat-label" style={{ margin: '0 0 0.75rem' }}>Elemental variants</h4>
+            <h3 className="stat-label" style={{ margin: '0 0 0.75rem' }}>Elemental variants</h3>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>
               {elements.map((e) => (
                 <Button key={e} variant={e}>{e[0].toUpperCase() + e.slice(1)}</Button>
@@ -29,12 +30,12 @@ export default function ComponentsScreen({ onModal }) {
             </div>
           </div>
           <div>
-            <h4 className="stat-label" style={{ margin: '0 0 0.75rem' }}>Styles &amp; sizes</h4>
+            <h3 className="stat-label" style={{ margin: '0 0 0.75rem' }}>Styles &amp; sizes</h3>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', alignItems: 'center' }}>
               <Button size="lg">Large Fire</Button>
               <Button>Medium Fire</Button>
               <Button size="sm">Small Fire</Button>
-              <Button variant="outline">Outline</Button>
+              <Tooltip text="Secondary action, fire outline on hover"><Button variant="outline">Outline</Button></Tooltip>
               <Button variant="ghost">Ghost Link</Button>
               <Button disabled>Disabled</Button>
               </div>

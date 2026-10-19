@@ -5,6 +5,8 @@
 export interface NavbarProps extends React.HTMLAttributes<HTMLElement> {
   /** Brand lockup — plain wordmark (no logo or glyph exists). */
   brand?: React.ReactNode;
+  /** Where the brand links. Default '/'. */
+  brandHref?: string;
   /** Nav links (center group). */
   children?: React.ReactNode;
   /** Right-hand buttons. */

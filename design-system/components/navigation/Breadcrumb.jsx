@@ -8,7 +8,7 @@ export function Breadcrumb({ items = [], separator = '/', className = '', ...res
           {i > 0 && <span aria-hidden="true">{separator}</span>}
           {item.href && i < items.length - 1
             ? <a className="breadcrumb-item" href={item.href}>{item.label}</a>
-            : <span style={{ color: 'var(--color-text-primary)' }}>{item.label}</span>}
+            : <span style={{ color: 'var(--color-text-primary)' }} aria-current={i === items.length - 1 ? 'page' : undefined}>{item.label}</span>}
         </React.Fragment>
       ))}
     </nav>

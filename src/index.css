@@ -30,15 +30,16 @@
 
   --color-text-primary: #1a1a1a;
   --color-text-secondary: #555555;
-  --color-text-muted: #888888;
+  --color-text-muted: #666666;
   --color-text-disabled: #bbbbbb;
 
   --color-border-subtle: #e5e0db;
   --color-border-default: #d4cec8;
   --color-border-strong: #b0a99f;
 
-  /* fire-500 lands at ~2.2:1 on parchment; fire-700 restores ~9.9:1 */
-  --fire-text: var(--color-fire-700);
+  /* fire-500 reads 6.9:1 on parchment and 5.2:1 on its badge tint */
+  --fire-text: var(--color-fire-500);
+  --fire-link: var(--color-fire-500);
   --water-text: var(--color-water-700);
   --earth-text: var(--color-earth-700);
   --air-text: var(--color-air-700);
@@ -78,11 +79,18 @@
   }
 
   a {
-    color: var(--color-fire-400);
+    color: var(--fire-link);
     text-decoration: none;
   }
   a:hover {
-    color: var(--color-fire-300);
+    color: var(--color-text-primary);
+  }
+
+  /* One visible keyboard focus ring for every interactive element. Zero
+     specificity, so component rings (.btn, .check, .toggle) still win. */
+  :where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+    outline: 2px solid var(--focus-ring, var(--color-fire-400));
+    outline-offset: 2px;
   }
 }
 

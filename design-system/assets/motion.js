@@ -7,6 +7,11 @@
   var root = document.documentElement;
   root.classList.add('motion-ready');
 
+  /* Reduced motion: no tilt, parallax, edge-light orbit, bursts or view
+     transitions. Read live, so changing the OS setting applies at once. */
+  var rmq = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
+  function reduced() { return !!(rmq && rmq.matches); }
+
   var REVEAL = '[data-reveal],[data-stagger],[data-choreo]';
   var seenBy = {};
   /* One WeakSet per feature so a single element can register for several effects. */
@@ -55,6 +60,7 @@
   /* ---- Parallax ---- */
   var parallaxEls = [];
   function updateParallax() {
+    if (reduced()) return;
     var vh = window.innerHeight;
     for (var i = 0; i < parallaxEls.length; i++) {
       var el = parallaxEls[i];
@@ -78,6 +84,7 @@
     var max = parseFloat(getComputedStyle(el).getPropertyValue('--motion-tilt-max')) || 7;
     var strength = parseFloat(el.dataset.tilt) || 1;
     el.addEventListener('pointermove', function (ev) {
+      if (reduced()) return;
       var r = el.getBoundingClientRect();
       var px = (ev.clientX - r.left) / r.width;
       var py = (ev.clientY - r.top) / r.height;
@@ -119,6 +126,7 @@
   /* ---- Edge light orbit: one rAF loop writes --edge-angle ---- */
   var edgeEls = [];
   function orbit(now) {
+    if (reduced()) { requestAnimationFrame(orbit); return; }
     for (var i = 0; i < edgeEls.length; i++) {
       var el = edgeEls[i];
       var d = parseFloat(getComputedStyle(el).getPropertyValue('--edge-light-duration')) || 6;
@@ -255,7 +263,7 @@
   };
   document.addEventListener('pointerdown', function (e) {
     var b = e.target.closest && e.target.closest('.btn');
-    if (!b || b.disabled || b.getAttribute('aria-disabled') === 'true' || b.dataset.burst === 'off') return;
+    if (reduced() || !b || b.disabled || b.getAttribute('aria-disabled') === 'true' || b.dataset.burst === 'off') return;
     var kind = ['fire', 'water', 'earth', 'air', 'avatar'].filter(function (k) { return b.classList.contains('btn-' + k); })[0];
     if (kind) BURST[kind](e.clientX, e.clientY);
   }, { passive: true });
@@ -268,7 +276,7 @@
       if (window.ReactDOM && window.ReactDOM.flushSync) window.ReactDOM.flushSync(update); else update();
       scan();
     };
-    if (!canVT) { run(); return Promise.resolve(); }
+    if (!canVT || reduced()) { run(); return Promise.resolve(); }
     return document.startViewTransition(run).finished.catch(function () {});
   }
 

@@ -15,6 +15,7 @@ export default function DataScreen() {
   }, []);
   return (
     <main className="shell-main">
+      <h1 className="sr-only">Data</h1>
       <section style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }} data-halo-bloom="water">
         <div className="sec-head" data-reveal>
           <Badge variant="water" style={{ width: 'fit-content' }}>06. Data &amp; Dashboards</Badge>
@@ -29,7 +30,7 @@ export default function DataScreen() {
           <StatCard element="air" label="Air Velocity" value="120 km/h" delta="Glider lift optimal" />
         </div>
         <div className="data-split" style={{ display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }} data-reveal>
-          <Sidebar style={{ height: 'auto', borderRadius: 'var(--radius-lg)', border: '1px solid var(--color-border-subtle)' }}>
+          <Sidebar as="nav" aria-label="Nations" style={{ height: 'auto', borderRadius: 'var(--radius-lg)', border: '1px solid var(--color-border-subtle)' }}>
             <SidebarItem active>Fire Nation</SidebarItem>
             <SidebarItem>Water Tribe</SidebarItem>
             <SidebarItem>Earth Kingdom</SidebarItem>
@@ -37,12 +38,13 @@ export default function DataScreen() {
           </Sidebar>
           <div style={{ flex: 1 }}>
             <DataTable
+              caption="Bending masters"
               columns={['Master', 'Affiliation', 'Specialty', 'Status']}
               rows={[
-                [<span style={{ fontWeight: 600, color: 'var(--color-fire-400)' }}>Zuko</span>, 'Fire Nation', 'Lightning Redirection', <Badge variant="fire">Active Fire Lord</Badge>],
-                [<span style={{ fontWeight: 600, color: 'var(--color-water-400)' }}>Katara</span>, 'Southern Water Tribe', 'Bloodbending / Healing', <Badge variant="water">Grandmaster</Badge>],
-                [<span style={{ fontWeight: 600, color: 'var(--color-earth-400)' }}>Toph Beifong</span>, 'Earth Kingdom', 'Metalbending Creator', <Badge variant="earth">Chief of Police</Badge>],
-                [<span style={{ fontWeight: 600, color: 'var(--color-air-400)' }}>Aang</span>, 'Air Nomads', 'Energybending', <Badge variant="avatar">Avatar State</Badge>],
+                [<span style={{ fontWeight: 600, color: 'var(--fire-text)' }}>Zuko</span>, 'Fire Nation', 'Lightning Redirection', <Badge variant="fire">Active Fire Lord</Badge>],
+                [<span style={{ fontWeight: 600, color: 'var(--water-text)' }}>Katara</span>, 'Southern Water Tribe', 'Bloodbending / Healing', <Badge variant="water">Grandmaster</Badge>],
+                [<span style={{ fontWeight: 600, color: 'var(--earth-text)' }}>Toph Beifong</span>, 'Earth Kingdom', 'Metalbending Creator', <Badge variant="earth">Chief of Police</Badge>],
+                [<span style={{ fontWeight: 600, color: 'var(--air-text)' }}>Aang</span>, 'Air Nomads', 'Energybending', <Badge variant="avatar">Avatar State</Badge>],
               ]}
             />
           </div>

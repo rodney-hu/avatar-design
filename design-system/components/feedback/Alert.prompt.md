@@ -20,3 +20,6 @@ Use the stack structure so neighbours glide when toasts arrive or leave:
 </div>
 ```
 To dismiss, set `closing`, then remove it after 600ms.
+
+## Accessibility
+Alerts render `role="status"` by default, so screen readers announce new ones without interrupting. Pass `role="alert"` only for urgent errors. Wrap a toast stack in `role="region" aria-label="Notifications"` so it sits in a landmark.

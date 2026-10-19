@@ -1,7 +1,7 @@
 /* Tweak layer: emits one override <style> so every component follows. */
 
 export const BRANDS = {
-  fire:  { ramp: ['#fff2f2', '#ffd6d6', '#ffa3a3', '#f76d6d', '#dd3333', '#aa0000', '#8f0000', '#6e0000', '#4d0000', '#2e0000'], c500: '170 0 0',   c400: '221 51 51',  glow: '224 16 16', text: 500, lightText: 700 },
+  fire:  { ramp: ['#fff2f2', '#ffd6d6', '#ffa3a3', '#f76d6d', '#dd3333', '#aa0000', '#8f0000', '#6e0000', '#4d0000', '#2e0000'], c500: '170 0 0',   c400: '221 51 51',  glow: '224 16 16', text: 300, lightText: 500 },
   water: { ramp: ['#f0f9ff', '#cce8ff', '#8ecfff', '#4db8ff', '#1aa3ff', '#0088e0', '#006db3', '#005289', '#003a63', '#00243d'], c500: '0 136 224', c400: '26 163 255', glow: '0 191 255', text: 300, lightText: 700 },
   earth: { ramp: ['#f0fff4', '#c6f6d5', '#88e8a0', '#4cd964', '#2ecc40', '#27ae34', '#1f8c2a', '#186b20', '#114e18', '#0a3010'], c500: '39 174 52', c400: '46 204 64',  glow: '57 255 20', text: 300, lightText: 700 },
   air:   { ramp: ['#fffef5', '#fff8cc', '#ffed8a', '#ffe048', '#ffd700', '#e6bf00', '#b89700', '#8a7100', '#5c4b00', '#3a3000'], c500: '230 191 0', c400: '255 215 0',  glow: '255 215 0', text: 400, lightText: 700 },
