@@ -4,7 +4,7 @@ export function Sidebar({ as: Tag = 'aside', header, footer, children, className
   return (
     <Tag className={['sidebar', className].filter(Boolean).join(' ')} style={style} {...rest}>
       {header}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', flex: 1 }}>{children}</div>
+      <div className="sidebar-body">{children}</div>
       {footer}
     </Tag>
   );

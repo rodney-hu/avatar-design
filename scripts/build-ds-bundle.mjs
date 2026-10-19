@@ -23,7 +23,7 @@ const components = readdirSync(componentsDir, { withFileTypes: true })
 
 const entry = join(tmp, 'entry.js');
 mkdirSync(tmp, { recursive: true });
-writeFileSync(entry, components.map((c) => `export { ${c.name} } from ${JSON.stringify(c.path)};`).join('\n'));
+writeFileSync(entry, components.map((c) => `export * from ${JSON.stringify(c.path)};`).join("\n"));
 
 await build({
   configFile: false,

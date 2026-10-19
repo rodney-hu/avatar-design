@@ -5,7 +5,7 @@ export function Checkbox({ label, id, element = 'fire', className = '', ...rest 
   const autoId = React.useId();
   const inputId = id || autoId;
   return (
-    <label htmlFor={inputId} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer', fontSize: '0.9375rem' }}>
+    <label htmlFor={inputId} className="check-field">
       <span className={'check field-' + resolveElement(element, 'fire')}>
         <input id={inputId} type="checkbox" className={['checkbox', className].filter(Boolean).join(' ')} {...rest} />
         <svg className="check-mark" viewBox="0 0 16 16" aria-hidden="true"><path pathLength="1" d="M3.5 8.5l3 3 6-7"></path></svg>

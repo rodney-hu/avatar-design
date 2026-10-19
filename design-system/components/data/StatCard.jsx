@@ -68,7 +68,7 @@ export function StatCard({ label, value, delta, element: elementProp, countUp = 
     <div ref={cardRef} className={['stat-card', className].filter(Boolean).join(' ')} style={{ borderColor: BORDER[element], ...style }} onAnimationEnd={(e) => { if (e.target === cardRef.current) e.currentTarget.removeAttribute('data-flash'); }} {...rest}>
       <span className="stat-label">{label}</span>
       <span ref={valRef} className={['stat-value', GLOW[element]].filter(Boolean).join(' ')} style={{ color: TINT[element] }}>{parsed ? fmt(parsed, parsed.n) : value}</span>
-      {delta && <span className="stat-delta" style={{ display: 'block', fontSize: '0.75rem', lineHeight: '1rem', color: element === 'none' ? 'var(--color-text-muted)' : TINT[element] }}>{delta}</span>}
+      {delta && <span className="stat-delta" style={element === 'none' ? undefined : { color: TINT[element] }}>{delta}</span>}
     </div>
   );
 }

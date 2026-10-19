@@ -5,7 +5,7 @@ import { Navbar } from '@ds/navigation/Navbar.jsx';
 import { NavLink } from '@ds/navigation/NavLink.jsx';
 import { Button } from '@ds/core/Button.jsx';
 import { Modal } from '@ds/feedback/Modal.jsx';
-import { Alert } from '@ds/feedback/Alert.jsx';
+import { useToasts, ToastStack } from '@ds/feedback/Toast.jsx';
 import LandingScreen from './screens/LandingScreen.jsx';
 import ComponentsScreen from './screens/ComponentsScreen.jsx';
 import DataScreen from './screens/DataScreen.jsx';
@@ -24,7 +24,7 @@ export default function App() {
   const navigate = useNavigate();
   const [light, setLight] = React.useState(false);
   const [modal, setModal] = React.useState(false);
-  const [toasts, setToasts] = React.useState([]);
+  const { toasts, push, dismiss } = useToasts({ duration: 3500 });
   const [scrolled, setScrolled] = React.useState(false);
 
   React.useEffect(() => {
@@ -38,12 +38,7 @@ export default function App() {
     document.body.classList.toggle('light', light);
   }, [light]);
 
-  const fireToast = () => {
-    const id = Date.now();
-    setToasts((t) => [...t, { id, closing: false }]);
-    setTimeout(() => setToasts((t) => t.map((x) => (x.id === id ? { ...x, closing: true } : x))), 3500);
-    setTimeout(() => setToasts((t) => t.filter((x) => x.id !== id)), 4100);
-  };
+  const fireToast = () => push({ element: 'fire', title: 'Fire Nation Power Unleashed', message: 'Component action completed successfully.' });
 
   // Route changes run inside a view transition (crossfade + shared nav
   // indicator). flushSync makes React commit before the "after" snapshot.
@@ -97,15 +92,7 @@ export default function App() {
         Fire is the element of power. Its people have desire and will, and the energy and drive to get what they want.
       </Modal>
 
-      <div className="toast-stack" role="region" aria-label="Notifications">
-        {toasts.map((t) => (
-          <div key={t.id} className="toast-slot" data-state={t.closing ? 'closed' : 'open'}>
-            <div className="toast-slot-inner"><div className="toast-pad">
-              <Alert element="fire" className="toast" title="Fire Nation Power Unleashed">Component action completed successfully.</Alert>
-            </div></div>
-          </div>
-        ))}
-      </div>
+      <ToastStack toasts={toasts} onDismiss={dismiss} />
     </>
   );
 }

@@ -7,11 +7,11 @@ export function Hero({ element: elementProp = 'fire', eyebrow, title, subtitle, 
   const halo = 'hero-' + element;
   const content = (
     <>
-      {eyebrow && <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', justifyContent: 'center' }}>{eyebrow}</div>}
-      <h1 className={['hero-title', glowTitle && 'text-glow-' + element].filter(Boolean).join(' ')} style={{ margin: 0 }}>{title}</h1>
-      {subtitle && <p className="hero-subtitle" style={{ margin: 0 }}>{subtitle}</p>}
+      {eyebrow && <div className="hero-eyebrow">{eyebrow}</div>}
+      <h1 className={['hero-title', glowTitle && 'text-glow-' + element].filter(Boolean).join(' ')}>{title}</h1>
+      {subtitle && <p className="hero-subtitle">{subtitle}</p>}
       {children}
-      {actions && <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', justifyContent: 'center' }}>{actions}</div>}
+      {actions && <div className="hero-actions">{actions}</div>}
     </>
   );
 
@@ -26,10 +26,8 @@ export function Hero({ element: elementProp = 'fire', eyebrow, title, subtitle, 
   if (parallaxHalo) {
     return (
       <section className={['hero', className].filter(Boolean).join(' ')} {...rest}>
-        <div className={halo} data-parallax="0.35" aria-hidden="true"
-          style={{ position: 'absolute', top: -40, bottom: -40, left: 0, right: 0, pointerEvents: 'none', zIndex: 0 }} />
-        <div data-parallax="0.08"
-          style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'inherit', width: '100%' }}>
+        <div className={'hero-halo-layer ' + halo} data-parallax="0.35" aria-hidden="true" />
+        <div className="hero-content-layer" data-parallax="0.08">
           {content}
         </div>
       </section>

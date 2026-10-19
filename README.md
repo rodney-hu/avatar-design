@@ -10,7 +10,7 @@ A dark-first design system for web apps, landing pages and SaaS tools, themed on
 - **Glows.** Colored halos instead of plain shadows, in four sizes, with one setting (`--glow-strength`) to make them stronger or softer.
 - **Materials.** Elevation levels, glass panels, gradient borders, film grain, an orbiting edge light and a cursor spotlight.
 - **Motion.** Scroll reveals, staggered entrances, page transitions and small touches like button sheens and click bursts.
-- **22 React components** across six groups. Every one takes its color the same way: `element="water"`, or a status name like `element="success"` or `element="danger"`.
+- **24 React components** across six groups. Every one takes its color the same way: `element="water"`, or a status name like `element="success"` or `element="danger"`.
 
 ## Use it in your project
 
@@ -43,7 +43,10 @@ npm run dev        # http://localhost:5173
 npm run build      # builds into dist/
 npm run preview    # serves dist/ at http://localhost:4173
 npm run build:ds   # rebuilds the bundle the component preview cards use
+npm run check:a11y # accessibility scan of every page (run after build)
 ```
+
+`npm run build` first checks that the two copies of the tokens (`src/` and `design-system/tokens/`) match and that every component prop is documented, and stops if not. GitHub Actions runs the build and the accessibility scan on every push and pull request.
 
 | Page | What it shows |
 | --- | --- |
@@ -72,8 +75,8 @@ Each component lives in `design-system/components/` with a props file (`.d.ts`) 
 | --- | --- |
 | Core | Button, Badge, Card |
 | Forms | Field, Input, Select, Textarea, Checkbox, ToggleSwitch |
-| Feedback | Alert, Modal, Tooltip |
-| Navigation | Navbar, NavLink, Sidebar, SidebarItem, Breadcrumb |
+| Feedback | Alert, Toast, Modal, Tooltip |
+| Navigation | Navbar, NavLink, Menu, Sidebar, SidebarItem, Breadcrumb |
 | Marketing | Hero, PricingCard, TestimonialCard |
 | Data | DataTable, StatCard |
 
@@ -88,6 +91,6 @@ When you change a color, update both sets.
 
 ## Good to know
 
-- **Accessibility.** Every page passes an automated WCAG 2.1 AA check in both themes. Fire text uses a lighter red (fire-300) on dark, like the other elements, because the deep brand red is too dark to read there. Keyboard focus is always visible, and the modal keeps focus inside it.
+- **Accessibility.** Every page passes an automated WCAG 2.1 AA check in both themes, and CI fails if one stops passing. Fire text uses a lighter red (fire-300) on dark, like the other elements, because the deep brand red is too dark to read there. Keyboard focus is always visible, the modal keeps focus inside it, and the menu works fully from the keyboard.
 - **Reduced motion.** When someone asks their device for less motion, content appears at once and nothing moves with scroll or the pointer.
 - **Font licence.** The Avatar Airbender font is free for personal and commercial use. If you share the font file, credit FontGet.com and keep its licence file with it.
