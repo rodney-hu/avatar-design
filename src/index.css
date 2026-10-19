@@ -37,9 +37,9 @@
   --color-border-default: #d4cec8;
   --color-border-strong: #b0a99f;
 
-  /* fire-500 lands at ~2.2:1 on parchment; fire-700 restores ~9.9:1 */
-  --fire-text: var(--color-fire-700);
-  --fire-link: var(--color-fire-700);
+  /* fire-500 reads 6.9:1 on parchment and 5.2:1 on its badge tint */
+  --fire-text: var(--color-fire-500);
+  --fire-link: var(--color-fire-500);
   --water-text: var(--color-water-700);
   --earth-text: var(--color-earth-700);
   --air-text: var(--color-air-700);

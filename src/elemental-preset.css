@@ -184,10 +184,11 @@
   --air-glow-rgb: 255 215 0;
   --avatar-glow-rgb: 0 255 255;
 
-  /* Fire used as TEXT: near-white on the red tint of badges, alerts and the
-     active nav (~17:1). fire-500 itself is only ~2.5:1 on the dark base, so
-     it stays on fills, borders and glows. Flips to fire-700 on .light. */
-  --fire-text: var(--color-fire-50);
+  /* Fire used as TEXT: fire-300, the same 300 step as the other elements'
+     text (~6.5:1 on badge, alert and nav tints). fire-500 itself is only
+     ~2.5:1 on the dark base, so it stays on fills, borders and glows.
+     Flips to fire-500 on .light. */
+  --fire-text: var(--color-fire-300);
   /* Links and hover text that should still read red (~6.8:1). */
   --fire-link: var(--color-fire-300);
   /* Companion text steps for badges and alerts. Flip on .light. */

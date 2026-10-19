@@ -24,9 +24,9 @@
   --color-surface-void:#f5f0eb;--color-surface-base:#faf7f4;--color-surface-raised:#ffffff;--color-surface-elevated:#ffffff;--color-surface-overlay:#ffffff;
   --color-text-primary:#1a1a1a;--color-text-secondary:#555555;--color-text-muted:#666666;--color-text-disabled:#bbbbbb;
   --color-border-subtle:#e5e0db;--color-border-default:#d4cec8;--color-border-strong:#b0a99f;
-  /* fire-500 lands at ~2.2:1 on parchment; fire-700 restores ~9.9:1 */
-  --fire-text:var(--color-fire-700);
-  --fire-link:var(--color-fire-700);
+  /* fire-500 reads 6.9:1 on parchment and 5.2:1 on its badge tint */
+  --fire-text:var(--color-fire-500);
+  --fire-link:var(--color-fire-500);
   --surface-nav:rgba(250,247,244,0.85);
   --surface-glass:rgba(255,255,255,0.7);
   --surface-glass-border:rgba(26,26,26,0.08);
