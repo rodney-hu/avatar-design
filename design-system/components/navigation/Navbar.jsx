@@ -5,8 +5,8 @@ export function Navbar({ brand, brandHref = '/', children, actions, glass = true
   return (
     <header className={cls.filter(Boolean).join(' ')} {...rest}>
       <a href={brandHref} className="nav-brand">{brand}</a>
-      <nav style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>{children}</nav>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>{actions}</div>
+      <nav className="navbar-links">{children}</nav>
+      <div className="navbar-actions">{actions}</div>
     </header>
   );
 }

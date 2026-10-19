@@ -7,8 +7,8 @@ export function ToggleSwitch({ label, element = 'fire', id, className = '', ...r
   const autoId = React.useId();
   const inputId = id || autoId;
   return (
-    <label htmlFor={inputId} className={['toggle-field', className].filter(Boolean).join(' ')} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer' }}>
-      {label && <span style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)' }}>{label}</span>}
+    <label htmlFor={inputId} className={['toggle-field', className].filter(Boolean).join(' ')}>
+      {label && <span className="toggle-label">{label}</span>}
       <span className={'toggle-switch field-' + resolveElement(element, 'fire')}>
         <input id={inputId} type="checkbox" role="switch" {...rest} />
         <span className="toggle-slider" aria-hidden="true"></span>

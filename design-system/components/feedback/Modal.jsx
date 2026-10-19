@@ -59,12 +59,12 @@ export function Modal({ open = true, title, onClose, footer, glass = true, child
   return (
     <div className="modal-backdrop" data-state={state} onClick={(e) => { if (e.target === e.currentTarget && onClose) onClose(); }}>
       <div ref={dialogRef} tabIndex={-1} className={cls.filter(Boolean).join(' ')} data-state={state} style={{ '--elevation-glow': 'var(--shadow-fire)' }} role="dialog" aria-modal="true" aria-labelledby={title ? titleId : undefined} {...rest}>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '1px solid var(--color-border-subtle)', paddingBottom: '0.75rem', marginBottom: '1rem' }}>
-          <h2 id={titleId} style={{ margin: 0, fontFamily: 'var(--font-display)', fontSize: '1.35rem', fontWeight: 700, color: 'var(--fire-text)' }}>{title}</h2>
-          <button type="button" className="modal-close" onClick={onClose} aria-label="Close" style={{ background: 'none', border: 'none', color: 'var(--color-text-muted)', fontWeight: 700, fontSize: '1.25rem', cursor: 'pointer', lineHeight: 1 }}>×</button>
+        <div className="modal-header">
+          <h2 id={titleId} className="modal-title">{title}</h2>
+          <button type="button" className="modal-close" onClick={onClose} aria-label="Close">×</button>
         </div>
-        <div style={{ fontSize: '0.875rem', color: 'var(--color-text-secondary)', lineHeight: 1.6, marginBottom: footer ? '1.5rem' : 0 }}>{children}</div>
-        {footer && <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '0.75rem' }}>{footer}</div>}
+        <div className="modal-body">{children}</div>
+        {footer && <div className="modal-footer">{footer}</div>}
       </div>
     </div>
   );

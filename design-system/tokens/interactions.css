@@ -30,7 +30,7 @@
 .input:focus,.select:focus,.textarea:focus{border-color:rgb(var(--field-rgb));box-shadow:0 0 0 3px rgb(var(--field-rgb) / 0.2),0 0 18px rgb(var(--field-rgb) / calc(0.16 * var(--glow-strength,1)));background:var(--color-surface-base);animation:field-bloom var(--duration-moderate) var(--ease-enter)}
 :is(.input,.select,.textarea)[aria-invalid="true"]{--field-rgb:var(--danger-500-rgb);border-color:var(--color-danger-400)}
 @keyframes field-bloom{0%{box-shadow:0 0 0 0 rgb(var(--field-rgb) / 0.55),0 0 0 rgb(var(--field-rgb) / 0)}45%{box-shadow:0 0 0 6px rgb(var(--field-rgb) / 0.18),0 0 30px rgb(var(--field-rgb) / calc(0.32 * var(--glow-strength,1)))}}
-.field{display:flex;flex-direction:column;gap:0.25rem;width:100%}
+.field{display:flex;flex-direction:column;gap:var(--space-1);width:100%}
 .field-control{position:relative;display:block}
 .field-line{position:absolute;left:10%;right:10%;bottom:0;height:2px;border-radius:2px;pointer-events:none;background:linear-gradient(90deg,transparent,rgb(var(--field-rgb)) 25%,rgb(var(--field-rgb)) 75%,transparent);box-shadow:0 0 10px rgb(var(--field-rgb) / 0.6);transform:scaleX(0);transform-origin:left center;opacity:0;transition:transform var(--duration-moderate) var(--ease-enter),opacity var(--duration-fast) var(--ease-enter)}
 .field-control:focus-within .field-line{transform:scaleX(1);opacity:1}

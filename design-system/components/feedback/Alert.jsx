@@ -7,8 +7,8 @@ export function Alert({ element, variant, icon, title, role = 'status', children
     <div className={['alert', 'alert-' + el, className].filter(Boolean).join(' ')} role={role} {...rest}>
       {icon}
       <div>
-        {title && <p style={{ margin: 0, fontWeight: 700, fontSize: '0.875rem' }}>{title}</p>}
-        {children && <p style={{ margin: title ? '0.125rem 0 0' : 0, fontSize: title ? '0.75rem' : 'inherit', color: title ? 'var(--color-text-secondary)' : 'inherit' }}>{children}</p>}
+        {title && <p className="alert-title">{title}</p>}
+        {children && <p className="alert-body">{children}</p>}
       </div>
     </div>
   );
