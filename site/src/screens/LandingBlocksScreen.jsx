@@ -33,7 +33,7 @@ export default function LandingBlocksScreen() {
           <PricingCard
             tier={<Badge variant="avatar" style={{ width: 'fit-content' }}>Avatar</Badge>}
             name="Avatar Enterprise" price="$149"
-            description="Custom element styling, dedicated support and source SVGs."
+            description="Custom element styling and dedicated support."
             action={<Button variant="outline" fullWidth>Contact White Lotus</Button>}
           />
         </div>
@@ -52,9 +52,9 @@ export default function LandingBlocksScreen() {
         </div>
         <Card style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }} data-reveal>
           <p style={{ margin: 0, fontSize: '0.875rem', color: 'var(--color-text-secondary)' }}>Add this import to your project's main stylesheet:</p>
-          <CodeBlock>{'@import "tailwindcss";\n@import "./path/to/elemental-ds/src/index.css";'}</CodeBlock>
+          <CodeBlock>{'@import "tailwindcss";\n@import "./path/to/avatar-design/src/index.css";'}</CodeBlock>
           <p style={{ margin: 0, fontSize: '0.875rem', color: 'var(--color-text-secondary)' }}>For reveal, tilt, spotlight, edge light, click bursts and page transitions, also load the motion runtime:</p>
-          <CodeBlock>{'<script src="./path/to/elemental-ds/showcase/motion.js"></script>'}</CodeBlock>
+          <CodeBlock>{'<script src="./path/to/avatar-design/design-system/assets/motion.js"></script>'}</CodeBlock>
         </Card>
       </section>
     </main>

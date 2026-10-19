@@ -1,24 +1,24 @@
-# Elemental Design System — "Bending UI"
+# avatar-design
 
-A premium, dark-first design system for web applications, landing pages and SaaS tools, themed on the four elements: Fire (primary), Water, Earth, Air, plus a cyan "Avatar State" accent. This project is the design-agent form of the **Elemental UI** CSS package — the tokens, glow system, component library and showcase site have been re-authored here as CSS custom properties, React components and specimen cards.
+A premium, dark-first design system for web applications, landing pages and SaaS tools, themed on the four elements: Fire (primary), Water, Earth, Air, plus a cyan "Avatar State" accent. This project is the design-agent form of the **avatar-design** CSS package — the tokens, glow system, component library and showcase site have been re-authored here as CSS custom properties, React components and specimen cards.
 
 ## Sources
 
 Everything here was read from one repository:
 
-- **https://github.com/rodney-hu/avatar-design** (branch `main`, package `@elemental-ui/design-system` v1.0.0). Key files: `src/elemental-preset.css` (tokens), `src/elemental-components.css` (component classes), `src/elemental-utilities.css` (glows, gradients, halos), `src/elemental-animations.css` (keyframes), `src/icons/*.svg` (the five element glyphs), `showcase/index.html` + `showcase/main.js` (the product surface). The repo README documents the cardinal-red fire variant and its retuning rules.
+- **https://github.com/rodney-hu/avatar-design** (branch `main`, package `avatar-design` v1.0.0). Key files: `src/elemental-preset.css` (tokens), `src/elemental-components.css` (component classes), `src/elemental-utilities.css` (glows, gradients, halos), `src/elemental-animations.css` (keyframes), `site/` (the React showcase site). The repo README documents how to retune the fire palette.
 
 Read that repository directly for anything this system abbreviates — it is the ground truth, and its comments explain several decisions (why the fire RGB channels live outside `@theme`, why `--fire-text` flips per theme) in more detail than is repeated here.
 
 **Upstream is Tailwind CSS v4.** The source ships `@theme` and `@utility` blocks. This project keeps the same names and the same exact values but rewrites them as plain CSS (`:root` custom properties and ordinary classes) so the system works with no build step. Numeric values were copied, never rounded.
 
-**No logo exists in the source.** The repo has no wordmark or brand file — the showcase renders its brand lockup as the element glyph plus the plain type "ELEMENTAL UI". This system does the same. Nothing was drawn or invented.
+**No logo exists in the source.** The repo has no wordmark or brand file — the showcase renders its brand lockup as the plain type "AVATAR DESIGN". This system does the same. Nothing was drawn or invented.
 
 ## Content fundamentals
 
 The voice is confident, in-world, and slightly theatrical. Product nouns are replaced by element nouns: buttons "unleash", palettes belong to "nations", sections are "scrolls".
 
-- **Casing.** Display and hero headlines are set in Inter, title case or sentence case ("Harness the Elements in Your UI", "The Fire Nation") — never with a brush word mixed in. Section headings are title case in Inter ("Layered Surfaces & Glass"). Uppercase is reserved for small type: labels, badges and table headers, at 0.05em tracking.
+- **Casing.** The hero title is set in Cinzel; every other headline is Inter. Use title case or sentence case ("Harness the Elements in Your UI", "The Fire Nation") — never with a brush word mixed in. Section headings are title case in Inter ("Layered Surfaces & Glass"). Uppercase is reserved for small type: labels, badges and table headers, at 0.05em tracking.
 - **Person.** Copy addresses the reader as *you* implicitly, usually by imperative: "Unleash Fire Toast", "Enter Temple", "Unlock Full Power", "Contact White Lotus". First person never appears.
 - **Sentence shape.** Section subtitles are single declarative fragments, no period-heavy paragraphs: "Deep dark surface system paired with vibrant elemental accents." Feature blurbs run one or two sentences.
 - **Numbers and units.** Stats carry real units and a direction: "98.4%", "1,420 L/s", "840 MPa", "↑ +14.2% Comet boost".
@@ -66,7 +66,7 @@ The runtime adds `.motion-ready` to `<html>`, so nothing is hidden if the script
 
 **Layout.** Content maxes at 80rem centered with 1.5rem gutters, sections separated by 6rem. The navbar is `position: sticky; top: 0; z-index: 50`; the sidebar is a fixed 260px, 100vh. Modals sit at z-index 100. Heroes are centered columns with 6rem/2rem padding and a 1.5rem gap.
 
-**Contrast note.** `--color-fire-400` (`#dd3333`) reaches only 3.85:1 on the dark base and fails WCAG AA as text. Fire-as-text therefore reads from `--fire-text`, which is fire-300 on dark and fire-700 on parchment. If you re-anchor the fire ramp, re-check `.badge-fire` and `.alert-fire`.
+**Contrast note.** `--color-fire-400` (`#dd3333`) reaches only 3.85:1 on the dark base and fails WCAG AA as text. Fire-as-text therefore reads from `--fire-text`, which is fire-500 on dark (by design direction, ~2.5:1, so headline-scale type, badges and accents only) and fire-700 on parchment. If you re-anchor the fire ramp, re-check `.badge-fire` and `.alert-fire`.
 
 **Divergence: alpha surfaces flip per theme.** Upstream hardcodes three translucent fills inside its component rules — the navbar (`rgba(13,13,13,0.85)`), the glass card (`rgba(26,26,26,0.65)`) and the modal backdrop (`rgba(0,0,0,0.8)`) — so they stay dark when `.light` is applied and the navbar's own text becomes unreadable. This system moves them to `--surface-nav`, `--surface-glass`, `--surface-glass-border` and `--surface-scrim`, which the `.light` block re-points at parchment equivalents. Same values as the source in dark mode; readable in both. For the same reason, badge and alert text for water, earth, air and avatar now read from `--water-text` / `--earth-text` / `--air-text` / `--avatar-text` (the source's own light steps on dark, 700 steps on parchment) rather than hardcoded hexes.
 
@@ -160,12 +160,11 @@ Root manifest:
 | Path | What it is |
 | --- | --- |
 | `styles.css` | Global entry — `@import` list only. Consumers link this one file. |
-| `tokens/` | `fonts.css`, `colors.css`, `surfaces.css`, `typography.css`, `spacing.css`, `radii.css`, `shadows.css`, `animations.css`, `motion.css`, `effects.css`, `components.css` |
+| `tokens/` | `fonts.css`, `colors.css`, `surfaces.css`, `typography.css`, `spacing.css`, `radii.css`, `shadows.css`, `animations.css`, `motion.css`, `transitions.css`, `interactions.css`, `effects.css`, `materials.css`, `components.css` |
 | `components/` | React primitives, grouped by concern (below) |
-| `guidelines/` | 35 foundation specimen cards (Colors, Type, Spacing, Brand, Motion) |
+| `guidelines/` | 42 foundation specimen cards (Colors, Type, Spacing, Brand, Materials, Motion) |
 | `assets/fonts/` | Avatar Airbender brush face + licence |
 | `assets/motion.js` | Motion runtime — reveal, stagger, bloom, parallax, tilt |
-| `thumbnail.html` | Homepage tile |
 | `SKILL.md` | Agent Skills entry point |
 | `github.md` | Source repository association and sync record |
 

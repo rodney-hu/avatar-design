@@ -64,7 +64,7 @@ export default function App() {
       <Navbar
         scrolled={scrolled}
         onClick={(e) => { if (e.target.closest('.nav-brand')) onNavClick('/')(e); }}
-        brand={<span style={{ letterSpacing: 'var(--tracking-brand)' }}>ELEMENTAL <span style={{ color: 'var(--color-fire-500)', fontWeight: 800 }}>UI</span></span>}
+        brand={<span style={{ letterSpacing: 'var(--tracking-brand)' }}>AVATAR <span style={{ color: 'var(--color-fire-500)', fontWeight: 800 }}>DESIGN</span></span>}
         actions={<>
           <Button variant="outline" size="sm" onClick={() => setLight(!light)}>{light ? 'Dark Mode' : 'Light Mode'}</Button>
           <Button size="sm" onClick={() => go('/landing')}>Get Presets</Button>
@@ -85,7 +85,7 @@ export default function App() {
         </Routes>
       </div>
 
-      <footer className="footer">Elemental UI Design System — dark-first, token-driven, four nations.</footer>
+      <footer className="footer">avatar-design — dark-first, token-driven, four nations.</footer>
 
       <TweaksPanel />
 

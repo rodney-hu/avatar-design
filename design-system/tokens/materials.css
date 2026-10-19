@@ -63,13 +63,13 @@
 .elevation-lift:hover{box-shadow:var(--elevation-3),var(--elevation-glow,0 0 #0000);transform:translateY(-2px)}
 
 /* ---- Glass tiers ---- */
-.glass-thin,.glass,.glass-thick{position:relative;isolation:isolate}
+:where(.glass-thin,.glass,.glass-thick){position:relative;isolation:isolate}
 .glass-thin{background:var(--glass-thin-bg);backdrop-filter:var(--glass-thin-blur);-webkit-backdrop-filter:var(--glass-thin-blur)}
 .glass{background:var(--glass-bg);backdrop-filter:var(--glass-blur);-webkit-backdrop-filter:var(--glass-blur)}
 .glass-thick{background:var(--glass-thick-bg);backdrop-filter:var(--glass-thick-blur);-webkit-backdrop-filter:var(--glass-thick-blur)}
 
 /* ---- Gradient border (1px lit edge, brightest on top) ---- */
-.border-gradient{position:relative;border-color:transparent!important}
+:where(.border-gradient){position:relative}.border-gradient{border-color:transparent!important}
 .border-gradient::before{content:"";position:absolute;inset:-1px;border-radius:inherit;padding:1px;pointer-events:none;background:var(--border-gradient,var(--glass-edge));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
 
 /* ---- Grain overlay ---- */

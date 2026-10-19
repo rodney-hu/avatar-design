@@ -1,5 +1,4 @@
-/* Tweak layer: emits one override <style> so every component follows.
-   Ported from showcase/main.js §9 (the live showcase is the reference). */
+/* Tweak layer: emits one override <style> so every component follows. */
 
 export const BRANDS = {
   fire:  { ramp: ['#fff2f2', '#ffd6d6', '#ffa3a3', '#f76d6d', '#dd3333', '#aa0000', '#8f0000', '#6e0000', '#4d0000', '#2e0000'], c500: '170 0 0',   c400: '221 51 51',  glow: '224 16 16', text: 500, lightText: 700 },
@@ -37,7 +36,7 @@ export const brandCss = (key) => {
   const b = BRANDS[key];
   let css = ':root{';
   STEPS.forEach((step, i) => { css += `--color-fire-${step}:${b.ramp[i]};`; });
-  css += `--color-fire-glow:${b.ramp[4]};--fire-500-rgb:${b.c500};--fire-400-rgb:${b.c400};--fire-glow-rgb:${b.glow};`;
+  css += `--color-fire-glow:rgb(${b.glow});--fire-500-rgb:${b.c500};--fire-400-rgb:${b.c400};--fire-glow-rgb:${b.glow};`;
   css += `--fire-text:var(--color-fire-${b.text});}`;
   css += `.light{--fire-text:var(--color-fire-${b.lightText})}`;
   return css;
