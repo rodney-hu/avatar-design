@@ -1,4 +1,4 @@
-// Elemental Design System — showcase interactions.
+// avatar-design — showcase interactions.
 // Visual motion (reveal, tilt, spotlight, edge light, bursts, view transitions)
 // lives in motion.js; this file wires the showcase's own state. It loads at
 // the end of <body>, so the DOM it needs is already parsed.

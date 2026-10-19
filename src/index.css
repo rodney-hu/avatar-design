@@ -1,4 +1,4 @@
-/* Elemental Design System — Main Bundle
+/* avatar-design — Main Bundle
    Import order matters: elemental-motion.css must load last (see that file). */
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@800&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 @import "tailwindcss";

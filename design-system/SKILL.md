@@ -1,6 +1,6 @@
 ---
-name: elemental-design
-description: Use this skill to generate well-branded interfaces and assets for Elemental UI (the four-nations "Bending UI" design system), either for production or throwaway prototypes/mocks/etc. Contains essential design guidelines, colors, type, fonts, assets, and UI kit components for prototyping.
+name: avatar-design
+description: Use this skill to generate well-branded interfaces and assets for avatar-design (the four-nations design system), either for production or throwaway prototypes/mocks/etc. Contains essential design guidelines, colors, type, fonts, assets, and UI kit components for prototyping.
 user-invocable: true
 ---
 

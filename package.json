@@ -1,5 +1,5 @@
 {
-  "name": "@elemental-ui/design-system",
+  "name": "avatar-design",
   "version": "1.0.0",
   "description": "Avatar: The Last Airbender inspired elemental design system for Tailwind CSS v4",
   "main": "src/index.css",

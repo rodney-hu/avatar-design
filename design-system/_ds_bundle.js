@@ -10,7 +10,7 @@ const __ds_scope = {};
 
 // assets/motion.js
 try { (() => {
-/* Elemental UI — motion runtime.
+/* avatar-design — motion runtime.
    Vanilla, dependency-free, safe to load in any page that links styles.css.
    Drives: scroll reveal + stagger, halo bloom, parallax, magnetic tilt, spotlight,
    edge-light orbit, click bursts.
@@ -2233,12 +2233,12 @@ function ShowcaseShell() {
       style: {
         letterSpacing: '0.05em'
       }
-    }, "ELEMENTAL ", /*#__PURE__*/React.createElement("span", {
+    }, "AVATAR ", /*#__PURE__*/React.createElement("span", {
       style: {
         color: 'var(--color-fire-500)',
         fontWeight: 800
       }
-    }, "UI"))),
+    }, "DESIGN"))),
     actions: /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Button, {
       variant: "outline",
       size: "sm",
@@ -2265,7 +2265,7 @@ function ShowcaseShell() {
     onModal: () => setModal(true)
   }), tab === 'data' && /*#__PURE__*/React.createElement(DataScreen, null), tab === 'landing' && /*#__PURE__*/React.createElement(LandingBlocksScreen, null)), /*#__PURE__*/React.createElement("footer", {
     className: "footer"
-  }, "Elemental UI Design System \u2014 dark-first, token-driven, four nations."), /*#__PURE__*/React.createElement(TweakLayer, null), /*#__PURE__*/React.createElement(Modal, {
+  }, "avatar-design \u2014 dark-first, token-driven, four nations."), /*#__PURE__*/React.createElement(TweakLayer, null), /*#__PURE__*/React.createElement(Modal, {
     open: modal,
     title: "Firebending Scroll",
     onClose: () => setModal(false),

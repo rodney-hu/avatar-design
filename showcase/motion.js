@@ -1,4 +1,4 @@
-/* Elemental UI — motion runtime.
+/* avatar-design — motion runtime.
    Vanilla, dependency-free, safe to load in any page that uses the Elemental CSS.
    Source of truth: design-system/assets/motion.js.
    Drives: scroll reveal + stagger, halo bloom, parallax, magnetic tilt, spotlight,

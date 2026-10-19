@@ -1,4 +1,4 @@
-# Elemental Design System
+# avatar-design
 
 A dark-first design system for web apps, landing pages and SaaS tools, themed on the four elements from *Avatar: The Last Airbender*. It is built for Tailwind CSS v4.
 
