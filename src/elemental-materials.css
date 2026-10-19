@@ -9,7 +9,7 @@
    Everything rides the motion tokens and the element personality channels
    (--ui-duration, --ui-ease, --ui-press-scale) from elemental-motion.css.
    Click bursts, edge-light orbit, spotlight and stat count-up are runtime:
-   showcase/motion.js.
+   design-system/assets/motion.js.
 
    Tokens are unlayered; rules sit in the components layer after
    elemental-components.css so they extend those classes and Tailwind
@@ -191,7 +191,7 @@
 
   /* ---- Edge light: a comet of element color orbiting the border ----
      Reserve for ONE featured surface per view (pricing "popular", hero card).
-     The orbit is driven by showcase/motion.js writing --edge-angle each frame. */
+     The orbit is driven by design-system/assets/motion.js writing --edge-angle each frame. */
   .edge-light {
     position: relative;
     isolation: isolate;
@@ -223,7 +223,7 @@
     opacity: 0.7;
   }
 
-  /* ---- Cursor spotlight (driven by showcase/motion.js: [data-spotlight]) ----
+  /* ---- Cursor spotlight (driven by design-system/assets/motion.js: [data-spotlight]) ----
      Light pools under the pointer on the fill AND brightens the border nearest it. */
   [data-spotlight] {
     position: relative;
@@ -291,7 +291,7 @@
     display: none;
   }
 
-  /* ---- Click burst layer (particles spawned by showcase/motion.js) ---- */
+  /* ---- Click burst layer (particles spawned by design-system/assets/motion.js) ---- */
   .em-burst-layer {
     position: fixed;
     inset: 0;

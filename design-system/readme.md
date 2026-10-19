@@ -6,7 +6,7 @@ A premium, dark-first design system for web applications, landing pages and SaaS
 
 Everything here was read from one repository:
 
-- **https://github.com/rodney-hu/avatar-design** (branch `main`, package `avatar-design` v1.0.0). Key files: `src/elemental-preset.css` (tokens), `src/elemental-components.css` (component classes), `src/elemental-utilities.css` (glows, gradients, halos), `src/elemental-animations.css` (keyframes), `showcase/index.html` + `showcase/main.js` (the product surface). The repo README documents how to retune the fire palette.
+- **https://github.com/rodney-hu/avatar-design** (branch `main`, package `avatar-design` v1.0.0). Key files: `src/elemental-preset.css` (tokens), `src/elemental-components.css` (component classes), `src/elemental-utilities.css` (glows, gradients, halos), `src/elemental-animations.css` (keyframes), `site/` (the React showcase site). The repo README documents how to retune the fire palette.
 
 Read that repository directly for anything this system abbreviates — it is the ground truth, and its comments explain several decisions (why the fire RGB channels live outside `@theme`, why `--fire-text` flips per theme) in more detail than is repeated here.
 

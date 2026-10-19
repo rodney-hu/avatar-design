@@ -1,5 +1,4 @@
-/* Tweak layer: emits one override <style> so every component follows.
-   Ported from showcase/main.js §9 (the live showcase is the reference). */
+/* Tweak layer: emits one override <style> so every component follows. */
 
 export const BRANDS = {
   fire:  { ramp: ['#fff2f2', '#ffd6d6', '#ffa3a3', '#f76d6d', '#dd3333', '#aa0000', '#8f0000', '#6e0000', '#4d0000', '#2e0000'], c500: '170 0 0',   c400: '221 51 51',  glow: '224 16 16', text: 500, lightText: 700 },

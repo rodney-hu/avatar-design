@@ -6,10 +6,8 @@
   "style": "src/index.css",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && npm run build:classic",
-    "preview": "vite preview",
-    "build:classic": "mkdir -p showcase/dist/fonts && cp src/fonts/*.ttf showcase/dist/fonts/ && npx @tailwindcss/cli -i showcase/main.css -o showcase/dist/output.css --minify && mkdir -p dist/classic && cp -R showcase/index.html showcase/main.js showcase/motion.js showcase/dist dist/classic/",
-    "dev:classic": "mkdir -p showcase/dist/fonts && cp src/fonts/*.ttf showcase/dist/fonts/ && npx @tailwindcss/cli -i showcase/main.css -o showcase/dist/output.css --watch"
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "keywords": [
     "design-system",
@@ -22,7 +20,6 @@
   "author": "Rodney Hu",
   "license": "MIT",
   "devDependencies": {
-    "@tailwindcss/cli": "^4.0.0",
     "@tailwindcss/vite": "^4.3.3",
     "@vitejs/plugin-react": "^6.1.2",
     "tailwindcss": "^4.0.0",

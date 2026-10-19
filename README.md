@@ -28,7 +28,7 @@ Vite, webpack and Next.js load the brush font automatically. With the Tailwind C
 The scroll and pointer effects need a small script. Load it in `<head>`:
 
 ```html
-<script src="./path/to/avatar-design/showcase/motion.js"></script>
+<script src="./path/to/avatar-design/design-system/assets/motion.js"></script>
 ```
 
 Turn effects on per element with data attributes such as `data-reveal`, `data-stagger`, `data-tilt` and `data-spotlight`. Without the script, nothing is hidden.
@@ -50,7 +50,6 @@ npm run preview    # serves dist/ at http://localhost:4173
 | `/components` | Buttons, cards, forms |
 | `/data` | Stats, tables, alerts |
 | `/landing` | Pricing, testimonials, install guide |
-| `/classic/` | A plain HTML version of the showcase |
 
 The site deploys to Vercel with `npm run build`.
 
@@ -61,8 +60,7 @@ The site deploys to Vercel with `npm run build`.
 | `src/` | The Tailwind v4 stylesheets. `index.css` is the one file to import. |
 | `src/fonts/` | The Avatar Airbender font and its licence. |
 | `site/` | The React site. |
-| `showcase/` | The plain HTML showcase and `motion.js`. |
-| `design-system/` | React components, plain-CSS tokens and guideline pages. |
+| `design-system/` | React components, plain-CSS tokens, guideline pages and `motion.js`. |
 | `docs/SKILL.md` | Instructions for AI agents designing with the system. |
 
 ## Components

@@ -1,16 +1,9 @@
 {
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "redirects": [
-    {
-      "source": "/classic",
-      "destination": "/classic/",
-      "permanent": false
-    }
-  ],
   "rewrites": [
     {
-      "source": "/((?!classic/|assets/).*)",
+      "source": "/((?!assets/).*)",
       "destination": "/index.html"
     }
   ]

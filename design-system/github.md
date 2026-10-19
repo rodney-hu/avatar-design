@@ -2,7 +2,7 @@
 
 repo: rodney-hu/avatar-design
 branch: main
-path: src, showcase
+path: src, site
 
 ## Last sync
 
@@ -21,7 +21,6 @@ date: 2026-09-15T11:19:10Z
 | `tokens/colors.css`, `surfaces.css`, `typography.css`, `radii.css`, `shadows.css` | `src/elemental-preset.css`, `src/index.css` |
 | `tokens/animations.css` | `src/elemental-animations.css` |
 | `tokens/effects.css` | `src/elemental-utilities.css` |
-| `tokens/components.css` | `src/elemental-components.css`, `showcase/main.css` |
+| `tokens/components.css` | `src/elemental-components.css`, `site/src/site.css` |
 | `components/**` | `src/elemental-components.css` |
-| `site/src/screens/*`, `site/src/App.jsx` (formerly `ui_kits/showcase/*`) | `showcase/index.html`, `showcase/main.js` |
 | `readme.md` | `README.md` |

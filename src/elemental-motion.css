@@ -3,7 +3,7 @@
    Source of truth: design-system/tokens/motion.css + transitions.css.
 
    Tuned "cinematic": long travel, 700ms base, expo-out easing throughout.
-   Every effect is opt-in via a data attribute and driven by showcase/motion.js.
+   Every effect is opt-in via a data attribute and driven by design-system/assets/motion.js.
    Without JS nothing is hidden — the .motion-ready guard on <html> means
    reveals only arm once the script is running.
 
@@ -48,7 +48,7 @@
   --motion-rise: 40px;
   --motion-parallax-range: 80px;
   --motion-tilt-max: 7deg;
-  /* Runtime channels written by showcase/motion.js */
+  /* Runtime channels written by design-system/assets/motion.js */
   --bloom: 1;
   --parallax-y: 0px;
   --tilt-x: 0deg;
@@ -71,7 +71,7 @@
 /* ---- CHOREOGRAPHY ----
    Inside [data-choreo], tag pieces with data-choreo-role. They arrive in order:
    surface (0) → heading (1) → body / media (2) → action (3).
-   The container reveals on scroll like [data-reveal] (needs showcase/motion.js). */
+   The container reveals on scroll like [data-reveal] (needs design-system/assets/motion.js). */
 [data-choreo-role] {
   --_beat: 0;
   --_travel: var(--travel-sm);

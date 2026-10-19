@@ -109,6 +109,6 @@ input:checked + .toggle-slider:before{transform:translateX(1.2rem);background-co
 .testimonial-quote{font-size:1.0625rem;font-style:italic;color:var(--color-text-primary);line-height:1.6}
 .testimonial-author{display:flex;align-items:center;gap:0.875rem}
 
-/* SHOWCASE HELPERS (from showcase/main.css) */
+/* SHOWCASE HELPERS (site layout, mirrors site/src/site.css) */
 .code-block{background:var(--color-surface-void);border:1px solid var(--color-border-subtle);border-radius:var(--radius-md);padding:1rem;font-family:var(--font-mono);font-size:0.8125rem;color:var(--fire-text);overflow-x:auto;position:relative}
 .copy-btn{position:absolute;top:0.5rem;right:0.5rem;padding:0.25rem 0.5rem;font-size:0.75rem}

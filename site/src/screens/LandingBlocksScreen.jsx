@@ -54,7 +54,7 @@ export default function LandingBlocksScreen() {
           <p style={{ margin: 0, fontSize: '0.875rem', color: 'var(--color-text-secondary)' }}>Add this import to your project's main stylesheet:</p>
           <CodeBlock>{'@import "tailwindcss";\n@import "./path/to/avatar-design/src/index.css";'}</CodeBlock>
           <p style={{ margin: 0, fontSize: '0.875rem', color: 'var(--color-text-secondary)' }}>For reveal, tilt, spotlight, edge light, click bursts and page transitions, also load the motion runtime:</p>
-          <CodeBlock>{'<script src="./path/to/avatar-design/showcase/motion.js"></script>'}</CodeBlock>
+          <CodeBlock>{'<script src="./path/to/avatar-design/design-system/assets/motion.js"></script>'}</CodeBlock>
         </Card>
       </section>
     </main>
