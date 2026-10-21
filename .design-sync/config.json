@@ -1,0 +1,40 @@
+{
+  "projectId": "5d6c385b-bb5d-49cd-b538-585a4db873e5",
+  "shape": "package",
+  "pkg": "@elemental-ui/design-system",
+  "globalName": "ElementalUIDesignSystem",
+  "buildCmd": "node .design-sync/make-entry.mjs",
+  "entry": ".design-sync/.cache/pkg/index.js",
+  "cssEntry": "elemental.css",
+  "docsDir": "docs",
+  "guidelinesGlob": [],
+  "overrides": {
+    "Modal": {
+      "cardMode": "single",
+      "viewport": "720x460"
+    },
+    "ToastStack": {
+      "cardMode": "single",
+      "viewport": "720x360"
+    },
+    "Hero": {
+      "cardMode": "column"
+    },
+    "Navbar": {
+      "cardMode": "column"
+    },
+    "PricingCard": {
+      "cardMode": "column"
+    },
+    "Card": {
+      "cardMode": "column"
+    },
+    "StatCard": {
+      "cardMode": "column"
+    },
+    "DataTable": {
+      "cardMode": "column"
+    }
+  },
+  "readmeHeader": ".design-sync/conventions.md"
+}
