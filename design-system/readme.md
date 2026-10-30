@@ -1,12 +1,12 @@
 # Elemental Design
 
-A premium, dark-first design system for web applications, landing pages and SaaS tools, themed on the four elements: Fire (primary), Water, Earth, Air, plus a cyan "Elemental State" accent. This project is the design-agent form of the **avatar-design** CSS package — the tokens, glow system, component library and showcase site have been re-authored here as CSS custom properties, React components and specimen cards.
+A premium, dark-first design system for web applications, landing pages and SaaS tools, themed on the four elements: Fire (primary), Water, Earth, Air, plus a cyan "Elemental State" accent. This project is the design-agent form of the **Elemental Design** CSS package — the tokens, glow system, component library and showcase site have been re-authored here as CSS custom properties, React components and specimen cards.
 
 ## Sources
 
 Everything here was read from one repository:
 
-- **https://github.com/rodney-hu/avatar-design** (branch `main`, package `avatar-design` v1.0.0). Key files: `src/elemental-preset.css` (tokens), `src/elemental-components.css` (component classes), `src/elemental-utilities.css` (glows, gradients, halos), `src/elemental-animations.css` (keyframes), `site/` (the React showcase site). The repo README documents how to retune the fire palette.
+- **https://github.com/rodney-hu/elemental-design** (branch `main`, package `elemental-design` v1.0.0). Key files: `src/elemental-preset.css` (tokens), `src/elemental-components.css` (component classes), `src/elemental-utilities.css` (glows, gradients, halos), `src/elemental-animations.css` (keyframes), `site/` (the React showcase site). The repo README documents how to retune the fire palette.
 
 Read that repository directly for anything this system abbreviates — it is the ground truth, and its comments explain several decisions (why the fire RGB channels live outside `@theme`, why `--fire-text` flips per theme) in more detail than is repeated here.
 

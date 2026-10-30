@@ -1,6 +1,6 @@
 # Source repository
 
-repo: rodney-hu/avatar-design
+repo: rodney-hu/elemental-design
 branch: main
 path: src, site
 

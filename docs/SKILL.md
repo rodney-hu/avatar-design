@@ -1,5 +1,5 @@
 ---
-name: avatar-design
+name: elemental-design
 description: Use this skill to generate well-branded interfaces and assets for Elemental Design, either for production or throwaway prototypes/mocks/etc. Contains essential design guidelines, colors, type, fonts, assets, and UI kit components for prototyping.
 user-invocable: true
 ---

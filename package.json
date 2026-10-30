@@ -1,5 +1,5 @@
 {
-  "name": "avatar-design",
+  "name": "elemental-design",
   "version": "1.0.0",
   "description": "Elemental Design: a dark-first elemental design system for Tailwind CSS v4",
   "main": "src/index.css",
