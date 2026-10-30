@@ -12,19 +12,19 @@ function Demo(){
   return (<>
     <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:16}}>
       <div style={{display:'flex',flexDirection:'column',gap:12}}>
-        <Input id="n" label="Avatar Name" defaultValue="Aang" />
-        <Select id="e" element="water" label="Primary Element" hint="Where your training began." options={['Firebending','Waterbending','Earthbending','Airbending']} />
+        <Input id="n" label="Display Name" defaultValue="Sky" />
+        <Select id="e" element="water" label="Primary Element" hint="Where your training began." options={['Fire','Water','Earth','Air']} />
         <div className="row">
           <Input id="w" element="water" placeholder="Water focus" style={{width:120}}/>
           <Input id="ea" element="earth" placeholder="Earth focus" style={{width:120}}/>
           <Input id="a" element="air" placeholder="Air focus" style={{width:120}}/>
         </div>
-        <Input id="err" label="Bender Name" required defaultValue="Zuko" error="That name is already taken." />
+        <Input id="err" label="Member Name" required defaultValue="Ember" error="That name is already taken." />
       </div>
       <div style={{display:'flex',flexDirection:'column',gap:12}}>
-        <Textarea id="t" label="Scroll Notes" placeholder="Write ancient bending techniques..." />
+        <Textarea id="t" label="Scroll Notes" placeholder="Write ancient elemental techniques..." />
         <div className="row" style={{justifyContent:'space-between'}}>
-          <Checkbox id="c" element="avatar" label="Enable Avatar State" defaultChecked />
+          <Checkbox id="c" element="avatar" label="Enable Elemental State" defaultChecked />
           <ToggleSwitch id="s" label="Ember Glow" defaultChecked /><ToggleSwitch id="s2" element="air" label="Tailwind" defaultChecked />
         </div>
       </div>

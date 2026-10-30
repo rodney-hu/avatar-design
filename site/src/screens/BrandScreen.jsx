@@ -33,9 +33,7 @@ const PROFILES = [
 
 const USAGE = [
   ['Horizontal logo', 'Default everywhere: site, deck, email, banners', 'Under 120 px wide (use the icon mark)'],
-  ['Stacked logo', 'Square or tall spaces: slides, share images', 'Wide, short spaces'],
   ['Icon mark (HU)', 'Favicon, watermark bug, small sizes', 'Next to the full wordmark'],
-  ['Secondary logo', 'Bios, proposals, speaker slides', 'Small sizes where the descriptor can’t be read'],
   ['Fire profile', 'Any profile photo slot', 'Replacing the logo'],
   ['Water, Earth, Air profiles', 'Series accents inside content', 'The main profile photo'],
   ['Light profile', 'Formal documents, print', 'Dark-mode interfaces'],
@@ -44,12 +42,11 @@ const USAGE = [
 const NAMING = `rodney-hu-{category}-{descriptor}[-{variant}][-{color|element}][-{size}].ext
 
 rodney-hu-logo-horizontal-white.svg
-rodney-hu-logo-stacked-full-color-dark@2x.png
 rodney-hu-icon-square-fire.svg
 rodney-hu-profile-elemental-fire-1x1.png
 
 05 Brand assets/
-  Logos/            horizontal  stacked  icon  secondary  favicon  source
+  Logos/            horizontal  icon  favicon  source
   Profile pics/     Photo  Elemental  Social crops
   Guidelines/       one-pager PDF, references (never published)`;
 
@@ -83,10 +80,6 @@ export default function BrandScreen({ onNavigate }) {
             <Tile bg={PAPER} src="rodney-hu-logo-horizontal-full-color-light.svg" alt="Horizontal logo, full color for light backgrounds" caption="full-color-light" />
             <Tile bg={FIRE} src="rodney-hu-logo-horizontal-white.svg" alt="Horizontal logo, all white" caption="white" />
             <Tile bg={PAPER} src="rodney-hu-logo-horizontal-black.svg" alt="Horizontal logo, all black" caption="black" />
-          </div>
-          <div className="grid2">
-            <Tile bg={VOID} src="rodney-hu-logo-stacked-full-color-dark.svg" alt="Stacked logo on dark" caption="Stacked: square and tall spaces" className="tall" />
-            <Tile bg={VOID} src="rodney-hu-logo-secondary-full-color-dark.svg" alt="Secondary logo with descriptor" caption="Secondary: bios, proposals, speaker slides" className="tall" />
           </div>
           <div className="grid4 brand-icons">
             {['fire', 'water', 'earth', 'air', 'white', 'black'].map((c) => (

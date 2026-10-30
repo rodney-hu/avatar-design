@@ -1,7 +1,7 @@
 18px square checkbox. Checked, it fills with the `element` color (default fire, any element or status name).
 
 ```jsx
-<Checkbox id="avatar-state" label="Enable Avatar State" defaultChecked />
+<Checkbox id="elemental-state" label="Enable Elemental State" defaultChecked />
 ```
 
 ## Micro-interactions

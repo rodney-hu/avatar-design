@@ -1,7 +1,7 @@
 Inline status callout — also the toast body (the showcase reuses `.alert` inside its toast stack).
 
 ```jsx
-<Alert element="earth" title="Defenses fortified">Walls held at Ba Sing Se.</Alert>
+<Alert element="earth" title="Defenses fortified">Walls held at the Citadel.</Alert>
 ```
 
 Use status names for meaning: `success` (earth), `warning` (air), `info` (water) and `danger` (its own tokens, fire by default). Any element works too, including `avatar`. `icon` takes an optional leading node (the system ships no icon set). `onDismiss` adds a close button; remove the alert when it fires. `variant` is the old name for `element` and is deprecated. For a toast, render it fixed bottom-right with `animate-scale-in`.

@@ -23,7 +23,7 @@ export default function DataScreen() {
           <h2>Stats &amp; Tables</h2>
           <p>Data components for SaaS dashboards and analytics screens.</p>
         </div>
-        <Breadcrumb items={[{ label: 'Nations', href: '#' }, { label: 'Fire Nation', href: '#' }, { label: 'Caldera' }]} />
+        <Breadcrumb items={[{ label: 'Elements', href: '#' }, { label: 'Fire', href: '#' }, { label: 'Caldera' }]} />
         <div className="grid4" data-stagger>
           <StatCard element="fire" label="Fire Power Index" value={power.toFixed(1) + '%'} delta="↑ +14.2% Comet boost" />
           <StatCard element="water" label="Oceanic Flow Rate" value="1,420 L/s" delta="Full Moon Alignment" />
@@ -31,21 +31,21 @@ export default function DataScreen() {
           <StatCard element="air" label="Air Velocity" value="120 km/h" delta="Glider lift optimal" />
         </div>
         <div className="data-split" style={{ display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }} data-reveal>
-          <Sidebar as="nav" aria-label="Nations" style={{ height: 'auto', borderRadius: 'var(--radius-lg)', border: '1px solid var(--color-border-subtle)' }}>
-            <SidebarItem active>Fire Nation</SidebarItem>
-            <SidebarItem>Water Tribe</SidebarItem>
-            <SidebarItem>Earth Kingdom</SidebarItem>
-            <SidebarItem>Air Nomads</SidebarItem>
+          <Sidebar as="nav" aria-label="Elements" style={{ height: 'auto', borderRadius: 'var(--radius-lg)', border: '1px solid var(--color-border-subtle)' }}>
+            <SidebarItem active>Fire</SidebarItem>
+            <SidebarItem>Water</SidebarItem>
+            <SidebarItem>Earth</SidebarItem>
+            <SidebarItem>Air</SidebarItem>
           </Sidebar>
           <div style={{ flex: 1 }}>
             <DataTable
-              caption="Bending masters"
+              caption="Elemental masters"
               columns={['Master', 'Affiliation', 'Specialty', 'Status']}
               rows={[
-                [<span style={{ fontWeight: 600, color: 'var(--fire-text)' }}>Zuko</span>, 'Fire Nation', 'Lightning Redirection', <Badge element="fire">Active Fire Lord</Badge>],
-                [<span style={{ fontWeight: 600, color: 'var(--water-text)' }}>Katara</span>, 'Southern Water Tribe', 'Bloodbending / Healing', <Badge element="water">Grandmaster</Badge>],
-                [<span style={{ fontWeight: 600, color: 'var(--earth-text)' }}>Toph Beifong</span>, 'Earth Kingdom', 'Metalbending Creator', <Badge element="earth">Chief of Police</Badge>],
-                [<span style={{ fontWeight: 600, color: 'var(--air-text)' }}>Aang</span>, 'Air Nomads', 'Energybending', <Badge element="avatar">Avatar State</Badge>],
+                [<span style={{ fontWeight: 600, color: 'var(--fire-text)' }}>Ember Hale</span>, 'Fire', 'Heat Control', <Badge element="fire">Active Lead</Badge>],
+                [<span style={{ fontWeight: 600, color: 'var(--water-text)' }}>Marin Tide</span>, 'Water', 'Healing', <Badge element="water">Master</Badge>],
+                [<span style={{ fontWeight: 600, color: 'var(--earth-text)' }}>Terra Stone</span>, 'Earth', 'Foundations', <Badge element="earth">Chief</Badge>],
+                [<span style={{ fontWeight: 600, color: 'var(--air-text)' }}>Sky Drift</span>, 'Air', 'Navigation', <Badge element="avatar">Elemental State</Badge>],
               ]}
             />
           </div>
@@ -61,7 +61,7 @@ export default function DataScreen() {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }} data-stagger>
           <Alert element="fire"><b>Fire Warning:</b> High thermal activity detected in the Caldera.</Alert>
           <Alert element="water"><b>Water Info:</b> Tidal waves arriving at high tide tonight.</Alert>
-          <Alert element="earth"><b>Earth Success:</b> Defense walls fortified at Ba Sing Se.</Alert>
+          <Alert element="earth"><b>Earth Success:</b> Defense walls fortified at the Citadel.</Alert>
           {notice
             ? <Alert element="air" onDismiss={() => setNotice(false)}><b>Air Notice:</b> Tailwinds favorable for Northern Air Temple flight.</Alert>
             : <Alert element="avatar"><b>Dismissed.</b> Alerts with <code>onDismiss</code> get a close button.</Alert>}

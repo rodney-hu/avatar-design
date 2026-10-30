@@ -1,22 +1,22 @@
-/* Elemental color system — four nation ramps + Avatar State + neutrals.
+/* Elemental color system — four element ramps + Elemental State + neutrals.
    Ported verbatim from src/elemental-preset.css (cardinal-red fire variant). */
 :root{
-  /* FIRE NATION — primary brand. Anchored at #aa0000. */
+  /* FIRE — primary brand. Anchored at #aa0000. */
   --color-fire-50:#fff2f2;--color-fire-100:#ffd6d6;--color-fire-200:#ffa3a3;--color-fire-300:#f76d6d;--color-fire-400:#dd3333;--color-fire-500:#aa0000;--color-fire-600:#8f0000;--color-fire-700:#6e0000;--color-fire-800:#4d0000;--color-fire-900:#2e0000;--color-fire-glow:#e01010;
 
   /* Primary aliases -> fire */
   --color-primary-50:var(--color-fire-50);--color-primary-100:var(--color-fire-100);--color-primary-200:var(--color-fire-200);--color-primary-300:var(--color-fire-300);--color-primary-400:var(--color-fire-400);--color-primary-500:var(--color-fire-500);--color-primary-600:var(--color-fire-600);--color-primary-700:var(--color-fire-700);--color-primary-800:var(--color-fire-800);--color-primary-900:var(--color-fire-900);--color-primary-glow:var(--color-fire-glow);
 
-  /* WATER TRIBE */
+  /* WATER */
   --color-water-50:#f0f9ff;--color-water-100:#cce8ff;--color-water-200:#8ecfff;--color-water-300:#4db8ff;--color-water-400:#1aa3ff;--color-water-500:#0088e0;--color-water-600:#006db3;--color-water-700:#005289;--color-water-800:#003a63;--color-water-900:#00243d;--color-water-glow:#00bfff;
 
-  /* EARTH KINGDOM */
+  /* EARTH */
   --color-earth-50:#f0fff4;--color-earth-100:#c6f6d5;--color-earth-200:#88e8a0;--color-earth-300:#4cd964;--color-earth-400:#2ecc40;--color-earth-500:#27ae34;--color-earth-600:#1f8c2a;--color-earth-700:#186b20;--color-earth-800:#114e18;--color-earth-900:#0a3010;--color-earth-glow:#39ff14;
 
-  /* AIR NOMADS */
+  /* AIR */
   --color-air-50:#fffef5;--color-air-100:#fff8cc;--color-air-200:#ffed8a;--color-air-300:#ffe048;--color-air-400:#ffd700;--color-air-500:#e6bf00;--color-air-600:#b89700;--color-air-700:#8a7100;--color-air-800:#5c4b00;--color-air-900:#3a3000;--color-air-glow:#ffd700;
 
-  /* AVATAR STATE */
+  /* ELEMENTAL STATE */
   --color-danger-50:var(--color-fire-50);--color-danger-100:var(--color-fire-100);--color-danger-200:var(--color-fire-200);--color-danger-300:var(--color-fire-300);--color-danger-400:var(--color-fire-400);--color-danger-500:var(--color-fire-500);--color-danger-600:var(--color-fire-600);--color-danger-700:var(--color-fire-700);--color-danger-800:var(--color-fire-800);--color-danger-900:var(--color-fire-900);--color-danger-glow:var(--color-fire-glow);
   --color-avatar-glow:#00ffff;--color-avatar-white:#ffffff;--color-avatar-amber:#ffcc00;
 

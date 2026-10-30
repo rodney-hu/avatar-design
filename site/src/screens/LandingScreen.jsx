@@ -47,7 +47,7 @@ function PaletteBlock({ family, title }) {
 export default function LandingScreen({ onToast, onModal }) {
   const [element, setElement] = React.useState('fire');
   const elements = ['fire', 'water', 'earth', 'air'];
-  const labels = { fire: 'Fire Nation', water: 'Water Tribe', earth: 'Earth Kingdom', air: 'Air Nomads' };
+  const labels = { fire: 'Fire', water: 'Water', earth: 'Earth', air: 'Air' };
 
   return (
     <main>
@@ -61,13 +61,13 @@ export default function LandingScreen({ onToast, onModal }) {
           <Badge element="water">Water</Badge>
           <Badge element="earth">Earth</Badge>
           <Badge element="air">Air</Badge>
-          <Badge element="avatar">Avatar State</Badge>
+          <Badge element="avatar">Elemental State</Badge>
         </>}
         title={<>Harness the Elements<br />in Your UI</>}
         subtitle="A complete dark-theme design system. Token-driven surfaces, elemental glows, and pre-built components for SaaS, landing pages, and web applications."
         actions={<>
           <Button element={element} size="lg" className="motion-gradient-drift-slow" onClick={onToast}>Unleash Toast</Button>
-          <Button variant="outline" size="lg" onClick={onModal}>Open Bending Modal</Button>
+          <Button variant="outline" size="lg" onClick={onModal}>Open Modal</Button>
         </>}
       >
         <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: '0.75rem', padding: '0.5rem', background: 'var(--color-surface-raised)', border: '1px solid var(--color-border-subtle)', borderRadius: 'var(--radius-xl)' }}>
@@ -84,14 +84,14 @@ export default function LandingScreen({ onToast, onModal }) {
         <section style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }} data-halo-bloom>
           <div className="sec-head" data-reveal>
             <Badge element="fire" style={{ width: 'fit-content' }}>01. Color Palette</Badge>
-            <h2>The Four Nations Palette</h2>
+            <h2>The Four Elements Palette</h2>
             <p>Deep dark surface system paired with vibrant elemental accents.</p>
           </div>
-          <PaletteBlock family="fire" title="Fire Nation (Primary Palette)" />
-          <PaletteBlock family="water" title="Water Tribe (Secondary Palette)" />
+          <PaletteBlock family="fire" title="Fire (Primary Palette)" />
+          <PaletteBlock family="water" title="Water (Secondary Palette)" />
           <div className="grid2" data-reveal>
-            <PaletteBlock family="earth" title="Earth Kingdom" />
-            <PaletteBlock family="air" title="Air Nomads" />
+            <PaletteBlock family="earth" title="Earth" />
+            <PaletteBlock family="air" title="Air" />
           </div>
         </section>
 
@@ -99,16 +99,16 @@ export default function LandingScreen({ onToast, onModal }) {
           <div className="sec-head" data-reveal>
             <Badge element="air" style={{ width: 'fit-content' }}>02. Typography</Badge>
             <h2>Type Hierarchy</h2>
-            <p>Cinzel for the hero, Inter for body copy and headings, the Avatar Airbender brush face for standalone single-line headings, JetBrains Mono for code.</p>
+            <p>Cinzel for the hero, Inter for body copy and headings, the Elemental Brush face for standalone single-line headings, JetBrains Mono for code.</p>
           </div>
           <Card style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }} data-stagger>
             <div style={{ borderBottom: '1px solid var(--color-border-subtle)', paddingBottom: '1rem' }}>
               <p className="ckey" style={{ textAlign: 'left', margin: '4px 0' }}>Display XL / Cinzel 800 / 72px</p>
-              <h1 style={{ margin: 0, fontFamily: 'var(--font-hero)', fontWeight: 800, fontSize: 'var(--text-hero)', lineHeight: 'var(--leading-tight)', letterSpacing: 'var(--tracking-display)', color: 'var(--fire-text)' }}>The Fire Nation</h1>
+              <h1 style={{ margin: 0, fontFamily: 'var(--font-hero)', fontWeight: 800, fontSize: 'var(--text-hero)', lineHeight: 'var(--leading-tight)', letterSpacing: 'var(--tracking-display)', color: 'var(--fire-text)' }}>The Fire</h1>
             </div>
             <div style={{ borderBottom: '1px solid var(--color-border-subtle)', paddingBottom: '1rem' }}>
-              <p className="ckey" style={{ textAlign: 'left', margin: '4px 0' }}>Brush heading / Avatar Airbender / 40px</p>
-              <h2 className="brush" style={{ margin: 0, fontSize: '2.5rem', color: 'var(--color-water-500)' }}>Waterbending</h2>
+              <p className="ckey" style={{ textAlign: 'left', margin: '4px 0' }}>Brush heading / Elemental Brush / 40px</p>
+              <h2 className="brush" style={{ margin: 0, fontSize: '2.5rem', color: 'var(--color-water-500)' }}>Water</h2>
             </div>
             <div style={{ borderBottom: '1px solid var(--color-border-subtle)', paddingBottom: '1rem' }}>
               <p className="ckey" style={{ textAlign: 'left', margin: '4px 0' }}>Heading LG / Inter 800 / 32px</p>
@@ -120,7 +120,7 @@ export default function LandingScreen({ onToast, onModal }) {
             </div>
             <div>
               <p className="ckey" style={{ textAlign: 'left', margin: '4px 0' }}>Code / JetBrains Mono / 14px</p>
-              <code className="code-block" style={{ display: 'block', width: 'fit-content' }}>const bendingMaster = new ElementalBender('Avatar Aang');</code>
+              <code className="code-block" style={{ display: 'block', width: 'fit-content' }}>const elementalMaster = new Elemental('Sky Drift');</code>
             </div>
           </Card>
         </section>

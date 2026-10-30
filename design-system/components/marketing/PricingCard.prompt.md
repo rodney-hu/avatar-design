@@ -1,7 +1,7 @@
 Plan tile for pricing grids — exactly one card per grid should be `featured`.
 
 ```jsx
-<PricingCard featured tier={<Badge>Fire Master</Badge>} name="Fire Nation Pro" price="$49"
+<PricingCard featured tier={<Badge>Fire Master</Badge>} name="Fire Pro" price="$49"
   ribbon={<Badge>Most Popular</Badge>} action={<Button fullWidth>Unlock Full Power</Button>} />
 ```
 

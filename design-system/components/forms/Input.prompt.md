@@ -1,8 +1,8 @@
 Single-line text field with an uppercase micro-label.
 
 ```jsx
-<Input id="name" label="Avatar Name" placeholder="e.g. Aang, Korra, Roku" />
-<Input label="Bender Name" required error="That name is already taken." />
+<Input id="name" label="Display Name" placeholder="e.g. Ember, Marin, Terra" />
+<Input label="Member Name" required error="That name is already taken." />
 ```
 
 Built on `Field`: `hint` adds muted help text, `error` shows a danger-red message and outline, and `required` marks the label with `*`.

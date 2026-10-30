@@ -56,7 +56,7 @@ try {
     for (const route of ROUTES) { await open(route); await scan(page, `${theme} ${route}`); }
     await open('/');
     await page.getByRole('button', { name: 'Unleash Toast' }).click();
-    await page.getByRole('button', { name: 'Open Bending Modal' }).click();
+    await page.getByRole('button', { name: 'Open Modal' }).click();
     await page.waitForTimeout(600);
     await scan(page, `${theme} modal + toast`);
     await open('/components');

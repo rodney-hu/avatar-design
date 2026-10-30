@@ -1,7 +1,7 @@
 Multi-line field for notes and longer copy.
 
 ```jsx
-<Textarea id="notes" label="Scroll Notes" placeholder="Write ancient bending techniques..." />
+<Textarea id="notes" label="Scroll Notes" placeholder="Write ancient elemental techniques..." />
 ```
 
 Shares the input's surface, border and focus halo. Built on `Field`, like Input: `element` sets the halo, underline and label tint (default fire), and it takes `hint`, `error`, `required` and `underline` (default true). `rows` sets the visible height (default 3).

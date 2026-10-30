@@ -6,7 +6,7 @@
 <div id="page"></div>
 <script src="../assets/motion.js"></script>
 <script>
-const P={a:'<div class="pg" style="grid-template-columns:1.2fr 1fr"><div class="tile" data-vt="hero-tile" style="height:190px"></div><div style="display:grid;gap:12px;align-content:center"><h3 style="margin:0;font-family:var(--font-display);font-weight:800;font-size:22px">The Fire Nation</h3><div class="ln" style="width:90%"></div><div class="ln" style="width:70%"></div><div class="ln" style="width:80%"></div></div></div>',
+const P={a:'<div class="pg" style="grid-template-columns:1.2fr 1fr"><div class="tile" data-vt="hero-tile" style="height:190px"></div><div style="display:grid;gap:12px;align-content:center"><h3 style="margin:0;font-family:var(--font-display);font-weight:800;font-size:22px">The Fire</h3><div class="ln" style="width:90%"></div><div class="ln" style="width:70%"></div><div class="ln" style="width:80%"></div></div></div>',
 b:'<div class="pg" style="grid-template-columns:1fr 96px"><div style="display:grid;gap:12px;align-content:start"><h3 style="margin:0;font-family:var(--font-display);font-weight:800;font-size:22px">Detail</h3><div class="ln" style="width:95%"></div><div class="ln" style="width:85%"></div><div class="ln" style="width:92%"></div><div class="ln" style="width:60%"></div></div><div class="tile" data-vt="hero-tile" style="height:96px"></div></div>'};
 let cur=null;
 function show(k){cur=k;document.getElementById('page').innerHTML=P[k];document.querySelectorAll('[data-p]').forEach(a=>a.classList.toggle('nav-link-active',a.dataset.p===k));}

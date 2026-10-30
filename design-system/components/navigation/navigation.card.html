@@ -11,17 +11,17 @@ const { Navbar, NavLink, Sidebar, SidebarItem, Breadcrumb, Button, Menu } = wind
 function Demo(){
   return (<>
     <Navbar style={{position:'relative',margin:'-16px -16px 0'}}
-      brand={<><span style={{letterSpacing:'.05em'}}>AVATAR <span style={{color:'var(--color-fire-500)',fontWeight:800}}>DESIGN</span></span></>}
+      brand={<><span style={{letterSpacing:'.05em'}}>ELEMENTAL <span style={{color:'var(--color-fire-500)',fontWeight:800}}>DESIGN</span></span></>}
       actions={<><Button variant="outline" size="sm">Light Mode</Button><Button size="sm">Get Presets</Button></>}>
       <NavLink href="#" active>Colors</NavLink><NavLink href="#">Typography</NavLink><NavLink href="#">Buttons</NavLink>
     </Navbar>
-    <Breadcrumb items={[{label:'Nations',href:'#'},{label:'Fire Nation',href:'#'},{label:'Caldera'}]} />
+    <Breadcrumb items={[{label:'Elements',href:'#'},{label:'Fire',href:'#'},{label:'Caldera'}]} />
     <div style={{display:'flex',gap:16}}>
       <Sidebar style={{height:200,width:240,borderRadius:'var(--radius-lg)',border:'1px solid var(--color-border-subtle)'}}>
-        <SidebarItem active>Fire Nation</SidebarItem>
-        <SidebarItem>Water Tribe</SidebarItem>
-        <SidebarItem>Earth Kingdom</SidebarItem>
-        <SidebarItem>Air Nomads</SidebarItem>
+        <SidebarItem active>Fire</SidebarItem>
+        <SidebarItem>Water</SidebarItem>
+        <SidebarItem>Earth</SidebarItem>
+        <SidebarItem>Air</SidebarItem>
       </Sidebar>
       <div style={{flex:1,display:'flex',flexDirection:'column',gap:10}}>
         <div className="lbl">Nav link states</div>

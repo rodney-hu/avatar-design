@@ -40,7 +40,7 @@ export default function App() {
     document.body.classList.toggle('light', light);
   }, [light]);
 
-  const fireToast = () => push({ element: 'fire', title: 'Fire Nation Power Unleashed', message: 'Component action completed successfully.' });
+  const fireToast = () => push({ element: 'fire', title: 'Fire Power Unleashed', message: 'Component action completed successfully.' });
 
   // Route changes run inside a view transition (crossfade + shared nav
   // indicator). flushSync makes React commit before the "after" snapshot.
@@ -61,7 +61,7 @@ export default function App() {
       <Navbar
         scrolled={scrolled}
         onClick={(e) => { if (e.target.closest('.nav-brand')) onNavClick('/')(e); }}
-        brand={<span style={{ letterSpacing: 'var(--tracking-brand)' }}>AVATAR <span style={{ color: 'var(--fire-link)', fontWeight: 800 }}>DESIGN</span></span>}
+        brand={<span style={{ letterSpacing: 'var(--tracking-brand)' }}>ELEMENTAL <span style={{ color: 'var(--fire-link)', fontWeight: 800 }}>DESIGN</span></span>}
         actions={<>
           <Button variant="outline" size="sm" onClick={() => setLight(!light)}>{light ? 'Dark Mode' : 'Light Mode'}</Button>
           <Button size="sm" onClick={() => go('/landing')}>Get Presets</Button>
@@ -83,11 +83,11 @@ export default function App() {
         </Routes>
       </div>
 
-      <footer className="footer">avatar-design — dark-first, token-driven, four nations.</footer>
+      <footer className="footer">Elemental Design — dark-first, token-driven, four elements.</footer>
 
       <TweaksPanel />
 
-      <Modal open={modal} title="Firebending Scroll" onClose={() => setModal(false)}
+      <Modal open={modal} title="Fire Scroll" onClose={() => setModal(false)}
         footer={<>
           <Button variant="ghost" size="sm" onClick={() => setModal(false)}>Cancel</Button>
           <Button size="sm" onClick={() => setModal(false)}>Accept Flame</Button>

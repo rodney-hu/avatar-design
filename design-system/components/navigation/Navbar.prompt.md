@@ -1,7 +1,7 @@
 Top-level site chrome; pair with NavLink children and Button actions.
 
 ```jsx
-<Navbar brand={<span>AVATAR <b>DESIGN</b></span>}
+<Navbar brand={<span>ELEMENTAL <b>DESIGN</b></span>}
         actions={<Button size="sm">Get Presets</Button>}>
   <NavLink href="#colors" active>Colors</NavLink>
 </Navbar>
