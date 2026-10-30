@@ -9,7 +9,8 @@
     "build": "node scripts/check-tokens.mjs && node scripts/check-docs.mjs && vite build",
     "preview": "vite preview",
     "build:ds": "node scripts/build-ds-bundle.mjs",
-    "check:a11y": "node scripts/check-a11y.mjs"
+    "check:a11y": "node scripts/check-a11y.mjs",
+    "sync:brand": "node scripts/sync-brand.mjs"
   },
   "keywords": [
     "design-system",
