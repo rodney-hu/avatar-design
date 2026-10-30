@@ -12,7 +12,7 @@ const require = createRequire(import.meta.url);
 const AXE = readFileSync(require.resolve('axe-core/axe.min.js'), 'utf8');
 const PORT = Number(process.env.A11Y_PORT || 4179);
 const BASE = `http://localhost:${PORT}`;
-const ROUTES = ['/', '/components', '/data', '/landing'];
+const ROUTES = ['/', '/components', '/data', '/landing', '/brand'];
 
 const server = spawn('npx', ['vite', 'preview', '--port', String(PORT), '--strictPort'], { stdio: 'ignore' });
 const stop = () => server.kill();

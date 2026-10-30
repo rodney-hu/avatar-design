@@ -44,6 +44,7 @@ npm run build      # builds into dist/
 npm run preview    # serves dist/ at http://localhost:4173
 npm run build:ds   # rebuilds the bundle the component preview cards use
 npm run check:a11y # accessibility scan of every page (run after build)
+npm run sync:brand # copy web-ready brand files from ../../05 Brand assets into site/src/brand (commit the result)
 ```
 
 `npm run build` first checks that the two copies of the tokens (`src/` and `design-system/tokens/`) match and that every component prop is documented, and stops if not. GitHub Actions runs the build and the accessibility scan on every push and pull request.
@@ -54,6 +55,7 @@ npm run check:a11y # accessibility scan of every page (run after build)
 | `/components` | Buttons, cards, forms |
 | `/data` | Stats, tables, alerts |
 | `/landing` | Pricing, testimonials, install guide |
+| `/brand` | Rodney Hu brand system: logo, rules, profile set, usage. Files come from `05 Brand assets/` via `npm run sync:brand` |
 
 The site deploys to Vercel with `npm run build`.
 

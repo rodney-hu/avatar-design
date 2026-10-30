@@ -10,6 +10,7 @@ import LandingScreen from './screens/LandingScreen.jsx';
 import ComponentsScreen from './screens/ComponentsScreen.jsx';
 import DataScreen from './screens/DataScreen.jsx';
 import LandingBlocksScreen from './screens/LandingBlocksScreen.jsx';
+import BrandScreen from './screens/BrandScreen.jsx';
 import TweaksPanel from './TweaksPanel.jsx';
 
 const TABS = [
@@ -17,6 +18,7 @@ const TABS = [
   { path: '/components', label: 'Components' },
   { path: '/data', label: 'Data' },
   { path: '/landing', label: 'Landing Blocks' },
+  { path: '/brand', label: 'Brand' },
 ];
 
 export default function App() {
@@ -76,6 +78,7 @@ export default function App() {
           <Route path="/components" element={<ComponentsScreen onModal={() => setModal(true)} />} />
           <Route path="/data" element={<DataScreen />} />
           <Route path="/landing" element={<LandingBlocksScreen />} />
+          <Route path="/brand" element={<BrandScreen onNavigate={go} />} />
           <Route path="*" element={<LandingScreen onToast={fireToast} onModal={() => setModal(true)} />} />
         </Routes>
       </div>
