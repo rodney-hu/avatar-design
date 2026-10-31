@@ -1,7 +1,7 @@
 App navigation rail for dashboard layouts; fill it with SidebarItem rows.
 
 ```jsx
-<Sidebar header={<div className="nav-brand">AVATAR DESIGN</div>}>
+<Sidebar header={<div className="nav-brand">ELEMENTAL DESIGN</div>}>
   <SidebarItem active>Overview</SidebarItem>
 </Sidebar>
 ```

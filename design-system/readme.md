@@ -1,30 +1,30 @@
-# avatar-design
+# Elemental Design
 
-A premium, dark-first design system for web applications, landing pages and SaaS tools, themed on the four elements: Fire (primary), Water, Earth, Air, plus a cyan "Avatar State" accent. This project is the design-agent form of the **avatar-design** CSS package — the tokens, glow system, component library and showcase site have been re-authored here as CSS custom properties, React components and specimen cards.
+A premium, dark-first design system for web applications, landing pages and SaaS tools, themed on the four elements: Fire (primary), Water, Earth, Air, plus a cyan "Elemental State" accent. This project is the design-agent form of the **Elemental Design** CSS package — the tokens, glow system, component library and showcase site have been re-authored here as CSS custom properties, React components and specimen cards.
 
 ## Sources
 
 Everything here was read from one repository:
 
-- **https://github.com/rodney-hu/avatar-design** (branch `main`, package `avatar-design` v1.0.0). Key files: `src/elemental-preset.css` (tokens), `src/elemental-components.css` (component classes), `src/elemental-utilities.css` (glows, gradients, halos), `src/elemental-animations.css` (keyframes), `site/` (the React showcase site). The repo README documents how to retune the fire palette.
+- **https://github.com/rodney-hu/elemental-design** (branch `main`, package `elemental-design` v1.0.0). Key files: `src/elemental-preset.css` (tokens), `src/elemental-components.css` (component classes), `src/elemental-utilities.css` (glows, gradients, halos), `src/elemental-animations.css` (keyframes), `site/` (the React showcase site). The repo README documents how to retune the fire palette.
 
 Read that repository directly for anything this system abbreviates — it is the ground truth, and its comments explain several decisions (why the fire RGB channels live outside `@theme`, why `--fire-text` flips per theme) in more detail than is repeated here.
 
 **Upstream is Tailwind CSS v4.** The source ships `@theme` and `@utility` blocks. This project keeps the same names and the same exact values but rewrites them as plain CSS (`:root` custom properties and ordinary classes) so the system works with no build step. Numeric values were copied, never rounded.
 
-**No logo exists in the source.** The repo has no wordmark or brand file — the showcase renders its brand lockup as the plain type "AVATAR DESIGN". This system does the same. Nothing was drawn or invented.
+**No logo exists in the source.** The repo has no wordmark or brand file — the showcase renders its brand lockup as the plain type "ELEMENTAL DESIGN". This system does the same. Nothing was drawn or invented.
 
 ## Content fundamentals
 
-The voice is confident, in-world, and slightly theatrical. Product nouns are replaced by element nouns: buttons "unleash", palettes belong to "nations", sections are "scrolls".
+The voice is confident, in-world, and slightly theatrical. Product nouns are replaced by element nouns: buttons "unleash", palettes belong to "elements", sections are "scrolls".
 
-- **Casing.** The hero title is set in Cinzel; every other headline is Inter. Use title case or sentence case ("Harness the Elements in Your UI", "The Fire Nation") — never with a brush word mixed in. Section headings are title case in Inter ("Layered Surfaces & Glass"). Uppercase is reserved for small type: labels, badges and table headers, at 0.05em tracking.
-- **Person.** Copy addresses the reader as *you* implicitly, usually by imperative: "Unleash Fire Toast", "Enter Temple", "Unlock Full Power", "Contact White Lotus". First person never appears.
+- **Casing.** The hero title is set in Cinzel; every other headline is Inter. Use title case or sentence case ("Harness the Elements in Your UI", "The Fire") — never with a brush word mixed in. Section headings are title case in Inter ("Layered Surfaces & Glass"). Uppercase is reserved for small type: labels, badges and table headers, at 0.05em tracking.
+- **Person.** Copy addresses the reader as *you* implicitly, usually by imperative: "Unleash Fire Toast", "Enter Temple", "Unlock Full Power", "Contact Sales". First person never appears.
 - **Sentence shape.** Section subtitles are single declarative fragments, no period-heavy paragraphs: "Deep dark surface system paired with vibrant elemental accents." Feature blurbs run one or two sentences.
 - **Numbers and units.** Stats carry real units and a direction: "98.4%", "1,420 L/s", "840 MPa", "↑ +14.2% Comet boost".
 - **Naming.** Color classes are named for their element: `btn-fire`, `alert-earth`, `field-water`. Components take the color as `element`, which also accepts the status names `success` (earth), `warning` (air), `info` (water) and `danger`. Write new components the same way.
 - **Emoji.** The source uses element emoji (🔥💧🌍🌀⚡) freely in labels and copy. **This system does not**, and it ships no icon set in their place — element identity comes from color, glow and the standalone brush headings.
-- **In-world examples.** Sample data leans on the fiction (Zuko, Katara, Toph, Aang; Ba Sing Se; the Spirit Oasis). Keep placeholder copy in that register so mocks read as a set.
+- **In-world examples.** Sample data uses elemental personas (Ember Hale, Marin Tide, Terra Stone, Sky Drift; the Citadel; the Sanctuary). Keep placeholder copy in that register so mocks read as a set.
 
 ## Visual foundations
 
@@ -163,7 +163,7 @@ Root manifest:
 | `tokens/` | `fonts.css`, `colors.css`, `surfaces.css`, `typography.css`, `spacing.css`, `radii.css`, `shadows.css`, `animations.css`, `motion.css`, `transitions.css`, `interactions.css`, `effects.css`, `materials.css`, `components.css` |
 | `components/` | React primitives, grouped by concern (below) |
 | `guidelines/` | 42 foundation specimen cards (Colors, Type, Spacing, Brand, Materials, Motion) |
-| `assets/fonts/` | Avatar Airbender brush face + licence |
+| `assets/fonts/` | Elemental Brush face + licence |
 | `assets/motion.js` | Motion runtime — reveal, stagger, bloom, parallax, tilt |
 | `SKILL.md` | Agent Skills entry point |
 | `github.md` | Source repository association and sync record |
@@ -205,5 +205,5 @@ No slide template exists in the source, so no sample slides were authored.
 ## Caveats
 
 - **Reduced motion is honoured.** The `@media (prefers-reduced-motion: reduce)` block at the end of `tokens/motion.css` shows revealed content at once, stops idle loops and view transitions, and pins parallax and tilt. `assets/motion.js` reads the same setting live and skips tilt, parallax, the edge-light orbit and click bursts.
-- **Fonts.** Cinzel, Inter and JetBrains Mono load from the Google CDN. **Avatar Airbender** is vendored in `assets/fonts/`; it is free for personal and commercial use, with a FontGet.com credit required if the font file is redistributed (`assets/fonts/LICENSE-AvatarAirbender.txt`). It is a display face with limited glyph coverage, so check any new brush string at size.
+- **Fonts.** Cinzel, Inter and JetBrains Mono load from the Google CDN. **Elemental Brush** (released as Avatar Airbender by FontGet.com) is vendored in `assets/fonts/`; it is free for personal and commercial use, with a FontGet.com credit required if the font file is redistributed (`assets/fonts/LICENSE-AvatarAirbender.txt`). It is a display face with limited glyph coverage, so check any new brush string at size.
 - **No logo exists**, so the brand lockup is plain Inter type.

@@ -16,12 +16,12 @@ function Demo(){
       subtitle="A complete dark-theme design system for SaaS, landing pages and web apps."
       actions={<><Button size="sm">Get Presets</Button><Button variant="outline" size="sm">Docs</Button></>} />
     <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:18,alignItems:'center'}}>
-      <PricingCard style={{padding:'20px 16px',gap:'0.75rem'}} tier={<Badge element="air">Initiate</Badge>} name="Air Nomad" price="$19" description="Essential tokens." action={<Button variant="outline" size="sm" fullWidth>Start Trial</Button>}/>
-      <PricingCard featured style={{padding:'20px 16px',gap:'0.75rem'}} ribbon={<Badge element="fire">Popular</Badge>} tier={<Badge element="fire">Fire Master</Badge>} name="Fire Nation Pro" price="$49" description="Full suite + glows." action={<Button size="sm" fullWidth>Unlock</Button>}/>
-      <PricingCard style={{padding:'20px 16px',gap:'0.75rem'}} tier={<Badge element="avatar">Avatar</Badge>} name="Enterprise" price="$149" description="Custom styling." action={<Button variant="outline" size="sm" fullWidth>Contact</Button>}/>
+      <PricingCard style={{padding:'20px 16px',gap:'0.75rem'}} tier={<Badge element="air">Initiate</Badge>} name="Air Starter" price="$19" description="Essential tokens." action={<Button variant="outline" size="sm" fullWidth>Start Trial</Button>}/>
+      <PricingCard featured style={{padding:'20px 16px',gap:'0.75rem'}} ribbon={<Badge element="fire">Popular</Badge>} tier={<Badge element="fire">Fire Master</Badge>} name="Fire Pro" price="$49" description="Full suite + glows." action={<Button size="sm" fullWidth>Unlock</Button>}/>
+      <PricingCard style={{padding:'20px 16px',gap:'0.75rem'}} tier={<Badge element="avatar">Elemental</Badge>} name="Enterprise" price="$149" description="Custom styling." action={<Button variant="outline" size="sm" fullWidth>Contact</Button>}/>
     </div>
     <TestimonialCard style={{padding:'1rem'}} quote="Water is the element of change. Earth is the element of substance. Fire is the element of power. Air is the element of freedom."
-      author="Iroh" role="Order of the White Lotus"/>
+      author="Maya Ortiz" role="Studio Lead"/>
   </>);
 }
 ReactDOM.createRoot(document.getElementById('root')).render(<Demo/>);

@@ -4,7 +4,7 @@
    INTER (--font-display, 700-800 with negative tracking) is every other
    headline tier: section h2, card titles, stat values, prices, the brand
    lockup.
-   BRUSH (--font-brush, Avatar Airbender) appears ONLY where it is specifically
+   BRUSH (--font-brush, Elemental Brush) appears ONLY where it is specifically
    referenced — as its own standalone heading or section (e.g. an element
    name heading a block). Never mixed inline into an Inter line as an accent,
    and never a subhead, label, number or body string. One weight, no bold;
@@ -12,7 +12,7 @@
    BODY (--font-body, Inter 300-700) is all interface copy.
    MONO (--font-mono) is code, token names and numeric keys. */
 :root{
-  --font-brush:"Avatar Airbender","Brush Script MT",cursive;
+  --font-brush:"Elemental Brush","Brush Script MT",cursive;
   --font-hero:"Cinzel",Georgia,serif;
   --font-display:"Inter",system-ui,-apple-system,sans-serif;
   --font-body:"Inter",system-ui,-apple-system,sans-serif;

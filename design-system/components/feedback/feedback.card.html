@@ -15,15 +15,15 @@ function Demo(){
     <div style={{display:'flex',flexDirection:'column',gap:8}}>
       <Alert element="fire"><b>Fire Warning:</b> High thermal activity in the Caldera.</Alert>
       <Alert element="water"><b>Water Info:</b> Tidal waves at high tide tonight.</Alert>
-      <Alert element="earth"><b>Earth Success:</b> Walls fortified at Ba Sing Se.</Alert>
+      <Alert element="earth"><b>Earth Success:</b> Walls fortified at the Citadel.</Alert>
       <Alert element="air" onDismiss={()=>{}}><b>Air Notice:</b> Tailwinds favorable for flight.</Alert>
     </div>
     <div className="row">
-      <Tooltip text="Cycles all four elements"><Button element="avatar" size="sm">Avatar State</Button></Tooltip>
+      <Tooltip text="Cycles all four elements"><Button element="avatar" size="sm">Elemental State</Button></Tooltip>
       <Button variant="outline" size="sm" onClick={()=>setOpen(true)}>Open Modal</Button>
       <Button element="earth" size="sm" onClick={()=>push({element:"success",title:"Scroll saved",message:"Copied to the archive."})}>Show Toast</Button>
     </div>
-    <Modal open={open} title="Firebending Scroll" onClose={()=>setOpen(false)}
+    <Modal open={open} title="Fire Scroll" onClose={()=>setOpen(false)}
       footer={<><Button variant="ghost" size="sm" onClick={()=>setOpen(false)}>Cancel</Button><Button size="sm">Accept Flame</Button></>}>
       Fire is the element of power. Its people have desire and will, and the energy and drive to get what they want.
     </Modal>

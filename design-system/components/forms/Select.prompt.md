@@ -1,7 +1,7 @@
 Native dropdown styled to match Input.
 
 ```jsx
-<Select id="el" label="Primary Element" options={['Firebending','Waterbending','Earthbending','Airbending']} />
+<Select id="el" label="Primary Element" options={['Fire','Water','Earth','Air']} />
 ```
 
 Uses the browser's own menu — no custom popover exists in this system. Built on `Field`, like Input: `element` sets the focus bloom, underline and label tint (default fire), and it takes `hint`, `error`, `required` and `underline` (default true).

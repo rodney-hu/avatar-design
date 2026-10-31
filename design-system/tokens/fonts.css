@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@800&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 /* Webfonts.
 
-   AVATAR AIRBENDER (brush accent) — vendored in assets/fonts/. Free for
+   ELEMENTAL BRUSH (brush accent; released as Avatar Airbender by FontGet.com)
+   — vendored in assets/fonts/. Free for
    personal and commercial use; credit FontGet.com if the font file is
    redistributed (see assets/fonts/LICENSE-AvatarAirbender.txt).
 
    Cinzel (800, hero only), Inter and JetBrains Mono load from the Google CDN
    via the @import above — it must stay the first rule in this file or
    browsers drop it. */
-@font-face{font-family:"Avatar Airbender";src:url("../assets/fonts/AvatarAirbender.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Elemental Brush";src:url("../assets/fonts/AvatarAirbender.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}

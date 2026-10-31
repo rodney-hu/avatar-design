@@ -2,8 +2,8 @@ The default container for grouped content — panels, feature tiles, form blocks
 
 ```jsx
 <Card element="fire">
-  <Badge element="fire">Fire Nation</Badge>
-  <h3>Sun Warrior Temple</h3>
+  <Badge element="fire">Fire</Badge>
+  <h3>Ember Temple</h3>
 </Card>
 ```
 

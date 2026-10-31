@@ -17,7 +17,7 @@ rmSync(out, { recursive: true, force: true });
 mkdirSync(out, { recursive: true });
 
 let n = 0;
-for (const dir of ['horizontal', 'stacked', 'secondary', 'icon']) {
+for (const dir of ['horizontal', 'icon']) {
   for (const f of readdirSync(path.join(src, 'Logos', dir))) {
     if (!f.endsWith('.svg')) continue;
     if (dir === 'icon' && f.includes('-block-') && !f.endsWith('-fire.svg')) continue;

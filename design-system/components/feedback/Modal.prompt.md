@@ -1,7 +1,7 @@
 Centered dialog over a blurred black backdrop — the system's only overlay surface.
 
 ```jsx
-<Modal open={open} title="Firebending Scroll" onClose={close}
+<Modal open={open} title="Fire Scroll" onClose={close}
   footer={<><Button variant="ghost" size="sm" onClick={close}>Cancel</Button><Button size="sm">Accept Flame</Button></>}>
   Fire is the element of power.
 </Modal>

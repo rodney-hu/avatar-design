@@ -19,29 +19,29 @@ export default function LandingBlocksScreen() {
         <div className="grid3" style={{ alignItems: 'center', gap: '2rem' }} data-stagger data-spotlight-group>
           <PricingCard
             tier={<Badge element="air" style={{ width: 'fit-content' }}>Initiate</Badge>}
-            name="Air Nomad" price="$19"
-            description="Essential bending tokens and basic components."
+            name="Air Starter" price="$19"
+            description="Essential elemental tokens and basic components."
             action={<Button variant="outline" fullWidth>Start Free Trial</Button>}
           />
           <PricingCard
             featured
             ribbon={<Badge element="fire">Most Popular</Badge>}
             tier={<Badge element="fire" style={{ width: 'fit-content' }}>Fire Master</Badge>}
-            name="Fire Nation Pro" price="$49"
+            name="Fire Pro" price="$49"
             description="Full elemental component suite, glowing effects and the Tailwind v4 preset."
             action={<Button fullWidth>Unlock Full Power</Button>}
           />
           <PricingCard
-            tier={<Badge element="avatar" style={{ width: 'fit-content' }}>Avatar</Badge>}
-            name="Avatar Enterprise" price="$149"
+            tier={<Badge element="avatar" style={{ width: 'fit-content' }}>Elemental</Badge>}
+            name="Elemental Enterprise" price="$149"
             description="Custom element styling and dedicated support."
-            action={<Button variant="outline" fullWidth>Contact White Lotus</Button>}
+            action={<Button variant="outline" fullWidth>Contact Sales</Button>}
           />
         </div>
         <TestimonialCard
           data-reveal
           quote="Water is the element of change. Earth is the element of substance. Fire is the element of power. Air is the element of freedom."
-          author="Iroh" role="Order of the White Lotus"
+          author="Maya Ortiz" role="Studio Lead"
         />
       </section>
 
@@ -53,9 +53,9 @@ export default function LandingBlocksScreen() {
         </div>
         <Card style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }} data-reveal>
           <p style={{ margin: 0, fontSize: '0.875rem', color: 'var(--color-text-secondary)' }}>Add this import to your project's main stylesheet:</p>
-          <CodeBlock>{'@import "tailwindcss";\n@import "./path/to/avatar-design/src/index.css";'}</CodeBlock>
+          <CodeBlock>{'@import "tailwindcss";\n@import "./path/to/elemental-design/src/index.css";'}</CodeBlock>
           <p style={{ margin: 0, fontSize: '0.875rem', color: 'var(--color-text-secondary)' }}>For reveal, tilt, spotlight, edge light, click bursts and page transitions, also load the motion runtime:</p>
-          <CodeBlock>{'<script src="./path/to/avatar-design/design-system/assets/motion.js"></script>'}</CodeBlock>
+          <CodeBlock>{'<script src="./path/to/elemental-design/design-system/assets/motion.js"></script>'}</CodeBlock>
         </Card>
       </section>
     </main>

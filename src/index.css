@@ -1,4 +1,4 @@
-/* avatar-design — Main Bundle
+/* Elemental Design — Main Bundle
    Import order matters: elemental-motion.css must load last (see that file). */
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@800&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
@@ -9,11 +9,11 @@
 @import "./elemental-materials.css";
 @import "./elemental-motion.css";
 
-/* Brush accent face, vendored in src/fonts/. Avatar Airbender is free for
+/* Brush accent face, vendored in src/fonts/. The brush face (released as Avatar Airbender by FontGet.com) is free for
    personal and commercial use; credit FontGet.com if you redistribute it
    (see src/fonts/LICENSE-AvatarAirbender.txt). One style only. */
 @font-face {
-  font-family: "Avatar Airbender";
+  font-family: "Elemental Brush";
   src: url("./fonts/AvatarAirbender.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;

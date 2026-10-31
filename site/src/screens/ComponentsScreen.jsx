@@ -20,7 +20,7 @@ export default function ComponentsScreen({ onModal }) {
       <section style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }} data-halo-bloom>
         <div className="sec-head" data-reveal>
           <Badge element="water" style={{ width: 'fit-content' }}>03. Buttons &amp; Actions</Badge>
-          <h2>Bending Action Buttons</h2>
+          <h2>Elemental Action Buttons</h2>
           <p>Elemental hover glows, tactile active states, and custom variants.</p>
         </div>
         <Card style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }} data-reveal>
@@ -28,7 +28,7 @@ export default function ComponentsScreen({ onModal }) {
             <h3 className="stat-label" style={{ margin: '0 0 0.75rem' }}>Elements</h3>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>
               {elements.map((e) => (
-                <Button key={e} element={e}>{e[0].toUpperCase() + e.slice(1)}</Button>
+                <Button key={e} element={e}>{e === 'avatar' ? 'Elemental' : e[0].toUpperCase() + e.slice(1)}</Button>
               ))}
             </div>
           </div>
@@ -69,16 +69,16 @@ export default function ComponentsScreen({ onModal }) {
         <div className="grid3" data-stagger>
           <Card element="fire" elevation={2} data-tilt style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-              <Badge element="fire">Fire Nation</Badge>            </div>
-            <h3 style={{ margin: 0, fontFamily: 'var(--font-display)', fontSize: '1.25rem', fontWeight: 700 }}>Sun Warrior Temple</h3>
-            <p style={{ margin: 0, fontSize: '0.875rem', color: 'var(--color-text-secondary)' }}>The original source of firebending power, guarded by the dragons Ran and Shaw.</p>
+              <Badge element="fire">Fire</Badge>            </div>
+            <h3 style={{ margin: 0, fontFamily: 'var(--font-display)', fontSize: '1.25rem', fontWeight: 700 }}>Ember Temple</h3>
+            <p style={{ margin: 0, fontSize: '0.875rem', color: 'var(--color-text-secondary)' }}>The oldest source of fire, kept burning by those who tend it.</p>
             <Button size="sm" fullWidth>Enter Temple</Button>
           </Card>
           <Card element="water" elevation={2} data-tilt style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-              <Badge element="water">Northern Tribe</Badge>            </div>
-            <h3 style={{ margin: 0, fontFamily: 'var(--font-display)', fontSize: '1.25rem', fontWeight: 700 }}>Spirit Oasis</h3>
-            <p style={{ margin: 0, fontSize: '0.875rem', color: 'var(--color-text-secondary)' }}>A sacred haven at the North Pole where Tui and La circle in eternal harmony.</p>
+              <Badge element="water">Water</Badge>            </div>
+            <h3 style={{ margin: 0, fontFamily: 'var(--font-display)', fontSize: '1.25rem', fontWeight: 700 }}>The Sanctuary</h3>
+            <p style={{ margin: 0, fontSize: '0.875rem', color: 'var(--color-text-secondary)' }}>A quiet haven where water and light circle in harmony.</p>
             <Button element="water" size="sm" fullWidth>Visit Sanctuary</Button>
           </Card>
           <Card variant="glass" elevation={2} data-tilt style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
@@ -99,13 +99,13 @@ export default function ComponentsScreen({ onModal }) {
         </div>
         <Card className="grid2" data-reveal>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-            <Input id="avatar-name" label="Avatar Name" defaultValue="Aang" placeholder="e.g. Aang, Korra, Roku" />
-            <Select id="primary-element" element="water" label="Primary Element" options={['Firebending', 'Waterbending', 'Earthbending', 'Airbending']} />
+            <Input id="display-name" label="Display Name" defaultValue="Sky" placeholder="e.g. Ember, Marin, Terra" />
+            <Select id="primary-element" element="water" label="Primary Element" options={['Fire', 'Water', 'Earth', 'Air']} />
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-            <Textarea id="scroll-notes" element="earth" label="Scroll Notes" placeholder="Write ancient bending techniques..." />
+            <Textarea id="scroll-notes" element="earth" label="Scroll Notes" placeholder="Write ancient elemental techniques..." />
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: '0.5rem' }}>
-              <Checkbox id="avatar-state" element="avatar" label="Enable Avatar State" defaultChecked />
+              <Checkbox id="elemental-state" element="avatar" label="Enable Elemental State" defaultChecked />
               <ToggleSwitch id="ember-glow" label="Ember Glow" defaultChecked />
             </div>
           </div>
@@ -113,8 +113,8 @@ export default function ComponentsScreen({ onModal }) {
         <Card data-reveal style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
           <h3 className="stat-label" style={{ margin: 0 }}>Validation &amp; loading</h3>
           <div className="grid2">
-            <Input id="bender-name" label="Bender Name" required defaultValue="Zuko" error="That name is already taken." />
-            <Select id="nation" label="Home Nation" hint="Where your training began." options={['Fire Nation', 'Water Tribes', 'Earth Kingdom', 'Air Nomads']} />
+            <Input id="member-name" label="Member Name" required defaultValue="Ember" error="That name is already taken." />
+            <Select id="nation" label="Home Element" hint="Where your training began." options={['Fire', 'Water', 'Earth', 'Air']} />
           </div>
           <div>
             <Button loading={saving} onClick={save}>Save Profile</Button>
